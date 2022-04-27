@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS 'Users', 'Projects', 'Sections', 'Tasks', 'User_Tasks', 'User_Projects' CASCADE;
+DROP TABLE IF EXISTS 'Users', 'Projects', 'Sections', 'Tasks', 'User_Tasks', 'User_Projects', 'Activity' CASCADE;
 
 CREATE TABLE 'Users' (
   id SERIAL PRIMARY KEY,
@@ -24,7 +24,7 @@ CREATE TABLE 'Sections' (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   color VARCHAR(255),
-  project_id INTEGER NOT NULL,
+  projectId INTEGER NOT NULL,
   FOREIGN KEY (project_id) REFERENCES Projects(id) ON DELETE CASCADE
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE 'Tasks' (
   priority VARCHAR(255),
   endDate DATE,
   status VARCHAR(255),
-  section_id INTEGER NOT NULL,
+  sectionId INTEGER NOT NULL,
   FOREIGN KEY (section_id) REFERENCES Sections(id) ON DELETE CASCADE
 );
 
@@ -54,6 +54,20 @@ CREATE TABLE 'User_Projects' (
   role VARCHAR(255) NOT NULL,
   FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE,
   FOREIGN KEY (projectId) REFERENCES Projects(id) ON DELETE CASCADE
+);
+
+CREATE TABLE 'Activity' (
+  id SERIAL PRIMARY KEY,
+  userId INTEGER NOT NULL,
+  projectId INTEGER NOT NULL,
+  sectionId INTEGER NOT NULL,
+  taskId INTEGER NOT NULL,
+  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  action VARCHAR(255) NOT NULL,
+  FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE,
+  FOREIGN KEY (projectId) REFERENCES Projects(id) ON DELETE CASCADE,
+  FOREIGN KEY (sectionId) REFERENCES Sections(id) ON DELETE CASCADE,
+  FOREIGN KEY (taskId) REFERENCES Tasks(id) ON DELETE CASCADE
 );
 
 COMMIT;
