@@ -56,3 +56,4 @@ CREATE TABLE 'User_Projects' (
   FOREIGN KEY (projectId) REFERENCES Projects(id) ON DELETE CASCADE
 );
 
+COMMIT;
