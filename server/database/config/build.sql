@@ -19,3 +19,12 @@ CREATE TABLE 'Projects' (
   name VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
 );
+
+CREATE TABLE 'Sections' (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  color VARCHAR(255),
+  project_id INTEGER NOT NULL,
+  FOREIGN KEY (project_id) REFERENCES Projects(id) ON DELETE CASCADE
+);
+
