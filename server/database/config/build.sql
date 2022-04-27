@@ -28,3 +28,13 @@ CREATE TABLE 'Sections' (
   FOREIGN KEY (project_id) REFERENCES Projects(id) ON DELETE CASCADE
 );
 
+CREATE TABLE 'Tasks' (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255),
+  priority VARCHAR(255),
+  endDate DATE,
+  status VARCHAR(255),
+  section_id INTEGER NOT NULL,
+  FOREIGN KEY (section_id) REFERENCES Sections(id) ON DELETE CASCADE
+);
