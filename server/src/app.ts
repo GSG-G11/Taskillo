@@ -13,7 +13,7 @@ app.use(router);
 app.set('port', PORT || 4000);
 app.disable('x-powered-by');
 
-app.use([compression(), express.urlencoded({ extended: true }), express.json()]);
+app.use([express.json(), express.urlencoded({ extended: true }), compression(), cookieParser()]);
 
 if (NODE_ENV === 'development') {
   app.get('/', (req, res) => {
