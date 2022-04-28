@@ -1,5 +1,7 @@
 import { Pool } from 'pg';
-import * as env2 from 'env2';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const {
   NODE_ENV, DB_URL_DEV, DB_URL_TEST, DATABASE_URL,
