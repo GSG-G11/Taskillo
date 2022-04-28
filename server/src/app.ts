@@ -1,19 +1,20 @@
 import { join } from 'path';
-import express from 'express';
+import express, { Application } from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
+import * as dotenv from 'dotenv';
 import router from './routes';
 
-const app = express();
+const app: Application = express();
 
 const { env: { PORT, NODE_ENV } } = process;
 
-app.use(router);
+app.use('/api/v1', router);
 
 app.set('port', PORT || 4000);
 app.disable('x-powered-by');
 
-app.use([express.json(), express.urlencoded({ extended: true }), compression(), cookieParser()]);
+app.use([express.json(), express.urlencoded({ extended: false }), compression(), cookieParser()]);
 
 if (NODE_ENV === 'development') {
   app.get('/', (req, res) => {
