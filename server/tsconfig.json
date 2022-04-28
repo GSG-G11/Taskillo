@@ -10,10 +10,6 @@
   },
 
   "include": ["src/**/*.ts"],
-  // "exclude": [
-  //   "test.ts",
-  //   "**/*.spec.ts"
-  // ],
 
   "settings": {
     "import/resolver": {
@@ -24,8 +20,6 @@
   },
 
   "ts-node": {
-    // It is faster to skip typechecking.
-    // Remove if you want ts-node to do typechecking.
     "transpileOnly": true,
 
     "files": true
