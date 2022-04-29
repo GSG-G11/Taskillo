@@ -70,4 +70,6 @@ CREATE TABLE activity (
   FOREIGN KEY (taskId) REFERENCES tasks(id) ON DELETE CASCADE
 );
 
+INSERT INTO users (username, email, password) VALUES ('amran', 'amran@gmail.com', 'amran123456789');
+
 COMMIT;

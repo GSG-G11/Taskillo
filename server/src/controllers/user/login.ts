@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { compare } from 'bcrypt';
 import { checkEmailQuery } from '../../database/ quieres';
 import { signInSchema, signToken } from '../../utils';
-import customError from '../errors';
+import { customError } from '../errors';
 
 const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
