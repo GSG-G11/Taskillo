@@ -1,5 +1,5 @@
 import { join } from 'path';
-import express, { Application } from 'express';
+import express, { Application, Request, Response } from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import * as dotenv from 'dotenv';
@@ -17,14 +17,14 @@ app.disable('x-powered-by');
 app.use([express.json(), express.urlencoded({ extended: false }), compression(), cookieParser()]);
 
 if (NODE_ENV === 'development') {
-  app.get('/', (req, res) => {
+  app.get('/', (req: Request, res: Response) => {
     res.json({ message: 'The server is running' });
   });
 }
 
 if (NODE_ENV === 'production') {
   app.use(express.static(join(__dirname, '..', 'client', 'build')));
-  app.get('*', (req, res) => {
+  app.get('*', (req: Request, res: Response) => {
     res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
   });
 }
