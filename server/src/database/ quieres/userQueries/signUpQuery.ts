@@ -1,9 +1,9 @@
 import connection from '../../config/connection';
 
-const signUpQuery = ({ username, password, code }) => {
+const signUpQuery = ({ username, password }) => {
   const sql = {
-    text: 'INSER INTO users (username,password,code) VALUES ($1,$2,$3) Returning id,username,code',
-    values: [username, password, code]
+    text: 'INSER INTO users (username,password) VALUES ($1,$2) Returning id,username,code',
+    values: [username, password],
   };
   return connection.query(sql);
 };
