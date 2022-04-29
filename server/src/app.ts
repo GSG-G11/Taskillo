@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser';
 import * as dotenv from 'dotenv';
 import router from './routes';
 
+dotenv.config();
+
 const app: Application = express();
 
 const { env: { PORT, NODE_ENV } } = process;
