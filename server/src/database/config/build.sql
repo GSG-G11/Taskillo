@@ -12,7 +12,6 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   birthDate DATE,
   bio VARCHAR(255),
-  isVerified BOOLEAN DEFAULT FALSE,
 );
 
 CREATE TABLE projects (
