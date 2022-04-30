@@ -1,4 +1,4 @@
-const getTasks = () =>{
+const getTasks = () => {
 
 };
 

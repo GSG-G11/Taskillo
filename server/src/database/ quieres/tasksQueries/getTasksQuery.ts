@@ -2,8 +2,8 @@ import connection from '../../config/connection';
 
 const getTasksQuery = () => {
   const sql = {
-    text:'',
-    values:[],
+    text: 'select * from tasks',
+    values: [],
   };
   return connection.query(sql);
 };
