@@ -11,7 +11,7 @@ CREATE TABLE users (
   phoneNumber VARCHAR(255),
   password VARCHAR(255) NOT NULL,
   birthDate DATE,
-  bio VARCHAR(255)
+  bio VARCHAR(255),
 );
 
 CREATE TABLE projects (
@@ -23,7 +23,6 @@ CREATE TABLE projects (
 CREATE TABLE sections (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  color VARCHAR(255),
   projectId INTEGER NOT NULL,
   FOREIGN KEY (projectId) REFERENCES projects(id) ON DELETE CASCADE
 );
