@@ -20,6 +20,9 @@
     ],
     "rules": {
         "import/extensions": "off",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "import/prefer-default-export": "off",
+        "arrow-body-style": [2, "always"]
+        
     }
 }

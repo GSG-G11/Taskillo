@@ -1,4 +1,4 @@
 import checkEmailQuery from './checkEmailQuery';
+import deleteTaskQuery from './tasks/deleteTaskQuery';
 
-// eslint-disable-next-line import/prefer-default-export
-export { checkEmailQuery };
+export { checkEmailQuery, deleteTaskQuery };

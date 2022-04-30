@@ -1,5 +1,3 @@
-import express from 'express';
+import taskRoute from './taskRoute';
 
-const router = express.Router();
-
-export default router;
+export { taskRoute };
