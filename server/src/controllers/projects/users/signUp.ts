@@ -13,7 +13,6 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
   try {
     await singupSchema.validateAsync(req.body, { abortEarly: false });
     const encryptedPass = await bcrypt.hash(password, 8);
-    await sendCode(email);
     const checkUserVerify = await verifyCode(email, code);
     if (checkUserVerify === 'approved') {
       await signUpQuery({ username, password: encryptedPass, email });
