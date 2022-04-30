@@ -1,6 +1,6 @@
-import {signUpQuery, checkEmailQuery } from './userQueries';
+import { signUpQuery, checkEmailQuery } from './userQueries';
 
 export {
   signUpQuery,
-  checkEmailQuery
+  checkEmailQuery,
 };
