@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { deleteTaskQuery } from '../../database/ quieres';
 
 const deleteTaskController = async (req: Request, res: Response, next: NextFunction) => {
-  const { id } = req.params;
+  const { id } = req.body;
 
   try {
     await deleteTaskQuery(id);
