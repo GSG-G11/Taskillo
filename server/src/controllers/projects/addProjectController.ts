@@ -7,7 +7,6 @@ const addProject = async (req: Request, res: Response, next: NextFunction) => {
   // userId from cookies
   const userId = 2;
   const { name, description } = req.body;
-
   try {
     // validate user input
     await addProjectSchema.validateAsync(req.body);
