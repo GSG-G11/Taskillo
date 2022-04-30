@@ -1,5 +1,10 @@
-const userRoutes = require('express').Router();
-const signup = require('../controllers/projects');
+import signup from '../controllers/projects';
 
-userRoutes.post('signup', signup);
+const userRoutes = require('express').Router();
+
+userRoutes.post('/signup', signup);
+
+// userRoutes.post('/signup', () => {
+//   console.log('hello');
+// });
 export default userRoutes;
