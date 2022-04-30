@@ -11,10 +11,10 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
     if (rowCount === 0) {
       throw customError('The email does not exist sign up insted', 401);
     }
-    const { password: hashedPassword, id } = rows[0];
+    const { password: hashedPassword, id, username } = rows[0];
     const isMatched = compare(password, hashedPassword);
     if (isMatched) {
-      const token = await signToken({ id, email });
+      const token = await signToken({ id, username });
       res.cookie('token', token, { httpOnly: true, secure: true })
         .status(200).json({ message: 'login successfully!' });
     } else {
