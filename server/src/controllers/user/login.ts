@@ -15,7 +15,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
     const isMatched = compare(password, hashedPassword);
     if (isMatched) {
       const token = await signToken({ id, username });
-      res.cookie('token', token, { httpOnly: true, secure: true })
+      res.cookie('token', token, { httpOnly: true, secure: false })
         .status(200).json({ message: 'login successfully!' });
     } else {
       throw customError('please write a correct password', 401);
@@ -23,7 +23,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   } catch (err) {
     if (err.name === 'ValidationError') {
       const errorList = [];
-      err.details.forEach((error) => errorList.push(error.message));
+      err.details.forEach((error: Error) => errorList.push(error.message));
       next(customError(errorList, 400));
     } else {
       next(err);
