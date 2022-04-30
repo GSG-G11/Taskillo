@@ -1,3 +1,6 @@
-import signUpQuery from './userQueries';
+import {signUpQuery, checkEmailQuery } from './userQueries';
 
-export default signUpQuery;
+export {
+  signUpQuery,
+  checkEmailQuery
+};

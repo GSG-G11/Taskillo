@@ -1,3 +1,7 @@
 import signUpQuery from './signUpQuery';
+import checkEmailQuery from './checkEmailQuery'
 
-export default signUpQuery;
+export {
+  signUpQuery,
+  checkEmailQuery
+};
