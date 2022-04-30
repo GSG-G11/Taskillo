@@ -1,5 +1,3 @@
-import express from 'express';
+import projectsRoute from './projectsRoute';
 
-const router = express.Router();
-
-export default router;
+export { projectsRoute };

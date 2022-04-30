@@ -3,10 +3,11 @@ import connection from '../config/connection';
 const getProjectsQuery = (userId: number) => connection.query({
   text: `
   SELECT
-    p.name FROM
+    up.userid, p.name FROM
     user_projects up
-    join users u on up.userId = u.id
-    join projects p on up.projectId = p.id;
+    join projects p on p.id = up.projectid
+    join users u on up.userid = u.id
+    where u.id = $1
   `,
   values: [userId],
 });
