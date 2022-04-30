@@ -1,4 +1,4 @@
-import connection from '../config/connection';
+import connection from '../../config/connection';
 
 const getProjectsQuery = (userId: number) => connection.query({
   text: `
