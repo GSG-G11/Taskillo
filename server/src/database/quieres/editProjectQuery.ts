@@ -6,7 +6,7 @@ const editProjectQuery = (
   description: string,
 ) => {
   const sql = {
-    text: 'UPDATE projects SET name = $2, description = $3 WHERE id = $1',
+    text: 'UPDATE projects SET name = $2, description = $3 WHERE id = $1 RETURNING *',
     values: [projecrId, name, description],
   };
   return connection.query(sql);
