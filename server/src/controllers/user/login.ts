@@ -8,8 +8,8 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, password } = await signInSchema.validateAsync(req.body, { abortEarly: false });
     const { rows, rowCount } = await checkEmailQuery(email);
-    if (rowCount === 0) {
-      throw customError('The email does not exist sign up insted', 401);
+    if (!rowCount) {
+      throw customError('Invalid Email or Password', 401);
     }
     const { password: hashedPassword, id, username } = rows[0];
     const isMatched = compare(password, hashedPassword);
@@ -18,7 +18,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
       res.cookie('token', token, { httpOnly: true, secure: false })
         .status(200).json({ message: 'login successfully!' });
     } else {
-      throw customError('please write a correct password', 401);
+      throw customError('Invalid Email or Password', 400);
     }
   } catch (err) {
     if (err.name === 'ValidationError') {
