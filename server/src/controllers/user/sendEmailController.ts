@@ -11,7 +11,6 @@ const sendEmailController = async (req: Request, res: Response, next: NextFuncti
 
     res.status(200).json({
       message: 'Email sent successfully',
-      data: result,
     });
   } catch (err) {
     if (err.name === 'ValidationError') {
