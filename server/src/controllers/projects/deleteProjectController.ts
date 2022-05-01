@@ -7,9 +7,8 @@ const deleteProject = async (
   next: NextFunction,
 ) => {
   const { id } = req.params;
-  const projectId = Number(id);
   try {
-    await deleteProjectQuery(projectId);
+    await deleteProjectQuery(+id);
     res
       .status(200)
       .json({ message: 'The project has been deleted successfuly' });
