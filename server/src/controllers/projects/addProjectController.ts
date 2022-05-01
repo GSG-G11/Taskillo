@@ -4,7 +4,6 @@ import { addProjectSchema } from '../../utils';
 import customError from '../errors';
 
 const addProject = async (req: Request, res: Response, next: NextFunction) => {
-  // userId from cookies
   const userId = 2;
   const { name, description } = req.body;
   try {
