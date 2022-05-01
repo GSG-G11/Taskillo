@@ -4,16 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node dist/index.js",
-    "dev": "NODE_ENV=development nodemon src/index.ts"
+    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node-fetch": "^2.6.1",
     "cloudinary": "^1.29.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
     "env2": "^2.2.2",
     "express": "^4.18.0",
@@ -22,8 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "path": "^0.12.7",
     "pg": "^8.7.3",
-    "twilio": "^3.76.1",
-    "@types/node-fetch": "^2.6.1"
+    "twilio": "^3.76.1"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
