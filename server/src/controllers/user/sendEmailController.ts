@@ -7,7 +7,7 @@ const sendEmailController = async (req: Request, res: Response, next: NextFuncti
   try {
     await sendEmail.validateAsync({ email });
 
-    const result = await sendCode(email);
+    await sendCode(email);
 
     res.status(200).json({
       message: 'Email sent successfully',
