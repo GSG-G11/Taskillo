@@ -1,5 +1,5 @@
 import signInSchema from './signInSchema';
-
 import singupScheama from './signUpSchema';
+import sendEmail from './sendEmail';
 
-export { signInSchema, singupScheama };
+export { signInSchema, singupScheama, sendEmail };
