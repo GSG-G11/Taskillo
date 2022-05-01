@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import { RequestClient } from 'twilio';
 import { sendCode, sendEmail } from '../../utils';
 import customError from '../errors';
 
