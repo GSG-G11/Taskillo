@@ -16,7 +16,7 @@ const sendEmailController = async (req: Request, res: Response, next: NextFuncti
     });
   } catch (err) {
     if (err.name === 'ValidationError') {
-      next(customError(err.message, 400));
+      next(customError(err.details[0].message, 400));
     }
     next(err);
   }
