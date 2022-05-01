@@ -10,8 +10,8 @@ const editProjectController = async (
   const { name, description } = req.body;
   const projectId = Number(id);
   try {
-    const project = await editProjectQuery(projectId, name, description);
-    res.status(200).json({ data: project, message: 'Project edited' });
+    const { rows } = await editProjectQuery(projectId, name, description);
+    res.status(200).json({ data: rows[0], message: 'Project edited' });
   } catch (error) {
     next(error);
   }
