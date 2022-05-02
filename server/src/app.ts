@@ -4,7 +4,6 @@ import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import * as dotenv from 'dotenv';
 import router from './routes';
-import { sendCode } from './utils';
 
 dotenv.config();
 
@@ -17,11 +16,7 @@ app.disable('x-powered-by');
 
 app.use([express.json(), express.urlencoded({ extended: false }), compression(), cookieParser()]);
 app.use(router);
-app.get('/send', async (req, res) => {
-  const x = await sendCode(req.body.email);
-  console.log(x, '222222222222');
-  res.end();
-});
+
 if (NODE_ENV === 'development') {
   app.get('/', (req: Request, res: Response) => {
     res.json({ message: 'The server is running' });

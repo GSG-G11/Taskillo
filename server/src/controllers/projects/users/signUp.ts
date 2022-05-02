@@ -1,24 +1,24 @@
 import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
 import {
-  sendCode, signToken, singupSchema, verifyCode,
+  signToken, singupSchema, verifyCode,
 } from '../../../utils';
 import { signUpQuery } from '../../../database/ quieres';
 import customError from '../../errors';
 
 const signup = async (req: Request, res: Response, next: NextFunction) => {
   const {
-    id, username, password, email, code,
+    username, password, email, code,
   } = req.body;
   try {
-    await singupSchema.validateAsync(req.body, { abortEarly: false });
+    await singupSchema.validateAsync(req.body);
     const encryptedPass = await bcrypt.hash(password, 8);
     const checkUserVerify = await verifyCode(email, code);
     if (checkUserVerify === 'approved') {
-      await signUpQuery({ username, password: encryptedPass, email });
+      const { id } = await signUpQuery({ username, password: encryptedPass, email });
       const token = signToken({ id, username });
-      res.cookie('token', token, { httpOnly: true, secure: true })
-         .status(200).json({ msg: ' Account verified successfully' });
+      res.cookie('token', token)
+        .status(200).json({ msg: ' Account created successfully' });
     } else {
       throw customError('Invalid verification code', 400);
     }
@@ -30,7 +30,6 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     } else {
       next(err);
     }
-
-  
+  }
 };
 export default signup;
