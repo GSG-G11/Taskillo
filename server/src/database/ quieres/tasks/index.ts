@@ -1,3 +1,3 @@
-import deleteTaskQuery from './editTaskQuery';
+import editTaskQuery from './editTaskQuery';
 
-export { deleteTaskQuery };
+export { editTaskQuery };

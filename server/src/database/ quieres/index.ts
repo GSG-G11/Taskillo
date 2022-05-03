@@ -1,4 +1,4 @@
 import checkEmailQuery from './checkEmailQuery';
-import { deleteTaskQuery } from './tasks';
+import { editTaskQuery } from './tasks';
 
-export { checkEmailQuery, deleteTaskQuery };
+export { checkEmailQuery, editTaskQuery };
