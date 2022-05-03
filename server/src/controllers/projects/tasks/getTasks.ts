@@ -4,7 +4,7 @@ import getTasksQuery from '../../../database/ quieres';
 const getTasks = async (req: any, res: Response) => {
   const { userId } = req.userInformation;
   try {
-    const { rows, rowCount} = await getTasksQuery(userId);
+    const { rows, rowCount } = await getTasksQuery(userId);
     if (!rowCount) return res.status(204).json({ msg: 'No Task Yet ' });
     return res.status(200).json({ data: rows, msg: 'Success' });
   } catch (error) {
