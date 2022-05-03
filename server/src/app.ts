@@ -3,7 +3,7 @@ import express, { Application, Request, Response } from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import * as dotenv from 'dotenv';
-import { taskRoute } from './routes';
+import router from './routes';
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ app.set('port', PORT || 4000);
 app.disable('x-powered-by');
 
 app.use([express.json(), express.urlencoded({ extended: false }), compression(), cookieParser()]);
-app.use('/api/v1', taskRoute);
+app.use('/api/v1', router);
 
 if (NODE_ENV === 'development') {
   app.get('/', (req: Request, res: Response) => {
