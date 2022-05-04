@@ -1,4 +1,6 @@
-import checkEmailQuery from './checkEmailQuery';
+import { signUpQuery, checkEmailQuery } from './userQueries';
 
-// eslint-disable-next-line import/prefer-default-export
-export { checkEmailQuery };
+export {
+  signUpQuery,
+  checkEmailQuery,
+};
