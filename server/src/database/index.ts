@@ -1,4 +1,3 @@
-import { editProjectQuery } from './quieres';
+import { editProjectQuery, checkEmailQuery, signUpQuery } from './quieres';
 
-// eslint-disable-next-line import/prefer-default-export
-export { editProjectQuery };
+export { editProjectQuery, checkEmailQuery, signUpQuery };

@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import {
   signToken, singupSchema, verifyCode,
 } from '../../utils';
-import { signUpQuery } from '../../database/ quieres';
+import { signUpQuery } from '../../database';
 import customError from '../errors';
 
 const signup = async (req: Request, res: Response, next: NextFunction) => {
