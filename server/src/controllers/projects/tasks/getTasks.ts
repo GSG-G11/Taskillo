@@ -8,7 +8,7 @@ const getTasks = async (req: any, res: Response) => {
     if (!rowCount) return res.status(204).json({ msg: 'No Task Yet ' });
     return res.status(200).json({ data: rows, msg: 'Success' });
   } catch (error) {
-    return res.status(500).json({ msg: error.message });
+    return res.status(500).json({ msg: error.massage });
   }
 };
 
