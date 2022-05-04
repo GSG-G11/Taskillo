@@ -1,6 +1,5 @@
 import { Response } from 'express';
 import getTasksQuery from '../../../database/ quieres';
-import { signToken } from '../../../utils';
 
 const getTasks = async (req: any, res: Response) => { 
   const { id } = req.userInformation;
