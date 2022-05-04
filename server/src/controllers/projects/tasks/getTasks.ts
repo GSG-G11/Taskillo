@@ -1,10 +1,11 @@
 import { Response } from 'express';
 import getTasksQuery from '../../../database/ quieres';
+import { signToken } from '../../../utils';
 
-const getTasks = async (req: any, res: Response) => {
-  const { userId } = req.userInformation;
+const getTasks = async (req: any, res: Response) => { 
+  const { id } = req.userInformation;
   try {
-    const { rows, rowCount } = await getTasksQuery(userId);
+    const { rows, rowCount } = await getTasksQuery(id);
     if (!rowCount) return res.status(204).json({ msg: 'No Task Yet ' });
     return res.status(200).json({ data: rows, msg: 'Success' });
   } catch (error) {
