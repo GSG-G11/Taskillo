@@ -1,4 +1,8 @@
-import checkEmailQuery from './checkEmailQuery';
-import { editTaskQuery } from './tasks';
+import { signUpQuery, checkEmailQuery } from './userQueries';
+import { editTaskQuery } from './taskQueries';
 
-export { checkEmailQuery, editTaskQuery };
+export {
+  signUpQuery,
+  checkEmailQuery,
+  editTaskQuery,
+};
