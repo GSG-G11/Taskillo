@@ -1,4 +1,4 @@
 import { editProjectController } from './projects';
+import { signup } from './user';
 
-// eslint-disable-next-line import/prefer-default-export
-export { editProjectController };
+export { editProjectController, signup };
