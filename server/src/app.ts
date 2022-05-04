@@ -11,12 +11,11 @@ const app: Application = express();
 
 const { env: { PORT, NODE_ENV } } = process;
 
-app.use('/api/v1', router);
-
 app.set('port', PORT || 4000);
 app.disable('x-powered-by');
 
 app.use([express.json(), express.urlencoded({ extended: false }), compression(), cookieParser()]);
+app.use(router);
 
 if (NODE_ENV === 'development') {
   app.get('/', (req: Request, res: Response) => {
