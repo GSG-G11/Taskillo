@@ -1,4 +1,4 @@
-import connection from '../config/connection';
+import connection from '../../config/connection';
 
 const editProjectQuery = (
   projecrId: number,

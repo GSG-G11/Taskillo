@@ -1,4 +1,22 @@
-import { checkEmailQuery, signUpQuery } from './userQueries';
-import editProjectQuery from './editProjectQuery';
+import {
+  addProjectQuery,
+  addUserProjectsQuery,
+  getProjectsQuery,
+  deleteProjectQuery,
+  editProjectQuery,
+} from './projects';
 
-export { checkEmailQuery, editProjectQuery, signUpQuery };
+import { checkEmailQuery, signUpQuery } from './userQueries';
+
+import deleteTaskQuery from './tasks';
+
+export {
+  checkEmailQuery,
+  signUpQuery,
+  addUserProjectsQuery,
+  addProjectQuery,
+  getProjectsQuery,
+  deleteProjectQuery,
+  editProjectQuery,
+  deleteTaskQuery,
+};

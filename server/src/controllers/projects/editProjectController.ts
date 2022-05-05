@@ -1,7 +1,7 @@
 import { NextFunction, Response, Request } from 'express';
 import { editProjectQuery } from '../../database';
 
-const editProjectController = async (
+const editProject = async (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -17,4 +17,4 @@ const editProjectController = async (
   }
 };
 
-export default editProjectController;
+export default editProject;

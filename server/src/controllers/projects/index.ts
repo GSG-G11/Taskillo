@@ -1,3 +1,8 @@
-import editProjectController from './editProjectController';
+import addProject from './addProjectController';
+import getProjects from './getProjectsController';
+import deleteProject from './deleteProjectController';
+import editProject from './editProjectController';
 
-export default editProjectController;
+export {
+  addProject, getProjects, deleteProject, editProject,
+};

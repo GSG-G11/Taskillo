@@ -1,4 +1,20 @@
-import editProjectController from './projects';
-import { signup } from './user';
+import { deleteTaskController } from './tasks';
 
-export { editProjectController, signup };
+import { login, signup } from './user';
+
+import {
+  addProject,
+  getProjects,
+  deleteProject,
+  editProject,
+} from './projects';
+
+export {
+  addProject,
+  getProjects,
+  deleteProject,
+  login,
+  signup,
+  editProject,
+  deleteTaskController,
+};

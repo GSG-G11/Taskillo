@@ -1,8 +1,15 @@
-import express from 'express';
-import { editProjectController } from '../controllers';
+import {
+  addProject,
+  getProjects,
+  deleteProject,
+  editProject,
+} from '../controllers';
 
-const projectRoute = express.Router();
+const projectsRoute = require('express').Router();
 
-projectRoute.put('/project/:id', editProjectController);
+projectsRoute.post('/project', addProject);
+projectsRoute.get('/projects', getProjects);
+projectsRoute.delete('/project/:id', deleteProject);
+projectsRoute.put('/project/:id', editProject);
 
-export default projectRoute;
+export default projectsRoute;
