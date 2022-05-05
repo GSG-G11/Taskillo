@@ -1,5 +1,5 @@
 import signInSchema from './signInSchema';
 
-import singupSchema from './signUpSchema';
+import signUpSchema from './signUpSchema';
 
-export { signInSchema, singupSchema };
+export { signInSchema, signUpSchema };

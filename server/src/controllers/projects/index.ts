@@ -1,3 +1,3 @@
-import signup from './users';
+import getProjects from './getProjectsController';
 
-export default signup;
+export default getProjects;
