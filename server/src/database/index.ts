@@ -10,6 +10,7 @@ import {
   addSectionQuery,
   deleteSectionQuery,
   editSectionQuery,
+  getProjectSectionsQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -28,4 +29,5 @@ export {
   addSectionQuery,
   deleteSectionQuery,
   editSectionQuery,
+  getProjectSectionsQuery,
 };
