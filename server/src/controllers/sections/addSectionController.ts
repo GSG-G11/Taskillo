@@ -13,7 +13,7 @@ const addSectionController = async (req: Request, res: Response, next: NextFunct
     const { rows } = await addSectionQuery(name, projectId);
 
     // send response
-    res.json({
+    res.status(201).json({
       data: rows[0],
       message: 'Section added successfully!',
     });
