@@ -7,6 +7,7 @@ import {
   getProjects,
   deleteProject,
   editProject,
+  getSpecificProject,
 } from './projects';
 
 export {
@@ -16,5 +17,6 @@ export {
   login,
   signup,
   editProject,
+  getSpecificProject,
   deleteTaskController,
 };

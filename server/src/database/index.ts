@@ -7,6 +7,8 @@ import {
   deleteProjectQuery,
   editProjectQuery,
   deleteTaskQuery,
+  getSpecificProjectQuery,
+  getMembersQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -15,7 +17,9 @@ export {
   checkEmailQuery,
   addProjectQuery,
   addUserProjectsQuery,
+  getSpecificProjectQuery,
   deleteProjectQuery,
+  getMembersQuery,
   getProjectsQuery,
   editProjectQuery,
   deleteTaskQuery,
