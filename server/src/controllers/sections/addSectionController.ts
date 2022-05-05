@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { addSectionQuery } from '../../database';
 import { addSectionSchema } from '../../utils';
-import customError from '../errors';
+import { customError } from '../errors';
 
 const addSectionController = async (req: Request, res: Response, next: NextFunction) => {
   const { name, projectId } = req.body;
