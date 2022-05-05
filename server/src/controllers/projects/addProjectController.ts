@@ -4,7 +4,7 @@ import { addProjectSchema } from '../../utils';
 import customError from '../errors';
 
 const addProject = async (req: Request, res: Response, next: NextFunction) => {
-  const userId = 2;
+  const userId = req.userInformation;
   const { name, description } = req.body;
   try {
     // validate user input
