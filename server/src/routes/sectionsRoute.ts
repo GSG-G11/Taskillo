@@ -3,6 +3,6 @@ import { checkAuth } from '../middlewares';
 
 const sectionsRoute = require('express').Router();
 
-sectionsRoute.post('/section', checkAuth, addSectionController);
+sectionsRoute.post('/section', addSectionController);
 
 export default sectionsRoute;
