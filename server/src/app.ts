@@ -27,7 +27,7 @@ app.use('/api/v1', router);
 
 if (NODE_ENV === 'development') {
   app.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'The server is running' });
+    res.json({ message: 'The server is running..' });
   });
 }
 

@@ -1,5 +1,6 @@
 import projectsRoute from './projectsRoute';
 import userRoutes from './userRoutes';
+import projectsRoute from './projectsRoute';
 
 const router = require('express').Router();
 

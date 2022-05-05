@@ -1,3 +1,4 @@
+import addProject from './addProjectController';
 import getProjects from './getProjectsController';
 
-export default getProjects;
+export { addProject, getProjects };
