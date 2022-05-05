@@ -1,4 +1,5 @@
 import addProject from './addProjectController';
 import getProjects from './getProjectsController';
+import deleteProject from './deleteProjectController';
 
-export { addProject, getProjects };
+export { addProject, getProjects, deleteProject };
