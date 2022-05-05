@@ -1,3 +1,3 @@
-import { addProject } from './projects';
+import addProject from './projects';
 
-export { addProject };
+export default addProject;

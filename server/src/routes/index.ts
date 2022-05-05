@@ -1,8 +1,9 @@
-import express from 'express';
-import { addProject } from '../controllers';
+import userRoutes from './userRoutes';
+import projectsRoute from './projectsRoute';
 
-const router = express.Router();
+const router = require('express').Router();
 
-router.post('/project', addProject);
+router.use('/user', userRoutes);
+router.use(projectsRoute);
 
 export default router;
