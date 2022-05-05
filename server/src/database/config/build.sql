@@ -11,7 +11,7 @@ CREATE TABLE users (
   phoneNumber VARCHAR(255),
   password VARCHAR(255) NOT NULL,
   birthDate DATE,
-  bio VARCHAR(255),
+  bio VARCHAR(255)
 );
 
 CREATE TABLE projects (
