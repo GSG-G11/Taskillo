@@ -1,3 +1,6 @@
-import { deleteProject } from './projects';
+import { addProject, getProjects, deleteProject } from './projects';
+import { signIn, signup } from './user';
 
-export { deleteProject };
+export {
+  addProject, getProjects, deleteProject, signIn, signup,
+};

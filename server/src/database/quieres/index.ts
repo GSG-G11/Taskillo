@@ -1,5 +1,17 @@
-import checkEmailQuery from './checkEmailQuery';
-import { deleteProjectQuery } from './projects';
+import {
+  addProjectQuery,
+  addUserProjectsQuery,
+  getProjectsQuery,
+  deleteProjectQuery,
+} from './projects';
 
-// eslint-disable-next-line import/prefer-default-export
-export { checkEmailQuery, deleteProjectQuery };
+import { checkEmailQuery, signUpQuery } from './userQueries';
+
+export {
+  checkEmailQuery,
+  signUpQuery,
+  addUserProjectsQuery,
+  addProjectQuery,
+  getProjectsQuery,
+  deleteProjectQuery,
+};
