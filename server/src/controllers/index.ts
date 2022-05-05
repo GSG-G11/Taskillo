@@ -9,6 +9,10 @@ import {
   editProject,
 } from './projects';
 
+import {
+  addSectionController,
+} from './sections';
+
 export {
   addProject,
   getProjects,
@@ -17,4 +21,5 @@ export {
   signup,
   editProject,
   deleteTaskController,
+  addSectionController,
 };

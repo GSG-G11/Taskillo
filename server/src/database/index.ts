@@ -7,6 +7,7 @@ import {
   deleteProjectQuery,
   editProjectQuery,
   deleteTaskQuery,
+  addSectionQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -22,4 +23,5 @@ export {
   signUpQuery,
   connection,
   buildDb,
+  addSectionQuery,
 };
