@@ -23,6 +23,7 @@
         "no-unused-vars": "warn",
         "import/prefer-default-export": "off",
         "arrow-body-style": [2, "always"],
-        "import/default": "off"
+        "import/default": "off",
+        "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
     }
 }
