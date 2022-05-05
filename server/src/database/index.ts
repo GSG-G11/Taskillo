@@ -2,7 +2,18 @@ import {
   checkEmailQuery,
   addProjectQuery,
   addUserProjectsQuery,
+  getProjectsQuery,
   signUpQuery,
 } from './quieres';
 
-export { checkEmailQuery, addProjectQuery, addUserProjectsQuery, signUpQuery };
+import { connection, buildDb } from './config';
+
+export {
+  checkEmailQuery,
+  addProjectQuery,
+  addUserProjectsQuery,
+  getProjectsQuery,
+  signUpQuery,
+  connection,
+  buildDb,
+};

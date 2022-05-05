@@ -4,7 +4,7 @@ import { addProjectSchema } from '../../utils';
 import customError from '../errors';
 
 const addProject = async (req: Request, res: Response, next: NextFunction) => {
-  const userId = req.userInformation;
+  const { id } = req.userInformation;
   const { name, description } = req.body;
   try {
     // validate user input
@@ -14,7 +14,7 @@ const addProject = async (req: Request, res: Response, next: NextFunction) => {
     const { rows } = await addProjectQuery(name, description);
 
     // add project to user_project table
-    addUserProjectsQuery(userId, rows[0].id, 'owner');
+    addUserProjectsQuery(id, rows[0].id, 'owner');
 
     // send response
     res.status(201).json({

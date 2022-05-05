@@ -1,13 +1,15 @@
 import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
-import { signToken, singupSchema, verifyCode } from '../../utils';
-import { signUpQuery } from '../../database/ quieres';
+import { signToken, signUpSchema, verifyCode } from '../../utils';
+import { signUpQuery } from '../../database';
 import customError from '../errors';
 
 const signup = async (req: Request, res: Response, next: NextFunction) => {
-  const { username, password, email, code } = req.body;
+  const {
+    username, password, email, code,
+  } = req.body;
   try {
-    await singupSchema.validateAsync(req.body);
+    await signUpSchema.validateAsync(req.body);
     const encryptedPass = await bcrypt.hash(password, 8);
     const checkUserVerify = await verifyCode(email, code);
     if (checkUserVerify === 'approved') {

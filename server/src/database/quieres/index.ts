@@ -1,6 +1,14 @@
 import { checkEmailQuery, signUpQuery } from './userQueries';
-import { addUserProjectsQuery, addProjectQuery } from './projects';
+import {
+  addUserProjectsQuery,
+  addProjectQuery,
+  getProjectsQuery,
+} from './projects';
 
 export {
-  checkEmailQuery, addUserProjectsQuery, addProjectQuery, signUpQuery,
+  checkEmailQuery,
+  addUserProjectsQuery,
+  addProjectQuery,
+  signUpQuery,
+  getProjectsQuery,
 };

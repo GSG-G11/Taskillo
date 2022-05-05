@@ -1,3 +1,4 @@
+import projectsRoute from './projectsRoute';
 import userRoutes from './userRoutes';
 import projectsRoute from './projectsRoute';
 
