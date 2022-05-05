@@ -21,12 +21,9 @@
     "rules": {
         "import/extensions": "off",
         "no-unused-vars": "warn",
-<<<<<<< HEAD
-        "import/prefer-default-export": "off"
-
-=======
+        "import/prefer-default-export": "off",
         "import/default": "off",
-        "import/prefer-default-export": "off"
->>>>>>> main
+        "arrow-body-style": ["error", "as-needed"]
+
     }
 }
