@@ -1,3 +1,5 @@
+import addProject from './addProjectController';
 import getProjects from './getProjectsController';
+import deleteProject from './deleteProjectController';
 
-export default getProjects;
+export { addProject, getProjects, deleteProject };
