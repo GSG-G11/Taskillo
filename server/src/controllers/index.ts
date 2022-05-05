@@ -12,6 +12,7 @@ import {
 import {
   addSectionController,
   deleteSectionController,
+  editSectionController,
 } from './sections';
 
 export {
@@ -24,4 +25,5 @@ export {
   deleteTaskController,
   addSectionController,
   deleteSectionController,
+  editSectionController,
 };
