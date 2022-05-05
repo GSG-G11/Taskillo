@@ -1,7 +1,21 @@
-import { signInSchema, singupSchema } from './validation';
+import {
+  signInSchema,
+  signUpSchema,
+  sendEmailSchema,
+  addProjectSchema,
+} from './validation';
 import { signToken, verifyToken } from './jwt';
-import { sendCode, verifyCode } from './verification';
+import uploadToCloudinary from './cloudinary';
+import { verifyCode, sendCode } from './verification';
 
 export {
-  signInSchema, singupSchema, signToken, verifyToken, sendCode, verifyCode,
+  verifyCode,
+  sendCode,
+  signInSchema,
+  signUpSchema,
+  signToken,
+  verifyToken,
+  sendEmailSchema,
+  addProjectSchema,
+  uploadToCloudinary,
 };
