@@ -1,6 +1,6 @@
 import { addProject, getProjects, deleteProject } from './projects';
-import { signIn, signup } from './user';
+import { login, signup } from './user';
 
 export {
-  addProject, getProjects, deleteProject, signIn, signup,
+  addProject, getProjects, deleteProject, login, signup,
 };
