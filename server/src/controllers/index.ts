@@ -13,6 +13,7 @@ import {
   addSectionController,
   deleteSectionController,
   editSectionController,
+  getProjectSectionsController,
 } from './sections';
 
 export {
@@ -26,4 +27,5 @@ export {
   addSectionController,
   deleteSectionController,
   editSectionController,
+  getProjectSectionsController,
 };
