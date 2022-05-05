@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
 import { signToken, signUpSchema, verifyCode } from '../../utils';
 import { signUpQuery } from '../../database';
-import customError from '../errors';
+import { customError } from '../errors';
 
 const signup = async (req: Request, res: Response, next: NextFunction) => {
   const {

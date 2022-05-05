@@ -3,6 +3,7 @@ import {
   addProjectQuery,
   addUserProjectsQuery,
   getProjectsQuery,
+  deleteProjectQuery,
   signUpQuery,
 } from './quieres';
 
@@ -12,6 +13,7 @@ export {
   checkEmailQuery,
   addProjectQuery,
   addUserProjectsQuery,
+  deleteProjectQuery,
   getProjectsQuery,
   signUpQuery,
   connection,

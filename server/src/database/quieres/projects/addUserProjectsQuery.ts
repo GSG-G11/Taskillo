@@ -12,7 +12,7 @@ const addUserProjectsQuery = (
     values: [userId, projectId, role],
   };
 
-  connection.query(sql);
+  return connection.query(sql);
 };
 
 export default addUserProjectsQuery;
