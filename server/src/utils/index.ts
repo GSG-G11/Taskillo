@@ -1,11 +1,11 @@
 import uploadToCloudinary from './cloudinary';
 import { signToken, verifyToken } from './jwt';
-import { signInSchema, singupScheama } from './validation';
+import { signInSchema, signUpSchema } from './validation';
 import { sendCode, verifyCode } from './verification';
 
 export {
   signInSchema,
-  singupScheama,
+  signUpSchema,
   signToken,
   verifyToken,
   sendCode,

@@ -1,4 +1,4 @@
-import connection from '../config/connection';
+import connection from '../../config/connection';
 
 const checkEmailQuery = (email: string) => connection.query({
   text: 'SELECT * FROM users WHERE email = $1',

@@ -3,7 +3,7 @@ import express, { Application, Request, Response } from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import * as dotenv from 'dotenv';
-import { projectsRoute } from './routes';
+import router from './routes';
 
 dotenv.config();
 
@@ -23,7 +23,7 @@ app.use([
   cookieParser(),
 ]);
 
-app.use('/api/v1', projectsRoute);
+app.use('/api/v1', router);
 
 if (NODE_ENV === 'development') {
   app.get('/', (req: Request, res: Response) => {

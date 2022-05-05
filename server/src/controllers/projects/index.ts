@@ -1,5 +1,3 @@
 import getProjects from './getProjectsController';
 
-export {
-  getProjects,
-};
+export default getProjects;
