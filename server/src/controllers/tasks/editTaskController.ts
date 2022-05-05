@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { editTaskQuery } from '../../database/ quieres';
+import { editTaskQuery } from '../../database';
 
 const editTask = async (req: Request, res: Response, next: NextFunction) => {
   try {

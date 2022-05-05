@@ -1,7 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
-import { deleteTaskQuery } from '../../database/ quieres';
+import { deleteTaskQuery } from '../../database';
 
-const deleteTaskController = async (req: Request, res: Response, next: NextFunction) => {
+const deleteTask = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   const { id } = req.params;
 
   try {
@@ -12,4 +16,4 @@ const deleteTaskController = async (req: Request, res: Response, next: NextFunct
   }
 };
 
-export default deleteTaskController;
+export default deleteTask;
