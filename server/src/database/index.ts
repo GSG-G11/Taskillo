@@ -8,7 +8,7 @@ import {
   editProjectQuery,
   deleteTaskQuery,
   addSectionQuery,
-  deleteSectionQuery
+  deleteSectionQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';

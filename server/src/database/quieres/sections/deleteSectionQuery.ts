@@ -1,4 +1,4 @@
-import { connection } from "../../config";
+import { connection } from '../../config';
 
 const deleteSectionQuery = (id: number) => {
   const sql = {
