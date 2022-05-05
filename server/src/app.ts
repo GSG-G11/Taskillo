@@ -9,12 +9,21 @@ dotenv.config();
 
 const app: Application = express();
 
-const { env: { PORT, NODE_ENV } } = process;
+const {
+  env: { PORT, NODE_ENV },
+} = process;
 
 app.set('port', PORT || 4000);
 app.disable('x-powered-by');
 
-app.use([express.json(), express.urlencoded({ extended: false }), compression(), cookieParser()]);
+app.use([
+  express.json(),
+  express.urlencoded({ extended: false }),
+  compression(),
+  cookieParser(),
+]);
+
+app.use('/api/v1', router);
 
 app.use('/api/v1', router);
 
