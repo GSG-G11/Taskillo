@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { compare } from 'bcrypt';
-import { checkEmailQuery } from '../../database/ quieres';
+import { checkEmailQuery } from '../../database';
 import { signInSchema, signToken } from '../../utils';
 import { customError } from '../errors';
 
@@ -23,7 +23,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   } catch (err) {
     if (err.name === 'ValidationError') {
       const errorList = [];
-      err.details.forEach((error: Error) => errorList.push(error.message));
+      err.details.forEach((error: Error) => { return errorList.push(error.message); });
       next(customError(errorList, 400));
     } else {
       next(err);
