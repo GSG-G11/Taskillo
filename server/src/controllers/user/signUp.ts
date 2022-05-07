@@ -29,7 +29,7 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
   } catch (err) {
     if (err.name === 'ValidationError') {
       const errorList = [];
-      err.details.forEach((error) => errorList.push(error.message));
+      err.details.forEach((error) => { return errorList.push(error.message); });
       next(customError(errorList, 400));
     } else {
       next(err);

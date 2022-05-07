@@ -5,7 +5,7 @@ import userRoute from './userRoute';
 const router = require('express').Router();
 
 router.use('/user', userRoute);
-router.use(projectsRoute);
-router.use(taskRoute);
+router.use('/api/v1', projectsRoute);
+router.use('/api/v1', taskRoute);
 
 export default router;
