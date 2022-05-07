@@ -1,3 +1,3 @@
-import uploadToCloudinary from './Cloudinary';
+import checkAuth from './checkAuth';
 
-export default uploadToCloudinary;
+export { checkAuth };
