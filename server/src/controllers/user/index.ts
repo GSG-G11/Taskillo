@@ -1,3 +1,6 @@
 import sendEmailController from './sendEmailController';
 
-export default sendEmailController;
+import signup from './signUp';
+import login from './login';
+
+export { signup, login, sendEmailController };

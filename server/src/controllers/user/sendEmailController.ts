@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
-import { sendCode, sendEmail } from '../../utils';
-import customError from '../errors';
+import { sendCode, sendEmailSchema } from '../../utils';
+import { customError } from '../errors';
 
 const sendEmailController = async (req: Request, res: Response, next: NextFunction) => {
   const { email } = req.body;
   try {
-    await sendEmail.validateAsync({ email });
+    await sendEmailSchema.validateAsync({ email });
 
     await sendCode(email);
 

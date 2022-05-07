@@ -1,3 +1,21 @@
-import sendEmailController from './user';
+import { deleteTaskController } from './tasks';
 
-export default sendEmailController;
+import { login, signup, sendEmailController } from './user';
+
+import {
+  addProject,
+  getProjects,
+  deleteProject,
+  editProject,
+} from './projects';
+
+export {
+  addProject,
+  getProjects,
+  deleteProject,
+  login,
+  signup,
+  editProject,
+  deleteTaskController,
+  sendEmailController,
+};
