@@ -1,3 +1,4 @@
 import deleteTaskQuery from './deleteTaskQuery';
+import addTaskQuery from './addTaskQuery';
 
-export default deleteTaskQuery;
+export {deleteTaskQuery, addTaskQuery};

@@ -5,5 +5,5 @@ import addProjectSchema from './addProjectSchema';
 import addTaskSchema from './addTaskSchema';
 
 export {
-  signInSchema, signUpSchema, sendEmailSchema, addProjectSchema,addTaskSchema,
+  signInSchema, signUpSchema, sendEmailSchema, addProjectSchema, addTaskSchema,
 };
