@@ -31,7 +31,7 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     if (err.name === 'ValidationError') {
       const errorList = [];
       err.details.forEach((error) => {
-        return errorList.push(error.message)
+        return errorList.push(error.message);
       });
       next(customError(errorList, 400));
     } else {
