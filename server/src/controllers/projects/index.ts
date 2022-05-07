@@ -1,3 +1,8 @@
-import signup from './users';
+import addProject from './addProjectController';
+import getProjects from './getProjectsController';
+import deleteProject from './deleteProjectController';
+import editProject from './editProjectController';
 
-export default signup;
+export {
+  addProject, getProjects, deleteProject, editProject,
+};

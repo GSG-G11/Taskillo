@@ -11,7 +11,7 @@ CREATE TABLE users (
   phoneNumber VARCHAR(255),
   password VARCHAR(255) NOT NULL,
   birthDate DATE,
-  bio VARCHAR(255),
+  bio VARCHAR(255)
 );
 
 CREATE TABLE projects (
@@ -68,5 +68,7 @@ CREATE TABLE activity (
   FOREIGN KEY (sectionId) REFERENCES sections(id) ON DELETE CASCADE,
   FOREIGN KEY (taskId) REFERENCES tasks(id) ON DELETE CASCADE
 );
+
+INSERT INTO users (username, email, password) VALUES ('amran', 'amran@gmail.com', 'amran123456789');
 
 COMMIT;
