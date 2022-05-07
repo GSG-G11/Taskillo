@@ -1,4 +1,7 @@
-const addTask = () => {
+import { Request, Response, NextFunction } from 'express';
+
+const addTask = (req:Request, res:Response, next:NextFunction) => {
+  
 
 };
 
