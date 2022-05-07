@@ -8,7 +8,7 @@ import {
 
 import { checkEmailQuery, signUpQuery } from './userQueries';
 
-import {deleteTaskQuery, addTaskQuery} from './tasks';
+import { deleteTaskQuery, addTaskQuery } from './tasks';
 
 export {
   checkEmailQuery,

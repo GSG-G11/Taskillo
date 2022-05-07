@@ -1,4 +1,4 @@
-import { signup, login } from '../controllers/user';
+import { signup, login } from '../controllers';
 
 const userRoute = require('express').Router();
 

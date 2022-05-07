@@ -7,9 +7,6 @@ const addTask = async (req: Request, res: Response, next: NextFunction) => {
   const {
     name, description, priority, endDate, status, sectionid,
   } = req.body;
-  // const { sectionid } = req.params;
-  // console.log(sectionid);
-
   try {
     await addTaskSchema.validateAsync({ name, description, endDate });
     const { rows } = await addTaskQuery({
