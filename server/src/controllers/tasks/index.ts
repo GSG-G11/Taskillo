@@ -1,3 +1,4 @@
 import deleteTaskController from './deleteTaskController';
+import addTask from './addTask';
 
-export { deleteTaskController };
+export { deleteTaskController, addTask };
