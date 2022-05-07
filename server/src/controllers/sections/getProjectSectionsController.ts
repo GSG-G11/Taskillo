@@ -8,9 +8,16 @@ const getProjectSectionsController = async (req: Request, res: Response, next: N
     const { rows } = await getProjectSectionsQuery(+id);
 
     // Send response
-    res.status(200).json({
-      data: rows,
-    });
+    if (rows.length > 0) {
+      res.status(200).json({
+        message: 'Project sections retrieved successfully',
+        data: rows,
+      });
+    } else {
+      res.status(204).json({
+        message: 'Project sections not found',
+      });
+    }
   } catch (error) {
     next(error);
   }
