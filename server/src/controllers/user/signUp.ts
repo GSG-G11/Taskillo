@@ -13,11 +13,12 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     const encryptedPass = await bcrypt.hash(password, 8);
     const checkUserVerify = await verifyCode(email, code);
     if (checkUserVerify === 'approved') {
-      const { id } = await signUpQuery({
+      const { rows } = await signUpQuery({
         username,
         password: encryptedPass,
         email,
       });
+      const { id } = rows[0];
       const token = signToken({ id, username });
       res
         .cookie('token', token)
@@ -29,7 +30,9 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
   } catch (err) {
     if (err.name === 'ValidationError') {
       const errorList = [];
-      err.details.forEach((error: Error) => errorList.push(error.message));
+      err.details.forEach((error) => {
+        return errorList.push(error.message);
+      });
       next(customError(errorList, 400));
     } else {
       next(err);
