@@ -1,20 +1,10 @@
-import { Response, Request, NextFunction } from 'express';
+import { Response, Request } from 'express';
 import { deleteProjectQuery } from '../../database';
 
-const deleteProject = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+const deleteProject = async (req: Request, res: Response) => {
   const { id } = req.params;
-  try {
-    await deleteProjectQuery(+id);
-    res
-      .status(200)
-      .json({ message: 'The project has been deleted successfuly' });
-  } catch (error) {
-    next(error);
-  }
+  await deleteProjectQuery(+id);
+  res.status(200).json({ message: 'The project has been deleted successfuly' });
 };
 
 export default deleteProject;
