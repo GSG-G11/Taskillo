@@ -15,6 +15,7 @@ import {
   addSectionController,
   deleteSectionController,
   editSectionController,
+  getProjectSectionsController,
 } from './sections';
 
 export {
@@ -24,13 +25,14 @@ export {
   editProject,
   login,
   signup,
+  addSectionController,
+  deleteSectionController,
+  editSectionController,
+  getProjectSectionsController,
   sendEmailController,
   getTasksSection,
   getTasks,
   editTask,
   deleteTask,
   getSpecificProject,
-  addSectionController,
-  deleteSectionController,
-  editSectionController,
 };

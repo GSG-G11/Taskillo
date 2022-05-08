@@ -21,6 +21,7 @@ import {
   addSectionQuery,
   deleteSectionQuery,
   editSectionQuery,
+  getProjectSectionsQuery,
   getOneSectionQuery,
 } from './sections';
 
@@ -41,5 +42,6 @@ export {
   deleteSectionQuery,
   getOneSectionQuery,
   editSectionQuery,
+  getProjectSectionsQuery,
   editTaskQuery,
 };

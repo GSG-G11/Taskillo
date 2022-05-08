@@ -15,6 +15,7 @@ import {
   deleteSectionQuery,
   getOneSectionQuery,
   editSectionQuery,
+  getProjectSectionsQuery,
   editTaskQuery,
 } from './quieres';
 
@@ -40,4 +41,5 @@ export {
   deleteSectionQuery,
   getOneSectionQuery,
   editSectionQuery,
+  getProjectSectionsQuery,
 };
