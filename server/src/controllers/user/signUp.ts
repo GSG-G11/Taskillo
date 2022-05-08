@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import { signToken, signUpSchema, verifyCode } from '../../utils';
 import { signUpQuery } from '../../database';
 
-const signup = async (req: Request, res: Response, next: NextFunction) => {
+const signup = async (req: Request, res: Response) => {
   const {
     username, password, email, code,
   } = req.body;
@@ -21,9 +21,9 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     res
       .cookie('token', token)
       .status(200)
-      .json({ msg: ' Account created successfully' });
+      .json({ message: ' Account created successfully' });
   } else {
-    next(new Error());
+    res.status(400).json({ message: 'Invalid verification code' });
   }
 };
 export default signup;
