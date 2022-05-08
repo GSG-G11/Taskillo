@@ -9,8 +9,8 @@ import {
 } from './projects';
 
 import { checkEmailQuery, signUpQuery } from './userQueries';
-
 import {
+  addTaskQuery,
   getTasksQuery,
   getTasksSectionQuery,
   editTaskQuery,
@@ -26,22 +26,23 @@ import {
 } from './sections';
 
 export {
-  checkEmailQuery,
   signUpQuery,
+  checkEmailQuery,
   addProjectQuery,
   getProjectsQuery,
-  deleteProjectQuery,
+  getSpecificProjectQuery,
   editProjectQuery,
+  deleteProjectQuery,
+  addTaskQuery,
   getTasksQuery,
   getTasksSectionQuery,
+  editTaskQuery,
   deleteTaskQuery,
   addUserProjectsQuery,
   getMembersQuery,
-  getSpecificProjectQuery,
   addSectionQuery,
-  deleteSectionQuery,
   getOneSectionQuery,
-  editSectionQuery,
   getProjectSectionsQuery,
-  editTaskQuery,
+  editSectionQuery,
+  deleteSectionQuery,
 };
