@@ -1,6 +1,6 @@
 import addSection from './addSection';
 import deleteSection from './deleteSection';
-import editSection from './editSectionController';
+import editSection from './editSection';
 import getProjectSectionsController from './getProjectSectionsController';
 
 export {
