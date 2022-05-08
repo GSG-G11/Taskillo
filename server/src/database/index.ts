@@ -6,9 +6,15 @@ import {
   getProjectsQuery,
   deleteProjectQuery,
   editProjectQuery,
+  getTasksQuery,
+  getTasksSectionQuery,
   deleteTaskQuery,
   getSpecificProjectQuery,
   getMembersQuery,
+  addSectionQuery,
+  deleteSectionQuery,
+  editSectionQuery,
+  editTaskQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -22,8 +28,14 @@ export {
   getMembersQuery,
   getProjectsQuery,
   editProjectQuery,
+  getTasksQuery,
+  getTasksSectionQuery,
   deleteTaskQuery,
   signUpQuery,
+  editTaskQuery,
   connection,
   buildDb,
+  addSectionQuery,
+  deleteSectionQuery,
+  editSectionQuery,
 };
