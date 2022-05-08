@@ -4,12 +4,13 @@ import {
   deleteProject,
   editProject,
 } from '../controllers';
+import { checkAuth } from '../middlewares';
 
 const projectsRoute = require('express').Router();
 
-projectsRoute.post('/project', addProject);
-projectsRoute.get('/projects', getProjects);
-projectsRoute.delete('/project/:id', deleteProject);
-projectsRoute.put('/project/:id', editProject);
+projectsRoute.post('/project', checkAuth, addProject);
+projectsRoute.get('/projects', checkAuth, getProjects);
+projectsRoute.delete('/project/:id', checkAuth, deleteProject);
+projectsRoute.put('/project/:id', checkAuth, editProject);
 
 export default projectsRoute;
