@@ -9,6 +9,10 @@ import {
   getTasksQuery,
   getTasksSectionQuery,
   deleteTaskQuery,
+  addSectionQuery,
+  deleteSectionQuery,
+  editSectionQuery,
+  editTaskQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -20,11 +24,14 @@ export {
   deleteProjectQuery,
   getProjectsQuery,
   editProjectQuery,
-  getTasksQuery.
+  getTasksQuery,
   getTasksSectionQuery,
   deleteTaskQuery,
   signUpQuery,
+  editTaskQuery,
   connection,
   buildDb,
-
+  addSectionQuery,
+  deleteSectionQuery,
+  editSectionQuery,
 };

@@ -1,13 +1,15 @@
 import express from 'express';
 import tasksRoute from './tasksRoute';
-import { sendEmailController } from '../controllers';
 import projectsRoute from './projectsRoute';
+import sectionsRoute from './sectionsRoute';
 import userRoute from './userRoute';
+import { sendEmailController } from '../controllers';
 
 const router = express.Router();
 router.use('/user', userRoute);
-router.use('/api/v1', tasksRoute);
-router.use('/api/v1', projectsRoute);
 router.post('/sendEmail', sendEmailController);
+router.use(projectsRoute);
+router.use(sectionsRoute);
+router.use(tasksRoute);
 
 export default router;

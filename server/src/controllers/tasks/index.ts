@@ -1,5 +1,12 @@
-import deleteTaskController from './deleteTaskController';
-import getTasksSection from './getTasksSection';
 import getTasks from './getTasks';
+import getTasksSection from './getTasksSection';
+import editTask from './editTaskController';
+import deleteTask from './deleteTaskController';
 
-export { getTasks, deleteTaskController, getTasksSection };
+export {
+  getTasks,
+  getTasksSection,
+  editTask,
+  deleteTask,
+
+};

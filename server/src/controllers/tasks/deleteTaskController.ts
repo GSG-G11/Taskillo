@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { deleteTaskQuery } from '../../database';
 
-const deleteTaskController = async (
+const deleteTask = async (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -16,4 +16,4 @@ const deleteTaskController = async (
   }
 };
 
-export default deleteTaskController;
+export default deleteTask;

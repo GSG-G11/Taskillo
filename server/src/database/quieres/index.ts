@@ -8,7 +8,8 @@ import {
 
 import { checkEmailQuery, signUpQuery } from './userQueries';
 
-import { getTasksQuery, getTasksSectionQuery, deleteTaskQuery } from './tasks';
+import { getTasksQuery, getTasksSectionQuery, editTaskQuery, deleteTaskQuery } from './tasks';
+import { addSectionQuery, deleteSectionQuery, editSectionQuery } from './sections';
 
 export {
   checkEmailQuery,
@@ -21,4 +22,8 @@ export {
   getTasksQuery,
   getTasksSectionQuery,
   deleteTaskQuery,
+  addSectionQuery,
+  deleteSectionQuery,
+  editSectionQuery,
+  editTaskQuery,
 };
