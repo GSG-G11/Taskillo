@@ -1,19 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { deleteTaskQuery } from '../../database';
 
-const deleteTask = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+const deleteTask = async (req: Request, res: Response) => {
   const { id } = req.params;
-
-  try {
-    await deleteTaskQuery(id);
-    res.status(204).json({ message: 'The post deleted successfuly' });
-  } catch (err) {
-    next(err);
-  }
+  await deleteTaskQuery(id);
+  res.status(204).json({ message: 'The post deleted successfuly' });
 };
 
 export default deleteTask;
