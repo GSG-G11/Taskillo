@@ -6,8 +6,8 @@ import getProjectSectionsQuery from './getProjectSectionsQuery';
 
 export {
   addSectionQuery,
-  deleteSectionQuery,
   getOneSectionQuery,
   editSectionQuery,
   getProjectSectionsQuery,
+  deleteSectionQuery,
 };
