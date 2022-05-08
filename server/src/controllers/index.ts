@@ -1,7 +1,7 @@
 import {
   addTask, getTasks, getTasksSection, editTask, deleteTask,
 } from './tasks';
-import { login, signup, sendEmailController } from './user';
+import { login, signup, sendEmail } from './user';
 
 import {
   addProject,
@@ -30,7 +30,7 @@ export {
   deleteSectionController,
   editSectionController,
   getProjectSectionsController,
-  sendEmailController,
+  sendEmail,
   getTasksSection,
   getTasks,
   editTask,

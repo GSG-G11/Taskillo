@@ -2,7 +2,7 @@ import express from 'express';
 import tasksRoute from './tasksRoute';
 import projectsRoute from './projectsRoute';
 import sectionsRoute from './sectionsRoute';
-import userRoute from './userRoute';
+import userRoute from './usersRoute';
 import { sendEmailController } from '../controllers';
 
 const router = express.Router();

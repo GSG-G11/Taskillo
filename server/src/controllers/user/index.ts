@@ -1,6 +1,6 @@
-import sendEmailController from './sendEmailController';
+import sendEmail from './sendEmail';
 
 import signup from './signUp';
 import login from './login';
 
-export { signup, login, sendEmailController };
+export { signup, login, sendEmail };
