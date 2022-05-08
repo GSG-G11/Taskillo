@@ -9,6 +9,7 @@ import {
   deleteTaskQuery,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -26,4 +27,5 @@ export {
   buildDb,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
 };

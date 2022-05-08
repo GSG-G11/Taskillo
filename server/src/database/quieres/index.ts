@@ -10,7 +10,7 @@ import { checkEmailQuery, signUpQuery } from './userQueries';
 
 import deleteTaskQuery from './tasks';
 
-import { addSectionQuery, deleteSectionQuery } from './sections';
+import { addSectionQuery, deleteSectionQuery, getOneSectionQuery } from './sections';
 
 export {
   checkEmailQuery,
@@ -23,4 +23,5 @@ export {
   deleteTaskQuery,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
 };
