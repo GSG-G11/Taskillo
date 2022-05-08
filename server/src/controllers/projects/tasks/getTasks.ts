@@ -1,7 +1,6 @@
-import { Response } from 'express';
 import getTasksQuery from '../../../database/ quieres';
 
-const getTasks = async (req: any, res: Response) => {
+const getTasks = async (req: any, res: any) => {
   const { id } = req.userInformation;
   try {
     const { rows, rowCount } = await getTasksQuery(id);

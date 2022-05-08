@@ -6,7 +6,7 @@
     "lib": ["es2021", "dom"],
     "types": [
       "node"
-      ]
+      ],
   },
 
   "include": ["src/**/*.ts"],

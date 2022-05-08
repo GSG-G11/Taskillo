@@ -9,15 +9,36 @@ dotenv.config();
 
 const app: Application = express();
 
+<<<<<<< HEAD
 const { env: { PORT, NODE_ENV } } = process;
 app.set('port', PORT || 4000);
 app.disable('x-powered-by');
 
 app.use([express.json(), express.urlencoded({ extended: false }), compression(), cookieParser()]);
 app.use(router);
+=======
+const {
+  env: { PORT, NODE_ENV },
+} = process;
+
+app.set('port', PORT || 4000);
+app.disable('x-powered-by');
+
+app.use([
+  express.json(),
+  express.urlencoded({ extended: false }),
+  compression(),
+  cookieParser(),
+]);
+
+app.use(router);
+
+app.use('/api/v1', router);
+
+>>>>>>> main
 if (NODE_ENV === 'development') {
   app.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'The server is running' });
+    res.json({ message: 'The server is running..' });
   });
 }
 

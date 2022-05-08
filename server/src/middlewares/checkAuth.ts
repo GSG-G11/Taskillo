@@ -1,6 +1,10 @@
 import { Response, NextFunction } from 'express';
 import { verifyToken } from '../utils';
+<<<<<<< HEAD
 import customError from '../controllers/errors';
+=======
+import { customError } from '../controllers/errors';
+>>>>>>> main
 
 const checkAuth = async (req: any, res: Response, next: NextFunction) => {
   const { token } = req.cookies;
