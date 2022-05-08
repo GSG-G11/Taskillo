@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import getTasksSectionQuery from '../../database/ quieres';
+import { getTasksSectionQuery } from '../../database';
 
 const getTasksSection = async (req: Request, res: Response) => {
   const { id } = req.params;

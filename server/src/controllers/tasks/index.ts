@@ -1,4 +1,5 @@
 import deleteTaskController from './deleteTaskController';
 import getTasksSection from './getTasksSection';
+import getTasks from './getTasks';
 
-export { deleteTaskController, getTasksSection };
+export { getTasks, deleteTaskController, getTasksSection };

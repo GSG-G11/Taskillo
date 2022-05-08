@@ -6,6 +6,8 @@ import {
   getProjectsQuery,
   deleteProjectQuery,
   editProjectQuery,
+  getTasksQuery,
+  getTasksSectionQuery,
   deleteTaskQuery,
 } from './quieres';
 
@@ -18,8 +20,11 @@ export {
   deleteProjectQuery,
   getProjectsQuery,
   editProjectQuery,
+  getTasksQuery.
+  getTasksSectionQuery,
   deleteTaskQuery,
   signUpQuery,
   connection,
   buildDb,
+
 };
