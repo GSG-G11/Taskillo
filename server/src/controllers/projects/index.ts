@@ -1,3 +1,8 @@
-import getTasksSection from './tasks';
+import addProject from './addProjectController';
+import getProjects from './getProjectsController';
+import deleteProject from './deleteProjectController';
+import editProject from './editProjectController';
 
-export default getTasksSection;
+export {
+  addProject, getProjects, deleteProject, editProject,
+};

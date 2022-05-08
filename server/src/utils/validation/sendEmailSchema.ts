@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
-const sendEmail = Joi.object({
+const sendEmailSchema = Joi.object({
   email: Joi.string().email().required(),
 });
 
-export default sendEmail;
+export default sendEmailSchema;
