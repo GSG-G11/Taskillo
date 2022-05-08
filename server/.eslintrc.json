@@ -22,7 +22,8 @@
         "import/extensions": "off",
         "no-unused-vars": "warn",
         "import/prefer-default-export": "off",
-        "arrow-body-style": [2, "always"],
-        "import/default": "off"
+        "import/default": "off",
+        "arrow-body-style": ["error", "as-needed"]
+
     }
 }
