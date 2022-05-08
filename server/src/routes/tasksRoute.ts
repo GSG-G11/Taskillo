@@ -9,7 +9,7 @@ import {
 } from '../controllers';
 
 const tasksRoute = express.Router();
-tasksRoute.use(checkAuth);
+tasksRoute.use(asyncMiddleware(checkAuth));
 tasksRoute.post('/addTask', asyncMiddleware(addTask));
 tasksRoute.get('/tasks', asyncMiddleware(getTasks));
 tasksRoute.get('/tasks/:id', asyncMiddleware(getTasksSection));
