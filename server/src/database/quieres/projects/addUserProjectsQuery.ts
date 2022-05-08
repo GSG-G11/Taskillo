@@ -1,15 +1,17 @@
 import connection from '../../config/connection';
 
-const addUserProjectsQuery = (
-  userId: number,
-  projectId: number,
-  role: string,
-) => {
+interface UserProject {
+  userId: number;
+  projectId: number;
+  role: string;
+}
+
+const addUserProjectsQuery = (userProject: UserProject) => {
   const sql = {
     text: `
         INSERT INTO user_projects (userId, projectId, role) VALUES ($1, $2, $3);
         `,
-    values: [userId, projectId, role],
+    values: [userProject.userId, userProject.projectId, userProject.role],
   };
 
   return connection.query(sql);
