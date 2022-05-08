@@ -1,14 +1,14 @@
 import express from 'express';
+import tasksRoute from './tasksRoute';
 import { sendEmailController } from '../controllers';
 import projectsRoute from './projectsRoute';
-import taskRoute from './taskRoute';
+
 import userRoute from './userRoute';
 
 const router = express.Router();
-
+router.use('/api/v1', tasksRoute);
 router.use('/user', userRoute);
-router.use(projectsRoute);
-router.use(taskRoute);
+router.use('/api/v1', projectsRoute);
 
 router.post('/sendEmail', sendEmailController);
 
