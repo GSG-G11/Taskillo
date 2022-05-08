@@ -1,5 +1,5 @@
 import express from 'express';
-import { checkAuth } from '../middlewares';
+import { asyncMiddleware, checkAuth } from '../middlewares';
 import {
   addTask,
   getTasks,
@@ -10,9 +10,9 @@ import {
 
 const tasksRoute = express.Router();
 tasksRoute.use(checkAuth);
-tasksRoute.post('/addTask', addTask);
-tasksRoute.get('/tasks', getTasks);
-tasksRoute.get('/tasks/:id', getTasksSection);
-tasksRoute.put('/task/:id', editTask);
-tasksRoute.delete('/deleteTask/:id', deleteTask);
+tasksRoute.post('/addTask', asyncMiddleware(addTask));
+tasksRoute.get('/tasks', asyncMiddleware(getTasks));
+tasksRoute.get('/tasks/:id', asyncMiddleware(getTasksSection));
+tasksRoute.put('/task/:id', asyncMiddleware(editTask));
+tasksRoute.delete('/deleteTask/:id', asyncMiddleware(deleteTask));
 export default tasksRoute;
