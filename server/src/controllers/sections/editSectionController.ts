@@ -1,21 +1,22 @@
 import { NextFunction, Request, Response } from 'express';
-import { addSectionQuery } from '../../database';
+import { editSectionQuery } from '../../database';
 import { addSectionSchema } from '../../utils';
 import { customError } from '../errors';
 
-const addSectionController = async (req: Request, res: Response, next: NextFunction) => {
+const editSectionController = async (req: Request, res: Response, next: NextFunction) => {
   const { name, projectId } = req.body;
+  const { id } = req.params;
   try {
     // validate user input
     await addSectionSchema.validateAsync(req.body);
 
-    // add section to database
-    const { rows } = await addSectionQuery({ name, projectId });
+    // update section in database
+    const { rows } = await editSectionQuery({ id, name, projectId });
 
     // send response
-    res.status(201).json({
+    res.status(200).json({
       data: rows[0],
-      message: 'Section added successfully!',
+      message: 'Section Updated successfully',
     });
   } catch (error) {
     // send error response
@@ -27,4 +28,4 @@ const addSectionController = async (req: Request, res: Response, next: NextFunct
   }
 };
 
-export default addSectionController;
+export default editSectionController;

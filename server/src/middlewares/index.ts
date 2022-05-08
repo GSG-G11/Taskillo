@@ -1,3 +1,4 @@
 import checkAuth from './checkAuth';
+import asyncMiddleware from './asyncMiddleware';
 
-export { checkAuth };
+export { checkAuth, asyncMiddleware };

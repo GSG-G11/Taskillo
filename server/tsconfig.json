@@ -3,25 +3,31 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "outDir": "dist",
-    "lib": ["es2021", "dom"],
+    "lib": [
+      "es2021",
+      "dom"
+    ],
     "types": [
       "node"
-      ],
+    ],
   },
-
-  "include": ["src/**/*.ts"],
-
+  "include": [
+    "src/**/*.ts"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   },
-
   "ts-node": {
     "transpileOnly": true,
-
     "files": true
   }
 }
