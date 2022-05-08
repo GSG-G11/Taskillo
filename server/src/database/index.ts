@@ -13,6 +13,7 @@ import {
   getMembersQuery,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
   editSectionQuery,
   getProjectSectionsQuery,
   editTaskQuery,
@@ -38,6 +39,7 @@ export {
   buildDb,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
   editSectionQuery,
   getProjectSectionsQuery,
 };
