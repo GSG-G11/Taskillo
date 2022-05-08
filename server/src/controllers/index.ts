@@ -14,7 +14,7 @@ import {
 import {
   addSection,
   deleteSection,
-  editSectionController,
+  editSection,
   getProjectSectionsController,
 } from './sections';
 
@@ -28,7 +28,7 @@ export {
   addTask,
   addSection,
   deleteSection,
-  editSectionController,
+  editSection,
   getProjectSectionsController,
   sendEmailController,
   getTasksSection,

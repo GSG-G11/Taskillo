@@ -1,7 +1,7 @@
 import {
   addSection,
   deleteSection,
-  editSectionController,
+  editSection,
   getProjectSectionsController,
 } from '../controllers';
 
@@ -12,7 +12,7 @@ const sectionsRoute = require('express').Router();
 sectionsRoute.use(checkAuth);
 sectionsRoute.post('/section', asyncMiddleware(addSection));
 sectionsRoute.delete('/section/:id', asyncMiddleware(deleteSection));
-sectionsRoute.put('/section/:id', editSectionController);
+sectionsRoute.put('/section/:id', asyncMiddleware(editSection));
 sectionsRoute.get('/project/:id/sections', getProjectSectionsController);
 
 export default sectionsRoute;
