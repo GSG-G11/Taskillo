@@ -1,6 +1,6 @@
 import { connection } from '../../config';
 
-const editSectionQuery = (id: number, name: string, projectId: number) => {
+const editSectionQuery = ({ id, name, projectId }) => {
   const sql = {
     text: `UPDATE sections SET name = $2, projectId = $3 WHERE id = $1 RETURNING *`,
     values: [id, name, projectId],

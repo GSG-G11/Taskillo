@@ -11,7 +11,7 @@ const editSectionController = async (req: Request, res: Response, next: NextFunc
     await addSectionSchema.validateAsync(req.body);
 
     // update section in database
-    const { rows } = await editSectionQuery(+id, name, +projectId);
+    const { rows } = await editSectionQuery({ id, name, projectId });
 
     // send response
     res.status(200).json({

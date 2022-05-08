@@ -10,7 +10,7 @@ const addSectionController = async (req: Request, res: Response, next: NextFunct
     await addSectionSchema.validateAsync(req.body);
 
     // add section to database
-    const { rows } = await addSectionQuery(name, projectId);
+    const { rows } = await addSectionQuery({ name, projectId });
 
     // send response
     res.status(201).json({
