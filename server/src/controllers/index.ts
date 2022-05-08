@@ -8,6 +8,12 @@ import {
   editProject,
 } from './projects';
 
+import {
+  addSectionController,
+  deleteSectionController,
+  editSectionController,
+} from './sections';
+
 export {
   addProject,
   getProjects,
@@ -15,6 +21,9 @@ export {
   login,
   signup,
   editProject,
+  addSectionController,
+  deleteSectionController,
+  editSectionController,
   deleteTask,
   editTask,
   sendEmailController,

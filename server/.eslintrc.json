@@ -21,9 +21,8 @@
     "rules": {
         "import/extensions": "off",
         "no-unused-vars": "warn",
-        "import/prefer-default-export": "off",
-        "import/default": "off",
-        "arrow-body-style": ["error", "as-needed"]
-
+        "arrow-body-style": [2, "always"],
+        "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+        "import/default": "off"
     }
 }

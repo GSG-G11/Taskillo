@@ -69,5 +69,4 @@ CREATE TABLE activity (
   FOREIGN KEY (taskId) REFERENCES tasks(id) ON DELETE CASCADE
 );
 
-
 COMMIT;
