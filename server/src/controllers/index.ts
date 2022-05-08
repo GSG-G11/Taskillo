@@ -15,7 +15,7 @@ import {
   addSection,
   deleteSection,
   editSection,
-  getProjectSectionsController,
+  getProjectSections,
 } from './sections';
 
 export {
@@ -29,7 +29,7 @@ export {
   addSection,
   deleteSection,
   editSection,
-  getProjectSectionsController,
+  getProjectSections,
   sendEmailController,
   getTasksSection,
   getTasks,

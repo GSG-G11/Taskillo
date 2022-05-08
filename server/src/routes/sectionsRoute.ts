@@ -2,7 +2,7 @@ import {
   addSection,
   deleteSection,
   editSection,
-  getProjectSectionsController,
+  getProjectSections,
 } from '../controllers';
 
 import { asyncMiddleware, checkAuth } from '../middlewares';
@@ -13,6 +13,6 @@ sectionsRoute.use(checkAuth);
 sectionsRoute.post('/section', asyncMiddleware(addSection));
 sectionsRoute.delete('/section/:id', asyncMiddleware(deleteSection));
 sectionsRoute.put('/section/:id', asyncMiddleware(editSection));
-sectionsRoute.get('/project/:id/sections', getProjectSectionsController);
+sectionsRoute.get('/project/:id/sections', asyncMiddleware(getProjectSections));
 
 export default sectionsRoute;
