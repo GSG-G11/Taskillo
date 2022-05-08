@@ -1,4 +1,4 @@
-import { deleteTask, editTask, getTasks } from './tasks';
+import { getTasks, getTasksSection, editTask, deleteTask } from './tasks';
 import { login, signup, sendEmailController } from './user';
 
 import {
@@ -27,5 +27,6 @@ export {
   deleteTask,
   editTask,
   sendEmailController,
+  getTasksSection,
   getTasks,
 };

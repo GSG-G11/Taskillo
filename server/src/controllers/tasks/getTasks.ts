@@ -1,4 +1,4 @@
-import getTasksQuery from '../../database/ quieres';
+import { getTasksQuery } from '../../database';
 
 const getTasks = async (req: any, res: any) => {
   const { id } = req.userInformation;

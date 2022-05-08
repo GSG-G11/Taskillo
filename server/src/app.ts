@@ -23,7 +23,7 @@ app.use([
   cookieParser(),
 ]);
 
-app.use(router);
+app.use('/api/v1', router);
 
 if (NODE_ENV === 'development') {
   app.get('/', (req: Request, res: Response) => {
