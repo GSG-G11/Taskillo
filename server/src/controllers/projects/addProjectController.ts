@@ -1,11 +1,12 @@
 import { Response, Request, NextFunction } from 'express';
 import { addProjectQuery, addUserProjectsQuery } from '../../database';
 import { addProjectSchema } from '../../utils';
-import customError from '../errors';
 
 const addProject = async (req: Request, res: Response, next: NextFunction) => {
-  const { id } = req.userInformation;
+  const { id } = req.userInforamtion;
+
   const { name, description } = req.body;
+
   try {
     // validate user input
     await addProjectSchema.validateAsync(req.body);
@@ -23,9 +24,7 @@ const addProject = async (req: Request, res: Response, next: NextFunction) => {
     });
   } catch (error) {
     if (error.name === 'ValidationError') {
-      const errorList = [];
-      error.details.forEach((err: Error) => errorList.push(err.message));
-      next(customError(errorList, 400));
+      next(error.details[0]);
     } else {
       next(error);
     }

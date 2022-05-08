@@ -3,6 +3,7 @@ import {
   signUpSchema,
   sendEmailSchema,
   addProjectSchema,
+  addSectionSchema,
 } from './validation';
 import { signToken, verifyToken } from './jwt';
 import uploadToCloudinary from './cloudinary';
@@ -18,4 +19,5 @@ export {
   sendEmailSchema,
   addProjectSchema,
   uploadToCloudinary,
+  addSectionSchema,
 };

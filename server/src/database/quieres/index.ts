@@ -4,20 +4,45 @@ import {
   getProjectsQuery,
   deleteProjectQuery,
   editProjectQuery,
+  getSpecificProjectQuery,
+  getMembersQuery,
 } from './projects';
 
 import { checkEmailQuery, signUpQuery } from './userQueries';
+import {
+  addTaskQuery,
+  getTasksQuery,
+  getTasksSectionQuery,
+  editTaskQuery,
+  deleteTaskQuery,
+} from './tasks';
 
-import { deleteTaskQuery, addTaskQuery } from './tasks';
+import {
+  addSectionQuery,
+  deleteSectionQuery,
+  editSectionQuery,
+  getProjectSectionsQuery,
+  getOneSectionQuery,
+} from './sections';
 
 export {
-  checkEmailQuery,
   signUpQuery,
-  addUserProjectsQuery,
+  checkEmailQuery,
   addProjectQuery,
   getProjectsQuery,
-  deleteProjectQuery,
+  getSpecificProjectQuery,
   editProjectQuery,
-  deleteTaskQuery,
+  deleteProjectQuery,
   addTaskQuery,
+  getTasksQuery,
+  getTasksSectionQuery,
+  editTaskQuery,
+  deleteTaskQuery,
+  addUserProjectsQuery,
+  getMembersQuery,
+  addSectionQuery,
+  getOneSectionQuery,
+  getProjectSectionsQuery,
+  editSectionQuery,
+  deleteSectionQuery,
 };

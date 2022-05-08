@@ -1,4 +1,9 @@
-import deleteTaskQuery from './deleteTaskQuery';
 import addTaskQuery from './addTaskQuery';
+import getTasksQuery from './getTasksQuery';
+import getTasksSectionQuery from './getTasksSectionQuery';
+import editTaskQuery from './editTaskQuery';
+import deleteTaskQuery from './deleteTaskQuery';
 
-export { deleteTaskQuery, addTaskQuery };
+export {
+  addTaskQuery, getTasksQuery, getTasksSectionQuery, editTaskQuery, deleteTaskQuery,
+};
