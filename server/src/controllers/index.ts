@@ -1,7 +1,7 @@
 import {
   addTask, getTasks, getTasksSection, editTask, deleteTask,
 } from './tasks';
-import { login, signup, sendEmail } from './user';
+import { login, signup, sendEmail } from './users';
 
 import {
   addProject,
