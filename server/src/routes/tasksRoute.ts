@@ -1,8 +1,9 @@
 import express from 'express';
-import getTasks from '../controllers/projects';
-import checkAuth from '../middlewares/checkAuth';
+import { getTasks, deleteTaskController } from '../controllers';
+import { checkAuth } from '../middlewares';
 
 const tasksRoute = express.Router();
 tasksRoute.get('/tasks', checkAuth, getTasks);
+tasksRoute.delete('/deleteTask/:id', checkAuth, deleteTaskController);
 
 export default tasksRoute;
