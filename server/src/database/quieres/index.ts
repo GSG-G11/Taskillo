@@ -4,12 +4,18 @@ import {
   getProjectsQuery,
   deleteProjectQuery,
   editProjectQuery,
+  getSpecificProjectQuery,
+  getMembersQuery,
 } from './projects';
 
 import { checkEmailQuery, signUpQuery } from './userQueries';
 
-import deleteTaskQuery from './tasks';
-
+import {
+  getTasksQuery,
+  getTasksSectionQuery,
+  editTaskQuery,
+  deleteTaskQuery,
+} from './tasks';
 import {
   addSectionQuery,
   deleteSectionQuery,
@@ -20,14 +26,19 @@ import {
 export {
   checkEmailQuery,
   signUpQuery,
-  addUserProjectsQuery,
   addProjectQuery,
   getProjectsQuery,
   deleteProjectQuery,
   editProjectQuery,
+  getTasksQuery,
+  getTasksSectionQuery,
   deleteTaskQuery,
+  addUserProjectsQuery,
+  getMembersQuery,
+  getSpecificProjectQuery,
   addSectionQuery,
   deleteSectionQuery,
   editSectionQuery,
   getProjectSectionsQuery,
+  editTaskQuery,
 };
