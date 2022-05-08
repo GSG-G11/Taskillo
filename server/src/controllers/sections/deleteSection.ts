@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { deleteSectionQuery, getOneSectionQuery } from '../../database';
 
-const deleteSection = async (req: Request, res: Response, next: NextFunction) => {
+const deleteSection = async (req: Request, res: Response) => {
   const id = +req.params.id;
   const { rowCount } = await getOneSectionQuery(id);
   if (rowCount > 0) {
