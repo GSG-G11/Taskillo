@@ -5,9 +5,11 @@ import {
   editProject,
   getSpecificProject,
 } from '../controllers';
+import { checkAuth } from '../middlewares';
 
 const projectsRoute = require('express').Router();
 
+projectsRoute.use(checkAuth);
 projectsRoute.post('/project', addProject);
 projectsRoute.get('/projects', getProjects);
 projectsRoute.delete('/project/:id', deleteProject);
