@@ -16,10 +16,12 @@ import {
   editTaskQuery,
   deleteTaskQuery,
 } from './tasks';
+
 import {
   addSectionQuery,
   deleteSectionQuery,
   editSectionQuery,
+  getOneSectionQuery,
 } from './sections';
 
 export {
@@ -37,6 +39,7 @@ export {
   getSpecificProjectQuery,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
   editSectionQuery,
   editTaskQuery,
 };

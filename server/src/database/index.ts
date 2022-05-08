@@ -13,6 +13,7 @@ import {
   getMembersQuery,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
   editSectionQuery,
   editTaskQuery,
 } from './quieres';
@@ -37,5 +38,6 @@ export {
   buildDb,
   addSectionQuery,
   deleteSectionQuery,
+  getOneSectionQuery,
   editSectionQuery,
 };
