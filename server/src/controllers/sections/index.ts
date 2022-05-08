@@ -1,11 +1,11 @@
-import addSectionController from './addSectionController';
-import deleteSectionController from './deleteSectionController';
+import addSection from './addSection';
+import deleteSection from './deleteSection';
 import editSectionController from './editSectionController';
 import getProjectSectionsController from './getProjectSectionsController';
 
 export {
-  addSectionController,
-  deleteSectionController,
+  addSection,
+  deleteSection,
   editSectionController,
   getProjectSectionsController,
 };
