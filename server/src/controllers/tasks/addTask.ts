@@ -17,7 +17,7 @@ const addTask = async (req: Request, res: Response, next: NextFunction) => {
       status,
       sectionid,
     });
-    res.status(201).json({ data: rows[0], msg: ' Task added successfully!' });
+    res.status(201).json({ data: rows[0], message: ' Task added successfully!' });
   } catch (error) {
     if (error.name === 'ValidationError') {
       next(customError(error.details[0].message, 400));
