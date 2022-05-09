@@ -12,10 +12,10 @@ const projectsRoute = require('express').Router();
 projectsRoute.use(asyncMiddleware(checkAuth));
 projectsRoute.post('/project', asyncMiddleware(addProject));
 
-projectsRoute.use(checkMember);
-projectsRoute.get('/projects', asyncMiddleware(getProjects));
-projectsRoute.delete('/project/:id', asyncMiddleware(deleteProject));
-projectsRoute.put('/project/:id', asyncMiddleware(editProject));
-projectsRoute.get('/project/:id', asyncMiddleware(getSpecificProject));
+projectsRoute.param('projectid', checkMember);
+projectsRoute.get('/projects/:projectid', asyncMiddleware(getProjects));
+projectsRoute.delete('/project/:projectid', asyncMiddleware(deleteProject));
+projectsRoute.put('/project/:projectid', asyncMiddleware(editProject));
+projectsRoute.get('/project/:projectid', asyncMiddleware(getSpecificProject));
 
 export default projectsRoute;

@@ -1,8 +1,7 @@
-import { NextFunction, Response } from 'express';
+import { NextFunction } from 'express';
 import { getCheckMembersQuery } from '../database';
 
-const checkMember = async (req: any, res: Response, next: NextFunction) => {
-  const { id: projectid } = req.params;
+const checkMember = async (req: any, res: any, next: NextFunction, projectid: any) => {
   const { id: userid } = req.userInformation;
   const { rowCount } = await getCheckMembersQuery({ projectid, userid });
   if (rowCount) next();
