@@ -6,6 +6,7 @@ import {
   editProjectQuery,
   getSpecificProjectQuery,
   getMembersQuery,
+  getCheckMembersQuery,
 } from './projects';
 
 import { checkEmailQuery, signUpQuery } from './userQueries';
@@ -47,4 +48,5 @@ export {
   editSectionQuery,
   deleteSectionQuery,
   addUserTaskQuery,
+  getCheckMembersQuery,
 };

@@ -1,5 +1,5 @@
 import express from 'express';
-import { asyncMiddleware, checkAuth } from '../middlewares';
+import { asyncMiddleware, checkAuth, checkMember } from '../middlewares';
 import {
   addTask,
   getTasks,
@@ -10,6 +10,7 @@ import {
 
 const tasksRoute = express.Router();
 tasksRoute.use(asyncMiddleware(checkAuth));
+tasksRoute.use(checkMember);
 tasksRoute.post('/task', asyncMiddleware(addTask));
 tasksRoute.get('/tasks', asyncMiddleware(getTasks));
 tasksRoute.get('/section/:id/tasks', asyncMiddleware(getTasksSection));
