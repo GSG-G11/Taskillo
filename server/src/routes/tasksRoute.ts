@@ -10,9 +10,9 @@ import {
 
 const tasksRoute = express.Router();
 tasksRoute.use(asyncMiddleware(checkAuth));
-tasksRoute.post('/addTask', asyncMiddleware(addTask));
+tasksRoute.post('/task', asyncMiddleware(addTask));
 tasksRoute.get('/tasks', asyncMiddleware(getTasks));
-tasksRoute.get('/tasks/:id', asyncMiddleware(getTasksSection));
+tasksRoute.get('/section/:id/tasks', asyncMiddleware(getTasksSection));
 tasksRoute.put('/task/:id', asyncMiddleware(editTask));
-tasksRoute.delete('/deleteTask/:id', asyncMiddleware(deleteTask));
+tasksRoute.delete('/task/:id', asyncMiddleware(deleteTask));
 export default tasksRoute;

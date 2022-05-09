@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import { signToken, signUpSchema, verifyCode } from '../../utils';
 import { signUpQuery } from '../../database';
@@ -17,7 +17,7 @@ const signup = async (req: Request, res: Response) => {
       email,
     });
     const { id } = rows[0];
-    const token = signToken({ id, username });
+    const token = await signToken({ id, username });
     res
       .cookie('token', token)
       .status(200)
