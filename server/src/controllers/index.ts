@@ -12,10 +12,10 @@ import {
 } from './projects';
 
 import {
-  addSectionController,
-  deleteSectionController,
-  editSectionController,
-  getProjectSectionsController,
+  addSection,
+  deleteSection,
+  editSection,
+  getProjectSections,
 } from './sections';
 
 export {
@@ -26,10 +26,10 @@ export {
   login,
   signup,
   addTask,
-  addSectionController,
-  deleteSectionController,
-  editSectionController,
-  getProjectSectionsController,
+  addSection,
+  deleteSection,
+  editSection,
+  getProjectSections,
   sendEmailController,
   getTasksSection,
   getTasks,
