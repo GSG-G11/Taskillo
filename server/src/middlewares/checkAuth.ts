@@ -1,4 +1,4 @@
-import { Response, NextFunction } from 'express';
+import { NextFunction, Response } from 'express';
 import { verifyToken } from '../utils';
 
 const checkAuth = async (req: any, res: Response, next: NextFunction) => {
