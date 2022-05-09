@@ -1,9 +1,8 @@
-import { Request, Response } from 'express';
-import { addTaskQuery } from '../../database';
+import { addTaskQuery, addUserTaskQuery } from '../../database';
 import { addTaskSchema } from '../../utils/validation';
-import { customError } from '../errors';
 
-const addTask = async (req: Request, res: Response) => {
+const addTask = async (req: any, res: any) => {
+  const { id } = req.userInformation;
   const { name, description, priority, endDate, status, sectionid } = req.body;
   await addTaskSchema.validateAsync({ name, description, endDate });
   const { rows } = await addTaskQuery({
@@ -14,6 +13,9 @@ const addTask = async (req: Request, res: Response) => {
     status,
     sectionid,
   });
+  const taskId = rows[0].id;
+  const userId = id;
+  await addUserTaskQuery({ userId, taskId });
   res.status(201).json({ data: rows[0], message: ' Task added successfully!' });
 };
 export default addTask;
