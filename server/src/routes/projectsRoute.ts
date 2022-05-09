@@ -5,15 +5,15 @@ import {
   editProject,
   getSpecificProject,
 } from '../controllers';
-import { checkAuth } from '../middlewares';
+import { asyncMiddleware, checkAuth } from '../middlewares';
 
 const projectsRoute = require('express').Router();
 
-projectsRoute.use(checkAuth);
-projectsRoute.post('/project', addProject);
-projectsRoute.get('/projects', getProjects);
-projectsRoute.delete('/project/:id', deleteProject);
-projectsRoute.put('/project/:id', editProject);
-projectsRoute.get('/project/:id', getSpecificProject);
+projectsRoute.use(asyncMiddleware(checkAuth));
+projectsRoute.post('/project', asyncMiddleware(addProject));
+projectsRoute.get('/projects', asyncMiddleware(getProjects));
+projectsRoute.delete('/project/:id', asyncMiddleware(deleteProject));
+projectsRoute.put('/project/:id', asyncMiddleware(editProject));
+projectsRoute.get('/project/:id', asyncMiddleware(getSpecificProject));
 
 export default projectsRoute;
