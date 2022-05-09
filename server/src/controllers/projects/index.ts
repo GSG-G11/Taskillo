@@ -1,8 +1,8 @@
-import addProject from './addProjectController';
-import getProjects from './getProjectsController';
-import deleteProject from './deleteProjectController';
-import editProject from './editProjectController';
-import getSpecificProject from './getSpecificProjectController';
+import addProject from './addProject';
+import getProjects from './getProjects';
+import deleteProject from './deleteProject';
+import editProject from './editProject';
+import getSpecificProject from './getSpecificProject';
 
 export {
   addProject,
