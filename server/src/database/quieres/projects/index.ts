@@ -5,6 +5,7 @@ import deleteProjectQuery from './deleteProjectQuery';
 import editProjectQuery from './editProjectQuery';
 import getSpecificProjectQuery from './getSpecificProjectQuery';
 import getMembersQuery from './getMembersQuery';
+import getCheckMembersQuery from './getCheckMembersQuery';
 
 export {
   addProjectQuery,
@@ -14,4 +15,5 @@ export {
   editProjectQuery,
   getSpecificProjectQuery,
   getMembersQuery,
+  getCheckMembersQuery,
 };
