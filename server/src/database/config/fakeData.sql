@@ -141,11 +141,11 @@ VALUES
 --     );
 
 -- -- sections
--- INSERT INTO
---     sections (name, projectId)
--- values
---     ('todo', '1'),
---     ('done', '2');
+INSERT INTO
+    sections (name, projectId)
+values
+    ('todo', '1'),
+    ('done', '2');
 
 -- -- user_tasks
 -- INSERT INTO

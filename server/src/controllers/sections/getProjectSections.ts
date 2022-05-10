@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 import { getProjectSectionsQuery } from '../../database';
 
 const getProjectSections = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { rows } = await getProjectSectionsQuery(+id);
+  const { projectid } = req.params;
+  const { rows } = await getProjectSectionsQuery(+projectid);
   if (rows.length > 0) {
     res.status(200).json({
       message: 'Project sections retrieved successfully',
