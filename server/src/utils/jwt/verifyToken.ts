@@ -5,8 +5,10 @@ dotenv.config();
 
 const verifyToken = (token: string) => {
   return new Promise((resolve, reject) => {
-    verify(token, process.env.SECRET_KEY, (err: Error, decodeToken: any) => {
-      if (err) return reject(err);
+    verify(token, process.env.SECRET_KEY, (error: any, decodeToken: any) => {
+      if (error) {
+        return reject(error);
+      }
       return resolve(decodeToken);
     });
   });
