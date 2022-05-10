@@ -14,8 +14,7 @@ const verifyCode = (email: string, code: number) => {
       .services(process.env.TWILIO_VERIFY_SERVICE_SID)
       .verificationChecks.create({ to: `${email}`, code }, (error: Error, verification: any) => {
         if (error) {
-          console.log(error);
-          return reject(error);
+          return reject(Error('Twilio Erorr'));
         }
         return resolve(verification.status);
       });
