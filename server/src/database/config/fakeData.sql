@@ -99,7 +99,7 @@ VALUES
 
 -- user_projects
 INSERT INTO
-    user_projects (userId, projectId, role)
+    user_projects (userid, projectid, role)
 VALUES
     (1, 1, 'editor'),
     (2, 2, 'viewer'),
@@ -112,43 +112,43 @@ VALUES
     (1, 9, 'editor'),
     (2, 10, 'editor');
 
--- tasks
-INSERT INTO
-    tasks (
-        name,
-        description,
-        priority,
-        endDate,
-        status,
-        sectionId
-    )
-values
-    (
-        'todo',
-        'todo  todo',
-        'high',
-        '2030-06-25',
-        'todo',
-        '3'
-    ),
-    (
-        'to do routes',
-        'create tasks router',
-        ' low',
-        '2022-05-23',
-        'done',
-        '5'
-    );
+-- -- tasks
+-- INSERT INTO
+--     tasks (
+--         name,
+--         description,
+--         priority,
+--         endDate,
+--         status,
+--         sectionid
+--     )
+-- values
+--     (
+--         'todo',
+--         'todo  todo',
+--         'high',
+--         '2030-06-25',
+--         'todo',
+--         '3'
+--     ),
+--     (
+--         'to do routes',
+--         'create tasks router',
+--         ' low',
+--         '2022-05-23',
+--         'done',
+--         '5'
+--     );
 
--- sections
-INSERT INTO
-    sections (name, projectId)
-values
-    ('todo', '1'),
-    ('done', '2');
+-- -- sections
+-- INSERT INTO
+--     sections (name, projectid)
+-- values
+--     ('todo', '1'),
+--     ('done', '2');
 
--- user_tasks
-INSERT INTO
-    user_tasks (userId, taskId)
-values
-    ('1', '5');
+-- -- user_tasks
+-- INSERT INTO
+--     user_tasks (userid, taskid)
+-- values
+--     ('1', '5');
