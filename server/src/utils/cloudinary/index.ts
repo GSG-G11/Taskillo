@@ -11,14 +11,16 @@ cloudinary.v2.config({
   api_secret: CLOUDINARY_API_SECRET,
 });
 
-const uploadToCloudinary = (image:string) => new Promise((resolve, reject) => {
-  cloudinary.v2.uploader.upload(image, (err: any, result: any) => {
-    if (err) {
-      reject(err);
-    } else {
-      resolve(result.secure_url);
-    }
+const uploadToCloudinary = (image:string) => {
+  return new Promise((resolve, reject) => {
+    cloudinary.v2.uploader.upload(image, (err: any, result: any) => {
+      if (err) {
+        reject(Error('Cloudinary Error'));
+      } else {
+        resolve(result.secure_url);
+      }
+    });
   });
-});
+};
 
 export default uploadToCloudinary;
