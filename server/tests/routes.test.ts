@@ -27,8 +27,9 @@ describe('Check route "GET api/v1/projects" ', () => {
       .get('/api/v1/projects')
       .set('cookie', `token=${process.env.TOKEN}`)
       .expect(200)
-      .end((err) => {
+      .end((err, res) => {
         if (err) return done(err);
+        expect(res.body.message).toBe('Success');
         return done();
       });
   });
