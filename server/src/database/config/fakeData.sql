@@ -1,3 +1,4 @@
+
 -- users
 INSERT INTO
     users (
@@ -110,6 +111,8 @@ VALUES
     (3, 7, 'viewer'),
     (4, 8, 'viewer'),
     (1, 9, 'editor'),
+    (2, 10, 'editor'),
+    (3, 2, 'editor'),
     (2, 10, 'editor');
 
 -- -- tasks
@@ -147,9 +150,39 @@ values
     ('todo', '1'),
     ('done', '2');
 
+-- tasks
+INSERT INTO
+    tasks (
+        name,
+        description,
+        priority,
+        endDate,
+        status,
+        sectionId
+    )
+values
+    (
+        'todo',
+        'todo  todo',
+        'high',
+        '2030-06-25',
+        'todo',
+        '1'
+    ),
+    (
+        'to do routes',
+        'create tasks router',
+        ' low',
+        '2022-05-23',
+        'done',
+        '2'
+    );
+
+
 -- user_tasks
 INSERT INTO
     user_tasks (userId, taskId)
 values
     ('1', '5');
+    ('3', '2');
     (2, 10, 'editor');
