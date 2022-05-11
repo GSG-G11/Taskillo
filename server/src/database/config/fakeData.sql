@@ -152,3 +152,4 @@ values
 --     user_tasks (userId, taskId)
 -- values
 --     ('1', '5');
+    (2, 10, 'editor');
