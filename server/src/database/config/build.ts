@@ -8,7 +8,7 @@ const buildDb = async () => {
   try {
     await connection.query(buildFile + fakeDataFile);
   } catch (err) {
-    console.log(err);
+    console.log('DB Error: ', err);
   }
 };
 
