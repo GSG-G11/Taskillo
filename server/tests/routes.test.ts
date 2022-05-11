@@ -1,14 +1,14 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-undef */
 import supertest from 'supertest';
 import dotenv from 'dotenv';
-import { afterAll, beforeAll, describe, test } from '@jest/globals';
+import {
+  afterAll, beforeEach, describe, test,
+} from '@jest/globals';
 import app from '../src/app';
 import { connection, buildDb } from '../src/database';
 
 dotenv.config();
 
-beforeAll(() => {
+beforeEach(() => {
   return buildDb();
 });
 
