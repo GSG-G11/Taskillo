@@ -35,7 +35,7 @@ describe('Check route "GET api/v1/projects" ', () => {
   });
 });
 
-describe('Check route "GET api/v1/projects" ', () => {
+describe('Check route "GET api/v1/project/:projectid/sections" ', () => {
   test('Should return 401 when user Unauthorized', (done) => {
     supertest(app)
       .get('/api/v1/project/1/sections')
@@ -47,21 +47,22 @@ describe('Check route "GET api/v1/projects" ', () => {
   });
   test('Should return 200 when the user Authorized', (done) => {
     supertest(app)
-      .get('/api/v1/project/1/sections')
+      .get('/api/v1/project/2/sections')
       .set('cookie', `token=${process.env.TOKEN}`)
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.body.message).toBe('Project sections retrieved successfully');
+        expect(res.body.message).toBe(
+          'Project sections retrieved successfully',
+        );
         return done();
       });
   });
 });
-
 describe('Check route "GET api/v1/project/:projectid/tasks" ', () => {
   test('Should return 401 when user Unauthorized', (done) => {
     supertest(app)
-      .get('/api/v1/project/31/tasks')
+      .get('/api/v1/project/2/tasks')
       .expect(401)
       .end((err) => {
         if (err) return done(err);
@@ -70,7 +71,7 @@ describe('Check route "GET api/v1/project/:projectid/tasks" ', () => {
   });
   test('Should return 200 when the user Authorized', (done) => {
     supertest(app)
-      .get('/api/v1/project/31/tasks')
+      .get('/api/v1/project/2/tasks')
       .set('cookie', `token=${process.env.TOKEN}`)
       .expect(200)
       .end((err, res) => {
@@ -80,6 +81,7 @@ describe('Check route "GET api/v1/project/:projectid/tasks" ', () => {
       });
   });
 });
+
 describe('Check route api/v1/project/:projectid/section/:id/tasks => get tasks to specific section', () => {
   test('Should return 200 when the user Authorized', (done) => {
     supertest(app)
