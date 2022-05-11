@@ -9,7 +9,7 @@ import {
   getCheckMembersQuery,
 } from './projects';
 
-import { checkEmailQuery, signUpQuery } from './userQueries';
+import { checkEmailQuery, signUpQuery } from './users';
 import {
   addTaskQuery,
   getTasksQuery,
