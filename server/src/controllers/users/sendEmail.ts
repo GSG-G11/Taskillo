@@ -3,8 +3,7 @@ import { sendCode, sendEmailSchema } from '../../utils';
 
 const sendEmail = async (req: Request, res: Response) => {
   const { email } = req.body;
-  const result = await sendEmailSchema.validateAsync({ email });
-  console.log(result);
+  await sendEmailSchema.validateAsync({ email });
   await sendCode(email);
   res.status(200).json({
     message: 'Email sent successfully',

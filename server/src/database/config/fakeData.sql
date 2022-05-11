@@ -111,6 +111,7 @@ VALUES
     (3, 7, 'viewer'),
     (4, 8, 'viewer'),
     (1, 9, 'editor'),
+<<<<<<< HEAD
     (2, 10, 'editor'),
     (3, 2, 'editor');
 
@@ -155,3 +156,6 @@ INSERT INTO
     user_tasks (userId, taskId)
 values
     ('3', '2');
+=======
+    (2, 10, 'editor');
+>>>>>>> main
