@@ -1,0 +1,1 @@
+// Index for pages folder
