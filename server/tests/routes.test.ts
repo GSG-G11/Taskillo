@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 import dotenv from 'dotenv';
 import {
-  afterAll, beforeEach, describe, test,
+  afterAll, beforeEach, describe, test, expect,
 } from '@jest/globals';
 import app from '../src/app';
 import { connection, buildDb } from '../src/database';
