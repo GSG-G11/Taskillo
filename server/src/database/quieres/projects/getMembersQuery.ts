@@ -1,6 +1,6 @@
 import connection from '../../config/connection';
 
-const getMembersQuery = (projectId: any) => {
+const getMembersQuery = (projectId: number) => {
   const sql = {
     text: `
     SELECT u.username, up.role
