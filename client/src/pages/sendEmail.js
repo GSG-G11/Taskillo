@@ -22,8 +22,7 @@ const SendEmail = () => {
       <Form
         initialValues={{ email: '' }}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
+        onSubmit={handleSubmit}>
         <FormField name="email" type="email" placeholder="Enter your Email" />
         <SubmitButton title="Send Email" />
       </Form>
