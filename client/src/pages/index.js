@@ -1,1 +1,3 @@
-// Index for pages folder
+import SendEmail from './sendEmail';
+
+export default SendEmail;

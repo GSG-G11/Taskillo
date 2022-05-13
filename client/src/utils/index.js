@@ -1,3 +1,3 @@
-import validationSchema from './validationSchema';
+import validationSchema from './sendEmailValidation';
 
 export default validationSchema;

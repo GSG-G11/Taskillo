@@ -1,31 +1,21 @@
-import React from 'react';
-import { Field } from 'formik';
+import { Field, ErrorMessage } from 'formik';
+import { TextError } from './TextError';
 
-const FormField = ({
-  type,
-  name,
-  placeholder,
-  onChange,
-  value,
-  onBlur,
-  errors,
-  visited,
-  classname,
-}) => {
+const FormField = ({ placeholder, name, ...rest }) => {
   return (
     <div className="form-group">
       <Field
+        id={name}
         name={name}
-        className={classname}
-        type={type}
+        {...rest}
         placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
-        value={value}
+        className="form-control is-invalid"
       />
-      {errors[name] && visited[name] && (
-        <div className="invalid-feedback">{errors[name]}</div>
-      )}
+      <ErrorMessage
+        name={name}
+        component={TextError}
+        className="error-message"
+      />
     </div>
   );
 };
