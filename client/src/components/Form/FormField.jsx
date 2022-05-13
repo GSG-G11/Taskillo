@@ -1,4 +1,5 @@
 import { Field, ErrorMessage } from 'formik';
+import { TextError } from './TextError';
 const FormField = ({placeholder, name, ...rest}) =>{
   return (
     <div className='form-group'>
