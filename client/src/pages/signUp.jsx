@@ -1,19 +1,21 @@
 import React from 'react'
+import axios from 'axios'
 import Form from '../components/Form/Form'
 import { validationSignUpSchema } from '../utils'
 import { FormField, SubmitButton } from '../components';
 
 export default function Signup() {
- const  handleSubmit = async (data) =>{
-   fetch('api/v1/user/signup', {
-      method:'POST',
-      headers: {
-        'Content-type':'application/json',
-      },
-      body:JSON.stringify(data),
-   })
-   .then((data) => console.log(data))
-   .catch((err) => console.log(err))
+ const  handleSubmit = async (signupData) =>{
+   try {
+     const {data} = await axios.post('/api/v1/user/signup' ,signupData)
+     if (data.status === 200) {
+    console.log('Account created successfully');
+     }else {
+      console.log('Invalid verification code');
+     }
+   } catch (error) {
+     console.log(error);
+   }
    
   };
   return (
