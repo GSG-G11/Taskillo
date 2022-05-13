@@ -1,16 +1,15 @@
 import { Formik } from 'formik';
 
-const Form = ({initialValues, validationSchema, onSubmit, children }) =>{
+const Form = ({ initialValues, validationSchema, onSubmit, children }) => {
   return (
-    <Formik 
+    <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
-  > 
-  {()=> <> {children}</>}
+    >
+      {() => <> {children}</>}
     </Formik>
-  )
-
+  );
 };
 
 export default Form;
