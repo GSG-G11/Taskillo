@@ -1,6 +1,7 @@
-import { Field } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 const FormField = ({placeholder, name, ...rest}) =>{
   return (
+    <div className='form-group'>
     <Field 
     id={name}
     name={name}
@@ -8,6 +9,14 @@ const FormField = ({placeholder, name, ...rest}) =>{
     placeholder={placeholder}
     className='form-control'
     />
+    <ErrorMessage 
+      name={name}
+      component={TextError}
+      className='error-massage'
+    />
+    </div>
+
+
   )
 
 };
