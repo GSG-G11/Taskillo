@@ -1,1 +1,2 @@
-// Index for pages folder
+import Signup from './signUp';
+export {Signup};

@@ -8,7 +8,7 @@ const FormField = ({ placeholder, name, ...rest }) => {
         name={name}
         {...rest}
         placeholder={placeholder}
-        className='form-control'
+        className='form-control  mb-3 w-50 text-white '
       />
       <ErrorMessage
         name={name}

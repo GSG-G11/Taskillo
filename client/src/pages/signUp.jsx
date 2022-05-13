@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Form from '../components/Form/Form'
+import '../scss/signup.css'
 import { validationSignUpSchema } from '../utils'
 import { FormField, SubmitButton } from '../components';
 
@@ -19,17 +20,30 @@ export default function Signup() {
    
   };
   return (
-    <div>
-     <Form  
+    <div className='d-flex mt-5 ' >
+       <div className="col-6 ms-5">
+         <h1 className='text-white mb-5 '>Taskillo</h1>
+         <span className='text-white mb-2'>Start For Free</span>
+         <h2 className='text-white mb-4 '>Create an account</h2>
+       <Form 
         initialValues={ {username:'', code:'',password:''}}
         validationSchema= {validationSignUpSchema}
         onSubmit={handleSubmit} >
-        <FormField type='text' name='username' placeholder='Enter your username' />
+        <FormField  type='text' name='username' placeholder='Enter your username'/>
         <FormField type='password' name='password' placeholder='Enter your password' />
         <FormField  type='number' name='code' placeholder='Enter  verification code'/>
-        <SubmitButton  title='Sign Up'/>
+        <SubmitButton  title='Sign Up' className='btn btn-primary w-50 mb-3'/>
+        <SubmitButton  title='Sign up with Google' className='btn signup-google w-50 mb-3'/>
+         <p>Already have an account ? <a href="#"> Sign in </a> </p>
 
     </Form>
+       </div>
+       <div className="col-6">
+     <div className='signup-img'>
+       <img src="https://picsum.photos/600/610" alt="" className='img-fluid' />
+    </div>
+     </div>
+     
 
     </div>
   )

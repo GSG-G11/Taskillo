@@ -1,6 +1,6 @@
 import { useFormikContext } from 'formik'
 
-const SubmitButton = ({title}) =>{
+const SubmitButton = ({title,className }) =>{
   const {handleSubmit, isValid} = useFormikContext()
   return (
     <div >
@@ -8,7 +8,7 @@ const SubmitButton = ({title}) =>{
       type='submit'
       onClick={handleSubmit}
       disabled= {!isValid}
-      className='btn btn-primary'
+      className={ className}
       >
         {title}
       </button>
