@@ -1,1 +1,2 @@
-// Index for utils folder
+import loginValidationSchema from "./loginValidation";
+export { loginValidationSchema };

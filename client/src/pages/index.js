@@ -1,1 +1,2 @@
-// Index for pages folder
+import Login from "./login/Login";
+export { Login };
