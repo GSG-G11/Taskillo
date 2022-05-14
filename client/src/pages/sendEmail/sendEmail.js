@@ -9,7 +9,6 @@ import {
 } from '../../components';
 import validationSchema from '../../utils';
 import sendemail from '../../images/sendemail.svg';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 const SendEmail = () => {
@@ -17,9 +16,9 @@ const SendEmail = () => {
     try {
       const { data } = await axios.post('/api/v1/user/sendEmail', userInfo);
       if (data.message === 'Email sent successfully') {
-        console.log('Email sent successfully');
+        // Go to signup page
       } else {
-        console.log('Email not sent');
+        // Alert error
       }
     } catch (err) {
       console.log(err);
