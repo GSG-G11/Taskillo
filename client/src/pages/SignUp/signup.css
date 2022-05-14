@@ -1,0 +1,16 @@
+body{
+  background-color:#1C1C28;
+}
+.form-control{
+  background-color: #282A36 ;
+  border: 1px solid #818098;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px ;
+}
+.form-control::placeholder{
+ color: #818098  ;
+}
+.signup-google{
+background-color: #fff;
+border: 1px solid #fff ;
+color:#3E7BFA;
+}

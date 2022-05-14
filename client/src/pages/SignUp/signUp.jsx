@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import Form from '../components/Form/Form'
-import '../scss/signup.css'
-import { validationSignUpSchema } from '../utils'
-import { FormField, SubmitButton } from '../components';
+import Form from '../../components/Form/Form'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './signup.css'
+import { validationSignUpSchema } from '../../utils'
+import { FormField, SubmitButton } from '../../components';
 
 export default function Signup() {
  const  handleSubmit = async (signupData) =>{
@@ -29,9 +30,9 @@ export default function Signup() {
         initialValues={ {username:'', code:'',password:''}}
         validationSchema= {validationSignUpSchema}
         onSubmit={handleSubmit} >
-        <FormField  type='text' name='username' placeholder='Enter your username'/>
-        <FormField type='password' name='password' placeholder='Enter your password' />
-        <FormField  type='number' name='code' placeholder='Enter  verification code'/>
+        <FormField  type='text' name='username' placeholder='Enter your username' className='mb-3 w-50 text-white'/>
+        <FormField type='password' name='password' placeholder='Enter your password' className='mb-3 w-50 text-white' />
+        <FormField  type='number' name='code' placeholder='Enter verification code' className='mb-3 w-50 text-white'/>
         <SubmitButton  title='Sign Up' className='btn btn-primary w-50 mb-3'/>
         <SubmitButton  title='Sign up with Google' className='btn signup-google w-50 mb-3'/>
          <p>Already have an account ? <a href="#"> Sign in </a> </p>

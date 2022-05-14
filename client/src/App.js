@@ -1,11 +1,8 @@
 import React from "react";
-import Signup from './pages/signUp';
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
+import { Signup } from './pages';
 function App() {
   return (
-    <div className="container">
+    <div className="App container">
       <Signup /> 
     </div>
   );

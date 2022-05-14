@@ -1,6 +1,6 @@
 import { Field, ErrorMessage } from 'formik';
 import { TextError } from './TextError';
-const FormField = ({ placeholder, name, ...rest }) => {
+const FormField = ({ placeholder, name , className, ...rest }) => {
   return (
     <div className='form-group'>
       <Field
@@ -8,7 +8,7 @@ const FormField = ({ placeholder, name, ...rest }) => {
         name={name}
         {...rest}
         placeholder={placeholder}
-        className='form-control  mb-3 w-50 text-white '
+        className={`form-control ${className} `}
       />
       <ErrorMessage
         name={name}
