@@ -3,11 +3,6 @@
     width: 30rem;
 }
 
-.title,
-.signup-text {
-    color: #fff;
-}
-
 .signup-text {
     text-align: justify;
     font-size: 0.75rem;
