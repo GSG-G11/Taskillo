@@ -1,6 +1,14 @@
 import axios from 'axios';
-import { Form, FormField, SubmitButton, Text, Title } from '../../components';
+import {
+  Form,
+  FormField,
+  SubmitButton,
+  Text,
+  Logo,
+  Image,
+} from '../../components';
 import validationSchema from '../../utils';
+import sendemail from '../../images/sendemail.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -19,21 +27,45 @@ const SendEmail = () => {
   };
 
   return (
-    <section className="d-flex flex-column justify-content-center align-items-center w-100 h-100">
-      <div className="send-email d-flex flex-column justify-content-center align-items-center rounded-3 p-5 gap-1">
-        <Title text="Sign up for you Email!" className="title fw-bold pb-2 fs-3 text-white" />
-        <Form
-          initialValues={{ email: '' }}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}>
-          <FormField name="email" type="email" placeholder="Enter your Email" className='w-100'/>
-          <Text
-            text="By signing up, you confirm that you've read and accepted our Terms of Service and Privacy Policy.          "
-            className="text-justify signup-text w-100 pt-2 pb-2 lh-sm text-white"/>
-          <SubmitButton title="Send Email" className="btn-submit rounded w-100" />
-        </Form>
+    <div className="d-flex">
+      <div className="col-6 container d-flex flex-column m-auto">
+        <div className="d-flex flex-row justify-content-left w-50 m-auto">
+          <Logo />
+          <Text text="Taskillo" className="fs-5 text-white fw-bold" />
+        </div>
+        <div className="form-side d-flex flex-column m-auto">
+          <Text text="Start For Free" className="fs-5 text-white mb-2 mt-5" />
+          <Text text="Verify your email" className="fs-2 text-white mb-4" />
+          <Form
+            initialValues={{ email: '' }}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            <FormField
+              name="email"
+              type="email"
+              placeholder="Enter your Email"
+              className="text-white shadow-lg"
+            />
+            <Text
+              text="By signing up, you confirm that you've read and accepted our Terms of Service and Privacy Policy.          "
+              className="text-justify signup-text lh-sm text-white mt-3 mb-3"
+            />
+            <SubmitButton
+              title="Send Code"
+              className="btn-submit rounded mb-3"
+            />
+          </Form>
+        </div>
       </div>
-    </section>
+      <div className="col-6 w-50 vh-100 text-center test d-flex justify-content-center align-items-center">
+        <Image
+          alt="sendemail-img"
+          src={sendemail}
+          className="img-fluid mx-auto w-50 "
+        />
+      </div>
+    </div>
   );
 };
 
