@@ -6,11 +6,9 @@ const Home = () => {
   return (
     <div>
       <h1>Hello World!</h1>
-      {
-        <h3>{user.username}</h3>
-      }
+      {<h3>{user.username}</h3>}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

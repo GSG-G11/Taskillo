@@ -17,7 +17,7 @@ import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../state/user';
 
-export default function Signup() {
+export default function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();

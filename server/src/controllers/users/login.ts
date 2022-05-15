@@ -13,7 +13,7 @@ const login = async (req: Request, res: Response) => {
   const isMatched = await compare(password, hashedPassword);
   if (isMatched) {
     const token = await signToken({ id, username, email });
-    res.cookie('token', token, { httpOnly: true, secure: false })
+    res.cookie('token', token, { httpOnly: false, secure: false })
       .status(200).json({ message: 'login successfully!', token });
   } else {
     res.status(400).json({ message: 'Invalid Email or Password' });
