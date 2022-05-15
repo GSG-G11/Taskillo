@@ -1,0 +1,26 @@
+.left-side {
+  background-color: #1C1C28 ;
+}
+.right-side {
+  background-color: #3E7BFA ;
+
+}
+.form-control {
+  background-color: #282A36;
+  border: 1px solid #818098;
+  padding: 12px;
+}
+
+.form-control:focus {
+  background-color: #282A36;
+  border: 1px solid #818098;
+}
+
+.form-control::placeholder {
+  color: #818098;
+}
+
+.gooleBtn {
+  color: #3E7BFA;
+}
+
