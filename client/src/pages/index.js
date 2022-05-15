@@ -1,4 +1,11 @@
-import { Login } from "./login";
-import { Signup } from './SignUp';
-import SendEmail from './sendEmail';
-export { Signup, SendEmail, Login };
+import Home from './Home';
+import SendEmail from './SendEmail';
+import Signup from './SignUp';
+import Login from './Login';
+
+export {
+  Home,
+  SendEmail,
+  Signup,
+  Login,
+}

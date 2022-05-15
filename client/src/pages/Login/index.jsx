@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Form from '../../components/Form/Form';
-import './Login.css';
+import './style.css';
 import login from '../../images/login.svg';
 import { validationLoginSchema } from '../../utils';
 import {
@@ -13,22 +13,28 @@ import {
   SubmitButton,
   Text,
 } from '../../components';
+import jwt_decode from 'jwt-decode';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../state/user';
 
 export default function Signup() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleSubmit = async (userInfo) => {
     try {
       const res = await axios.post('/api/v1/user/login', userInfo);
       if (res.status === 200) {
-        navigate('/home');
+        const token = res.data.token;
+        const { id, username, email } = jwt_decode(token);
+        dispatch(loginUser({ id, username, email }));
         setError('');
+        navigate('/');
       }
-    } catch ({ response }) {
-      if (response.status === 401) {
-        setError(response.data.message);
+    } catch ( error ) {
+      if (error) {
+        setError(error.response.data.message);
       }
-      console.log(response);
     }
   };
 

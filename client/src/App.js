@@ -1,14 +1,22 @@
 import React from 'react';
-import {SendEmail, Signup, Login} from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Route, Routes } from 'react-router-dom';
+import { Home, SendEmail, Signup, Login } from './pages';
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      {/* <SendEmail /> */}
-      {/* <Signup />  */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sendEmail" element={<SendEmail />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={
+          <div>
+            <h1>404 Page Not Found</h1>
+          </div>
+        } />
+      </Routes>
     </div>
   );
 }
