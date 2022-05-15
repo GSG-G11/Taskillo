@@ -1,3 +1,3 @@
+import { Signup } from './SignUp';
 import SendEmail from './sendEmail';
-
-export default SendEmail;
+export {Signup , SendEmail};

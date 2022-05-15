@@ -1,3 +1,4 @@
 import validationSchema from './sendEmailValidation';
+import validationSignUpSchema from './signUpValidation';
 
-export default validationSchema;
+export   {validationSchema, validationSignUpSchema };
