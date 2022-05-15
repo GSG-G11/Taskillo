@@ -3,7 +3,6 @@ import { Form, FormField, SubmitButton } from "../../components";
 import { validationSchema } from "../../utils";
 import logo from "../../images/logo.svg";
 import login from "../../images/login.svg"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 
 export default function Login() {
@@ -29,8 +28,8 @@ export default function Login() {
             onSubmit={handleSubmit}
           >
             <div className='my-5'>
-              <FormField type='email' name='email' placeholder='Email Address' className='text-white shadow-lg mb-3 w-75' />
-              <FormField type='password' name='password' placeholder='Password' className='text-white shadow-lg mb-3 w-75' />
+              <FormField type='email' name='email' placeholder='Email Address' className='shadow-lg mb-3 w-75' />
+              <FormField type='password' name='password' placeholder='Password' className='shadow-lg mb-3 w-75' />
             </div>
 
             <div>
