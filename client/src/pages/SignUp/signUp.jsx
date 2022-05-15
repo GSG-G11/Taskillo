@@ -83,7 +83,7 @@ export default function Signup() {
           </Form>
         </div>
       </div>
-      <div className='col-6 w-50 vh-100 text-center test d-flex justify-content-center align-items-center'>
+      <div className='col-6 w-50 vh-100 text-center test d-lg-flex justify-content-center align-items-center d-none'>
         <Image
           alt='signup-img'
           src={signup}

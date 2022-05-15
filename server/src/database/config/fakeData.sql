@@ -28,7 +28,7 @@ VALUES
         'Zomlot',
         'karam@gmail.com',
         0599999999,
-        '222222222',
+        '$2b$08$k/JWvbLpXRfEeKn75HFEHevUVueGfhfMu9fPkGRN39yDk8ZAZd65.',
         '2020-01-01',
         'I am a developer'
     ),
