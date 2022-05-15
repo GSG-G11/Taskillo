@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Form from '../../components/Form/Form';
 import './signup.css';
@@ -15,11 +15,15 @@ import {
 } from '../../components';
 
 export default function Signup() {
+  const navigate = useNavigate();
   const handleSubmit = async (signupData) => {
+    
     try {
       const { data } = await axios.post('/api/v1/user/signup', signupData);
       if (data.status === 200) {
         // Redirect user to home page and show message 'Account created successfully'
+         navigate('/home');
+      
       } else {
         //Still user in same page and shoe massage 'Invalid verification code'
       }
