@@ -20,7 +20,7 @@ const signup = async (req: Request, res: Response) => {
     const token = await signToken({ id, username, email });
     res
       .cookie('token', token)
-      .status(200)
+      .status(201)
       .json({ message: ' Account created successfully', token });
   } else {
     res.status(400).json({ message: 'Invalid verification code' });

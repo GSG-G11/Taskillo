@@ -11,19 +11,24 @@ import {
 import { validationSchema } from '../../utils';
 import sendemail from '../../images/sendemail.svg';
 import './style.css';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../state/user';
+import { useState } from 'react';
 
 const SendEmail = () => {
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleSubmit = async (userInfo) => {
     try {
-      const { data } = await axios.post('/api/v1/user/sendEmail', userInfo);
-      if (data.message === 'Email sent successfully') {
+      const res = await axios.post('/api/v1/user/sendEmail', userInfo);
+      if (res.status === 200) {
+        dispatch(loginUser({id: '', email: res.data.data.email, username: ''}));
+        setError('');
         navigate('/signup');
-      } else {
-        // Alert error
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      setError(error.response.data.message);
     }
   };
 
@@ -56,6 +61,11 @@ const SendEmail = () => {
               title='Send Code'
               className='btn-primary btn-submit rounded mb-3 p-2'
             />
+            {error && (
+              <div className='alert alert-danger mt-4' role='alert'>
+                {error}
+              </div>
+            )}
           </Form>
         </div>
       </div>

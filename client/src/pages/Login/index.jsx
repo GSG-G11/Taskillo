@@ -32,9 +32,7 @@ export default function Signup() {
         navigate('/');
       }
     } catch ( error ) {
-      if (error) {
-        setError(error.response.data.message);
-      }
+      setError(error.response.data.message);
     }
   };
 
@@ -77,7 +75,7 @@ export default function Signup() {
                 text='Create a new account?'
                 className='signup-text w-50 fw-bold'
               />
-              <Link to='/home' className='text-decoration-none'>
+              <Link to='/sendEmail' className='text-decoration-none'>
                 Sign up
               </Link>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Form from '../../components/Form/Form';
@@ -13,22 +13,28 @@ import {
   SubmitButton,
   Text,
 } from '../../components';
+import jwt_decode from 'jwt-decode';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginUser } from '../../state/user';
 
 export default function Signup() {
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
   const handleSubmit = async (signupData) => {
     
     try {
-      const { data } = await axios.post('/api/v1/user/signup', signupData);
-      if (data.status === 200) {
-        // Redirect user to home page and show message 'Account created successfully'
-         navigate('/home');
-      
-      } else {
-        //Still user in same page and shoe massage 'Invalid verification code'
+      const res = await axios.post('/api/v1/user/signup', signupData);
+      if (res.status === 201) {
+        const token = res.data.token;
+        const { id, username, email } = jwt_decode(token);
+        dispatch(loginUser({ id, username, email }));
+        setError('');
+        navigate('/');
       }
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.message)
     }
   };
   return (
@@ -42,7 +48,7 @@ export default function Signup() {
           <Text text='Start For Free' className='fs-5 text-white mb-2 mt-5' />
           <Text text='Create an account' className='fs-2 text-white mb-4' />
           <Form
-            initialValues={{ username: '', code: '', password: '' }}
+            initialValues={{ username: '', code: '', password: '', email: user.email}}
             validationSchema={validationSignUpSchema}
             onSubmit={handleSubmit}
           >
@@ -53,13 +59,20 @@ export default function Signup() {
               className='mb-2 text-white shadow-lg input'
             />
             <FormField
+              type='email'
+              name='email'
+              placeholder='Enter your email'
+              readOnly
+              className='mb-2 text-white shadow-lg input'
+            />
+            <FormField
               type='password'
               name='password'
               placeholder='Enter your password'
               className='mb-2 text-white shadow-lg input'
             />
             <FormField
-              type='number'
+              type='text'
               name='code'
               placeholder='Enter verification code'
               className='mb-2  text-white shadow-lg input'
@@ -75,11 +88,15 @@ export default function Signup() {
 
             <div className='d-flex  align-items-center'>
             <Text text='Already have an account ?' className='signup-text w-50 ' />
-            <Link to='/home' className='text-decoration-none'>
-              Sign in{' '}
+            <Link to='/login' className='text-decoration-none'>
+              Sign in
             </Link>
             </div>
-           
+            {error && (
+              <div className='alert alert-danger mt-4' role='alert'>
+                {error}
+              </div>
+            )}
           </Form>
         </div>
       </div>

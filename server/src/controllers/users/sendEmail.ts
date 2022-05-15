@@ -7,6 +7,7 @@ const sendEmail = async (req: Request, res: Response) => {
   await sendCode(email);
   res.status(200).json({
     message: 'Email sent successfully',
+    data: { email },
   });
 };
 
