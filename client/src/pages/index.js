@@ -1,2 +1,3 @@
 import { Signup } from './SignUp';
-export {Signup};
+import SendEmail from './sendEmail';
+export {Signup , SendEmail};

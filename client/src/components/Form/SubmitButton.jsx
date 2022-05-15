@@ -8,7 +8,7 @@ const SubmitButton = ({title,className }) =>{
       type='submit'
       onClick={handleSubmit}
       disabled= {!isValid}
-      className={ className}
+      className={className}
       >
         {title}
       </button>

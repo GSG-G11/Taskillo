@@ -1,3 +1,4 @@
-import { Form, FormField, SubmitButton, TextError } from './Form';
+import { Form, SubmitButton, FormField } from './Form';
+import { Text, Button, Logo, Image } from './UI';
 
-export { Form, FormField, SubmitButton, TextError };
+export { Form, SubmitButton, FormField, Text, Button, Logo, Image };

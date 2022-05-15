@@ -1,0 +1,42 @@
+.send-email {
+    background-color: var(--sendEmail);
+    width: 30rem;
+}
+
+.confirm-text {
+    text-align: justify;
+    font-size: 0.75rem;
+    width: 20rem;
+}
+
+.invalid {
+    color: rgb(240, 70, 70);
+}
+
+.test {
+    background-color: #3E7BFA;
+}
+
+.logo-img {
+    width: 1.5rem;
+}
+
+.form-control.input {
+    background-color: #282A36;
+    border: 1px solid #818098;
+    width: 20rem;
+}
+
+.form-control.input:focus {
+    background-color: #282A36;
+    border: 1px solid #818098;
+}
+
+.form-control.input::placeholder {
+    color: #818098;
+    font-size: 0.8rem;
+}
+
+.btn-submit {
+    width: 20rem;
+}

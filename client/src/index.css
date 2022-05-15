@@ -5,3 +5,21 @@ body {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+:root{
+  --background: #1C1C28;
+  --sendEmail: #3E3E47;
+}
+
+.App{
+  height: 100vh;
+  background-color: var(--background);
+}

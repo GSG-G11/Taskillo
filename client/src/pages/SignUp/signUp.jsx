@@ -1,83 +1,91 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Form from '../../components/Form/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './signup.css';
-import logo from '../../images/logo.svg';
-import signup from '../../images/signup.svg'
+import signup from '../../images/signup.svg';
 import { validationSignUpSchema } from '../../utils';
-import { FormField, SubmitButton } from '../../components';
+import {
+  Button,
+  FormField,
+  Image,
+  Logo,
+  SubmitButton,
+  Text,
+} from '../../components';
 
 export default function Signup() {
   const handleSubmit = async (signupData) => {
     try {
       const { data } = await axios.post('/api/v1/user/signup', signupData);
       if (data.status === 200) {
-        console.log('Account created successfully');
+        // Redirect user to home page and show message 'Account created successfully'
       } else {
-        console.log('Invalid verification code');
+        //Still user in same page and shoe massage 'Invalid verification code'
       }
     } catch (error) {
       console.log(error);
     }
   };
   return (
-   <div className='d-flex container'>
-      <div className='col-6 ms-5 pt-5'>
-        <div className='top-header d-flex align-items-center'>
-          <img src={logo} alt='logo website' className='mb-5' />
+    <div className='d-flex'>
+      <div className='col-6 container d-flex flex-column m-auto'>
+        <div className='d-flex flex-row justify-content-left w-50 m-auto'>
+          <Logo />
+          <Text text='Taskillo' className='fs-5 text-white fw-bold' />
+        </div>
+        <div className='form-side d-flex flex-column m-auto'>
+          <Text text='Start For Free' className='fs-5 text-white mb-2 mt-5' />
+          <Text text='Create an account' className='fs-2 text-white mb-4' />
+          <Form
+            initialValues={{ username: '', code: '', password: '' }}
+            validationSchema={validationSignUpSchema}
+            onSubmit={handleSubmit}
+          >
+            <FormField
+              type='text'
+              name='username'
+              placeholder='Enter your username'
+              className='mb-3 text-white shadow-lg input'
+            />
+            <FormField
+              type='password'
+              name='password'
+              placeholder='Enter your password'
+              className='mb-3  text-white shadow-lg input'
+            />
+            <FormField
+              type='number'
+              name='code'
+              placeholder='Enter verification code'
+              className='mb-3  text-white shadow-lg input'
+            />
+            <SubmitButton
+              title='Sign Up'
+              className='btn btn-primary btn-submit mb-3'
+            />
+            <Button
+              title='Sign up with Google'
+              className='signup-google btn-submit mb-3'
+            />
 
-          <h1 className='text-white mb-5 '>Taskillo</h1>
-        </div>
-        <span className='text-white mb-2'>Start For Free</span>
-        <h2 className='text-white mb-4 '>Create an account</h2>
-        <Form
-          initialValues={{ username: '', code: '', password: '' }}
-          validationSchema={validationSignUpSchema}
-          onSubmit={handleSubmit}
-        >
-          <FormField
-            type='text'
-            name='username'
-            placeholder='Enter your username'
-            className='mb-3 w-50 text-white shadow-lg '
-          />
-          <FormField
-            type='password'
-            name='password'
-            placeholder='Enter your password'
-            className='mb-3 w-50 text-white shadow-lg'
-          />
-          <FormField
-            type='number'
-            name='code'
-            placeholder='Enter verification code'
-            className='mb-3 w-50 text-white shadow-lg'
-          />
-          <SubmitButton title='Sign Up' className='btn btn-primary w-50 mb-3' />
-          <SubmitButton
-            title='Sign up with Google'
-            className='btn signup-google w-50 mb-3'
-          />
-          <p className='signup-text'>
-            Already have an account ?{' '}
-            <a href='#' className='text-decoration-none'>
-              {' '}
+            <div className='d-flex  align-items-center'>
+            <Text text='Already have an account ?' className='signup-text w-50 ' />
+            <Link to='/home' className='text-decoration-none'>
               Sign in{' '}
-            </a>{' '}
-          </p>
-        </Form>
-      </div>
-      <div className='col-6  '>
-        <div className='signup-img p-5'>
-          <img
-            src={signup}
-            alt='signup'
-            className='img-fluid  mx-auto'
-          />
+            </Link>
+            </div>
+           
+          </Form>
         </div>
       </div>
+      <div className='col-6 w-50 vh-100 text-center test d-flex justify-content-center align-items-center'>
+        <Image
+          alt='signup-img'
+          src={signup}
+          className='img-fluid mx-auto w-50 '
+        />
       </div>
-   
+    </div>
   );
 }

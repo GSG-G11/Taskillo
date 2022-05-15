@@ -1,10 +1,6 @@
 body{
   background-color:#1C1C28;
 }
-.form-control{
-  background-color: #282A36 ;
-  border: 1px solid #818098;
-}
 .form-control:focus{
   background-color: #282A36 ;
   border: 1px solid #818098;
@@ -13,13 +9,14 @@ body{
  color: #818098 ;
  font-size: 0.8rem;
 }
-.signup-google{
+.btn.signup-google{
 background-color: #fff;
 border: 1px solid #fff ;
 color:#3E7BFA;
 }
 .signup-text{
-  color:#777777
+  color:#777777;
+  font-size: 0.86rem;
 }
 .signup-img{
 background-color: #3E7BFA;
