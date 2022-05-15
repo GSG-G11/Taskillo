@@ -1,1 +1,3 @@
-// Index for utils folder
+import validationSchema from './sendEmailValidation';
+
+export default validationSchema;
