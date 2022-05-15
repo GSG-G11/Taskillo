@@ -1,2 +1,6 @@
-import validationSchema from "./loginValidation";
-export { validationSchema };
+import validationSchema from './sendEmailValidation';
+import validationSignUpSchema from './signUpValidation';
+import validationLoginSchema from "./loginValidation";
+export { validationSchema, validationSignUpSchema, validationLoginSchema };
+
+

@@ -1,20 +1,20 @@
-import { useFormikContext } from 'formik';
+import { useFormikContext } from 'formik'
 
-const SubmitButton = ({ title, className }) => {
-  const { handleSubmit, isValid } = useFormikContext();
-
+const SubmitButton = ({title,className }) =>{
+  const {handleSubmit, isValid} = useFormikContext()
   return (
-    <div className={`form-group ${className}`}>
+    <div >
       <button
-        type="submit"
-        onClick={handleSubmit}
-        disabled={!isValid}
-        className="btn btn-primary form-control"
+      type='submit'
+      onClick={handleSubmit}
+      disabled= {!isValid}
+      className={className}
       >
         {title}
       </button>
     </div>
-  );
-};
+  )
+
+}
 
 export default SubmitButton;

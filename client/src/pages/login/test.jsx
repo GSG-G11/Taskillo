@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Form from '../../components/Form/Form';
 import './Login.css';
-import login from '../../images/login.svg';
-import { validationLoginSchema } from '../../utils';
+import signup from '../../images/signup.svg';
+import { validationSignUpSchema } from '../../utils';
 import {
   Button,
   FormField,
@@ -31,38 +31,38 @@ export default function Signup() {
           <Text text='Start For Free' className='fs-5 text-white mb-2 mt-5' />
           <Text text='Let&apos;s Go!' className='fs-2 text-white mb-4' />
           <Form
-            initialValues={{ email: '', password: '' }}
-            validationSchema={validationLoginSchema}
+            initialValues={{ email: '',  password: '' }}
+            validationSchema={validationSignUpSchema}
             onSubmit={handleSubmit}
           >
             <FormField
               type='email'
               name='email'
               placeholder='Enter your email'
-              className='text-white shadow-lg input'
+              className='mb-3 text-white shadow-lg input'
             />
             <FormField
               type='password'
               name='password'
               placeholder='Enter your password'
-              className='mt-3 text-white shadow-lg input'
+              className='mb-3 text-white shadow-lg input'
             />
             <SubmitButton
               title='Sign In'
-              className='btn btn-primary btn-submit mt-3'
+              className='btn btn-primary btn-submit mb-3'
             />
             <Button
               title='Sign in with Google'
-              className='signup-google btn-submit mb-3 mt-2'
+              className='signup-google btn-submit mb-3'
             />
 
             <div className='d-flex  align-items-center'>
-              <Text text='Create a new account?' className='signup-text w-50 fw-bold' />
-              <Link to='/home' className='text-decoration-none'>
-                Sign up
-              </Link>
+            <Text text='Create a new account?' className='signup-text w-50 ' />
+            <Link to='/home' className='text-decoration-none'>
+              Sign up
+            </Link>
             </div>
-
+           
           </Form>
         </div>
       </div>
