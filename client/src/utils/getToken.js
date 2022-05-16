@@ -2,7 +2,11 @@ import jwt_decode from "jwt-decode";
 
 const getToken = () => {
   const token = document.cookie.split("token=")[1];
-  return jwt_decode(token);
+  if (token) {
+    return jwt_decode(token);
+  } else {
+    return false;
+  }
 }
 
 export default getToken;

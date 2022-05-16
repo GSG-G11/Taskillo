@@ -12,6 +12,8 @@ function App() {
     const user = getToken();
     if (user) {
       dispatch(setUserInfo(user));
+    } else {
+      return false;
     }
   }, [dispatch]);
 
