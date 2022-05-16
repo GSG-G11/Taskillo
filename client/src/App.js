@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Home, SendEmail, Signup, Login } from './pages';
 import { useDispatch } from 'react-redux';
-import { loginUser } from './state/user';
+import { setUserInfo } from './state/user';
 import jwt_decode from 'jwt-decode';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     if(token) {
       const {id, username, email} = jwt_decode(token);
-      dispatch(loginUser({id, username, email}));
+      dispatch(setUserInfo({id, username, email}));
     }
   }, [token, dispatch]);
 

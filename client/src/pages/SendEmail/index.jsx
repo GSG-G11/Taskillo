@@ -12,7 +12,7 @@ import { validationSchema } from '../../utils';
 import sendemail from '../../images/sendemail.svg';
 import './style.css';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../state/user';
+import { setUserInfo } from '../../state/user';
 import { useState } from 'react';
 
 const SendEmail = () => {
@@ -23,7 +23,7 @@ const SendEmail = () => {
     try {
       const res = await axios.post('/api/v1/user/sendEmail', userInfo);
       if (res.status === 200) {
-        dispatch(loginUser({id: '', email: res.data.data.email, username: ''}));
+        dispatch(setUserInfo({id: '', email: res.data.data.email, username: ''}));
         setError('');
         navigate('/signup');
       }
