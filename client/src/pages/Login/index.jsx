@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import Form from '../../components/Form/Form';
 import './style.css';
 import login from '../../images/login.svg';
-import { validationLoginSchema } from '../../utils';
+import { getToken, validationLoginSchema } from '../../utils';
 import {
   Button,
+  Form,
   FormField,
   Image,
   Logo,
   SubmitButton,
   Text,
 } from '../../components';
-import jwt_decode from 'jwt-decode';
-import { useDispatch } from 'react-redux';
 import { setUserInfo } from '../../state/user';
 
 export default function Login() {
@@ -25,9 +24,8 @@ export default function Login() {
     try {
       const res = await axios.post('/api/v1/user/login', userInfo);
       if (res.status === 200) {
-        const token = document.cookie.split('token=')[1];
-        const { id, username, email } = jwt_decode(token);
-        dispatch(setUserInfo({ id, username, email }));
+        const user = getToken();
+        dispatch(setUserInfo(user));
         setError('');
         navigate('/');
       }

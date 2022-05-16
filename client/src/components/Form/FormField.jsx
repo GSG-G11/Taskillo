@@ -1,8 +1,8 @@
 import { Field, ErrorMessage } from 'formik';
-import { TextError } from './TextError';
-const FormField = ({ placeholder, name , className, ...rest }) => {
+import TextError from './TextError';
+const FormField = ({ placeholder, name, className, ...rest }) => {
   return (
-    <div className='form-group'>
+    <div className="form-group">
       <Field
         id={name}
         name={name}
@@ -13,7 +13,7 @@ const FormField = ({ placeholder, name , className, ...rest }) => {
       <ErrorMessage
         name={name}
         component={TextError}
-        className='error-massage'
+        className="error-massage"
       />
     </div>
   );
