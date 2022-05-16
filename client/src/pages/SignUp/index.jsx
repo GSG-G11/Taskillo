@@ -48,7 +48,7 @@ export default function Signup() {
           <Text text='Start For Free' className='fs-5 text-white mb-2 mt-5' />
           <Text text='Create an account' className='fs-2 text-white mb-4' />
           <Form
-            initialValues={{ username: '', code: '', password: '', email: user.email}}
+            initialValues={{ username: '', code: '', password: '', email: ''}}
             validationSchema={validationSignUpSchema}
             onSubmit={handleSubmit}
           >
@@ -61,9 +61,10 @@ export default function Signup() {
             <FormField
               type='email'
               name='email'
+              value={user.email}
               placeholder='Enter your email'
-              readOnly
               className='mb-2 text-white shadow-lg input'
+              readOnly
             />
             <FormField
               type='password'

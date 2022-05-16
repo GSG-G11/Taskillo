@@ -4,7 +4,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { Home, SendEmail, Signup, Login } from './pages';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from './state/user';
-import getToken from './utils/getToken'
+import { getToken } from './utils';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,12 +24,15 @@ function App() {
         <Route path="/sendEmail" element={<SendEmail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={
-          <div>
-            <h1>404 Page Not Found</h1>
-            <Link to='/' >Go to Home</Link>
-          </div>
-        } />
+        <Route
+          path="*"
+          element={
+            <div>
+              <h1>404 Page Not Found</h1>
+              <Link to="/">Go to Home</Link>
+            </div>
+          }
+        />
       </Routes>
     </div>
   );
