@@ -2,14 +2,31 @@ import React from 'react';
 import {SendEmail, Signup} from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Login } from "./pages";
+import { Link, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Home from './pages/Home';
 
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      <SendEmail />
-      <Signup /> 
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="/" element={<Sidebar />} />
+        </Route>
+        <Route path="/sendEmail" element={<SendEmail />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="*"
+          element={
+            <div>
+              <h1>404 Page Not Found</h1>
+              <Link to="/">Go to Home</Link>
+            </div>
+          }
+        />
+      </Routes>
     </div>
   );
 }
