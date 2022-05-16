@@ -18,7 +18,9 @@ const Sidebar = () => {
           <img src={logo} alt='Taskillo' width='25' />
           <h2 className='logo-name'>Taskillo</h2>
         </div>
-        <button onClick={() => setIsOpen(prev => !prev)} className='btn navbar-toggler'>
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={isOpen ? 'btn navbar-toggler active' : 'btn navbar-toggler'}>
           <span className='line'></span>
           <span className='line'></span>
           <span className='line'></span>
@@ -48,6 +50,26 @@ const Sidebar = () => {
             <NavLink to='/staff' className='nav-link'>
               <RiGroupLine />
               <span className='link-name'>Staff</span>
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <nav className='side-projects'>
+        <h3 className="side-title">Projects</h3>
+        <ul className='nav flex-column'>
+          <li className='nav-item'>
+            <NavLink to='/projects/1' className='nav-link'>
+              <span className='link-name'>Graduation Project</span>
+            </NavLink>
+          </li>
+          <li className='nav-item'>
+            <NavLink to='/projects/2' className='nav-link'>
+              <span className='link-name'>Movflx Website</span>
+            </NavLink>
+          </li>
+          <li className='nav-item'>
+            <NavLink to='/projects/3' className='nav-link'>
+              <span className='link-name'>Taskillo Team</span>
             </NavLink>
           </li>
         </ul>
@@ -135,7 +157,7 @@ const ASide = styled.aside`
   }
 
   .side-nav {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     .nav-link {
       display: flex;
@@ -149,6 +171,34 @@ const ASide = styled.aside`
         margin-right: 0.5rem;
         font-size: 1.4rem;
       }
+
+      &.active {
+        background-color: #282a36;
+        color: #fff;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .side-projects{
+    .side-title{
+      font-size: 1rem;
+      font-weight: 400;
+      color: #777777;
+      margin-bottom: .6rem;
+    }
+
+    .nav-link{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.9rem 1rem;
+      border-radius: 0.7rem;
+      font-size: 1.1rem;
+      color: #b8b8b8;
 
       &.active {
         background-color: #282a36;
@@ -185,6 +235,10 @@ const ASide = styled.aside`
           }
         }
       }
+    }
+
+    .side-projects{
+      display: none;
     }
   }
 `;
