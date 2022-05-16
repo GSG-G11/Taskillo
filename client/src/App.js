@@ -10,11 +10,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const user = getToken();
-    if (user) {
-      dispatch(setUserInfo(user));
-    } else {
-      return false;
-    }
+    user && dispatch(setUserInfo(user));
   }, [dispatch]);
 
   return (
