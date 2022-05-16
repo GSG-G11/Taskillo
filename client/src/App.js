@@ -1,26 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Home, SendEmail, Signup, Login } from './pages';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from './state/user';
-import jwt_decode from 'jwt-decode';
+import getToken from './utils/getToken'
 
 function App() {
-  const [token, setToken] = useState('');
   const dispatch = useDispatch();
-
   useEffect(() => {
-    const cookie = document.cookie.split('token=')[1];
-    setToken(cookie);
-  }, []);
-
-  useEffect(() => {
-    if(token) {
-      const {id, username, email} = jwt_decode(token);
-      dispatch(setUserInfo({id, username, email}));
+    const user = getToken();
+    if (user) {
+      dispatch(setUserInfo(user));
     }
-  }, [token, dispatch]);
+  }, [dispatch]);
 
   return (
     <div className="App">
