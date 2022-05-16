@@ -13,21 +13,14 @@ import {
   SubmitButton,
   Text,
 } from '../../components';
-import jwt_decode from 'jwt-decode';
-import { useDispatch } from 'react-redux';
-import { loginUser } from '../../state/user';
 
 export default function Login() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const handleSubmit = async (userInfo) => {
     try {
       const res = await axios.post('/api/v1/user/login', userInfo);
       if (res.status === 200) {
-        const token = document.cookie.split('token=')[1];
-        const { id, username, email } = jwt_decode(token);
-        dispatch(loginUser({ id, username, email }));
         setError('');
         navigate('/');
       }
