@@ -21,7 +21,7 @@ const signup = async (req: Request, res: Response) => {
     res
       .cookie('token', token)
       .status(201)
-      .json({ message: ' Account created successfully', token });
+      .json({ message: ' Account created successfully' });
   } else {
     res.status(400).json({ message: 'Invalid verification code' });
   }
