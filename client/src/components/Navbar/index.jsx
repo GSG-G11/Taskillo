@@ -11,7 +11,7 @@ export default function Navbar({ title }) {
         <div className="d-flex align-items-center gap-3">
           <Button
             title="+ Add"
-            onClick={() => console.log('ok')}
+            // onClick={openModal}
             className="btn btn-primary add-project"
           />
           <RiNotification2Line className="icon" />
