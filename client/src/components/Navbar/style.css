@@ -4,7 +4,7 @@
     padding: 1.2rem;
     font-weight: 500;
     font-size: 1.2rem;
-    width: 81%;
+    width: calc(100% - 300px);
     padding-left: 2rem;
 }
 
