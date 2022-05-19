@@ -108,6 +108,7 @@ const ASide = styled.aside`
         font-size: 1.3rem;
         font-weight: bold;
         margin-bottom: 0;
+        color: #fff;
       }
     }
     .navbar-toggler {

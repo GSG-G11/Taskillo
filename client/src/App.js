@@ -1,4 +1,4 @@
-import { SendEmail, Signup, Login, Home } from './pages';
+import { SendEmail, Signup, Login, Home, Staff } from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -16,6 +16,7 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/staff" element={<Staff />} />
         <Route path="/sendEmail" element={<SendEmail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
