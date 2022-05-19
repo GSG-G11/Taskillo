@@ -19,7 +19,6 @@ export default function Overview() {
         status,
       } = await axios.get(`/api/v1/project/${projectid}`);
       if (status === 200) {
-        console.log(rows);
         dispatch(
           setProject({
             name: rows[0].name,
@@ -33,9 +32,28 @@ export default function Overview() {
     }
   };
 
-  useEffect(() => {
-    getProject(id);
-  }, []);
+  useEffect( async (projectid) => {
+      try {
+        const {
+          data: {
+            data: { rows, staff },
+          },
+          status,
+        } = await axios.get(`/api/v1/project/${projectid}`);
+        if (status === 200) {
+          dispatch(
+            setProject({
+              name: rows[0].name,
+              description: rows[0].description,
+              staff: staff,
+            })
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, [getProject, id]);
 
   return (
     <div>

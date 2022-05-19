@@ -6,6 +6,7 @@ import { Menu } from '../../components/UI';
 import { Outlet } from 'react-router-dom';
 
 const Project = () => {
+  console.log('Project');
   const projectData = useSelector((state) => state.project.value);
   const { open } = useSelector((state) => state.sidebar.value);
   return (

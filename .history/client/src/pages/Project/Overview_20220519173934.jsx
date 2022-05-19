@@ -19,7 +19,6 @@ export default function Overview() {
         status,
       } = await axios.get(`/api/v1/project/${projectid}`);
       if (status === 200) {
-        console.log(rows);
         dispatch(
           setProject({
             name: rows[0].name,
@@ -35,7 +34,7 @@ export default function Overview() {
 
   useEffect(() => {
     getProject(id);
-  }, []);
+  }, [getProject]);
 
   return (
     <div>

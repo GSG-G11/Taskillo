@@ -19,7 +19,7 @@ export default function Overview() {
         status,
       } = await axios.get(`/api/v1/project/${projectid}`);
       if (status === 200) {
-        console.log(rows);
+        log
         dispatch(
           setProject({
             name: rows[0].name,
