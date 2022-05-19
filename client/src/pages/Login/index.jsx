@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import Form from '../../components/Form/Form';
-import './Login.css';
+import './style.css';
 import login from '../../images/login.svg';
-import { validationLoginSchema } from '../../utils';
+import { getToken, validationLoginSchema } from '../../utils';
 import {
   Button,
+  Form,
   FormField,
   Image,
   Logo,
   SubmitButton,
   Text,
 } from '../../components';
+import { setUserInfo } from '../../state/user';
 
-export default function Signup() {
+export default function Login() {
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleSubmit = async (userInfo) => {
-    console.log(userInfo);
+    try {
+      const res = await axios.post('/api/v1/user/login', userInfo);
+      if (res.status === 200) {
+        const user = getToken();
+        dispatch(setUserInfo(user));
+        setError('');
+        navigate('/');
+      }
+    } catch ( error ) {
+      setError(error.response.data.message);
+    }
   };
 
   return (
@@ -29,12 +43,11 @@ export default function Signup() {
         </div>
         <div className='form-side d-flex flex-column m-auto'>
           <Text text='Start For Free' className='fs-5 text-white mb-2 mt-5' />
-          <Text text='Let&apos;s Go!' className='fs-2 text-white mb-4' />
+          <Text text="Let's Go!" className='fs-2 text-white mb-4' />
           <Form
             initialValues={{ email: '', password: '' }}
             validationSchema={validationLoginSchema}
-            onSubmit={handleSubmit}
-          >
+            onSubmit={handleSubmit}>
             <FormField
               type='email'
               name='email'
@@ -55,18 +68,24 @@ export default function Signup() {
               title='Sign in with Google'
               className='signup-google btn-submit mb-3 mt-2'
             />
-
             <div className='d-flex  align-items-center'>
-              <Text text='Create a new account?' className='signup-text w-50 fw-bold' />
-              <Link to='/home' className='text-decoration-none'>
+              <Text
+                text='Create a new account?'
+                className='signup-text w-50 fw-bold'
+              />
+              <Link to='/sendEmail' className='text-decoration-none'>
                 Sign up
               </Link>
             </div>
-
+            {error && (
+              <div className='alert alert-danger mt-4' role='alert'>
+                {error}
+              </div>
+            )}
           </Form>
         </div>
       </div>
-      <div className='col-6 w-50 vh-100 text-center test d-flex justify-content-center align-items-center'>
+      <div className='col-6 w-50 vh-100 text-center test d-lg-flex justify-content-center align-items-center d-none'>
         <Image
           alt='login-img'
           src={login}

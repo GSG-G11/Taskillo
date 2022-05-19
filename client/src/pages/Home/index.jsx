@@ -1,14 +1,12 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
-  // const user = useSelector((state) => state.user.value);
+  const user = useSelector((state) => state.user.value);
   return (
-    <div className='page'>
-      <Outlet />
+    <div>
       <h1>Hello World!</h1>
-      {/* {<h3>{user.username}</h3>} */}
+      {<h3>{user.username}</h3>}
     </div>
   );
 };

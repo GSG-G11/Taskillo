@@ -1,13 +1,18 @@
-import React from 'react';
-import {SendEmail, Signup} from './pages';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Login } from "./pages";
 import { Link, Route, Routes } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import Home from './pages/Home';
-
+import { Home, SendEmail, Signup, Login } from './pages';
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from './state/user';
+import { getToken } from './utils';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const user = getToken();
+    user && dispatch(setUserInfo(user));
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Routes>
