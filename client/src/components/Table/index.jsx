@@ -12,12 +12,12 @@ import { Button, Text } from '../UI';
 const TableTask = () => {
   const tasks = useSelector((state) => state.task.value);
   return (
-    <Div>
+    <Table>
       <table className='table'>
         <thead>
           <tr className='table-head'>
             <th scope='col'>Task name</th>
-            <th scope='col'>Project</th>
+            <th scope='col'>Project Name</th>
             <th scope='col'>Priority</th>
             <th scope='col'>Status</th>
             <th scope='col'>Due date</th>
@@ -58,11 +58,11 @@ const TableTask = () => {
           : 'no task' }
         </tbody>
       </table>
-    </Div>
+    </Table>
   );
 };
 
-const Div = styled.table`
+const Table= styled.table`
 .table{
   border-bottom:1px solid #282A36;
  .table-head{
@@ -86,7 +86,6 @@ const Div = styled.table`
    border:1px solid #3E7BFA;
    border-radius:5px;
    margin-left:10px
- 
  }
 }
 `;
