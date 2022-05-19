@@ -18,6 +18,7 @@ const Home = () => {
       >
         <Navbar title={`${greeting}, ${userInfo.username}`} />
       </main>
+      
     </div>
   );
 };
