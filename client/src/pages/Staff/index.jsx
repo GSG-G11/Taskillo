@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import generateGreeting from '../../utils/generateGreeting';
+import StaffHeader from '../../components/StaffHeader';
 
 const Staff = () => {
   const { open } = useSelector((state) => state.sidebar.value);
@@ -16,7 +17,11 @@ const Staff = () => {
       >
         <Navbar title={`Staff`} />
         <section className="page-content">
-          'Staff'
+          <div className="staffs">
+            <div className="single-staff">
+              <StaffHeader />
+            </div>
+          </div>
         </section>
       </main>
     </div>
