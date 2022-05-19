@@ -32,7 +32,7 @@ const Sidebar = () => {
       <nav className="side-nav">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <NavLink to="/dashboard" className="nav-link active">
+            <NavLink to="/dashboard" className="nav-link">
               <RiDashboardLine />
               <span className="link-name">Dashboard</span>
             </NavLink>
@@ -210,7 +210,7 @@ const ASide = styled.aside`
   }
   &.close {
     width: 65px;
-    padding: 2rem 0.3rem;
+    padding: 1.4rem 0.3rem;
     .side-header {
       justify-content: center;
       .logo {
@@ -234,6 +234,10 @@ const ASide = styled.aside`
     .side-projects {
       display: none;
     }
+  }
+
+  @media (max-width: 630px) {
+    width: 100%;
   }
 `;
 
