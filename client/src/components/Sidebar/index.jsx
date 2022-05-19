@@ -89,7 +89,7 @@ const ASide = styled.aside`
   height: 100vh;
   background-color: #21222c;
   border-right: 1px solid rgba(82, 82, 82, 0.4);
-  padding: 2rem 1rem;
+  padding: 1.4rem 1rem;
   transition: all 0.5s;
   overflow: hidden;
   .side-header {
@@ -165,6 +165,9 @@ const ASide = styled.aside`
       border-radius: 0.7rem;
       font-size: 1.1rem;
       color: #b8b8b8;
+      .link-name{
+        white-space: nowrap;
+      }
       svg {
         margin-right: 0.5rem;
         font-size: 1.4rem;
@@ -193,6 +196,9 @@ const ASide = styled.aside`
       border-radius: 0.7rem;
       font-size: 1.1rem;
       color: #b8b8b8;
+      .link-name{
+        white-space: nowrap;
+      }
       &.active {
         background-color: #282a36;
         color: #fff;

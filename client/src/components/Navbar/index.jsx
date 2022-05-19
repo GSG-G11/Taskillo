@@ -14,7 +14,9 @@ export default function Navbar({ title }) {
           // onClick={openModal}
           className="btn btn-primary add-project"
         />
-        <RiNotification2Line className="icon" />
+        <button className='btn notification'>
+          <RiNotification2Line className="icon" />
+        </button>
         <Image src="https://via.placeholder.com/40x40" className="user-img" />
       </div>
     </div>

@@ -1,10 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
-// import { Outlet } from 'react-router-dom';
-// import Menu from '../../components/Menu';
 import Sidebar from '../../components/Sidebar';
-// import './style.css';
 
 const Home = () => {
   const userInfo = useSelector((state) => state.user.value);
@@ -18,7 +15,6 @@ const Home = () => {
         }
       >
         <Navbar title={`Good Morning, ${userInfo.username}`} />
-        {/* <Menu /> */}
       </main>
     </div>
   );
