@@ -8,20 +8,20 @@ import './style.css';
 export default function Navbar({ title }) {
   const dispatch = useDispatch();
   return (
-    <nav className="nav-top d-flex justify-content-end">
-      <div className="navbar-container d-flex justify-content-between align-items-center">
-        <Text text={title} />
-        <div className="d-flex align-items-center gap-3">
-          <Button
-            type="button"
-            title="+ Add"
-            onClick={() => dispatch(setOpen({ open: 'true' }))}
-            className="btn btn-primary add-project"
-          />
+    <div className="d-flex justify-content-between align-items-center navbar-container">
+      <Text text={title} />
+      <div className="d-flex align-items-center gap-3">
+        <Button
+          type="button"
+          title="+ Add"
+          onClick={() => dispatch(setOpen({ open: 'true' }))}
+          className="btn btn-primary add-project"
+        />
+        <button className="btn notification">
           <RiNotification2Line className="icon" />
-          <Image src="https://via.placeholder.com/40x40" className="user-img" />
-        </div>
+        </button>
+        <Image src="https://via.placeholder.com/40x40" className="user-img" />
       </div>
-    </nav>
+    </div>
   );
 }

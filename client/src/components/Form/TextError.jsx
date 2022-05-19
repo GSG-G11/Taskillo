@@ -1,5 +1,5 @@
 function TextError({ children }) {
-  return <div  className="invalid">{children}</div>;
+  return <div className="invalid">{children}</div>;
 }
 
-export { TextError };
+export default TextError;

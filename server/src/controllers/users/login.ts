@@ -10,10 +10,10 @@ const login = async (req: Request, res: Response) => {
     res.status(401).json({ message: 'Invalid Email or Password' });
   }
   const { password: hashedPassword, id, username } = rows[0];
-  const isMatched = compare(password, hashedPassword);
+  const isMatched = await compare(password, hashedPassword);
   if (isMatched) {
-    const token = await signToken({ id, username });
-    res.cookie('token', token, { httpOnly: true, secure: false })
+    const token = await signToken({ id, username, email });
+    res.cookie('token', token, { secure: false })
       .status(200).json({ message: 'login successfully!' });
   } else {
     res.status(400).json({ message: 'Invalid Email or Password' });
