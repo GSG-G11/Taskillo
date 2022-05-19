@@ -1,4 +1,4 @@
-import { SendEmail, Signup, Login, Home, Projects } from './pages';
+import { SendEmail, Signup, Login, Home } from './pages';
 import { Project, Overview, List, Board } from './pages/Project';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';

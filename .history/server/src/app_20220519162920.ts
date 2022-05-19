@@ -13,7 +13,7 @@ const {
   env: { PORT, NODE_ENV },
 } = process;
 
-app.set('port', PORT || 5000);
+app.set('port', PORT || 6000);
 app.disable('x-powered-by');
 
 app.use([

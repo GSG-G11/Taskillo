@@ -1,11 +1,11 @@
-import { SendEmail, Signup, Login, Home, Projects } from './pages';
-import { Project, Overview, List, Board } from './pages/Project';
+import { SendEmail, Signup, Login, Home } from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from './state/user';
 import { getToken } from './utils';
 import { useEffect } from 'react';
+import { Project, Overview, List, Board } from './pages/Project';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -20,13 +20,6 @@ export default function App() {
         <Route path="/sendEmail" element={<SendEmail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/project/:id" element={<Project />}>
-          <Route index element={<Overview />} />
-          <Route path="overview" element={<Overview />} />
-          <Route path="list" element={<List />} />
-          <Route path="board" element={<Board />} />
-        </Route>
         <Route
           path="*"
           element={
