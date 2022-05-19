@@ -2,6 +2,7 @@ import { Form, SubmitButton, FormField } from './Form';
 import { Text, Button, Logo, Image } from './UI';
 import { Overview, Board, List } from './Project';
 import Navbar from './Navbar';
+import Card from './Card';
 
 export {
   Form,
@@ -15,4 +16,5 @@ export {
   Overview,
   Board,
   List,
+  Card,
 };
