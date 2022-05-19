@@ -10,22 +10,21 @@ export default function Cards() {
   const dispatch = useDispatch();
   const { tasks } = useSelector((state) => state.tasks.value);
 
-  const getDetails = async (projectid) => {
-    try {
-      const response = await axios.get(
-        `/api/v1/project/${projectid}/tasksSection`
-      );
-      if (response.status === 200) {
-        dispatch(setTask({ tasks: response.data.data }));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    async function getDetails(projectid) {
+      try {
+        const response = await axios.get(
+          `/api/v1/project/${projectid}/tasksSection`
+        );
+        if (response.status === 200) {
+          dispatch(setTask({ tasks: response.data.data }));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
     getDetails(id);
-  }, [id]);
+  }, [dispatch, id]);
 
   return (
     <div>

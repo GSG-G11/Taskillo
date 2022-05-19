@@ -10,31 +10,30 @@ export default function Overview() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const getProject = async (projectid) => {
-    try {
-      const {
-        data: {
-          data: { rows, staff },
-        },
-        status,
-      } = await axios.get(`/api/v1/project/${projectid}`);
-      if (status === 200) {
-        dispatch(
-          setProject({
-            name: rows[0].name,
-            description: rows[0].description,
-            staff: staff,
-          })
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    async function getProject(projectid) {
+      try {
+        const {
+          data: {
+            data: { rows, staff },
+          },
+          status,
+        } = await axios.get(`/api/v1/project/${projectid}`);
+        if (status === 200) {
+          dispatch(
+            setProject({
+              name: rows[0].name,
+              description: rows[0].description,
+              staff: staff,
+            })
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
     getProject(id);
-  }, [id]);
+  }, [dispatch, id]);
 
   return (
     <div>
