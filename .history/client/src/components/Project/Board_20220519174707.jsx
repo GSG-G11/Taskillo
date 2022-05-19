@@ -19,4 +19,7 @@ const Title = styled.div`
     font-weight: 600;
     margin: 1rem 2rem;
   }
+  .page-container{
+    
+  }
 `;

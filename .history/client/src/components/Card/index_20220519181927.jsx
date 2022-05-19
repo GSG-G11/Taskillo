@@ -45,9 +45,8 @@ export default function Card() {
   );
 }
 
-
 const Cards = styled.div`
-    display: flex;
-    flex-direction: column;
-color: #fff;
-`
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+`;

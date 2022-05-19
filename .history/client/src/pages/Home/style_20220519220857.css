@@ -1,0 +1,8 @@
+.page{
+    width: calc(100% - 300px);
+}
+
+.main-page{
+    overflow: hidden;
+    width: 100v;
+}
