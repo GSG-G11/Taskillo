@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css';
 import { BrowserRouter } from 'react-router-dom';
-import userReducer from './state/user';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import useReducer from './state/user';
+import sidebarReducer from './state/sidebar';
+import './index.css';
 
 const store = configureStore({
   reducer: {
-    user: userReducer,
+    user: useReducer,
+    sidebar: sidebarReducer,
   },
 });
 

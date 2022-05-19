@@ -1,23 +1,16 @@
-import React, { useEffect } from 'react';
+import { SendEmail, Signup } from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Login } from './pages';
 import { Link, Route, Routes } from 'react-router-dom';
-import { Home, SendEmail, Signup, Login } from './pages';
-import { useDispatch } from 'react-redux';
-import { setUserInfo } from './state/user';
-import { getToken } from './utils';
+// import Sidebar from './components/Sidebar';
+import Home from './pages/Home';
 
-function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const user = getToken();
-    user && dispatch(setUserInfo(user));
-  }, [dispatch]);
-
+export default function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="/" element={<Sidebar />} />
+          {/* <Route path="/" element={<Sidebar />} /> */}
         </Route>
         <Route path="/sendEmail" element={<SendEmail />} />
         <Route path="/signup" element={<Signup />} />
@@ -35,5 +28,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -7,69 +7,72 @@ import {
   RiListCheck2,
 } from 'react-icons/ri';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setOpen } from '../../state/sidebar';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const {open} = useSelector((state) => state.sidebar.value);
+  const dispatch = useDispatch();
   return (
-    <ASide className={isOpen ? 'sidebar' : 'sidebar close'}>
-      <header className='side-header'>
-        <div className='logo'>
-          <img src={logo} alt='Taskillo' width='25' />
-          <h2 className='logo-name'>Taskillo</h2>
+    <ASide className={open ? 'sidebar' : 'sidebar close'}>
+      <header className="side-header">
+        <div className="logo">
+          <img src={logo} alt="Taskillo" width="25" />
+          <h2 className="logo-name">Taskillo</h2>
         </div>
         <button
-          onClick={() => setIsOpen((prev) => !prev)}
-          className={isOpen ? 'btn navbar-toggler active' : 'btn navbar-toggler'}>
-          <span className='line'></span>
-          <span className='line'></span>
-          <span className='line'></span>
+          onClick={() => dispatch(setOpen({ open: !open }))}
+          className={open ? 'btn navbar-toggler active' : 'btn navbar-toggler'}
+        >
+          <span className="line"></span>
+          <span className="line"></span>
+          <span className="line"></span>
         </button>
       </header>
-      <nav className='side-nav'>
-        <ul className='nav flex-column'>
-          <li className='nav-item'>
-            <NavLink to='/dashboard' className='nav-link active'>
+      <nav className="side-nav">
+        <ul className="nav flex-column">
+          <li className="nav-item">
+            <NavLink to="/dashboard" className="nav-link active">
               <RiDashboardLine />
-              <span className='link-name'>Dashboard</span>
+              <span className="link-name">Dashboard</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/tasks' className='nav-link'>
+          <li className="nav-item">
+            <NavLink to="/tasks" className="nav-link">
               <RiListCheck2 />
-              <span className='link-name'>Tasks</span>
+              <span className="link-name">Tasks</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/calender' className='nav-link'>
+          <li className="nav-item">
+            <NavLink to="/calender" className="nav-link">
               <RiCalendar2Line />
-              <span className='link-name'>Calender</span>
+              <span className="link-name">Calender</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/staff' className='nav-link'>
+          <li className="nav-item">
+            <NavLink to="/staff" className="nav-link">
               <RiGroupLine />
-              <span className='link-name'>Staff</span>
+              <span className="link-name">Staff</span>
             </NavLink>
           </li>
         </ul>
       </nav>
-      <nav className='side-projects'>
+      <nav className="side-projects">
         <h3 className="side-title">Projects</h3>
-        <ul className='nav flex-column'>
-          <li className='nav-item'>
-            <NavLink to='/projects/1' className='nav-link'>
-              <span className='link-name'>Graduation Project</span>
+        <ul className="nav flex-column">
+          <li className="nav-item">
+            <NavLink to="/projects/1" className="nav-link">
+              <span className="link-name">Graduation Project</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/projects/2' className='nav-link'>
-              <span className='link-name'>Movflx Website</span>
+          <li className="nav-item">
+            <NavLink to="/projects/2" className="nav-link">
+              <span className="link-name">Movflx Website</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/projects/3' className='nav-link'>
-              <span className='link-name'>Taskillo Team</span>
+          <li className="nav-item">
+            <NavLink to="/projects/3" className="nav-link">
+              <span className="link-name">Taskillo Team</span>
             </NavLink>
           </li>
         </ul>
@@ -87,8 +90,8 @@ const ASide = styled.aside`
   background-color: #21222c;
   border-right: 1px solid rgba(82, 82, 82, 0.4);
   padding: 2rem 1rem;
-  transition: all .5s;
-
+  transition: all 0.5s;
+  overflow: hidden;
   .side-header {
     display: flex;
     justify-content: space-between;
@@ -101,7 +104,6 @@ const ASide = styled.aside`
       img {
         margin-right: 0.5rem;
       }
-
       .logo-name {
         font-size: 1.3rem;
         font-weight: bold;
@@ -117,7 +119,6 @@ const ASide = styled.aside`
       align-items: center;
       overflow: hidden;
       cursor: pointer;
-
       .line {
         position: absolute;
         width: 25px;
@@ -125,7 +126,6 @@ const ASide = styled.aside`
         border-radius: 5px;
         background-color: #fff;
         transition: 0.5s;
-
         :nth-child(1) {
           transform: translateY(-8px);
           transition-delay: 0.125s;
@@ -155,10 +155,8 @@ const ASide = styled.aside`
       }
     }
   }
-
   .side-nav {
     margin-bottom: 3rem;
-
     .nav-link {
       display: flex;
       align-items: center;
@@ -171,27 +169,23 @@ const ASide = styled.aside`
         margin-right: 0.5rem;
         font-size: 1.4rem;
       }
-
       &.active {
         background-color: #282a36;
         color: #fff;
       }
-
       &:hover {
         color: #fff;
       }
     }
   }
-
-  .side-projects{
-    .side-title{
+  .side-projects {
+    .side-title {
       font-size: 1rem;
       font-weight: 400;
       color: #777777;
-      margin-bottom: .6rem;
+      margin-bottom: 0.6rem;
     }
-
-    .nav-link{
+    .nav-link {
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -199,35 +193,30 @@ const ASide = styled.aside`
       border-radius: 0.7rem;
       font-size: 1.1rem;
       color: #b8b8b8;
-
       &.active {
         background-color: #282a36;
         color: #fff;
       }
-
       &:hover {
         color: #fff;
       }
     }
   }
-
   &.close {
     width: 65px;
     padding: 2rem 0.3rem;
-
     .side-header {
       justify-content: center;
       .logo {
         display: none;
       }
     }
-
     .side-nav {
       .nav-item {
         width: 100%;
-        .nav-link{
+        .nav-link {
           justify-content: center;
-          svg{
+          svg {
             margin-right: 0;
           }
           .link-name {
@@ -236,8 +225,7 @@ const ASide = styled.aside`
         }
       }
     }
-
-    .side-projects{
+    .side-projects {
       display: none;
     }
   }

@@ -37,3 +37,15 @@ body {
   outline: none;
   box-shadow: none !important;
 }
+
+.main-page{
+  transition: .5s;
+}
+
+.main-page{
+  margin-left: 300px;
+}
+
+.main-page.close{
+  margin-left: 65px;
+}
