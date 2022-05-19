@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;800&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -13,39 +14,34 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: #FFF;
-}
 
-
-:root{
+:root {
   --background: #1C1C28;
   --sendEmail: #3E3E47;
 }
 
-.App{
+.App {
   height: 100vh;
   background-color: var(--background);
   position: relative;
 }
 
-.btn, .btn:focus,
-.navbar-toggler, .navbar-toggler:focus {
+.btn,
+.btn:focus,
+.navbar-toggler,
+.navbar-toggler:focus {
   outline: none;
   box-shadow: none !important;
 }
 
-.main-page{
+.main-page {
   transition: .5s;
 }
 
-.main-page{
+.main-page {
   margin-left: 300px;
 }
 
-.main-page.close{
+.main-page.close {
   margin-left: 65px;
 }

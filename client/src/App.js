@@ -1,8 +1,6 @@
-import { SendEmail, Signup } from './pages';
+import { SendEmail, Signup, Login, Home } from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Login } from './pages';
 import { Link, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from './state/user';
 import { getToken } from './utils';

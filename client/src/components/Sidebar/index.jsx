@@ -71,7 +71,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/projects/3" className="nav-link">
+            <NavLink to="/projects/6" className="nav-link">
               <span className="link-name">Taskillo Team</span>
             </NavLink>
           </li>
