@@ -1,5 +1,5 @@
-import { SendEmail, Signup, Login, Home, Projects, Project } from './pages';
-import { Overview, List, Board } from './components';
+import { SendEmail, Signup, Login, Home, Projects } from './pages';
+import { Project, Overview, List, Board } from './';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -9,12 +9,10 @@ import { useEffect } from 'react';
 
 export default function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     const user = getToken();
     user && dispatch(setUserInfo(user));
   }, [dispatch]);
-
   return (
     <div className="App">
       <Routes>

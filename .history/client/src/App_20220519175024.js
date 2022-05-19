@@ -9,12 +9,10 @@ import { useEffect } from 'react';
 
 export default function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     const user = getToken();
     user && dispatch(setUserInfo(user));
   }, [dispatch]);
-
   return (
     <div className="App">
       <Routes>

@@ -3,6 +3,6 @@ import Signup from './SignUp';
 import Login from './Login';
 import SendEmail from './SendEmail';
 import Projects from './Projects';
-import Project from './Project';
+import Projects from './Projects';
 
-export { Home, SendEmail, Signup, Login, Projects, Project };
+export { Home, SendEmail, Signup, Login, Projects };
