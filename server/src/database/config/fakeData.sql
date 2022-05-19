@@ -1,4 +1,3 @@
-
 -- users
 INSERT INTO
     users (
@@ -117,8 +116,16 @@ VALUES
 INSERT INTO
     sections (name, projectId)
 values
-    ('todo', '1'),
-    ('done', '2');
+    ('Midterm', '1'),
+    ('Projects', '2'),
+    ('Midterm', '2'),
+    ('Projects', '4'),
+    ('Midterm', '6'),
+    ('Projects', '6'),
+    ('Midterm', '7'),
+    ('Projects', '8'),
+    ('Midterm', '9'),
+    ('Projects', '10');
 
 -- tasks
 INSERT INTO
@@ -146,8 +153,39 @@ values
         '2022-05-23',
         'done',
         '2'
+    ),
+    (
+        'to do',
+        'create tasks router',
+        'low',
+        '2022-05-23',
+        'done',
+        '2'
+    ),
+    (
+        'to do',
+        'create tasks router',
+        'low',
+        '2022-05-23',
+        'done',
+        '3'
+    ),
+    (
+        'to do',
+        'create tasks router',
+        'low',
+        '2022-05-23',
+        'done',
+        '4'
+    ),
+    (
+        'to do',
+        'create tasks router',
+        'low',
+        '2022-05-23',
+        'done',
+        '6'
     );
-
 
 -- user_tasks
 INSERT INTO
