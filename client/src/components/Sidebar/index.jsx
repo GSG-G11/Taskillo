@@ -235,6 +235,10 @@ const ASide = styled.aside`
       display: none;
     }
   }
+
+  @media (max-width: 630px) {
+    width: 100%;
+  }
 `;
 
 export default Sidebar;

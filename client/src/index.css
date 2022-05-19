@@ -45,3 +45,9 @@ body {
 .main-page.close {
   margin-left: 65px;
 }
+
+@media (max-width: 630px) { 
+  .main-page {
+    margin-left: 65px;
+  }
+}
