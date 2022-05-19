@@ -1,8 +1,17 @@
 import { SendEmail, Signup, Login, Home } from './pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from './state/user';
+import { getToken } from './utils';
+import { useEffect } from 'react';
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const user = getToken();
+    user && dispatch(setUserInfo(user));
+  }, [dispatch]);
   return (
     <div className="App">
       <Routes>
