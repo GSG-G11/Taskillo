@@ -2,10 +2,10 @@ import { Request, Response } from 'express';
 import { deleteSectionQuery, getOneSectionQuery } from '../../database';
 
 const deleteSection = async (req: Request, res: Response) => {
-  const id = +req.params.id;
-  const { rowCount } = await getOneSectionQuery(id);
+  const { id } = req.params;
+  const { rowCount } = await getOneSectionQuery(+id);
   if (rowCount) {
-    await deleteSectionQuery(id);
+    await deleteSectionQuery(+id);
     res.status(200).json({
       message: 'Section deleted successfully',
     });
