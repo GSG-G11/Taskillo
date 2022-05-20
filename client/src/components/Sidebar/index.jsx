@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setOpen } from '../../state/sidebar';
 
 const Sidebar = () => {
-  const {open} = useSelector((state) => state.sidebar.value);
+  const { open } = useSelector((state) => state.sidebar.value);
   const dispatch = useDispatch();
   return (
     <ASide className={open ? 'sidebar' : 'sidebar close'}>
@@ -166,7 +166,7 @@ const ASide = styled.aside`
       border-radius: 0.7rem;
       font-size: 1.1rem;
       color: #b8b8b8;
-      .link-name{
+      .link-name {
         white-space: nowrap;
       }
       svg {
@@ -197,7 +197,7 @@ const ASide = styled.aside`
       border-radius: 0.7rem;
       font-size: 1.1rem;
       color: #b8b8b8;
-      .link-name{
+      .link-name {
         white-space: nowrap;
       }
       &.active {

@@ -119,6 +119,7 @@ const Title = styled.div`
     .card-container {
       width: 100%;
       max-width: 100%;
+      overflow: hidden;
       margin: 0;
     }
     .section-container {

@@ -57,16 +57,16 @@ INSERT INTO
     projects (name, description)
 VALUES
     (
-        'Project 1',
-        'This is project 1'
+        'Graduation Project',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
-        'Project 2',
-        'This is project 2'
+        'Movix Website',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
-        'Project 3',
-        'This is project 3'
+        'Taskillo Team',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
         'Project 4',
@@ -77,8 +77,8 @@ VALUES
         'This is project 5'
     ),
     (
-        'Project 6',
-        'This is project 6'
+        'Taskillo Team',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
         'Project 7',
@@ -155,7 +155,7 @@ values
         'Medium',
         '2022-05-23',
         'Done',
-        '2'
+        '5'
     ),
     (
         'Design Comments',
@@ -163,7 +163,7 @@ values
         'High',
         '2022-05-23',
         'In Progress',
-        '2'
+        '5'
     ),
     (
         'Draw icons',
@@ -176,10 +176,10 @@ values
     (
         'Design dark mood',
         'Comments are important for an app, look at the screen below',
-        'Low',
+        'High',
         '2022-05-23',
         'Done',
-        '4'
+        '6'
     ),
     (
         'Create a User Flow',
