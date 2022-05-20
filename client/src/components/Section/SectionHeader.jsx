@@ -3,9 +3,9 @@ import { FiMoreVertical } from 'react-icons/fi';
 import { AiOutlinePlus } from 'react-icons/ai';
 import styled from 'styled-components';
 
-export default function SectionHeader({ name }) {
+export default function SectionHeader({ name, id, setClicked }) {
   return (
-    <Title className="section-title">
+      <Title className="section-title"  onClick={() => setClicked(id)}>
       <p>{name}</p>
       <div>
         <AiOutlinePlus className="icon" />
@@ -26,6 +26,9 @@ const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  button.section-header-btn{
+    background: none;
+  }
   p {
     margin-bottom: 0;
   }

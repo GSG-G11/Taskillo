@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import SectionHeader from './SectionName';
+import SectionHeader from './SectionHeader';
 import styled from 'styled-components';
 import { Droppable } from 'react-beautiful-dnd';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useMediaQuery } from 'react-responsive';
 import axios from 'axios';
 import { setTask } from '../../state/tasks';
 import Card from '../Card';
@@ -13,15 +12,7 @@ export default function Section({ name, sectionId }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { tasks } = useSelector((state) => state.tasks.value);
-  // const [clicked, setClicked] = React.useState(false);
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 630px)' });
-
-  // const handleClick = (index) => {
-  //   if (clicked === index) {
-  //     return setClicked(null);
-  //   }
-  //   setClicked(index);
-  // };
+  const [clicked, setClicked] = React.useState(0);
 
   useEffect(() => {
     async function getDetails(projectid) {
@@ -41,16 +32,14 @@ export default function Section({ name, sectionId }) {
 
   return (
     <Div>
-      <div
-        className={`section (${isTabletOrMobile} ? 'accordion-container' : '')`}
-      >
-        <SectionHeader name={name} />
+      <div className="section">
+        <SectionHeader name={name} id={sectionId} setClicked={setClicked} />
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
             <div
               ref={provided.innerRef}
               {...provided.droppableProps}
-              className="card-container"
+              className={`card-container card-container-${clicked}`}
             >
               {tasks.map((task, index) => {
                 if (task.sectionid === sectionId) {

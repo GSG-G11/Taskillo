@@ -137,11 +137,11 @@ const Title = styled.div`
       display: flex;
       flex-direction: column;
       gap: 10px;
+      height: 0;
     }
     .section-title {
       margin-bottom: 10px;
     }
-
     .title {
       margin: 5px 0 10px 10px;
     }
