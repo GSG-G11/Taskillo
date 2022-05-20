@@ -42,7 +42,7 @@ export default function Section({ name, sectionId }) {
             >
               {tasks.map((task, index) => {
                 if (task.sectionid === sectionId) {
-                  return <Card key={task.id} task={task} index={index} />;
+                  return <Card key={task.taskid} task={task} index={index} />;
                 } else return true;
               })}
               {provided.placeholder}

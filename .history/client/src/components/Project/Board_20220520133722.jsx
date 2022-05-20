@@ -55,7 +55,7 @@ export default function Board() {
       if (response.status === 200) {
         const updatedTask = response.data.data[0];
         const ordered = tasks.map((task) => {
-          if (task.id === updatedTask.id) {
+          if (task.taskid === updatedTask.id) {
             return updatedTask;
           }else{
             return task;

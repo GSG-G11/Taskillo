@@ -10,13 +10,13 @@ export default function Card({
     sectionid,
     sectionname,
     status,
-    taskid,
+    id,
     tasktitle,
   },
   index,
 }) {
   return (
-    <Draggable draggableId={tasktitle} index={index}>
+    <Draggable draggableId={id.toString()} index={index}>
       {(provided) => (
         <CardDiv
           ref={provided.innerRef}

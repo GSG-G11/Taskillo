@@ -7,6 +7,9 @@ const taskSlice = createSlice({
     setTask: (state, action) => {
       state.value = action.payload;
     },
+    editTask: (state, action) => {
+      state.value = action.payload;
+    }
   },
 });
 

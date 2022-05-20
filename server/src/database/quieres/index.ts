@@ -17,6 +17,7 @@ import {
   editTaskQuery,
   deleteTaskQuery,
   addUserTaskQuery,
+  dragTaskQuery,
 } from './tasks';
 
 import {
@@ -49,4 +50,5 @@ export {
   deleteSectionQuery,
   addUserTaskQuery,
   getCheckMembersQuery,
+  dragTaskQuery,
 };

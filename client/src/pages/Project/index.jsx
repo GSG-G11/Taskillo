@@ -10,8 +10,11 @@ const Project = () => {
   const { open } = useSelector((state) => state.sidebar.value);
 
   useEffect(() => {
-    localStorage.setItem('currentProject', JSON.stringify(projectData.name));
-  }, [projectData.name]);
+    window.localStorage.setItem(
+      'currentProject',
+      JSON.stringify(projectData.name)
+    );
+  }, [projectData]);
 
   const projectName =
     projectData.name || JSON.parse(localStorage.getItem('currentProject'));

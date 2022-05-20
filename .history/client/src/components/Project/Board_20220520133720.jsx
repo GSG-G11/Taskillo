@@ -49,13 +49,13 @@ export default function Board() {
     try {
       const response = await axios.put(`/api/v1/task/drag`, {
         destinationSection: +destination.droppableId,
-        taskId: draggableTask[0].id,
+        taskId: draggableTask[0].taskid,
       });
       console.log(response.data.data);
       if (response.status === 200) {
         const updatedTask = response.data.data[0];
         const ordered = tasks.map((task) => {
-          if (task.id === updatedTask.id) {
+          if (task.taskid === updatedTask.id) {
             return updatedTask;
           }else{
             return task;
