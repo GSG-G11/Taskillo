@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Text } from '..';
 import Section from '../Section';
 import { setSection } from '../../state/sections';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { setTask } from '../../state/tasks';
 
 export default function Board() {
@@ -37,6 +37,7 @@ export default function Board() {
       const items = Array.from(tasks);
       const [reorderedItem] = items.splice(source.index, 1);
       items.splice(destination.index, 0, reorderedItem);
+
       dispatch(setTask({ tasks: items }));
     } else {
       onDragStart({ destination, draggableId });
@@ -80,6 +81,7 @@ export default function Board() {
               return <Section name={name} sectionId={id} key={id} />;
             })}
           </div>
+          }
         </DragDropContext>
       </Title>
     </div>

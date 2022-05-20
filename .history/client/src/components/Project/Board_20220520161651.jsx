@@ -73,6 +73,7 @@ export default function Board() {
       <Title className="container">
         <div>
           <Text text="Tasks & Sections" className="text-white title" />
+          <Link to=''/>
         </div>
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="section-container d-flex">

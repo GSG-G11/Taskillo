@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Text } from '..';
 import Section from '../Section';
 import { setSection } from '../../state/sections';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { setTask } from '../../state/tasks';
 
 export default function Board() {
@@ -31,12 +31,13 @@ export default function Board() {
     getSections(id);
   }, [dispatch, id]);
 
-  const onDragEnd = ({ source, destination, draggableId, type }) => {
-    if (!destination || type === 'section') return;
+  const onDragEnd = ({ source, destination, draggableId }) => {
+    if (!destination) return;
     if (destination.droppableId === source.droppableId) {
       const items = Array.from(tasks);
       const [reorderedItem] = items.splice(source.index, 1);
       items.splice(destination.index, 0, reorderedItem);
+
       dispatch(setTask({ tasks: items }));
     } else {
       onDragStart({ destination, draggableId });
@@ -75,11 +76,15 @@ export default function Board() {
           <Text text="Tasks & Sections" className="text-white title" />
         </div>
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className="section-container d-flex">
-            {sections.map(({ id, name }, index) => {
-              return <Section name={name} sectionId={id} key={id} />;
-            })}
-          </div>
+          <Droppable droppableId="app">
+            {(provided) => {
+              <div className="section-container d-flex">
+                {sections.map(({ id, name }, index) => {
+                  return <Section name={name} sectionId={id} key={id} />;
+                })}
+              </div>;
+            }}
+          </Droppable>
         </DragDropContext>
       </Title>
     </div>
