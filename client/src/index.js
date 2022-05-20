@@ -5,8 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import useReducer from './state/user';
-import modalReducer from './state/modal';
+import modalReducer from './state/user';
 import sidebarReducer from './state/sidebar';
+import projectReducer from './state/project';
 import './index.css';
 
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
     user: useReducer,
     modal: modalReducer,
     sidebar: sidebarReducer,
+    project: projectReducer,
   },
 });
 
