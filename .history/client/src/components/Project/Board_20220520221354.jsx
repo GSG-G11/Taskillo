@@ -113,6 +113,7 @@ const Title = styled.div`
     margin-top: 20px;
   }
   @media (max-width: 630px) {
+    
     .section-container,
     .section,
     .carrd,
@@ -137,5 +138,6 @@ const Title = styled.div`
     .section-title {
       margin-bottom: 10px;
     }
+  
   }
 `;

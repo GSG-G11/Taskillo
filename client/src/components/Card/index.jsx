@@ -50,7 +50,7 @@ export default function Card({
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className={`card ${priority}`}
+          className={`carrd ${priority}`}
         >
           <span className={`status ${color}`} status={status}>
             {status}

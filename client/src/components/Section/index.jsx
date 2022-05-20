@@ -12,6 +12,14 @@ export default function Section({ name, sectionId }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { tasks } = useSelector((state) => state.tasks.value);
+  const [clicked, setClicked] = React.useState(false);
+
+  const handleClick = (index) => {
+    if (clicked === index) {
+      return setClicked(null);
+    }
+    setClicked(index);
+  };
 
   useEffect(() => {
     async function getDetails(projectid) {
@@ -33,7 +41,6 @@ export default function Section({ name, sectionId }) {
     <Div>
       <div className="section">
         <SectionHeader name={name} />
-
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
             <div
@@ -74,8 +81,5 @@ const Div = styled.div`
       background-color: #323239;
       border-radius: 1rem;
     }
-  }
-  .sc-hKMtZM.byzGcZ {
-    height: 40%;
   }
 `;

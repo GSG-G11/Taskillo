@@ -137,5 +137,8 @@ const Title = styled.div`
     .section-title {
       margin-bottom: 10px;
     }
+    .nav-link {
+      padding: 0.5rem;
+    }
   }
 `;

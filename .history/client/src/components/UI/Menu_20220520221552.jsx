@@ -55,9 +55,6 @@ const Div = styled.nav`
     .nav-link {
       padding: 0.5rem;
     }
-    .link-name {
-      font-size: 1rem;
-    }
   }
 `;
 

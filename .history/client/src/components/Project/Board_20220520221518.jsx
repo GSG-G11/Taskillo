@@ -68,6 +68,7 @@ export default function Board() {
       console.log(error);
     }
   };
+
   return (
     <div className="page-container d-flex flex-row">
       <Title className="container">
@@ -112,14 +113,16 @@ const Title = styled.div`
     margin-top: 20px;
   }
   @media (max-width: 630px) {
+    .nav-link {
+      padding: 0.5rem;
+    }
     .section-container,
     .section,
-    .card,
+    .carrd,
     .section-title,
     .card-container {
       width: 100%;
       max-width: 100%;
-      overflow: hidden;
       margin: 0;
     }
     .section-container {
@@ -128,7 +131,6 @@ const Title = styled.div`
       justify-content: center;
       margin-left: 0;
       gap: 20px;
-      overflow-x: auto;
     }
     .card-container {
       display: flex;
@@ -138,11 +140,6 @@ const Title = styled.div`
     .section-title {
       margin-bottom: 10px;
     }
-    .nav-link {
-      padding: 0.5rem;
-    }
-    .page-container, .container {
-      overflow: hidden;
-    }
+  
   }
 `;

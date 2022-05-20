@@ -50,15 +50,7 @@ const Div = styled.nav`
       }
     }
   }
-
-  @media (max-width: 630px) {
-    .nav-link {
-      padding: 0.5rem;
-    }
-    .link-name {
-      font-size: 1rem;
-    }
-  }
 `;
 
 export default Menu;
+

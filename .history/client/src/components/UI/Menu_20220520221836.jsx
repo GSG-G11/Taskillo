@@ -56,8 +56,8 @@ const Div = styled.nav`
       padding: 0.5rem;
     }
     .link-name {
-      font-size: 1rem;
-    }
+      font-size: 0.8rem;
+      }
   }
 `;
 

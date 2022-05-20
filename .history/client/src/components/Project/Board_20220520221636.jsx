@@ -136,6 +136,8 @@ const Title = styled.div`
     }
     .section-title {
       margin-bottom: 10px;
+      
     }
+  
   }
 `;

@@ -68,6 +68,7 @@ export default function Board() {
       console.log(error);
     }
   };
+
   return (
     <div className="page-container d-flex flex-row">
       <Title className="container">
@@ -114,12 +115,11 @@ const Title = styled.div`
   @media (max-width: 630px) {
     .section-container,
     .section,
-    .card,
+    .carrd,
     .section-title,
     .card-container {
       width: 100%;
       max-width: 100%;
-      overflow: hidden;
       margin: 0;
     }
     .section-container {
@@ -137,8 +137,8 @@ const Title = styled.div`
     .section-title {
       margin-bottom: 10px;
     }
-    .nav-link {
-      padding: 0.5rem;
-    }
+    .lo
+    font-size: 0.8rem;
+  
   }
 `;
