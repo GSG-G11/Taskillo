@@ -9,6 +9,8 @@ import modalReducer from './state/modal';
 import sidebarReducer from './state/sidebar';
 import projectReducer from './state/project';
 import tasksReducer from './state/tasks';
+import sectionsReducer from './state/sections';
+
 import './index.css';
 
 const store = configureStore({
@@ -18,6 +20,7 @@ const store = configureStore({
     sidebar: sidebarReducer,
     project: projectReducer,
     tasks: tasksReducer,
+    sections: sectionsReducer,
   },
 });
 

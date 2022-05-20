@@ -1,15 +1,19 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Text } from '..';
 import Section from '../Section';
+import { setSection } from '../../state/sections';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { setTask } from '../../state/tasks';
 
 export default function Board() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const [sections, setSections] = React.useState([]);
+  const { sections } = useSelector((state) => state.sections.value);
+  const { tasks } = useSelector((state) => state.tasks.value);
 
   useEffect(() => {
     async function getSections(projectid) {
@@ -18,7 +22,7 @@ export default function Board() {
           `/api/v1/project/${projectid}/sections`
         );
         if (response.status === 200) {
-          setSections(response.data.data);
+          dispatch(setSection({ sections: response.data.data }));
         }
       } catch (error) {
         console.log(error);
@@ -27,15 +31,30 @@ export default function Board() {
     getSections(id);
   }, [dispatch, id]);
 
+  const onDragEnd = ({ source, destination, draggableId }) => {
+    console.log(source, destination, draggableId);
+    if (!destination) return;
+
+    if (destination.droppableId === source.droppableId) {
+      const items = Array.from(tasks);
+      const [reorderedItem] = items.splice(source.index, 1);
+      items.splice(destination.index, 0, reorderedItem);
+
+      dispatch(setTask({ tasks: items }));
+    }
+  };
+
   return (
     <div className="page-container d-flex flex-row">
       <Title className="container">
         <Text text="Tasks & Sections" className="text-white title" />
-        <div className="section-container d-flex">
-          {sections.map(({ id, name }, index) => {
-            return <Section name={name} sectionId={id} key={id} />;
-          })}
-        </div>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <div className="section-container d-flex">
+            {sections.map(({ id, name }, index) => {
+              return <Section name={name} sectionId={id} key={id} />;
+            })}
+          </div>
+        </DragDropContext>
       </Title>
     </div>
   );

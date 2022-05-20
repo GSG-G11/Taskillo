@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 export default function Card({
@@ -13,16 +13,25 @@ export default function Card({
     taskid,
     tasktitle,
   },
+  index,
 }) {
   return (
-    <CardDiv>
-      <span>{status}</span>
-      <span className="fw-bold task-title">{tasktitle}</span>
-      <p className="task-desc">{description}</p>
-      <div>
-        <span className="task-date">{enddate}</span>
-      </div>
-    </CardDiv>
+    <Draggable draggableId={tasktitle} index={index}>
+      {(provided) => (
+        <CardDiv
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <span>{status}</span>
+          <span className="fw-bold task-title">{tasktitle}</span>
+          <p className="task-desc">{description}</p>
+          <div>
+            <span className="task-date">{enddate}</span>
+          </div>
+        </CardDiv>
+      )}
+    </Draggable>
   );
 }
 

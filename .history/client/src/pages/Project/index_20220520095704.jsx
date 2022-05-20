@@ -13,14 +13,15 @@ const Project = () => {
     localStorage.setItem('currentProject', JSON.stringify(projectData.name));
   }, [projectData.name]);
 
-  const projectName =
-    projectData.name || JSON.parse(localStorage.getItem('currentProject'));
-
   return (
+    {
+      const saved = localStorage.getItem("name");
+  const initialValue = JSON.parse(saved);
+    }
     <div className="page-container">
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
-        <Navbar title={` ${projectName} `} />
+        <Navbar title={` ${projectData.name}`} />
         <Menu />
         <Outlet />
       </main>

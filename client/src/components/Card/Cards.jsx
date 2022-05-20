@@ -27,7 +27,7 @@ export default function Cards({ sectionId }) {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div className="card-container">
       {tasks.map((task) => {
         if (task.sectionid === sectionId) {
           return <Card key={task.taskid} task={task} />;
