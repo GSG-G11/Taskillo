@@ -2,13 +2,13 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
-import generateGreeting from '../../utils/generateGreeting';
 import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard } from '../../components/Card';
+import member1 from '../../images/member1.svg'
+import member2 from '../../images/member2.svg'
 
 const Home = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
-  const greeting = generateGreeting();
   return (
     <div className="page-container">
       <Sidebar />
@@ -17,7 +17,7 @@ const Home = () => {
           open ? 'main-page' : 'main-page close'
         }
       >
-        <Navbar title={`${greeting}, ${userInfo.username}`} />
+        <Navbar title={`${userInfo.username}`} />
       </main>
 
       <div className='d-flex'>
@@ -28,8 +28,8 @@ const Home = () => {
           </div>
           <SlideCard/>
           <div className='d-flex'>
-            <StaffCard />
-            <StaffCard className={'ms-2'} />
+            <StaffCard avatar={member1} memberName={'Amran Elmasri'}/>
+            <StaffCard className={'ms-2'} avatar={member2} memberName={'Karam Zomlot'}/>
           </div>
         </div>
 
