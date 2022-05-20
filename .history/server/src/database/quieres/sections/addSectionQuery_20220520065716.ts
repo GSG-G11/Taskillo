@@ -1,6 +1,6 @@
 import { connection } from '../../config';
 
-const addSectionQuery = ({ name, projectId }: {name: string, projectId: number}) => {
+const addSectionQuery = ({ name, projectId }: {name: string, pro}) => {
   const sql = {
     text: `INSERT INTO sections (name, projectId) VALUES ($1, $2) RETURNING *`,
     values: [name, projectId],

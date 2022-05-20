@@ -33,7 +33,7 @@ export default function Board() {
         <Text text="Tasks & Sections" className="text-white title" />
         <div className="section-container d-flex">
           {sections.map(({ id, name }, index) => {
-            return <Section name={name} sectionId={id} key={id} />;
+            return <Section name={name} key={id} />;
           })}
         </div>
       </Title>

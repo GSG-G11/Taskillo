@@ -9,7 +9,9 @@ export default function Section({ name, sectionId }) {
       <div className="section">
         <SectionName name={name} />
         <div className="cards">
-          <Cards sectionId={sectionId} />
+         {
+           (tasks.filter)
+         }
         </div>
       </div>
     </Div>

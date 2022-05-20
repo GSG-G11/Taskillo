@@ -2,8 +2,10 @@ import React from 'react';
 import SectionName from './SectionName';
 import Cards from '../Card/Cards';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 export default function Section({ name, sectionId }) {
+
   return (
     <Div>
       <div className="section">

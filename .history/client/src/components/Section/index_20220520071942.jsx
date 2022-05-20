@@ -9,7 +9,7 @@ export default function Section({ name, sectionId }) {
       <div className="section">
         <SectionName name={name} />
         <div className="cards">
-          <Cards sectionId={sectionId} />
+         
         </div>
       </div>
     </Div>

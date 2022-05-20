@@ -1,5 +1,9 @@
 import { Response } from 'express';
-import { addProjectQuery, addUserProjectsQuery } from '../../database';
+import {
+  addProjectQuery,
+  addSectionQuery,
+  addUserProjectsQuery,
+} from '../../database';
 import { addProjectSchema } from '../../utils';
 
 const addProject = async (req: any, res: Response) => {
@@ -8,7 +12,12 @@ const addProject = async (req: any, res: Response) => {
   await addProjectSchema.validateAsync(req.body);
   const { rows } = await addProjectQuery(name, description);
   const projectId = rows[0].id;
+  const ress = await addSectionQuery({ name: 'To Do', projectId });
+  console.log(ress);
+
   addUserProjectsQuery({ userId, projectId, role: 'owner' });
+
+  // const defaultSections = ['To Do', 'In Progress', 'Done'];
   res.status(201).json({
     data: rows[0],
     message: 'The project has been added successfully',

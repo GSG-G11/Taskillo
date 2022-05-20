@@ -31,7 +31,7 @@ export default function Cards({ sectionId }) {
       {tasks.map((task) => {
         if (task.sectionid === sectionId) {
           return <Card key={task.taskid} task={task} />;
-        } else return true;
+        }
       })}
     </div>
   );

@@ -28,10 +28,8 @@ export default function Cards({ sectionId }) {
 
   return (
     <div>
-      {tasks.map((task) => {
-        if (task.sectionid === sectionId) {
-          return <Card key={task.taskid} task={task} />;
-        } else return true;
+      {tasks.filter((task) => {
+        console.log(task);
       })}
     </div>
   );

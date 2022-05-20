@@ -1,5 +1,9 @@
 import { Response } from 'express';
-import { addProjectQuery, addUserProjectsQuery } from '../../database';
+import {
+  addProjectQuery,
+  addSectionQuery,
+  addUserProjectsQuery,
+} from '../../database';
 import { addProjectSchema } from '../../utils';
 
 const addProject = async (req: any, res: Response) => {
@@ -9,6 +13,7 @@ const addProject = async (req: any, res: Response) => {
   const { rows } = await addProjectQuery(name, description);
   const projectId = rows[0].id;
   addUserProjectsQuery({ userId, projectId, role: 'owner' });
+
   res.status(201).json({
     data: rows[0],
     message: 'The project has been added successfully',

@@ -1,5 +1,9 @@
 import { Response } from 'express';
-import { addProjectQuery, addUserProjectsQuery } from '../../database';
+import {
+  addProjectQuery,
+  addSectionQuery,
+  addUserProjectsQuery,
+} from '../../database';
 import { addProjectSchema } from '../../utils';
 
 const addProject = async (req: any, res: Response) => {

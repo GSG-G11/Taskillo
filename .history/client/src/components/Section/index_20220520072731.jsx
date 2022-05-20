@@ -4,6 +4,7 @@ import Cards from '../Card/Cards';
 import styled from 'styled-components';
 
 export default function Section({ name, sectionId }) {
+
   return (
     <Div>
       <div className="section">
