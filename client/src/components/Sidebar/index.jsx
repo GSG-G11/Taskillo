@@ -211,7 +211,7 @@ const ASide = styled.aside`
   }
   &.close {
     width: 65px;
-    padding: 2rem 0.3rem;
+    padding: 1.4rem 0.3rem;
     .side-header {
       justify-content: center;
       .logo {
@@ -235,6 +235,10 @@ const ASide = styled.aside`
     .side-projects {
       display: none;
     }
+  }
+
+  @media (max-width: 630px) {
+    width: 100%;
   }
 `;
 

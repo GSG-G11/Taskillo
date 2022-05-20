@@ -11,12 +11,17 @@ const Home = () => {
   return (
     <div className="page-container">
       <Sidebar />
+<<<<<<< HEAD
+      <main className={open ? 'main-page' : 'main-page close'}>
+        <Navbar title={`Good Morning, ${userInfo.username}`} />
+=======
       <main
         className={
           open ? 'main-page' : 'main-page close'
         }
       >
         <Navbar title={`${greeting}, ${userInfo.username}`} />
+>>>>>>> development
       </main>
     </div>
   );

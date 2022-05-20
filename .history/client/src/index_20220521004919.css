@@ -46,6 +46,7 @@ body {
   margin-left: 65px;
 }
 
+<<<<<<< HEAD
 .carrd.High {
   border-bottom: 1px solid red;
 }
@@ -60,12 +61,17 @@ body {
 
 @media (max-width: 630px) {
   .main-page {
-    margin-left: 65px;
+    margin-left: 0;
   }
 }
 
 @media (min-width: 1000px) {
   .container {
     max-width: 1286px;
+=======
+@media (max-width: 630px) { 
+  .main-page {
+    margin-left: 65px;
+>>>>>>> development
   }
 }
