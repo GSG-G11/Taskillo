@@ -92,6 +92,7 @@ const ASide = styled.aside`
   padding: 1.4rem 1rem;
   transition: all 0.5s;
   overflow: hidden;
+  z-index: 1000;
   .side-header {
     display: flex;
     justify-content: space-between;
