@@ -51,15 +51,19 @@ export default function Board() {
         destinationSection: +destination.droppableId,
         taskId: draggableTask[0].id,
       });
+      console.log(dragged);
+      
       if (response.status === 200) {
         const dragged = { ...response.data.data.task, sectionname: response.data.data.sectionname };
+        const updatedTask = { task:{ response.data.data.task, sectionname: }};
         const ordered = tasks.map((task) => {
-          if (task.id === dragged.id) {
-            return dragged;
+          if (task.id === updatedTask.id) {
+            return updatedTask;
           }else{
             return task;
           }
         });
+        console.log(ordered);
         dispatch(setTask({ tasks: ordered }));
       }
     } catch (error) {

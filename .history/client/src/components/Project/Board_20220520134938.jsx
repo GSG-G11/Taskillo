@@ -51,6 +51,7 @@ export default function Board() {
         destinationSection: +destination.droppableId,
         taskId: draggableTask[0].id,
       });
+      
       if (response.status === 200) {
         const dragged = { ...response.data.data.task, sectionname: response.data.data.sectionname };
         const ordered = tasks.map((task) => {
@@ -60,6 +61,7 @@ export default function Board() {
             return task;
           }
         });
+        console.log(ordered);
         dispatch(setTask({ tasks: ordered }));
       }
     } catch (error) {

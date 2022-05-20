@@ -51,17 +51,21 @@ export default function Board() {
         destinationSection: +destination.droppableId,
         taskId: draggableTask[0].id,
       });
-      if (response.status === 200) {
-        const dragged = { ...response.data.data.task, sectionname: response.data.data.sectionname };
-        const ordered = tasks.map((task) => {
-          if (task.id === dragged.id) {
-            return dragged;
-          }else{
-            return task;
-          }
-        });
-        dispatch(setTask({ tasks: ordered }));
-      }
+      const dragged = { ...response.data.data.task, sectionname: response.data.data.sectionanme };
+      console.log(dragged);
+
+      // if (response.status === 200) {
+      //   const updatedTask = { task:{ response.data.data.task, sectionname: }};
+      //   const ordered = tasks.map((task) => {
+      //     if (task.id === updatedTask.id) {
+      //       return updatedTask;
+      //     }else{
+      //       return task;
+      //     }
+      //   });
+        // console.log(ordered);
+        // dispatch(setTask({ tasks: ordered }));
+      // }
     } catch (error) {
       console.log(error);
     }
