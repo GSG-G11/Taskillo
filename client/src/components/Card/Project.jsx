@@ -59,4 +59,12 @@ const Card = styled.div`
     height: 250px;
     margin-left: 10px;
     border-radius:12px;
+    @media(max-width: 576px) {
+      margin:0;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+      width: 250px;
+    }
+
+
 `;

@@ -71,7 +71,7 @@ export default function TaskCard() {
             You don't have any task
           </div>}
         <div className='ms-2 mt-2'>
-          <Link to={'tasks'} className={'text-decoration-none text-white'}>show more</Link>
+          <Link to={'tasks'} className={'text-decoration-none text-white'}>Show more</Link>
         </div>
 
       </div>
@@ -85,4 +85,7 @@ const Card = styled.div`
     width: 300px;
     height: 250px;
     border-radius: 12px;
+    @media (min-width: 768px) and (max-width: 1024px){
+      width: 250px;
+    }
 `;

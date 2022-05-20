@@ -8,7 +8,7 @@ import { Text } from '../UI';
 
 function StaffCard({ className, avatar, memberName }) {
   return (
-    <Card className={`member mt-2 d-flex flex-column justify-content-center align-items-center ${className}`}>
+    <Card className={`mx-1 member mt-2 d-flex flex-column justify-content-center align-items-center ${className}`}>
       <div className='text-white'><img src={avatar} alt="avatar" className='img-fluid w-100' /></div>
       <Text text={memberName} className={'text-white mt-4'}/>
       <div className='mt-2'>
@@ -24,5 +24,8 @@ const Card = styled.div`
     width: 300px;
     height: 250px;
     border-radius:12px;
+    @media (min-width: 768px) and (max-width: 1024px){
+      width: 250px;
+    }
 `;
 export default StaffCard

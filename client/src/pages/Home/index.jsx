@@ -3,8 +3,9 @@ import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard } from '../../components/Card';
-import member1 from '../../images/member1.svg'
-import member2 from '../../images/member2.svg'
+import member1 from '../../images/member1.svg';
+import member2 from '../../images/member2.svg';
+import './style.css'
 
 const Home = () => {
   const userInfo = useSelector((state) => state.user.value);
@@ -21,15 +22,15 @@ const Home = () => {
       </main>
 
       <div className='d-flex'>
-        <div className='d-flex w-75 flex-wrap' style={{ marginLeft: '320px' }}>
-          <div className='d-flex'>
+        <div className=' w-75 cards d-flex flex-column align-items-center' style={{ marginLeft: '320px' }}>
+          <div className='d-flex cont-card1'>
             <TaskCard />
             <ProjectCard />
           </div>
           <SlideCard/>
-          <div className='d-flex'>
+          <div className='d-flex cont-card2'>
             <StaffCard avatar={member1} memberName={'Amran Elmasri'}/>
-            <StaffCard className={'ms-2'} avatar={member2} memberName={'Karam Zomlot'}/>
+            <StaffCard avatar={member2} memberName={'Karam Zomlot'}/>
           </div>
         </div>
 

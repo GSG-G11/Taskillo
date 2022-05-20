@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text } from '../UI'
 
-export default function ActivityCard() {
+export default function ActivityCard({className}) {
   return (
-    <Card className='task mt-2'>
+    <Card className={`mt-2 ${className}`}>
       <div className='ms-4 mt-2'>
         <Text text={'Latest news'} className={'fw-bold text-white fs-3'} />
       </div>
@@ -44,6 +44,15 @@ const Card = styled.div`
   height: calc(100vh - 100px);
   border-radius:12px;
   margin-right: 30px;
+  @media (min-width: 768px) and (max-width: 992px){
+    height: 900px
+  }
+  @media (min-width: 1024px) and (max-width: 1200px){
+    margin-right: 10px
+  }
+  @media (max-width: 992px) {
+    display: none;
+  }
   .activite-date {
     color: #6F7074;
   }
