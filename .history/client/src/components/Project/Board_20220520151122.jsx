@@ -95,7 +95,7 @@ const Title = styled.div`
     margin-left: 20px;
     overflow-x: auto;
     ::-webkit-scrollbar {
-      width: 1px;
+      width: 0.5px;
     }
     ::-webkit-scrollbar-thumb {
       background: #818098;

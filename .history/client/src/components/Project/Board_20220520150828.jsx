@@ -93,14 +93,17 @@ const Title = styled.div`
   .section-container {
     gap: 20px;
     margin-left: 20px;
-    overflow-x: auto;
+    over  
     ::-webkit-scrollbar {
       width: 1px;
     }
     ::-webkit-scrollbar-thumb {
       background: #818098;
       border-radius: 50px;
-      width: 0.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: red;
     }
   }
   .container {

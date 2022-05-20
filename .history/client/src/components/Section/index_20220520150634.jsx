@@ -64,6 +64,7 @@ const Div = styled.div`
     ::-webkit-scrollbar {
       width: 1px;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #818098;
       border-radius: 50px;

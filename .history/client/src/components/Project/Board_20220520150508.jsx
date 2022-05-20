@@ -52,14 +52,11 @@ export default function Board() {
         taskId: draggableTask[0].id,
       });
       if (response.status === 200) {
-        const dragged = {
-          ...response.data.data.task,
-          sectionname: response.data.data.sectionname,
-        };
+        const dragged = { ...response.data.data.task, sectionname: response.data.data.sectionname };
         const ordered = tasks.map((task) => {
           if (task.id === dragged.id) {
             return dragged;
-          } else {
+          }else{
             return task;
           }
         });
@@ -91,16 +88,20 @@ const Title = styled.div`
     margin: 20px;
   }
   .section-container {
+    overflow-x: scroll;
     gap: 20px;
     margin-left: 20px;
-    overflow-x: auto;
     ::-webkit-scrollbar {
       width: 1px;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #818098;
       border-radius: 50px;
-      width: 0.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: red;
     }
   }
   .container {

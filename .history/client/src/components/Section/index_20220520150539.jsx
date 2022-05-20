@@ -60,18 +60,7 @@ const Div = styled.div`
   }
   .card-container {
     height: 58vh;
-    overflow: scroll;
-    ::-webkit-scrollbar {
-      width: 1px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #818098;
-      border-radius: 50px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: red;
-    }
+    over
   }
   .sc-hKMtZM.byzGcZ {
     height: 40%;

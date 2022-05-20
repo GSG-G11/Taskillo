@@ -60,10 +60,11 @@ const Div = styled.div`
   }
   .card-container {
     height: 58vh;
-    overflow: scroll;
+    overflow-y: scroll;
     ::-webkit-scrollbar {
       width: 1px;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #818098;
       border-radius: 50px;

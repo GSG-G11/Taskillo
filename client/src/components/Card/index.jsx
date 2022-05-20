@@ -11,7 +11,7 @@ export default function Card({
     sectionname,
     status,
     id,
-    tasktitle,
+    name,
   },
   index,
 }) {
@@ -24,7 +24,7 @@ export default function Card({
           {...provided.dragHandleProps}
         >
           <span>{status}</span>
-          <span className="fw-bold task-title">{tasktitle}</span>
+          <span className="fw-bold task-title">{name}</span>
           <p className="task-desc">{description}</p>
           <div>
             <span className="task-date">{enddate}</span>
