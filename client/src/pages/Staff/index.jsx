@@ -14,7 +14,7 @@ const Staff = () => {
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={`Staff`} />
-        <section className='page-content'>
+        <section className='page-content'  style={{paddingBottom: 0}}>
           <Staffs className='staffs'>
             <div className='single-staff'>
               <StaffHeader name='Graduation Project' />
@@ -144,7 +144,7 @@ const Staff = () => {
               </div>
             </div>
             <div className='single-staff'>
-              <StaffHeader name='Taskillo Team' />
+              <StaffHeader name='Trello' />
               <div className='staff-memebers'>
                 <StaffMember
                   user={{
@@ -181,9 +181,9 @@ const Staffs = styled.div`
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-bottom: 2.5rem;
+  padding-bottom: 3rem;
   max-width: 100%;
-  overflow: auto;
+  overflow-x: auto;
 
   &::-webkit-scrollbar-track {
     background-color: rgba(57, 57, 83, 0.475);
