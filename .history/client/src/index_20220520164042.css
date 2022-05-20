@@ -24,6 +24,7 @@ body {
   height: 100vh;
   background-color: var(--background);
   position: relative;
+  overflow: hidden;
 }
 
 .btn,
