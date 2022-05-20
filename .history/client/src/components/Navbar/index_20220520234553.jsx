@@ -39,7 +39,10 @@ const Div = styled.div`
       font-size: 1rem;
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 630px) {
+    .nav-title {
+      font-size: 1rem;
+    }
     .align-items-center.navbar-container {
       display: flex;
       justify-content: center;

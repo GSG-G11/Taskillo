@@ -59,7 +59,14 @@ body {
 }
 
 @media (max-width: 630px) {
- .main-page {
+  .main-page {
     margin-left: 0;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1286px;
   }
 }

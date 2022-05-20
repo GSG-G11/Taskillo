@@ -39,15 +39,8 @@
     gap: 0rem;
   }
 
-  .btn.add-project {
-    width: 4rem;
+  .add-project {
     font-size: 0.8rem;
     padding: 0.5rem 0.7rem;
-  }
-
-  @media (max-width: 400px) {
-    .nav-title {
-      display: none;
-    }
   }
 }

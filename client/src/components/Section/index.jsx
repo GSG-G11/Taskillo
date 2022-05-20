@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Droppable } from 'react-beautiful-dnd';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import axios from 'axios';
 import { setTask } from '../../state/tasks';
 import Card from '../Card';
@@ -12,14 +13,15 @@ export default function Section({ name, sectionId }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { tasks } = useSelector((state) => state.tasks.value);
-  const [clicked, setClicked] = React.useState(false);
+  // const [clicked, setClicked] = React.useState(false);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 630px)' });
 
-  const handleClick = (index) => {
-    if (clicked === index) {
-      return setClicked(null);
-    }
-    setClicked(index);
-  };
+  // const handleClick = (index) => {
+  //   if (clicked === index) {
+  //     return setClicked(null);
+  //   }
+  //   setClicked(index);
+  // };
 
   useEffect(() => {
     async function getDetails(projectid) {
@@ -39,7 +41,9 @@ export default function Section({ name, sectionId }) {
 
   return (
     <Div>
-      <div className="section">
+      <div
+        className={`section (${isTabletOrMobile} ? 'accordion-container' : '')`}
+      >
         <SectionHeader name={name} />
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
@@ -80,6 +84,11 @@ const Div = styled.div`
     &::-webkit-scrollbar-thumb {
       background-color: #323239;
       border-radius: 1rem;
+    }
+  }
+  @media (max-width: 630px) {
+    .card-container {
+      display: none;
     }
   }
 `;

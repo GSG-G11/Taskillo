@@ -38,8 +38,6 @@ const Div = styled.div`
     .nav-title {
       font-size: 1rem;
     }
-  }
-  @media (max-width: 400px) {
     .align-items-center.navbar-container {
       display: flex;
       justify-content: center;

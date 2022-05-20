@@ -92,6 +92,9 @@ const Title = styled.div`
     font-weight: 600;
     margin: 10px 20px;
   }
+  .container {
+    margin: 0;
+  }
   .section-container {
     gap: 20px;
     margin-left: 20px;
@@ -111,6 +114,7 @@ const Title = styled.div`
   }
   .container {
     margin-top: 20px;
+    width: 1300px;
   }
   @media (max-width: 630px) {
     .section-container,
@@ -136,6 +140,10 @@ const Title = styled.div`
     }
     .section-title {
       margin-bottom: 10px;
+    }
+
+    .title {
+      margin: 5px 0 10px 10px;
     }
   }
 `;

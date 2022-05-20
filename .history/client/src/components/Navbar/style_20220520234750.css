@@ -45,9 +45,9 @@
     padding: 0.5rem 0.7rem;
   }
 
+  .nav-title {
+    display: none;
+  }
   @media (max-width: 400px) {
-    .nav-title {
-      display: none;
-    }
   }
 }
