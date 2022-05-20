@@ -1,7 +1,7 @@
-import React from 'react'
+import TaskCard from "./Task";
+import ProjectCard from "./Project";
+import ActivityCard from "./Activity";
+import StaffCard from "./Staff";
+import SlideCard from "./Slide";
 
-export default function index() {
-  return (
-    <div>index</div>
-  )
-}
+export { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard };

@@ -41,7 +41,7 @@ export default function ActivityCard() {
 const Card = styled.div`
   background-color: #21222C;
   width: 500px;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 100px);
   border-radius:12px;
   margin-right: 30px;
   .activite-date {
