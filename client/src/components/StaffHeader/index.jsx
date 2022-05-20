@@ -30,6 +30,8 @@ const Header = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+  z-index: 10;
   .avatar{
     width: 45px;
     height: 45px;
@@ -45,7 +47,7 @@ const Header = styled.div`
 
   .project-name{
     margin-bottom: 0;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #B8B8B8;
   }
 `
