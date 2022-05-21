@@ -12,6 +12,7 @@ export default function Section({ name, sectionId }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { tasks } = useSelector((state) => state.tasks.value);
+  const [clicked, setClicked] = React.useState(0);
 
   useEffect(() => {
     async function getDetails(projectid) {
@@ -32,7 +33,7 @@ export default function Section({ name, sectionId }) {
   return (
     <Div>
       <div className="section">
-        <SectionHeader name={name} id={sectionId}/>
+        <SectionHeader name={name} id={sectionId} setClicked={setClicked} />
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
             <div

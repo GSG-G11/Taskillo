@@ -34,24 +34,10 @@ export default function SectionHeader({ name, id }) {
     }
   };
 
-  const editSection = async (e) => {
-    const { value } = e.target;
-    try {
-      const response = await axios.put(`/api/v1/project/${projectId}/section/${id}`, {
-        name: value,
-      });
-      const { id: sectionId } = response.data.data;
-      const newSections = sections.map((section) => {
-        if (section.id === sectionId) {
-          return { ...section, name: value };
-        } else return section;
-      });
-      dispatch(setSection({ sections: newSections }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  const editSection = async (sectionId) => {
+    const 
+   }
+          
   return (
     <Wrap className="wrap">
       <Title className="section-title">
@@ -60,7 +46,8 @@ export default function SectionHeader({ name, id }) {
             className="title-input"
             defaultValue={name}
             onBlur={() => setIsEdit(false)}
-            onChange={(e) => editSection(e)}
+            onChange={(e) => {
+              
           />
         ) : (
           <>

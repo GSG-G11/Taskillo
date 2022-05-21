@@ -34,12 +34,13 @@ export default function SectionHeader({ name, id }) {
     }
   };
 
-  const editSection = async (e) => {
+  const editSection =  (e) => {
     const { value } = e.target;
     try {
-      const response = await axios.put(`/api/v1/project/${projectId}/section/${id}`, {
+      const response = axios.put(`/api/v1/project/${projectId}/section/${id}`, {
         name: value,
       });
+      console.log(response, value);
       const { id: sectionId } = response.data.data;
       const newSections = sections.map((section) => {
         if (section.id === sectionId) {

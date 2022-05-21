@@ -35,23 +35,20 @@ export default function SectionHeader({ name, id }) {
   };
 
   const editSection = async (e) => {
-    const { value } = e.target;
-    try {
-      const response = await axios.put(`/api/v1/project/${projectId}/section/${id}`, {
-        name: value,
-      });
-      const { id: sectionId } = response.data.data;
-      const newSections = sections.map((section) => {
-        if (section.id === sectionId) {
-          return { ...section, name: value };
-        } else return section;
-      });
-      dispatch(setSection({ sections: newSections }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    const {value} = e.target;
+    const response = axios.put(`/api/v1/project/${projectId}/section/${id}`, {
+      name: value,
+    });
+    const { id: sectionId } = res.data.data;
+    const newSections = sections.map((section) => {
+      if (section.id === sectionId) {
+        return { ...section, name: value };
+      } else return section;
+    });  
+    dispatch(setSection({ sections: newSections }));
 
+   }
+          
   return (
     <Wrap className="wrap">
       <Title className="section-title">
@@ -60,7 +57,19 @@ export default function SectionHeader({ name, id }) {
             className="title-input"
             defaultValue={name}
             onBlur={() => setIsEdit(false)}
-            onChange={(e) => editSection(e)}
+            onChange={(e) => {              
+              
+                .then((res) => {
+                  const { id: sectionId } = res.data.data;
+                  const newSections = sections.map((section) => {
+                    if (section.id === sectionId) {
+                      return { ...section, name: value };
+                    } else return section;
+                  });  
+                  console.log(newSections);
+                  dispatch(setSection({ sections: newSections }));
+                })
+                .catch((err) => console.log(err));
           />
         ) : (
           <>
