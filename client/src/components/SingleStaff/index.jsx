@@ -1,15 +1,16 @@
 import StaffMember from '../../components/StaffMember';
 import userImage from '../../images/user.jfif';
 import StaffHeader from '../../components/StaffHeader';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const SingleStaff = ({ project: {id, name} }) => {
+const SingleStaff = ({ project: { id, name } }) => {
+  const [members, setMembers] = useState([]);
   useEffect(() => {
     const getProjectMembers = async () => {
       const response = await axios.get(`/api/v1/project/${id}/members`);
-      console.log(response.data);
+      setMembers(response.data.data.rows);
     };
     getProjectMembers();
   }, [id]);
@@ -18,13 +19,15 @@ const SingleStaff = ({ project: {id, name} }) => {
     <SingleStafWrapper className='single-staff'>
       <StaffHeader name={name} />
       <div className='staff-memebers'>
-        <StaffMember
-          user={{
-            image: userImage,
-            name: 'Dev.karam',
-            role: 'Admin',
-          }}
-        />
+        {members.map(({ username, role }) => (
+          <StaffMember
+            user={{
+              image: userImage,
+              name: username,
+              role,
+            }}
+          />
+        ))}
       </div>
     </SingleStafWrapper>
   );

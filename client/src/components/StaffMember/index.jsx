@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StaffMember = ({user}) => {
+const StaffMember = ({user: {image, name, role}}) => {
   return (
     <Member className="staff-member">
       <div className="member-image">
-        <img src={user.image} alt="User" />
+        <img src={image} alt="User" />
       </div>
       <div className="member-info">
-        <h3 className="member-name">{user.name}</h3>
-        <span className="member-role">{user.role}</span>
+        <h3 className="member-name">{name}</h3>
+        <span className="member-role">{role}</span>
       </div>
     </Member>
   )
@@ -75,6 +75,7 @@ const Member = styled.div`
     .member-role{
       color: #817676;
       font-size: .9rem;
+      text-transform: capitalize;
     }
   }
 `;
