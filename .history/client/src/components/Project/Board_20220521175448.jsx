@@ -95,6 +95,7 @@ export default function Board() {
                     type="text"
                     placeholder="Enter Section Name"
                     onChange={(e) => setNewSection(e.target.value)}
+                    onBlur={() => setIsOpen(false)}
                   />
                   <div className="d-flex justify-content-end w-100">
                     <button
@@ -221,7 +222,6 @@ const Div = styled.div`
     width: 96%;
     border-radius: 10px;
     margin-top: 10px;
-    color: #fff;
   }
   .add-section-btn {
     justify-content: flex-end;

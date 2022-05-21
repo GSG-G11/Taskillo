@@ -95,6 +95,7 @@ export default function Board() {
                     type="text"
                     placeholder="Enter Section Name"
                     onChange={(e) => setNewSection(e.target.value)}
+                    onBlur={() => setIsOpen(false)}
                   />
                   <div className="d-flex justify-content-end w-100">
                     <button
