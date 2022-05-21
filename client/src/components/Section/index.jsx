@@ -32,13 +32,13 @@ export default function Section({ name, sectionId }) {
   return (
     <Div>
       <div className="section">
-        <SectionHeader name={name} id={sectionId}/>
+        <SectionHeader name={name} id={sectionId} />
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
             <div
               ref={provided.innerRef}
               {...provided.droppableProps}
-              className='card-container'
+              className="card-container"
             >
               {tasks.map((task, index) => {
                 if (task.sectionid === sectionId) {

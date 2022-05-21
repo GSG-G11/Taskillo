@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -14,6 +14,8 @@ export default function Board() {
   const { id } = useParams();
   const { sections } = useSelector((state) => state.sections.value);
   const { tasks } = useSelector((state) => state.tasks.value);
+  const [isOpen, setIsOpen] = useState(false);
+  const [newSection, setNewSection] = useState({});
 
   useEffect(() => {
     async function getSections(projectid) {
@@ -80,6 +82,45 @@ export default function Board() {
             {sections.map(({ id, name }, index) => {
               return <Section name={name} sectionId={id} key={id} />;
             })}
+            <Div>
+              <div
+                onClick={() => setIsOpen(!isOpen)}
+                className="label-container"
+              >
+                <label className="add-section-label">+ Add your section</label>
+              </div>
+              {isOpen ? (
+                <div className="carrd">
+                  <input
+                    type="text"
+                    placeholder="Enter Section Name"
+                    onChange={(e) => setNewSection(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={async (e) => {
+                      setIsOpen(false);
+                      const response = await axios.post(
+                        `/api/v1/project/${id}/section`,
+                        {
+                          name: newSection,
+                        }
+                      );
+                      if (response.status === 201) {
+                        dispatch(
+                          setSection({
+                            sections: [...sections, response.data.data],
+                          })
+                        );
+                      }
+                    }}
+                  >
+                    Add
+                  </button>
+                </div>
+              ) : null}
+            </Div>
           </div>
         </DragDropContext>
       </Title>
@@ -146,5 +187,26 @@ const Title = styled.div`
     .title {
       margin: 5px 0 10px 10px;
     }
+  }
+`;
+
+const Div = styled.div`
+  .label-container {
+    background: #21222c;
+    color: #fff;
+    width: 300px;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .carrd {
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    background: #21222c;
+    margin-bottom: 10px;
+    color: #fff;
   }
 `;
