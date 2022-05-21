@@ -71,6 +71,20 @@ export default function Board() {
     }
   };
 
+  const addSection = async (e) => {
+    setIsOpen(false);
+    const response = await axios.post(`/api/v1/project/${id}/section`, {
+      name: newSection,
+    });
+    if (response.status === 201) {
+      dispatch(
+        setSection({
+          sections: [...sections, response.data.data],
+        })
+      );
+    }
+  };
+
   return (
     <div className="page-container d-flex flex-row">
       <Title className="container">
@@ -100,22 +114,7 @@ export default function Board() {
                     <button
                       type="submit"
                       className="btn btn-primary add-section-btn"
-                      onClick={async (e) => {
-                        setIsOpen(false);
-                        const response = await axios.post(
-                          `/api/v1/project/${id}/section`,
-                          {
-                            name: newSection,
-                          }
-                        );
-                        if (response.status === 201) {
-                          dispatch(
-                            setSection({
-                              sections: [...sections, response.data.data],
-                            })
-                          );
-                        }
-                      }}
+                      onClick={(e) => addSection(e)}
                     >
                       Add
                     </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import { statusColor, formatDate } from '../../utils';
 
 export default function Card({
   task: {
@@ -15,33 +16,7 @@ export default function Card({
   },
   index,
 }) {
-  let formatedTime = '';
-  const formatDate = (taskDate) => {
-    let d = new Date(taskDate),
-      mo = new Intl.DateTimeFormat('en', {
-        month: 'short',
-      }).format(d),
-      da = new Intl.DateTimeFormat('en', {
-        day: '2-digit',
-      }).format(d);
-    let getDateFormat = `${da}-${mo}`;
-    return getDateFormat;
-  };
-  formatedTime = `${formatDate(enddate.split('T')[0])}`;
-  const statusColor = (statusName) => {
-    switch (statusName) {
-      case 'To Do':
-        return 'todo';
-      case 'In Progress':
-        return 'progress';
-      case 'done':
-        return 'Done';
-      case 'cancelled':
-        return 'cancelled';
-      default:
-        return 'todo';
-    }
-  };
+  let formatedTime = `${formatDate(enddate.split('T')[0])}`;
   const color = statusColor(status);
   return (
     <Draggable draggableId={id.toString()} index={index}>

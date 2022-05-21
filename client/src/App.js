@@ -23,6 +23,7 @@ export default function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/project/:id" element={<Project />}>
+          <Route index element={<Overview />} />
           <Route path="overview" element={<Overview />} />
           <Route path="list" element={<List />} />
           <Route path="board" element={<Board />} />
