@@ -95,29 +95,32 @@ export default function Board() {
                     type="text"
                     placeholder="Enter Section Name"
                     onChange={(e) => setNewSection(e.target.value)}
+                    onBlur={() => setIsOpen(false)}
                   />
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    onClick={async (e) => {
-                      setIsOpen(false);
-                      const response = await axios.post(
-                        `/api/v1/project/${id}/section`,
-                        {
-                          name: newSection,
-                        }
-                      );
-                      if (response.status === 201) {
-                        dispatch(
-                          setSection({
-                            sections: [...sections, response.data.data],
-                          })
+                  <div className="d-flex justify-content-end w-100">
+                    <button
+                      type="submit"
+                      className="btn btn-primary add-section-btn"
+                      onClick={async (e) => {
+                        setIsOpen(false);
+                        const response = await axios.post(
+                          `/api/v1/project/${id}/section`,
+                          {
+                            name: newSection,
+                          }
                         );
-                      }
-                    }}
-                  >
-                    Add
-                  </button>
+                        if (response.status === 201) {
+                          dispatch(
+                            setSection({
+                              sections: [...sections, response.data.data],
+                            })
+                          );
+                        }
+                      }}
+                    >
+                      Add
+                    </button>
+                  </div>
                 </div>
               ) : null}
             </Div>
@@ -208,5 +211,22 @@ const Div = styled.div`
     background: #21222c;
     margin-bottom: 10px;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  input[type='text'] {
+    background: #323239;
+    border: none;
+    padding: 8px;
+    width: 96%;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .add-section-btn {
+    justify-content: flex-end;
+    padding: 0.2rem 1rem;
+    border-radius: 0.5rem;
+    margin: 10px;
   }
 `;
