@@ -5,8 +5,7 @@ import styled from 'styled-components';
 import { Button } from '../UI';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSection } from '../../state/sections';
+import { useSelector } from 'react-redux';
 
 export default function SectionHeader({ name, id, setClicked }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +23,7 @@ export default function SectionHeader({ name, id, setClicked }) {
         .then((res) => {
           const {id: deletedSectionId} = res.data.data[0];
           const newSections = sections.filter(section => section.id !== deletedSectionId);
-          dispatch(setSection({sections: newSections}));
+          dispatch
         })
         .catch((err) => console.log(err)); 
     }
@@ -77,6 +76,7 @@ export default function SectionHeader({ name, id, setClicked }) {
               title="Delete"
               onClick={() => {
                 deleteSection(id);
+                console.log(id);
                 toggling();
               }}
             />

@@ -3,31 +3,15 @@ import { FiMoreVertical } from 'react-icons/fi';
 import { AiOutlinePlus } from 'react-icons/ai';
 import styled from 'styled-components';
 import { Button } from '../UI';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSection } from '../../state/sections';
 
 export default function SectionHeader({ name, id, setClicked }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
-  const { id: projectId } = useParams();
-  const { sections } = useSelector((state) => state.sections.value);
-  const dispatch = useDispatch();
 
   const deleteSection = (sectionId) => {
     const confirm = window.confirm(`Are you sure you want to delete ${name}?`);
-    if (confirm) {
-      axios
-        .delete(`/api/v1/project/${projectId}/section/${sectionId}`)
-        .then((res) => {
-          const {id: deletedSectionId} = res.data.data[0];
-          const newSections = sections.filter(section => section.id !== deletedSectionId);
-          dispatch(setSection({sections: newSections}));
-        })
-        .catch((err) => console.log(err)); 
-    }
+    if()
   };
 
   return (
@@ -77,6 +61,7 @@ export default function SectionHeader({ name, id, setClicked }) {
               title="Delete"
               onClick={() => {
                 deleteSection(id);
+                console.log(id);
                 toggling();
               }}
             />

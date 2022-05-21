@@ -77,6 +77,7 @@ export default function SectionHeader({ name, id, setClicked }) {
               title="Delete"
               onClick={() => {
                 deleteSection(id);
+                console.log(id);
                 toggling();
               }}
             />

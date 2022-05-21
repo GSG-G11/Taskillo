@@ -7,7 +7,6 @@ const sectionSlice = createSlice({
     setSection: (state, action) => {
       state.value = action.payload;
     }
-  }
 });
 
 const { setSection } = sectionSlice.actions;

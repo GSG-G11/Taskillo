@@ -6,8 +6,8 @@ const sectionSlice = createSlice({
   reducers: {
     setSection: (state, action) => {
       state.value = action.payload;
-    }
-  }
+    },
+    
 });
 
 const { setSection } = sectionSlice.actions;

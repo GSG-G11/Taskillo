@@ -7,7 +7,7 @@ const deleteSection = async (req: Request, res: Response) => {
   if (rowCount) {
     await deleteSectionQuery(+id);
     res.status(200).json({
-      data: rows,
+      data: 
       message: 'Section deleted successfully',
     });
   } else {
