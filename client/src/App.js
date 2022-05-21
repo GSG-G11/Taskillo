@@ -1,4 +1,4 @@
-import { SendEmail, Signup, Login, Home, Projects, Project } from './pages';
+import { SendEmail, Signup, Login, Home, Project } from './pages';
 import { Overview, List, Board } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -22,7 +22,6 @@ export default function App() {
         <Route path="/sendEmail" element={<SendEmail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/projects" element={<Projects />} />
         <Route path="/project/:id" element={<Project />}>
           <Route path="overview" element={<Overview />} />
           <Route path="list" element={<List />} />
