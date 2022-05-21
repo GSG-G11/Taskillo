@@ -19,10 +19,10 @@ const SingleStaff = ({ project: { id, name } }) => {
     <SingleStafWrapper className='single-staff'>
       <StaffHeader name={name} />
       <div className='staff-memebers'>
-        {members.map(({ username, role }) => (
+        {members.map(({ username, role, image }) => (
           <StaffMember
             user={{
-              image: userImage,
+              image,
               name: username,
               role,
             }}

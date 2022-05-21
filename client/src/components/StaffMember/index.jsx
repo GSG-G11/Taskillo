@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import generateAvatarColor from '../../utils/generateAvatarColor'
 
 const StaffMember = ({user: {image, name, role}}) => {
+  const [color, setColor] = useState('')
+  useEffect(() => {
+    const avatarColor = generateAvatarColor(name);
+    setColor(avatarColor);
+  }, [name])
   return (
     <Member className="staff-member">
       <div className="member-image">
-        <img src={image} alt="User" />
+        {
+          image ? (
+            <img src={image} alt="User" />
+          )
+          : (
+            <div className="user-avatar" style={{backgroundColor: color}}>
+              <span>{name[0]}</span>
+            </div>
+          )
+        }
       </div>
       <div className="member-info">
         <h3 className="member-name">{name}</h3>
@@ -62,6 +77,17 @@ const Member = styled.div`
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
+    }
+
+    .user-avatar{
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      text-transform: uppercase;
     }
   }
 
