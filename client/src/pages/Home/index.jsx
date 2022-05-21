@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
+import generateGreeting from '../../utils/generateGreeting';
 import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard } from '../../components';
 import member1 from '../../images/member1.svg';
 import member2 from '../../images/member2.svg';
@@ -12,6 +13,7 @@ const Home = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
   const projects = useSelector((state) => state.project.value)
+  const greeting = generateGreeting();
 
   const [members, setMembers] = useState([]);
 
@@ -40,10 +42,10 @@ const Home = () => {
           open ? 'main-page' : 'main-page close'
         }
       >
-        <Navbar title={`${userInfo.username}`} />
+        <Navbar title={`${greeting}, ${userInfo.username}`} />
       </main>
 
-      <div className='d-flex'>
+      <div className={ open ? 'dash-cont': 'dash-cont-close'}>
         <div className=' w-75 cards d-flex flex-column align-items-center' style={{ marginLeft: '320px' }}>
           <div className='d-flex cont-card1'>
             <TaskCard />
