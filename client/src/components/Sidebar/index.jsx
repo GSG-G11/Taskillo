@@ -61,17 +61,17 @@ const Sidebar = () => {
         <h3 className="side-title">Projects</h3>
         <ul className="nav flex-column">
           <li className="nav-item">
-            <NavLink to="/project/1" className="nav-link">
+            <NavLink to="/project/1/overview" className="nav-link">
               <span className="link-name">Graduation Project</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/project/2" className="nav-link">
+            <NavLink to="/project/2/overview" className="nav-link">
               <span className="link-name">Movflx Website</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/project/6" className="nav-link">
+            <NavLink to="/project/6/overview" className="nav-link">
               <span className="link-name">Taskillo Team</span>
             </NavLink>
           </li>
