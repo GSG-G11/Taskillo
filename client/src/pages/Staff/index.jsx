@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
@@ -6,9 +6,18 @@ import StaffHeader from '../../components/StaffHeader';
 import styled from 'styled-components';
 import StaffMember from '../../components/StaffMember';
 import userImage from '../../images/user.jfif';
+import axios from 'axios';
 
 const Staff = () => {
   const { open } = useSelector((state) => state.sidebar.value);
+  const { userProjects } = useSelector((state) => state.userProjects.value);
+
+  useEffect(() => {
+    const getProjectMembers = async () => {
+      
+    }
+  })
+
   return (
     <div className='page-container'>
       <Sidebar />
@@ -49,126 +58,16 @@ const Staff = () => {
                 />
               </div>
             </div>
-            <div className='single-staff'>
-              <StaffHeader name='Movflix Team' />
-              <div className='staff-memebers'>
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-              </div>
-            </div>
-            <div className='single-staff'>
-              <StaffHeader name='Taskillo Team' />
-              <div className='staff-memebers'>
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-              </div>
-            </div>
-            <div className='single-staff'>
-              <StaffHeader name='Trello' />
-              <div className='staff-memebers'>
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-                <StaffMember
-                  user={{
-                    image: userImage,
-                    name: 'Dev.karam',
-                    role: 'Admin',
-                  }}
-                />
-              </div>
-            </div>
+            {
+              userProjects.map(({id, name}) => (
+                <div className="single-staff" key={id}>
+                  <StaffHeader name={name} />
+                  <div className="staff-memebers">
+
+                  </div>
+                </div>
+              ))
+            }
           </Staffs>
         </section>
       </main>
