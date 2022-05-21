@@ -129,9 +129,10 @@ const Title = styled.div`
     .section-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       margin-left: 0;
       gap: 20px;
+      height: 100vh;
+      justify-content: start;
     }
     .card-container {
       display: flex;

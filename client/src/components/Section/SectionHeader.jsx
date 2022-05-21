@@ -22,11 +22,13 @@ export default function SectionHeader({ name, id, setClicked }) {
       axios
         .delete(`/api/v1/project/${projectId}/section/${sectionId}`)
         .then((res) => {
-          const {id: deletedSectionId} = res.data.data[0];
-          const newSections = sections.filter(section => section.id !== deletedSectionId);
-          dispatch(setSection({sections: newSections}));
+          const { id: deletedSectionId } = res.data.data[0];
+          const newSections = sections.filter(
+            (section) => section.id !== deletedSectionId
+          );
+          dispatch(setSection({ sections: newSections }));
         })
-        .catch((err) => console.log(err)); 
+        .catch((err) => console.log(err));
     }
   };
 
@@ -138,6 +140,17 @@ const DropDown = styled.div`
   z-index: 1;
   top: 35px;
   left: 282px;
+  @media (max-width: 630px) {
+    border-radius: 10px 0px 10px 10px;
+    z-index: 1;
+    left: 250px;
+  }
+  @media (max-width: 425px) {
+    left: 200px;
+  }
+  @media (max-width: 320px) {
+    left: 130px;
+  }
   .dropdown {
     display: flex;
     flex-direction: column;
