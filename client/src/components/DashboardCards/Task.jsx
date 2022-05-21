@@ -19,6 +19,7 @@ export default function TaskCard() {
         const res = await axios.get(`/api/v1/project/${projects[0].id}/tasks`);
 
         if (res.status === 200) {
+          console.log(res.data.data, 'the tasks');
           setTasks(res.data.data)
         }
       }

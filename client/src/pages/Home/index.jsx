@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
-import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard } from '../../components/Card';
+import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard } from '../../components';
 import member1 from '../../images/member1.svg';
 import member2 from '../../images/member2.svg';
+import axios from 'axios';
 import './style.css'
 
 const Home = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
+  const projects = useSelector((state) => state.project.value)
+
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+    const fetchProjectMember = async () => {
+      try {
+        const res = await axios.get(`api/v1/project/${projects[0].id}`);
+        if (res.status === 200) {
+          setMembers(res.data.data.staff);
+        }
+      }
+      catch (error) {
+        console.log(error);
+      }
+
+    }
+    fetchProjectMember();
+
+  }, [projects]);
+
   return (
     <div className="page-container">
       <Sidebar />
@@ -27,10 +49,14 @@ const Home = () => {
             <TaskCard />
             <ProjectCard />
           </div>
-          <SlideCard/>
+          <SlideCard />
           <div className='d-flex cont-card2'>
-            <StaffCard avatar={member1} memberName={'Amran Elmasri'}/>
-            <StaffCard avatar={member2} memberName={'Karam Zomlot'}/>
+            {members.map((member, index) => (
+              <div key={index}>
+                <StaffCard avatar={member1} memberName={member.username} role={member.role}/>
+              </div>
+            ))
+            }
           </div>
         </div>
 
