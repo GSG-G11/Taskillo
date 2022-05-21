@@ -12,7 +12,6 @@ import { setOpen } from '../../state/sidebar';
 import { useEffect } from 'react';
 import { setUserProjects } from '../../state/userProjects';
 import axios from 'axios';
-import Button from '../UI/Button';
 
 const Sidebar = () => {
   const { open } = useSelector((state) => state.sidebar.value);
