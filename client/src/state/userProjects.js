@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const userProjectSlice = createSlice({
-  name: 'modal',
-  initialState: { value: { open: 'false' } },
+  name: 'userProjects',
+  initialState: { value: { userProjects: [] } },
   reducers: {
-    setOpen: (state, action) => {
+    setUserProjects: (state, action) => {
       state.value = action.payload;
     },
   },
 });
 
-const { setOpen } = userProjectSlice.actions;
+const { setUserProjects } = userProjectSlice.actions;
 
 export default userProjectSlice.reducer;
 
-export { userProjectSlice, setOpen };
+export { userProjectSlice, setUserProjects };
