@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import generateAvatarColor from '../../utils/generateAvatarColor';
 
 const StaffHeader = ({ name='Movflx'}) => {
   const [ color, setColor ] = useState('')
   useEffect(() => {
-    const generateAvatarColor = () => {
-      const letters = name.split('');
-      const redColor = letters[0].charCodeAt(0);
-      const greenColor = letters[1].charCodeAt(0);
-      const blueColor = letters[2].charCodeAt(0);
-      const color = `rgb(${redColor}, ${greenColor}, ${blueColor})`;
-      return color;
-    }
-    const avatarColor = generateAvatarColor();
+    const avatarColor = generateAvatarColor(name);
     setColor(avatarColor);
   }, [name])
 
