@@ -93,8 +93,6 @@ export default function SectionHeader({ name, id }) {
             <span className="line"></span>
             <Button
               type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
               className="delete w-100"
               title="Delete"
               onClick={() => {
