@@ -1,5 +1,4 @@
 import StaffMember from '../../components/StaffMember';
-import userImage from '../../images/user.jfif';
 import StaffHeader from '../../components/StaffHeader';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
