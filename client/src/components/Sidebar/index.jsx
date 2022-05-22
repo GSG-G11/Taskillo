@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setOpen } from '../../state/sidebar';
 
 const Sidebar = () => {
-  const {open} = useSelector((state) => state.sidebar.value);
+  const { open } = useSelector((state) => state.sidebar.value);
   const dispatch = useDispatch();
   return (
     <ASide className={open ? 'sidebar' : 'sidebar close'}>
@@ -61,17 +61,17 @@ const Sidebar = () => {
         <h3 className="side-title">Projects</h3>
         <ul className="nav flex-column">
           <li className="nav-item">
-            <NavLink to="/projects/1" className="nav-link">
+            <NavLink to="/project/1" className="nav-link">
               <span className="link-name">Graduation Project</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/projects/2" className="nav-link">
+            <NavLink to="/project/2" className="nav-link">
               <span className="link-name">Movflx Website</span>
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/projects/6" className="nav-link">
+            <NavLink to="/project/6" className="nav-link">
               <span className="link-name">Taskillo Team</span>
             </NavLink>
           </li>
@@ -108,6 +108,7 @@ const ASide = styled.aside`
         font-size: 1.3rem;
         font-weight: bold;
         margin-bottom: 0;
+        color: #fff;
       }
     }
     .navbar-toggler {
@@ -165,7 +166,7 @@ const ASide = styled.aside`
       border-radius: 0.7rem;
       font-size: 1.1rem;
       color: #b8b8b8;
-      .link-name{
+      .link-name {
         white-space: nowrap;
       }
       svg {
@@ -196,7 +197,7 @@ const ASide = styled.aside`
       border-radius: 0.7rem;
       font-size: 1.1rem;
       color: #b8b8b8;
-      .link-name{
+      .link-name {
         white-space: nowrap;
       }
       &.active {

@@ -46,8 +46,29 @@ body {
   margin-left: 65px;
 }
 
-@media (max-width: 630px) { 
+.carrd.High {
+  border-bottom: 1px solid red;
+}
+
+.carrd.Low {
+  border-bottom: 1px solid orange;
+}
+
+.carrd.Medium {
+  border-bottom: 1px solid rgb(14, 89, 228);
+}
+
+@media (max-width: 630px) {
   .main-page {
     margin-left: 65px;
+  }
+  .sidebar{
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    max-width: 1286px;
   }
 }
