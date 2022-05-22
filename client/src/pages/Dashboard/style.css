@@ -13,7 +13,7 @@
     }
 
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .close-slide {
         margin-left: 6.2rem;
     }

@@ -6,7 +6,7 @@ export default function ActivityCard({className}) {
   return (
     <Card className={`mt-2 ${className}`}>
       <div className='ms-4 mt-2'>
-        <Text text={'Latest news'} className={'fw-bold text-white fs-3'} />
+        <Text text={'Latest news'} className={'fw-bold text-white fs-4'} />
       </div>
 
       <div className="d-flex flex-column  my-3 ms-4">

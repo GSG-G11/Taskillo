@@ -19,7 +19,6 @@ export default function TaskCard() {
         const res = await axios.get(`/api/v1/project/${projects[0].id}/tasks`);
 
         if (res.status === 200) {
-          console.log(res.data.data, 'the tasks');
           setTasks(res.data.data)
         }
       }
@@ -43,14 +42,8 @@ export default function TaskCard() {
   return (
     <Card className='task mt-2'>
       <div className='ms-4 mt-2'>
-        <Text text={'My Tasks'} className={'fw-bold text-white fs-3'} />
+        <Text text={'My Tasks'} className={'fw-bold text-white fs-5'} />
       </div>
-
-      <div className="d-flex justify-content-around status-task mt-2 me-4">
-        <Text text={'Upcoming'} className={'text-white fs-6'} />
-        <Text text={'Completed'} className={'text-white fs-6'} />
-      </div>
-
       <div className='mt-2 ms-4 d-flex flex-column'>
 
         {tasks.length ?

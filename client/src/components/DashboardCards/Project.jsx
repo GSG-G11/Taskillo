@@ -32,7 +32,7 @@ export default function ProjectCard() {
   return (
     <Card className='project mt-2'>
       <div className='ms-4 mt-2'>
-        <Text text={'My  Projects'} className={'fw-bold text-white fs-3'} />
+        <Text text={'My  Projects'} className={'fw-bold text-white fs-5'} />
       </div>
 
       <div className='mt-2 ms-4 d-flex flex-column'>
