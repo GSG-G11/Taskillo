@@ -12,7 +12,7 @@ import { Button, Text } from '../UI';
 const TableTask = () => {
   const tasks = useSelector((state) => state.task.value);
   return (
-    <Table>
+    <Div className='w-100'>
       <table className='table'>
         <thead>
           <tr className='table-head'>
@@ -55,14 +55,14 @@ const TableTask = () => {
             </td>
           </tr>
           ))
-          : 'no task' }
+          : <p className='text-white'> no Task</p> }
         </tbody>
       </table>
-    </Table>
+    </Div>
   );
 };
 
-const Table= styled.table`
+const Div = styled.table`
 .table{
   border-bottom:1px solid #282A36;
  .table-head{
