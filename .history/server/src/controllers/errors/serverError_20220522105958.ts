@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 const serverError = (err: any, req: Request, res: Response) => {
+  console.log(err);
   if (err.name === 'ValidationError') {
     return res.status(400).json({ message: err.details[0].message });
   } if (err.message === 'Twilio Erorr' || err.message === 'Cloudinary Error') {
