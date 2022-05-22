@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Button, Text } from '../UI';
 
-const TableTask = () => {
+const TableTask = ({taskDeleted}) => {
   const tasks = useSelector((state) => state.task.value);
   return (
     <Div className='w-100'>
@@ -51,7 +51,7 @@ const TableTask = () => {
             </td>
             <td>
               <RiEdit2Line className='action-icons' />
-              <RiDeleteBinLine className='action-icons' />
+              <RiDeleteBinLine className='action-icons' onClick={() => taskDeleted(task.id)}/>
             </td>
           </tr>
           ))
