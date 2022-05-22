@@ -4,7 +4,14 @@ import getTasksSectionQuery from './getTasksSectionQuery';
 import editTaskQuery from './editTaskQuery';
 import deleteTaskQuery from './deleteTaskQuery';
 import addUserTaskQuery from './addUserTaskQuery';
+import dragTaskQuery from './dragTaskQuery';
 
 export {
-  addTaskQuery, getTasksQuery, getTasksSectionQuery, editTaskQuery, deleteTaskQuery, addUserTaskQuery,
+  addTaskQuery,
+  getTasksQuery,
+  getTasksSectionQuery,
+  editTaskQuery,
+  deleteTaskQuery,
+  addUserTaskQuery,
+  dragTaskQuery,
 };

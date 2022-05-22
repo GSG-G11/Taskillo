@@ -1,5 +1,7 @@
 import { Form, SubmitButton, FormField } from './Form';
 import { Text, Button, Logo, Image } from './UI';
+import { Overview, Board, List } from './Project';
+import Card from './Card';
 import Navbar from './Navbar';
 import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
 
@@ -16,6 +18,10 @@ export {
     ProjectCard,
     ActivityCard,
     StaffCard,
-    SlideCard
+    SlideCard,
+    Overview,
+    Board,
+    List,
+    Card,
 };
 

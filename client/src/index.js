@@ -7,7 +7,12 @@ import { Provider } from 'react-redux';
 import useReducer from './state/user';
 import modalReducer from './state/user';
 import sidebarReducer from './state/sidebar';
+
+import projectDashboardReducer from './state/projectDashboard';
+import userProjects from './state/userProjects';
 import projectReducer from './state/project';
+import tasksReducer from './state/tasks';
+import sectionsReducer from './state/sections';
 import './index.css';
 
 const store = configureStore({
@@ -15,7 +20,11 @@ const store = configureStore({
     user: useReducer,
     modal: modalReducer,
     sidebar: sidebarReducer,
+    projectDashboard: projectDashboardReducer,
+    userProjects: userProjects,
     project: projectReducer,
+    tasks: tasksReducer,
+    sections: sectionsReducer,
   },
 });
 
