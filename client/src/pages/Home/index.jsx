@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import generateGreeting from '../../utils/generateGreeting';
-import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard } from '../../components';
+import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard, Text } from '../../components';
 import member1 from '../../images/member1.svg';
 import member2 from '../../images/member2.svg';
 import axios from 'axios';
@@ -13,7 +13,6 @@ const Home = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
   const projects = useSelector((state) => state.project.value)
-  const greeting = generateGreeting();
 
   const [members, setMembers] = useState([]);
 
@@ -42,22 +41,24 @@ const Home = () => {
           open ? 'main-page' : 'main-page close'
         }
       >
-        <Navbar title={`${greeting}, ${userInfo.username}`} />
+        <Navbar title={`${generateGreeting()}, ${userInfo.username}`} />
       </main>
 
-      <div className={ open ? 'dash-cont': 'dash-cont-close'}>
-        <div className=' w-75 cards d-flex flex-column align-items-center' style={{ marginLeft: '320px' }}>
+      <div className='d-flex'>
+        <div className={open ? 'w-75 open-slide' : 'w-75 close-slide'}>
           <div className='d-flex cont-card1'>
             <TaskCard />
             <ProjectCard />
           </div>
           <SlideCard />
           <div className='d-flex cont-card2'>
-            {members.map((member, index) => (
+            {members.length ? members.map((member, index) => (
               <div key={index}>
-                <StaffCard avatar={member1} memberName={member.username} role={member.role}/>
+                <StaffCard avatar={member1} memberName={member.username} role={member.role} />
               </div>
-            ))
+            )) : <div className='mx-1 member mt-2 d-flex flex-column justify-content-center align-items-center '>
+              <Text text={'there is no members'} className={'text-white'}/>
+            </div>
             }
           </div>
         </div>
@@ -65,7 +66,6 @@ const Home = () => {
         <ActivityCard />
 
       </div>
-
 
     </div>
   );
