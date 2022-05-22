@@ -1,20 +1,27 @@
 import { Form, SubmitButton, FormField } from './Form';
 import { Text, Button, Logo, Image } from './UI';
 import { Overview, Board, List } from './Project';
-import Navbar from './Navbar';
 import Card from './Card';
+import Navbar from './Navbar';
+import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
 
 export {
-  Form,
-  SubmitButton,
-  FormField,
-  Text,
-  Button,
-  Logo,
-  Image,
-  Navbar,
-  Overview,
-  Board,
-  List,
-  Card,
+    Form,
+    SubmitButton,
+    FormField,
+    Text,
+    Button,
+    Logo,
+    Image,
+    Navbar,
+    TaskCard,
+    ProjectCard,
+    ActivityCard,
+    StaffCard,
+    SlideCard,
+    Overview,
+    Board,
+    List,
+    Card,
 };
+
