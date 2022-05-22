@@ -9,6 +9,7 @@ import {
   deleteProject,
   editProject,
   getSpecificProject,
+  getProjectMembers,
 } from './projects';
 
 import {
@@ -37,4 +38,5 @@ export {
   deleteTask,
   dragTask,
   getSpecificProject,
+  getProjectMembers,
 };

@@ -1,4 +1,4 @@
-import { SendEmail, Signup, Login, Home, Project } from './pages';
+import { SendEmail, Signup, Login, Home, Project, Staff } from './pages';
 import { Overview, List, Board } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -19,6 +19,7 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/staff" element={<Staff />} />
         <Route path="/sendEmail" element={<SendEmail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

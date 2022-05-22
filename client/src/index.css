@@ -46,23 +46,28 @@ body {
   margin-left: 65px;
 }
 
-.carrd.High {
-  border-bottom: 1px solid red;
-}
-
-.carrd.Low {
-  border-bottom: 1px solid orange;
-}
-
-.carrd.Medium {
-  border-bottom: 1px solid rgb(14, 89, 228);
+.page-content {
+  padding: 2rem 1.5rem;
 }
 
 @media (max-width: 630px) {
+  .carrd.High {
+    border-bottom: 1px solid red;
+  }
+
+  .carrd.Low {
+    border-bottom: 1px solid orange;
+  }
+
+  .carrd.Medium {
+    border-bottom: 1px solid rgb(14, 89, 228);
+  }
+
   .main-page {
     margin-left: 65px;
   }
-  .sidebar{
+
+  .sidebar {
     z-index: 1;
   }
 }
