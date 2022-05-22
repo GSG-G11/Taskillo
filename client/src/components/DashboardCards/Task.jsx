@@ -11,7 +11,7 @@ export default function TaskCard() {
 
   const [tasks, setTasks] = useState([]);
 
-  const projects = useSelector(state => state.project.value);
+  const projects = useSelector(state => state.projectDashboard.value);
 
   useEffect(() => {
     const getTasksByProjectId = async () => {
@@ -30,13 +30,6 @@ export default function TaskCard() {
 
   }, [projects])
 
-
-  const currenetTask = [];
-  if ((tasks.length) > 3) {
-    for (let i = 0; i < 3; i++) {
-      currenetTask.push(tasks[i])
-    }
-  }
 
   return (
     <Card className='task mt-2'>

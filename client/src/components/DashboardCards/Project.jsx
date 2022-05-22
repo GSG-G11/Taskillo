@@ -4,7 +4,7 @@ import { VscCircleFilled } from "react-icons/vsc";
 import styled from 'styled-components';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { setProjects } from '../../state/project';
+import { setProjects } from '../../state/projectDashboard';
 
 export default function ProjectCard() {
   const dispatch = useDispatch();
@@ -26,8 +26,7 @@ export default function ProjectCard() {
 
   }, [dispatch])
 
-  const projects = useSelector((state) => state.project.value);
-
+  const projects = useSelector((state) => state.projectDashboard.value);
 
   return (
     <Card className='project mt-2'>

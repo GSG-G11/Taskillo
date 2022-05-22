@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { SendEmail, Signup, Login, Home, Dashboard } from './pages';
-=======
-import { SendEmail, Signup, Login, Home, Project, Staff } from './pages';
+import { SendEmail, Signup, Login, Home, Project, Staff, Dashboard } from './pages';
 import { Overview, List, Board } from './components';
->>>>>>> development
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

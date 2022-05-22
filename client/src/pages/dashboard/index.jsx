@@ -12,7 +12,7 @@ import './style.css'
 const Dashboard = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
-  const projects = useSelector((state) => state.project.value)
+  const projects = useSelector((state) => state.projectDashboard.value)
 
   const [members, setMembers] = useState([]);
 
