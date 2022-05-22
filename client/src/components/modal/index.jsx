@@ -1,13 +1,19 @@
+// import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// import { Form, FormField, SubmitButton } from '../Form';
+
 import axios from 'axios';
 import { updateTask } from '../../state/task';
 import TaskForm from '../TaskForm';
+
+
 
 export default function Modal({ id }) {
   const dispatch = useDispatch();
   const task = useSelector((state) => state.task.value);
   const taskFilter =  task.filter((task ) => task.id === id);
 
+ 
   const handleSubmit = async ({ name,status,enddate,priority}) => {
     try {
       const Response = await axios.put(`/api/v1/task/${id}`, {
@@ -25,7 +31,6 @@ export default function Modal({ id }) {
   };
 
   return (
-    <>
       <div
         className='modal fade'
         id='staticBackdrop'
@@ -63,6 +68,5 @@ export default function Modal({ id }) {
           </div>
         </div>
       </div>
-    </>
   );
 }

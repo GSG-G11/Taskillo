@@ -11,7 +11,6 @@ const taskSlice = createSlice({
       state.value = state.value.filter(value => value.id != action.payload)
     },
     updateTask:(state,action) =>{
-      console.log(state.value , action.payload , 'sate and payload');
       state.value.map(value => {
         if (value.id === action.payload.id){
             value.name = action.payload.name;

@@ -15,8 +15,6 @@ const Task = () => {
     try {
       const Response = await axios.get('/api/v1/tasks');
       if (Response.status === 200) {
-        console.log('hello handledata');
-        console.log(Response.data.data, 'data');
         dispatch(getTask(Response.data.data));
       }
     } catch (error) {
