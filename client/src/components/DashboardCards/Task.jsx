@@ -14,7 +14,7 @@ export default function TaskCard() {
   const projects = useSelector(state => state.project.value);
 
   useEffect(() => {
-    const fetchTasksByProjectId = async () => {
+    const getTasksByProjectId = async () => {
       try {
         const res = await axios.get(`/api/v1/project/${projects[0].id}/tasks`);
 
@@ -24,10 +24,9 @@ export default function TaskCard() {
       }
       catch (error) {
         console.log(error);
-        // console.log(error.response.data);
       }
     }
-    fetchTasksByProjectId();
+    getTasksByProjectId();
 
   }, [projects])
 
@@ -47,20 +46,20 @@ export default function TaskCard() {
       <div className='mt-2 ms-4 d-flex flex-column'>
 
         {tasks.length ?
-          (tasks.length > 3 ? currenetTask.map((task, index) => (
-            <div className='text-white mt-2 fs-5' key={index}>
-              <VscCircleFilled className='text-white me-2' />
-              {task.name}
-            </div>
-          ))
+          (tasks.length > 3 ?
+            tasks.slice(0, 3).map((task, index) => (
+              <div className='text-white mt-2 fs-5' key={index}>
+                <VscCircleFilled className='text-white me-2' />
+                {task.name}
+              </div>
+            ))
             :
-            (
-              tasks.map((task, index) => (
-                <div className='text-white mt-2 fs-5' key={index}>
-                  <VscCircleFilled className='text-white me-2' />
-                  {task.name}
-                </div>
-              ))))
+            tasks.map((task, index) => (
+              <div className='text-white mt-2 fs-5' key={index}>
+                <VscCircleFilled className='text-white me-2' />
+                {task.name}
+              </div>
+            )))
           : <div className='text-white mt-3 fs-5 ms-2'>
             You don't have any task
           </div>}

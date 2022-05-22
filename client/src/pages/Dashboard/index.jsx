@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    const fetchProjectMember = async () => {
+    const getProjectMember = async () => {
       try {
         const res = await axios.get(`api/v1/project/${projects[0].id}`);
         if (res.status === 200) {
@@ -29,7 +29,7 @@ const Dashboard = () => {
       }
 
     }
-    fetchProjectMember();
+    getProjectMember();
 
   }, [projects]);
 

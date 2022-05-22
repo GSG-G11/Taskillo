@@ -10,7 +10,7 @@ export default function ProjectCard() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchProjectsByUserId = async () => {
+    const getProjectsByUserId = async () => {
       try {
         const res = await axios.get('/api/v1/projects');
         if (res.status === 200) {
@@ -22,7 +22,7 @@ export default function ProjectCard() {
       }
 
     }
-    fetchProjectsByUserId();
+    getProjectsByUserId();
 
   }, [dispatch])
 
