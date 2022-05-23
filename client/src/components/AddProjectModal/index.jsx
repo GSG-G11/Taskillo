@@ -42,7 +42,7 @@ export default function AddProjectModal() {
                 <FormField type={'text'} name={'name'} placeholder={'name of project'} className="shadow-lg project-name" />
                 <FormField type={'text'} name={'description'} placeholder={'description'} className="shadow-lg project-desc" />
                 <div className='d-flex justify-content-center align-items-center mt-4'>
-                  <SubmitButton title="Sign In" className="btn btn-primary submit-btn me-2" />
+                  <SubmitButton title="Add" className="btn btn-primary submit-btn me-2" />
                   <Button title={'Cancel'} className={'cancel-btn'} onClick={() => dispatch(setProjectOpen(false))} />
                 </div>
               </Form>
