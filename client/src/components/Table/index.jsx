@@ -109,6 +109,12 @@ const Div = styled.table`
    border-radius:5px;
    margin-left:10px
  }
+ .btn-danger{
+  padding: 5px;
+  font-size: 0.80rem;
+ }
+   
+
 }
 `;
 
