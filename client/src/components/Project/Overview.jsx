@@ -49,49 +49,56 @@ const Overview = () => {
   }, [dispatch, id]);
 
   return (
-    <OverviewContainer>
-      <div className='project-info'>
-        <div className='project-owner'>
-          <div className='image-div'>
-            {projectOwner?.image ? (
-              <img src={projectOwner.image} alt='project owner' />
-            ) : (
-              <div className='avatar' style={{ backgroundColor: avatarColor }}>
-                <span>{projectOwner?.username[0].toUpperCase()}</span>
+    <OverviewContainer >
+      <section className='project-info'>
+        <div className='row'>
+          <div className='col-xl-3 mb-3'>
+            <div className='project-owner'>
+              <div className='image-div'>
+                {projectOwner?.image ? (
+                  <img src={projectOwner.image} alt='project owner' />
+                ) : (
+                  <div
+                    className='avatar'
+                    style={{ backgroundColor: avatarColor }}>
+                    <span>{projectOwner?.username[0].toUpperCase()}</span>
+                  </div>
+                )}
               </div>
-            )}
+              <div className='owner-info'>
+                <h3 className='owner-name'>{projectOwner?.username}</h3>
+                <h4 className='member-role'>{projectOwner?.role}</h4>
+                <div className='social-links'>
+                  <a
+                    href={projectOwner?.twitter}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    <RiTwitterFill />
+                  </a>
+                  <a
+                    href={projectOwner?.linkedin}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    <RiLinkedinFill />
+                  </a>
+                  <a
+                    href={projectOwner?.github}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    <RiGithubFill />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className='owner-info'>
-            <h3 className='owner-name'>{projectOwner?.username}</h3>
-            <div className='social-links'>
-              <a
-                href={projectOwner?.twitter}
-                target='_blank'
-                rel='noopener noreferrer'>
-                <RiTwitterFill />
-              </a>
-              <a
-                href={projectOwner?.linkedin}
-                target='_blank'
-                rel='noopener noreferrer'>
-                <RiLinkedinFill />
-              </a>
-              <a
-                href={projectOwner?.github}
-                target='_blank'
-                rel='noopener noreferrer'>
-                <RiGithubFill />
-              </a>
+          <div className='col-xl-9 mb-3'>
+            <div className='project-description'>
+              <h3 className='project-name'>{projectData?.name}</h3>
+              <p className='project-desc'>{projectData?.description}</p>
             </div>
           </div>
         </div>
-        <div className='project-description'>
-          <div className='desc-container'>
-            <h3 className='project-name'>{projectData?.name}</h3>
-            <p className='project-desc'>{projectData?.description}</p>
-          </div>
-        </div>
-      </div>
+      </section>
       <div className='project-members'>
         <h3 className='project-members-title'>Project Members</h3>
         <Splide
@@ -104,48 +111,65 @@ const Overview = () => {
             drag: 'free',
             pagination: false,
             arrows: false,
+            breakpoints: {
+              650: {
+                perPage: 1,
+              },
+              800: {
+                perPage: 2,
+              },
+              1000: {
+                perPage: 3,
+              }
+            }
           }}>
-          {projectData?.staff?.map((member) => (
-            <SplideSlide key={member.id}>
-              <div className='project-member'>
-                <div className='image-div'>
-                  {member?.image ? (
-                    <img src={member.image} alt='project member' />
-                  ) : (
-                    <div
-                      className='avatar'
-                      style={{ backgroundColor: generateAvatarColor(member?.username) }}>
-                      <span>{member?.username[0].toUpperCase()}</span>
+          {projectData?.staff
+            ?.filter((member) => member.role !== 'owner')
+            .map((member) => (
+              <SplideSlide key={member.id}>
+                <div className='project-member' style={{minWidth: '200px'}}>
+                  <div className='image-div'>
+                    {member?.image ? (
+                      <img src={member.image} alt='project member' />
+                    ) : (
+                      <div
+                        className='avatar'
+                        style={{
+                          backgroundColor: generateAvatarColor(
+                            member?.username
+                          ),
+                        }}>
+                        <span>{member?.username[0].toUpperCase()}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className='member-info'>
+                    <h3 className='member-name'>{member?.username}</h3>
+                    <h4 className='member-role'>{member?.role}</h4>
+                    <div className='social-links'>
+                      <a
+                        href={member?.twitter}
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        <RiTwitterFill />
+                      </a>
+                      <a
+                        href={member?.linkedin}
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        <RiLinkedinFill />
+                      </a>
+                      <a
+                        href={member?.github}
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        <RiGithubFill />
+                      </a>
                     </div>
-                  )}
-                </div>
-                <div className='member-info'>
-                  <h3 className='member-name'>{member?.username}</h3>
-                  <h4 className='member-role'>{member?.role}</h4>
-                  <div className='social-links'>
-                    <a
-                      href={member?.twitter}
-                      target='_blank'
-                      rel='noopener noreferrer'>
-                      <RiTwitterFill />
-                    </a>
-                    <a
-                      href={member?.linkedin}
-                      target='_blank'
-                      rel='noopener noreferrer'>
-                      <RiLinkedinFill />
-                    </a>
-                    <a
-                      href={member?.github}
-                      target='_blank'
-                      rel='noopener noreferrer'>
-                      <RiGithubFill />
-                    </a>
                   </div>
                 </div>
-              </div>
-            </SplideSlide>
-          ))}
+              </SplideSlide>
+            ))}
         </Splide>
       </div>
     </OverviewContainer>
@@ -156,20 +180,14 @@ const OverviewContainer = styled.section`
   padding: 1rem 2rem;
 
   .project-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     .project-description {
-      flex: 1;
       background-color: #21222c;
       padding: 1rem;
       border-radius: 0.5rem;
-      display: flex;
-      flex-direction: column;
       color: #fff;
-      min-height: 220px;
+      height: 100%;
       .project-name {
         font-size: 1.4rem;
         margin-bottom: 1rem;
@@ -188,7 +206,6 @@ const OverviewContainer = styled.section`
     background-color: #21222c;
     padding: 1rem;
     border-radius: 0.5rem;
-    margin-right: 1rem;
 
     .image-div {
       display: flex;
@@ -207,11 +224,13 @@ const OverviewContainer = styled.section`
       }
     }
 
-    .owner-info, .member-info {
+    .owner-info,
+    .member-info {
       margin-top: 1rem;
       color: #fff;
       text-align: center;
-      .owner-name, .member-name {
+      .owner-name,
+      .member-name {
         font-size: 1.1rem;
       }
       .member-role {
