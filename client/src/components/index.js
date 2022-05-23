@@ -4,6 +4,7 @@ import { Overview, Board, List } from './Project';
 import Card from './Card';
 import Navbar from './Navbar';
 import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
+import AddProjectModal from './AddProjectModal';
 
 export {
     Form,
@@ -23,5 +24,6 @@ export {
     Board,
     List,
     Card,
+    AddProjectModal
 };
 
