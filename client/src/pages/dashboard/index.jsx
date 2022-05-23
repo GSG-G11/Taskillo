@@ -52,7 +52,7 @@ const Dashboard = () => {
           </div>
           <SlideCard />
           <div className='d-flex cont-card2'>
-            {members.length ? members.map((member, index) => (
+            {members.length ? members.slice(0,2).map((member, index) => (
               <div key={index}>
                 <StaffCard avatar={member1} memberName={member.username} role={member.role} />
               </div>
