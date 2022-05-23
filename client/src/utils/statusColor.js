@@ -5,7 +5,7 @@ export default function statusColor(statusName) {
     case 'In Progress':
       return 'progress';
     case 'done':
-      return 'Done';
+      return 'done';
     case 'cancelled':
       return 'cancelled';
     default:

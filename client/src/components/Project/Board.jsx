@@ -8,15 +8,17 @@ import Section from '../Section';
 import { setSection } from '../../state/sections';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { setTask } from '../../state/tasks';
+import { setOpen } from '../../state/modal';
 
 export default function Board() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { sections } = useSelector((state) => state.sections.value);
   const { tasks } = useSelector((state) => state.tasks.value);
-  const [isOpen, setIsOpen] = useState(false);
+  const { open } = useSelector((state) => state.modal.value);
   const [newSection, setNewSection] = useState({});
 
+  console.log(open);
   useEffect(() => {
     async function getSections(projectid) {
       try {
@@ -72,7 +74,7 @@ export default function Board() {
   };
 
   const addSection = async (e) => {
-    setIsOpen(false);
+    dispatch(setOpen({ open: false }));
     const response = await axios.post(`/api/v1/project/${id}/section`, {
       name: newSection,
     });
@@ -98,13 +100,16 @@ export default function Board() {
             })}
             <Div>
               <div
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => dispatch(setOpen({ open: !open }))}
                 className="label-container"
               >
                 <label className="add-section-label">+ Add your section</label>
               </div>
-              {isOpen ? (
+              {open && (
                 <div className="carrd">
+                  {
+                    console.log(open)
+                  }
                   <input
                     type="text"
                     placeholder="Enter Section Name"
@@ -120,7 +125,7 @@ export default function Board() {
                     </button>
                   </div>
                 </div>
-              ) : null}
+              )}
             </Div>
           </div>
         </DragDropContext>
