@@ -13,7 +13,7 @@ const Task = () => {
   const pagination = useSelector((state) =>state.pagination.value);
   const greeting = generateGreeting();
 
-  console.log(pagination);
+  console.log(pagination,'page');
   const dispatch = useDispatch();
 
   const [count, setCount] = useState(0)
@@ -21,7 +21,8 @@ const Task = () => {
     const handleData = async () => {
       try {
         const Response = await axios.get(`/api/v1/tasks?q=${pagination}`);
-        console.log(Response.data.data[0].totaltask);
+        console.log(Response.data.data,'dataaadt data ');
+        console.log(Response.data.data[0].totaltask,'get data pagnation');
         if (Response.status === 200) {
           dispatch(getTask(Response.data.data));
           setCount(Response.data.data[0].totaltask);
