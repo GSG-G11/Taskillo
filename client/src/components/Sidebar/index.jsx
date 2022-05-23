@@ -80,7 +80,7 @@ const Sidebar = () => {
           {
             userProjects.map(({name, id}) => (
               <li className='nav-item' key={id}>
-                <NavLink to={`/projects/${id}`} className='nav-link'>
+                <NavLink to={`/project/${id}`} className='nav-link'>
                   <span className='link-name'>{name}</span>
                 </NavLink>
               </li>

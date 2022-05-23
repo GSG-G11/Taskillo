@@ -37,6 +37,7 @@ const SingleStafWrapper = styled.div`
   margin-right: 2rem;
 
   .staff-memebers {
+    height: 66vh;
     max-height: 66vh;
     overflow: auto;
     padding-right: 1rem;
