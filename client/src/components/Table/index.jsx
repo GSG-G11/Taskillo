@@ -15,7 +15,6 @@ const TableTask = ({ taskDeleted, count}) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.task.value);
   const { open } = useSelector((state) => state.modal.value);
-  console.log(open);
   const [id, setId] = useState(null);
   return (
     <Div className='w-100'>

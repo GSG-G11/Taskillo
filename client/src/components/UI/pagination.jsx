@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setPage } from '../../state/pagination';
 const Pagination = ({ count }) => {
-  console.log(count, 'jjjjjj');
   const dispatch = useDispatch();
 
   let arr = [];

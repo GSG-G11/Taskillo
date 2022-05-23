@@ -1,7 +1,6 @@
 import { FormField, SubmitButton, Form } from '../Form';
 
 const TaskForm = ({ handleSubmit, taskFilter }) => {
-  console.log(taskFilter ,"taskform");
   return (
     <Form initialValues={{ name: taskFilter[0].name }} onSubmit={handleSubmit}>
 
