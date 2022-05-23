@@ -1,6 +1,14 @@
-import { SendEmail, Signup, Login, Home, Project, Staff, Dashboard } from './pages';
-import { Overview, List, Board } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  SendEmail,
+  Signup,
+  Login,
+  Home,
+  Project,
+  Staff,
+  Dashboard,
+} from './pages';
+import { Overview, List, Board } from './components';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from './state/user';

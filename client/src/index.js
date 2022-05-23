@@ -12,6 +12,7 @@ import userProjects from './state/userProjects';
 import projectReducer from './state/project';
 import tasksReducer from './state/tasks';
 import sectionsReducer from './state/sections';
+import actionReducer from './state/action';
 import './index.css';
 
 const store = configureStore({
@@ -24,6 +25,7 @@ const store = configureStore({
     project: projectReducer,
     tasks: tasksReducer,
     sections: sectionsReducer,
+    action: actionReducer,
   },
 });
 
