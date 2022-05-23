@@ -85,7 +85,6 @@ const TableTask = ({ taskDeleted, count}) => {
 };
 
 const Div = styled.table`
-
 .table{
   border-bottom:1px solid #282A36;
  .table-head{

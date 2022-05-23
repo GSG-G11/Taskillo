@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { setPage } from '../../state/pagination';
 const Pagination = ({ count }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,8 @@ const Pagination = ({ count }) => {
   };
 
   return (
-    <nav aria-label="Page navigation example">
+   <PaginationPage >
+      <nav aria-label="Page navigation example">
       <ul className="pagination">
         <li className="page-item">
           <Link className="page-link" to="#" aria-label="Previous">
@@ -42,7 +44,16 @@ const Pagination = ({ count }) => {
         </li>
       </ul>
     </nav>
+   </PaginationPage>
   );
 };
 
+const PaginationPage = styled.nav`
+.page-link{
+  background-color:rgba(57, 57, 83, 0.475);
+  border:1px solid rgba(57, 57, 83, 0.475);
+  color:#B8B8B8
+}
+
+`
 export default Pagination;
