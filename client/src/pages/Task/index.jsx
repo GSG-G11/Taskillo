@@ -46,13 +46,6 @@ const Task = () => {
 
   };
   return (
-    // <div className='page-container'>
-    //   <Sidebar />
-    //   <main className={open ? 'main-page' : 'main-page close'}>
-    //     <Navbar title={`${greeting}, ${userInfo.username}`} />
-    //     <TableTask taskDeleted={taskDeleted} count={count}/>
-    //   </main>
-    // </div>
     <div className='page-container'>
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>

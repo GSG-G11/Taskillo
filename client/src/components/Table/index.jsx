@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { Button, Pagination, Text } from '../UI';
 import Modal from '../modal';
 import { setOpen } from '../../state/modal';
+import { formatDate } from '../../utils';
 
 const TableTask = ({ taskDeleted, count}) => {
   const dispatch = useDispatch();
@@ -52,9 +53,10 @@ const TableTask = ({ taskDeleted, count}) => {
                   <Text text={task.status} className='text-white' />
                 </td>
                 <td>
-                  <Text text={task.enddate} className='icons' />
+                  <Text text={formatDate(task.enddate)} className='icons' />
                 </td>
                 <td>
+                 
                   <RiEdit2Line
                     className='action-icons'
                     data-bs-toggle='modal'
@@ -64,6 +66,7 @@ const TableTask = ({ taskDeleted, count}) => {
                       setId(task.id);
                     }}
                   />
+               
                   <RiDeleteBinLine
                     className='action-icons'
                     onClick={() => taskDeleted(task.id)}
@@ -89,7 +92,7 @@ const Div = styled.table`
   border-bottom:1px solid #282A36;
  .table-head{
    color:#818098;
-   font-size:0.78rem
+   font-size:0.80rem
  }
  .task-name{
    color:#fff;
@@ -113,23 +116,8 @@ const Div = styled.table`
   padding: 5px;
   font-size: 0.80rem;
  }
-   
-
+ 
 }
 `;
 
 export default TableTask;
-//  overflow-x: auto;
-//  margin-bottom:4rem
-// &::-webkit-scrollbar-track {
-//   background-color: rgba(57, 57, 83, 0.475);
-//   border-radius: .4rem;
-// }
-// &::-webkit-scrollbar {
-//   height: .9rem;
-//   background-color: transparent;
-// }
-// &::-webkit-scrollbar-thumb {
-//   background-color: #53535e;
-//   border-radius: .4rem;
-// }
