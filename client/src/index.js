@@ -8,6 +8,7 @@ import useReducer from './state/user';
 import modalReducer from './state/modal';
 import sidebarReducer from './state/sidebar';
 import taskReducer from './state/task'
+import paginationReducer from './state/pagination'
 import './index.css';
 
 const store = configureStore({
@@ -16,6 +17,7 @@ const store = configureStore({
     modal: modalReducer,
     sidebar: sidebarReducer,
     task: taskReducer,
+    pagination:paginationReducer
   },
 });
 

@@ -7,11 +7,11 @@ import {
 } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { Button, Text } from '../UI';
+import { Button, Pagination, Text } from '../UI';
 import Modal from '../modal';
 import { setOpen } from '../../state/modal';
 
-const TableTask = ({ taskDeleted }) => {
+const TableTask = ({ taskDeleted, count}) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.task.value);
   const { open } = useSelector((state) => state.modal.value);
@@ -79,6 +79,7 @@ const TableTask = ({ taskDeleted }) => {
           )}
         </tbody>
       </table>
+      <Pagination count={count}/>
     </Div>
   );
 };

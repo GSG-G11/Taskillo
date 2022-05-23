@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar, TableTask } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
@@ -9,13 +9,20 @@ import generateGreeting from '../../utils/generateGreeting';
 const Task = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
+  const pagination = useSelector((state) =>state.pagination.value);
   const greeting = generateGreeting();
+
+  console.log(pagination);
   const dispatch = useDispatch();
+
+  const [count, setCount] = useState(0)
   const handleData = async () => {
     try {
-      const Response = await axios.get('/api/v1/tasks');
-      if (Response.status === 200) {
-        dispatch(getTask(Response.data.data));
+      const Response= await axios.get(`/api/v1/tasks?q=${pagination}`)
+      
+      if(Response.status === 200) {
+        dispatch(getTask(Response.data.data.rows));
+        setCount(Response.data.data.rowCount)
       }
     } catch (error) {
       console.log(error, 'error');
@@ -40,7 +47,7 @@ const Task = () => {
       <Outlet />
       <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={`${greeting}, ${userInfo.username}`} />
-        <TableTask taskDeleted={taskDeleted} />
+        <TableTask taskDeleted={taskDeleted} count={count}/>
       </main>
     </div>
   );
