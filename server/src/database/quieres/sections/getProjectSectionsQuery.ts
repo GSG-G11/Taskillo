@@ -2,7 +2,7 @@ import { connection } from '../../config';
 
 const getProjectSectionsQuery = (projectId: number) => {
   const sql = {
-    text: `SELECT * FROM sections WHERE projectId = $1`,
+    text: `SELECT * FROM sections WHERE projectId = $1 order by id`,
     values: [projectId],
   };
 

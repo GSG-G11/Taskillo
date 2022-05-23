@@ -3,6 +3,7 @@ import getProjects from './getProjects';
 import deleteProject from './deleteProject';
 import editProject from './editProject';
 import getSpecificProject from './getSpecificProject';
+import getProjectMembers from './getProjectMembers';
 
 export {
   addProject,
@@ -10,4 +11,5 @@ export {
   deleteProject,
   editProject,
   getSpecificProject,
+  getProjectMembers,
 };

@@ -5,10 +5,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import useReducer from './state/user';
-import modalReducer from './state/modal';
+import modalReducer from './state/user';
 import sidebarReducer from './state/sidebar';
 import taskReducer from './state/task'
 import paginationReducer from './state/pagination'
+
+import projectDashboardReducer from './state/projectDashboard';
+import userProjects from './state/userProjects';
+import projectReducer from './state/project';
+import tasksReducer from './state/tasks';
+import sectionsReducer from './state/sections';
 import './index.css';
 
 const store = configureStore({
@@ -17,7 +23,12 @@ const store = configureStore({
     modal: modalReducer,
     sidebar: sidebarReducer,
     task: taskReducer,
-    pagination:paginationReducer
+    pagination:paginationReducer,
+    projectDashboard: projectDashboardReducer,
+    userProjects: userProjects,
+    project: projectReducer,
+    tasks: tasksReducer,
+    sections: sectionsReducer,
   },
 });
 

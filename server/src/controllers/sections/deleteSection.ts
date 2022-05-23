@@ -3,10 +3,11 @@ import { deleteSectionQuery, getOneSectionQuery } from '../../database';
 
 const deleteSection = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { rowCount } = await getOneSectionQuery(+id);
+  const { rows, rowCount } = await getOneSectionQuery(+id);
   if (rowCount) {
     await deleteSectionQuery(+id);
     res.status(200).json({
+      data: rows,
       message: 'Section deleted successfully',
     });
   } else {

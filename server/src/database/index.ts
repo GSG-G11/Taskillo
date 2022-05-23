@@ -20,6 +20,7 @@ import {
   deleteSectionQuery,
   addUserTaskQuery,
   getCheckMembersQuery,
+  dragTaskQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -48,4 +49,5 @@ export {
   getProjectSectionsQuery,
   addUserTaskQuery,
   getCheckMembersQuery,
+  dragTaskQuery,
 };

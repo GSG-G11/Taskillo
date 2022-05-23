@@ -6,6 +6,7 @@ import {
   getTasksSection,
   editTask,
   deleteTask,
+  dragTask,
 } from '../controllers';
 
 const tasksRoute = express.Router();
@@ -16,4 +17,6 @@ tasksRoute.delete('/task/:id', asyncMiddleware(deleteTask));
 tasksRoute.param('projectid', checkMember);
 tasksRoute.post('/project/:projectid/task', asyncMiddleware(addTask));
 tasksRoute.get('/project/:projectid/section/:id/tasks', asyncMiddleware(getTasksSection));
+tasksRoute.put('/task/drag', asyncMiddleware(dragTask));
+
 export default tasksRoute;
