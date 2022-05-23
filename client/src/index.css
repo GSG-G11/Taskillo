@@ -37,6 +37,7 @@ body {
 .main-page {
   transition: .5s;
   margin-left: 300px;
+  padding-top: calc(75px + 1rem);
 }
 
 .main-page.close {

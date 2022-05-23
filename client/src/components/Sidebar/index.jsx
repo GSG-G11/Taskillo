@@ -93,7 +93,7 @@ const Sidebar = () => {
 };
 
 const ASide = styled.aside`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 300px;
