@@ -2,7 +2,7 @@ import { FormField, SubmitButton, Form } from '../Form';
 
 const TaskForm = ({ handleSubmit, taskFilter }) => {
   return (
-    <Form initialValues={{ name: taskFilter[0].name }} onSubmit={handleSubmit}>
+    <Form initialValues={{ name: taskFilter[0].name, projectname:taskFilter[0].projectname,priority:taskFilter[0].priority,status:taskFilter[0].status,enddate:taskFilter[0].endate }} onSubmit={handleSubmit}>
 
       <label>Task Name</label>
       <FormField
@@ -13,20 +13,20 @@ const TaskForm = ({ handleSubmit, taskFilter }) => {
       />
 
       <label>Project Name</label>
-      <FormField type='text' name='project name' className='mb-4' />
+      <FormField type='text' name='projectname' className='mb-4' />
 
       <label> priority </label>
       <FormField as='select' name='priority'>
-        <option value='low'>low</option>
-        <option value='high'>high</option>
-        <option value='Mid'>Mid</option>
+        <option value='Low'>Low</option>
+        <option value='High'>High</option>
+        <option value='Medium'>Medium</option>
       </FormField>
 
       <label> status </label>
       <FormField as='select' name='status'>
-        <option value='low'>low</option>
-        <option value='high'>high</option>
-        <option value='Mid'>Mid</option>
+        <option value='To Do'>To Do</option>
+        <option value='In Progress'>In Progress</option>
+        <option value='Done'>Done</option>
       </FormField>
       
       <label>enddate</label>

@@ -46,7 +46,7 @@ const TableTask = ({ taskDeleted, count}) => {
                 <td>
                   <Button
                     title={task.priority}
-                    className='btn-danger priority'
+                    className={`${task.priority}`}
                   />
                 </td>
                 <td>
@@ -116,6 +116,24 @@ const Div = styled.table`
   padding: 5px;
   font-size: 0.80rem;
  }
+ .High {
+   background-color:red;
+   color:#B8B8B8
+
+}
+
+.Low {
+  background-color:orange;
+  color:#B8B8B8
+
+
+}
+
+.Medium {
+  background-color:rgb(14, 89, 228);
+  color:#B8B8B8
+
+}
  
 }
 `;
