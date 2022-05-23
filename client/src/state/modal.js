@@ -8,9 +8,7 @@ const initialValues = {
 };
 const modalSlice = createSlice({
   name: 'modal',
-  initialState: {
-    value: initialValues,
-  },
+  initialState: { value: initialValues },
   reducers: {
     setTaskOpen: (state, action) => {
       state.value.openTask = action.payload;

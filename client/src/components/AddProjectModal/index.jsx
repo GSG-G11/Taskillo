@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, FormField, SubmitButton } from '../../components';
 import './style.css';
 import { BiX } from "react-icons/bi";
-import { setOpen } from '../../state/modal';
+import { setProjectOpen } from '../../state/modal';
 import { addProjectValidationSchema } from '../../utils'
 import { Button, Text } from '../UI';
 import axios from 'axios';
+
 export default function AddProjectModal() {
-  const { openModal } = useSelector((state) => state.modal.value);
+  const { openProject } = useSelector((state) => state.modal.value);
   const dispatch = useDispatch();
   const handleSubmit = async (projectInfo) => {
     try {
       const res = await axios.post('/api/v1/project', projectInfo)
       if (res.status === 201) {
-        dispatch(setOpen({ openModal: false }))
-
+        dispatch(setProjectOpen( false ));
       }
     }
     catch (error) {
@@ -25,10 +25,10 @@ export default function AddProjectModal() {
   return (
     <div>
       {
-        openModal ?
-          <div className='modall' onClick={() => dispatch(setOpen({ openModal: false }))}>
+        openProject ?
+          <div className='modall' onClick={() => dispatch(setProjectOpen(false))}>
             <div className='content' onClick={(e) => e.stopPropagation()}>
-              <span className='close-model' onClick={() => dispatch(setOpen({ openModal: false }))}>
+              <span className='close-model' onClick={() => dispatch(setProjectOpen(false))}>
                 <BiX className='bix' />
               </span>
               <Form initialValues={{ name: '', description: '' }}
@@ -40,7 +40,7 @@ export default function AddProjectModal() {
                 <FormField type={'text'} name={'description'} placeholder={'description'} className="shadow-lg project-desc" />
                 <div className='d-flex justify-content-center align-items-center mt-4'>
                   <SubmitButton title="Sign In" className="btn btn-primary submit-btn me-2" />
-                  <Button title={'Cancel'} className={'cancel-btn'} onClick={() => dispatch(setOpen({ openModal: false }))} />
+                  <Button title={'Cancel'} className={'cancel-btn'} onClick={() => dispatch(setProjectOpen(false))} />
                 </div>
               </Form>
             </div>
