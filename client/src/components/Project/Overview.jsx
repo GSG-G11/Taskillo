@@ -61,20 +61,34 @@ const Overview = () => {
           </div>
           <div className='owner-info'>
             <h3 className='owner-name'>{projectOwner?.username}</h3>
-            <div className="social-links">
-              <a href={projectOwner?.twitter} target="_blank" rel="noopener noreferrer">
+            <div className='social-links'>
+              <a
+                href={projectOwner?.twitter}
+                target='_blank'
+                rel='noopener noreferrer'>
                 <RiTwitterFill />
               </a>
-              <a href={projectOwner?.linkedin} target="_blank" rel="noopener noreferrer">
+              <a
+                href={projectOwner?.linkedin}
+                target='_blank'
+                rel='noopener noreferrer'>
                 <RiLinkedinFill />
               </a>
-              <a href={projectOwner?.github} target="_blank" rel="noopener noreferrer">
+              <a
+                href={projectOwner?.github}
+                target='_blank'
+                rel='noopener noreferrer'>
                 <RiGithubFill />
               </a>
             </div>
           </div>
         </div>
-        <div className='project-description'></div>
+        <div className='project-description'>
+          <div className='desc-container'>
+            <h3 className='project-name'>{projectData?.name}</h3>
+            <p className='project-desc'>{projectData?.description}</p>
+          </div>
+        </div>
       </div>
     </OverviewContainer>
   );
@@ -116,30 +130,30 @@ const OverviewContainer = styled.section`
       .owner-info {
         margin-top: 1rem;
         color: #fff;
-        text-align: center; 
-        .owner-name{
+        text-align: center;
+        .owner-name {
           font-size: 1.1rem;
           margin-bottom: 1rem;
         }
 
-        .social-links{
+        .social-links {
           display: flex;
           justify-content: center;
           align-items: center;
-          
+
           a {
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            margin: 0 .5rem;
+            margin: 0 0.5rem;
             width: 35px;
             height: 35px;
             border-radius: 50%;
             color: #fff;
             background-color: rgba(28, 28, 40, 0.88);
-            transition: transform .3s;
+            transition: transform 0.3s;
             cursor: pointer;
-            &:hover{
+            &:hover {
               transform: translateY(-4px) scale(1.1);
             }
           }
@@ -152,7 +166,19 @@ const OverviewContainer = styled.section`
       background-color: #21222c;
       padding: 1rem;
       border-radius: 0.5rem;
-      height: 100%;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      min-height: 220px;
+      .project-name {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      .project-desc {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: #CCC;
+      }
     }
   }
 `;
