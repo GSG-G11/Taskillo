@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { deleteTask, getTask } from '../../state/task';
 import axios from 'axios';
 import generateGreeting from '../../utils/generateGreeting';
+import Sidebar from '../../components/Sidebar';
 
 const Task = () => {
   const userInfo = useSelector((state) => state.user.value);
@@ -46,7 +47,7 @@ const Task = () => {
   };
   return (
     <div className='page-container'>
-      <Outlet />
+      <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={`${greeting}, ${userInfo.username}`} />
         <TableTask taskDeleted={taskDeleted} count={count}/>
