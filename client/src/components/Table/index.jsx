@@ -9,13 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Button, Pagination, Text } from '../UI';
 import Modal from '../modal';
-import { setOpen } from '../../state/modal';
+import { setTaskOpen } from '../../state/modal';
 import { formatDate } from '../../utils';
 
 const TableTask = ({ taskDeleted, count}) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.task.value);
-  const { open } = useSelector((state) => state.modal.value);
+  const { openTask } = useSelector((state) => state.modal.value);
   const [id, setId] = useState(null);
   return (
     <Div className='w-100'>
@@ -62,7 +62,7 @@ const TableTask = ({ taskDeleted, count}) => {
                     data-bs-toggle='modal'
                     data-bs-target='#staticBackdrop'
                     onClick={() => {
-                      dispatch(setOpen({ open: 'true' }));
+                      dispatch( setTaskOpen({ openTask: 'true' }));
                       setId(task.id);
                     }}
                   />
@@ -73,7 +73,7 @@ const TableTask = ({ taskDeleted, count}) => {
                   />
                 </td>
                 {
-                  open && id === task.id && <Modal id={task.id} />
+                  openTask && id === task.id && <Modal id={task.id} />
                 }
               </tr>
             ))
