@@ -7,6 +7,8 @@ import { setProjectOpen } from '../../state/modal';
 import { addProjectValidationSchema } from '../../utils'
 import { Button, Text } from '../UI';
 import axios from 'axios';
+import swal from 'sweetalert';
+
 
 export default function AddProjectModal() {
   const { openProject } = useSelector((state) => state.modal.value);
@@ -15,7 +17,8 @@ export default function AddProjectModal() {
     try {
       const res = await axios.post('/api/v1/project', projectInfo)
       if (res.status === 201) {
-        dispatch(setProjectOpen( false ));
+        dispatch(setProjectOpen(false));
+        swal("Good job!", res.data.message, "success");
       }
     }
     catch (error) {
