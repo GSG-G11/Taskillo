@@ -1,17 +1,41 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialValues = {
+  openTask: false,
+  openSection: false,
+  openProject: false,
+  editSection: false,
+};
 const modalSlice = createSlice({
   name: 'modal',
-  initialState: { value: { open: 'false' } },
+  initialState: {
+    value: initialValues,
+  },
   reducers: {
-    setOpen: (state, action) => {
-      state.value = action.payload;
+    setTaskOpen: (state, action) => {
+      state.value.openTask = action.payload;
+    },
+    setSectionOpen: (state, action) => {
+      state.value.openSection = action.payload;
+    },
+    setProjectOpen: (state, action) => {
+      state.value.openProject = action.payload;
+    },
+    setEditSectionOpen: (state, action) => {
+      state.value.editSection = action.payload;
     },
   },
 });
 
-const { setOpen } = modalSlice.actions;
+const { setTaskOpen, setSectionOpen, setProjectOpen, setEditSectionOpen } =
+  modalSlice.actions;
 
 export default modalSlice.reducer;
 
-export { modalSlice, setOpen };
+export {
+  modalSlice,
+  setTaskOpen,
+  setSectionOpen,
+  setProjectOpen,
+  setEditSectionOpen,
+};
