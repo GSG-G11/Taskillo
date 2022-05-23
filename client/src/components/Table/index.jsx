@@ -15,6 +15,7 @@ const TableTask = ({ taskDeleted, count}) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.task.value);
   const { open } = useSelector((state) => state.modal.value);
+  console.log(open);
   const [id, setId] = useState(null);
   return (
     <Div className='w-100'>
@@ -85,6 +86,7 @@ const TableTask = ({ taskDeleted, count}) => {
 };
 
 const Div = styled.table`
+
 .table{
   border-bottom:1px solid #282A36;
  .table-head{
@@ -113,3 +115,17 @@ const Div = styled.table`
 `;
 
 export default TableTask;
+//  overflow-x: auto;
+//  margin-bottom:4rem
+// &::-webkit-scrollbar-track {
+//   background-color: rgba(57, 57, 83, 0.475);
+//   border-radius: .4rem;
+// }
+// &::-webkit-scrollbar {
+//   height: .9rem;
+//   background-color: transparent;
+// }
+// &::-webkit-scrollbar-thumb {
+//   background-color: #53535e;
+//   border-radius: .4rem;
+// }
