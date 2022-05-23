@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { setPage } from '../../state/pagination';
 const Pagination =({count}) =>{
+  console.log(count,'count tasksssss');
   const dispatch = useDispatch()
   let arr= [];
-  for (let i =0 ; i < count/7; i++) {
+  for (let i =1 ; i <= count/7; i++) {
     arr.push(i);
   }
 const handlePagination =(index) =>{
@@ -21,7 +22,7 @@ return(
     </li>
     {
       arr.map(index =>{
-        return <li className="page-item"><button className="page-link" onClick={() => handlePagination(index)}>{index+1}</button></li>
+        return <li className="page-item"><button className="page-link" onClick={() => handlePagination(index)}>{index}</button></li>
       })
     }
 

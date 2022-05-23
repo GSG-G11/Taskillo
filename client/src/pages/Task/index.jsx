@@ -16,21 +16,23 @@ const Task = () => {
   const dispatch = useDispatch();
 
   const [count, setCount] = useState(0)
-  const handleData = async () => {
-    try {
-      const Response= await axios.get(`/api/v1/tasks?q=${pagination}`)
-      
-      if(Response.status === 200) {
-        dispatch(getTask(Response.data.data.rows));
-        setCount(Response.data.data.rowCount)
-      }
-    } catch (error) {
-      console.log(error, 'error');
-    }
-  };
   useEffect(() => {
+    const handleData = async () => {
+      try {
+        const Response = await axios.get(`/api/v1/tasks?q=${pagination}`);
+        console.log(Response.data.data[0].totaltask);
+        if (Response.status === 200) {
+          dispatch(getTask(Response.data.data));
+          setCount(Response.data.data[0].totaltask);
+        }
+      } catch (error) {
+        console.log(error, 'error');
+      }
+    };
     handleData();
-  }, []);
+  }, [dispatch, pagination]);
+
+
   const taskDeleted= async (id) =>{
     try {
       const Response = await axios.delete(`/api/v1/task/${id}`);
