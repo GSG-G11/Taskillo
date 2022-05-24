@@ -75,9 +75,4 @@ const Div = styled.div`
       border-radius: 1rem;
     }
   }
-  @media (max-width: 630px) {
-    .card-container {
-      display: none;
-    }
-  }
 `;

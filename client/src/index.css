@@ -48,19 +48,19 @@ body {
   padding: 2rem 1.5rem;
 }
 
+.carrd.High {
+  border-bottom: 1px solid #f8524b;
+}
+
+.carrd.Low {
+  border-bottom: 1px solid #06c270;
+}
+
+.carrd.Medium {
+  border-bottom: 1px solid #ff8800;
+}
+
 @media (max-width: 630px) {
-  .carrd.High {
-    border-bottom: 1px solid red;
-  }
-
-  .carrd.Low {
-    border-bottom: 1px solid orange;
-  }
-
-  .carrd.Medium {
-    border-bottom: 1px solid rgb(14, 89, 228);
-  }
-
   .main-page {
     margin-left: 65px;
   }

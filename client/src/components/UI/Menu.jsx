@@ -23,11 +23,6 @@ function Menu() {
               <span className="link-name">Board</span>
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink to={`/project/${id}/staff`} className="nav-link">
-              <span className="link-name">Staff</span>
-            </NavLink>
-          </li>
         </ul>
       </nav>
     </Div>
@@ -42,22 +37,22 @@ const Div = styled.nav`
       .nav-link {
         color: #b8b8b8;
         font-weight: 500;
-        
-        .link-name{
+
+        .link-name {
           position: relative;
         }
 
         &.active {
           color: #fff;
-          .link-name::before{
+          .link-name::before {
             content: '';
             position: absolute;
             left: 50%;
-            bottom: -.3rem;
+            bottom: -0.3rem;
             width: 100%;
             height: 3px;
             border-radius: 1rem;
-            background-color: #FFF;
+            background-color: #fff;
             transform: translateX(-50%);
           }
         }

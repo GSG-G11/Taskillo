@@ -140,7 +140,7 @@ const Title = styled.div`
   .section-container {
     gap: 20px;
     margin-left: 20px;
-    height: 70vh;
+    height: 100%;
     overflow-x: auto;
     &::-webkit-scrollbar-track {
       background-color: transparent;

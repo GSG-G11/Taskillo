@@ -175,15 +175,19 @@ const Div = styled.table`
       background-color: #f8524b;
       color: #b8b8b8;
     }
+
     .Low {
       background-color: #06c270;
       color: #b8b8b8;
     }
+
     .Medium {
       background-color: #ff8800;
       color: #b8b8b8;
     }
   }
+
+  
 `;
 
 export default TableTask;

@@ -146,14 +146,17 @@ const Div = styled.table`
       justify-content: center;
       width: 35px;
       height: 35px;
+
       svg {
         transform: scale(2);
       }
+
       &.edit-btn {
         background-color: rgba(62, 123, 250, 0.2);
         color: #3e7bfa;
         margin-right: 10px;
       }
+
       &.delete-btn {
         background-color: rgba(255, 46, 38, 0.2);
         color: rgb(255, 46, 38);
@@ -163,6 +166,7 @@ const Div = styled.table`
       padding: 5px;
       font-size: 0.8rem;
     }
+
     .btn.priority {
       padding: 1px 4px;
       font-size: 0.7rem;
@@ -171,19 +175,24 @@ const Div = styled.table`
       color: #fff;
       cursor: auto;
     }
+
     .High {
       background-color: #f8524b;
       color: #b8b8b8;
     }
+
     .Low {
       background-color: #06c270;
       color: #b8b8b8;
     }
+
     .Medium {
       background-color: #ff8800;
       color: #b8b8b8;
     }
   }
+
+  
 `;
 
 export default TableTask;

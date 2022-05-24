@@ -184,6 +184,8 @@ const Div = styled.table`
       color: #b8b8b8;
     }
   }
+
+  
 `;
 
 export default TableTask;
