@@ -4,13 +4,14 @@ import { FormField, Form, SubmitButton } from '../Form';
 import { Button } from '../UI';
 
 const TaskForm = ({ handleSubmit, values = {} }) => {
+  console.log(values);
   const dispatch = useDispatch();
   const { openTask } = useSelector((state) => state.modal.value);
   const { type } = useSelector((state) => state.action.value);
   let initialValues =
     type === 'Add'
       ? { name: '', priority: '', status: '', enddate: '', description: '' }
-      : values[0];
+      : values;
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       <div>
@@ -25,7 +26,6 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
         <FormField
           name="description"
           placeholder="Example: lorem ipsum dolor sit amet, consectetur adipiscing.."
-          value={initialValues.description}
         />
       </div>
       <div>
@@ -49,7 +49,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
       </div>
       <div>
         <label>End Date</label>
-        <FormField type="date" name="enddate"/>
+        <FormField type="date" name="enddate" />
       </div>
       <div className="modal-footer">
         <SubmitButton

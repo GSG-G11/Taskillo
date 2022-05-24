@@ -13,7 +13,7 @@ const taskSlice = createSlice({
     updateTask:(state,action) =>{
       state.value.map((value) => {
           if (value.id === action.payload.id) {
-            value.name = action.payload.name;
+             return value.name = action.payload.name;
             value.descripton = action.payload.descripton;
             value.priority = action.payload.priority;
             value.status = action.payload.status;

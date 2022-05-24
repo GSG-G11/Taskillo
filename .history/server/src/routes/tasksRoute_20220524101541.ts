@@ -16,7 +16,7 @@ tasksRoute.put('/task/:id', asyncMiddleware(editTask));
 tasksRoute.delete('/task/:id', asyncMiddleware(deleteTask));
 tasksRoute.param('projectid', checkMember);
 tasksRoute.post('/project/:projectid/task', asyncMiddleware(addTask));
-tasksRoute.get('/project/:projectid/tasksSection', asyncMiddleware(getTasksSection));
+tasksRoute.get('/project/:projectid/section/:id/tasks', asyncMiddleware(getTasksSection));
 tasksRoute.put('/task/drag', asyncMiddleware(dragTask));
 
 export default tasksRoute;

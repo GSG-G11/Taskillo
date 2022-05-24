@@ -10,7 +10,8 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
   let initialValues =
     type === 'Add'
       ? { name: '', priority: '', status: '', enddate: '', description: '' }
-      : values[0];
+      : values;
+      console.log(initialValues);
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       <div>
@@ -18,6 +19,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
         <FormField
           name="name"
           placeholder="Example: Design Profile Page"
+          value={in}
         />
       </div>
       <div>
@@ -25,7 +27,6 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
         <FormField
           name="description"
           placeholder="Example: lorem ipsum dolor sit amet, consectetur adipiscing.."
-          value={initialValues.description}
         />
       </div>
       <div>
@@ -49,7 +50,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
       </div>
       <div>
         <label>End Date</label>
-        <FormField type="date" name="enddate"/>
+        <FormField type="date" name="enddate" />
       </div>
       <div className="modal-footer">
         <SubmitButton

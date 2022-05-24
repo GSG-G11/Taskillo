@@ -11,6 +11,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
     type === 'Add'
       ? { name: '', priority: '', status: '', enddate: '', description: '' }
       : values[0];
+      console.log(initialValues);
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       <div>
@@ -18,6 +19,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
         <FormField
           name="name"
           placeholder="Example: Design Profile Page"
+          // value={initialValues.name}
         />
       </div>
       <div>

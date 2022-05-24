@@ -4,6 +4,7 @@ import { Overview, Board, List } from './Project';
 import Card from './Card';
 import Navbar from './Navbar';
 import TableTask  from './Table'
+import Modal from './modal'
 import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
 export {
     Form,
@@ -24,5 +25,6 @@ export {
     List,
     Card,
     TableTask,
+    Modal
 };
 

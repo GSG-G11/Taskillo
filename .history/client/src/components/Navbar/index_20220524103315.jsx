@@ -16,7 +16,11 @@ export default function Navbar({ title }) {
           <Button
             type="button"
             title="+ Add"
+<<<<<<< HEAD
             onClick={() => dispatch(setProjectOpen({ openProject: 'true' }))}
+=======
+            onClick={() => dispatch(setMenuOpen({ openMenu: 'true' }))}
+>>>>>>> development
             className="btn btn-primary add-project"
           />
           <button className="btn notification">

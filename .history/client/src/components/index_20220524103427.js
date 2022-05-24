@@ -24,5 +24,6 @@ export {
     List,
     Card,
     TableTask,
+    Modal
 };
 

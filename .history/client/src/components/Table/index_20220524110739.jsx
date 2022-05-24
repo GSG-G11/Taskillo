@@ -22,7 +22,8 @@ const TableTask = ({ taskDeleted, count }) => {
   const [id, setId] = useState(null);
   const task = useSelector((state) => state.task.value);
   const taskFilter = task.filter((task) => task.id === id);
-  const handleEdit = async ({
+  console.log(taskFilter);
+  const handleSubmit = async ({
     name,
     description,
     status,
@@ -103,7 +104,7 @@ const TableTask = ({ taskDeleted, count }) => {
                   />
                 </td>
                 {openTask && id === task.id && (
-                  <Modal handleSubmit={handleEdit} values={taskFilter} />
+                  <Modal handleSubmit={handleSubmit} values={taskFilter} />
                 )}
               </tr>
             ))

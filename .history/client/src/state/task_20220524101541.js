@@ -8,18 +8,18 @@ const taskSlice = createSlice({
       state.value = action.payload;
     },
     deleteTask: (state,action) =>{
-      state.value = state.value.filter(value => value.id !== action.payload)
+      state.value = state.value.filter(value => value.id != action.payload)
     },
     updateTask:(state,action) =>{
-      state.value.map((value) => {
-          if (value.id === action.payload.id) {
+      state.value.map(value => {
+        if (value.id === action.payload.id){
             value.name = action.payload.name;
-            value.descripton = action.payload.descripton;
             value.priority = action.payload.priority;
             value.status = action.payload.status;
             value.enddate = action.payload.enddate;
-          }
-        })
+            value.projectname= action.payload.projectname;
+        }
+      })
     }
   },
 });

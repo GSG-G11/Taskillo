@@ -21,6 +21,9 @@ const modalSlice = createSlice({
     setProjectOpen: (state, action) => {
       state.value.openProject = action.payload;
     },
+    setMenuOpen: (state, action) => {
+      state.value.openMenu = action.payload;
+    },
     setEditSectionOpen: (state, action) => {
       state.value.editSection = action.payload;
     },

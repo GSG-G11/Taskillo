@@ -103,7 +103,7 @@ const TableTask = ({ taskDeleted, count }) => {
                   />
                 </td>
                 {openTask && id === task.id && (
-                  <Modal handleSubmit={handleEdit} values={taskFilter} />
+                  <Modal handleSubmit={handleSubmit} values={taskFilter} />
                 )}
               </tr>
             ))

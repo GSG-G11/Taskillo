@@ -11,6 +11,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
     type === 'Add'
       ? { name: '', priority: '', status: '', enddate: '', description: '' }
       : values[0];
+      console.log(initialValues);
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       <div>
@@ -18,6 +19,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
         <FormField
           name="name"
           placeholder="Example: Design Profile Page"
+          value={initialValues.name}
         />
       </div>
       <div>
@@ -30,7 +32,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
       </div>
       <div>
         <label>Priority</label>
-        <FormField as="select" name="priority">
+        <FormField as="select" name="priority" value={initialValues.priority}>
         <option>Select Priority</option>
           <option value="Low">Low</option>
           <option value="High">High</option>
@@ -39,7 +41,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
       </div>
       <div>
         <label>Status</label>
-        <FormField as="select" name="status">
+        <FormField as="select" name="status" value={initialValues.status}>
           <option className='option-default'>Select Staus</option>
           <option value="Todo">To Do</option>
           <option value="InProgress">In Progress</option>
@@ -49,7 +51,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
       </div>
       <div>
         <label>End Date</label>
-        <FormField type="date" name="enddate"/>
+        <FormField type="date" name="enddate" value={initialValues.enddate} />
       </div>
       <div className="modal-footer">
         <SubmitButton

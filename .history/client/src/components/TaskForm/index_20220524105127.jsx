@@ -11,6 +11,7 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
     type === 'Add'
       ? { name: '', priority: '', status: '', enddate: '', description: '' }
       : values[0];
+      console.log(initialValues);
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       <div>
