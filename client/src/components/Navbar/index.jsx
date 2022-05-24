@@ -16,7 +16,7 @@ export default function Navbar({ title }) {
           <Button
             type="button"
             title="+ Add"
-            onClick={() => dispatch(setProjectOpen({ openProject: 'true' }))}
+            onClick={() => dispatch(setProjectOpen(true))}
             className="btn btn-primary add-project"
           />
           <button className="btn notification">

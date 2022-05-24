@@ -8,9 +8,7 @@ const initialValues = {
 };
 const modalSlice = createSlice({
   name: 'modal',
-  initialState: {
-    value: initialValues,
-  },
+  initialState: { value: initialValues },
   reducers: {
     setTaskOpen: (state, action) => {
       state.value.openTask = action.payload;
@@ -27,13 +25,8 @@ const modalSlice = createSlice({
   },
 });
 
-const {
-  setTaskOpen,
-  setSectionOpen,
-  setProjectOpen,
-  setEditSectionOpen,
-  setMenuOpen,
-} = modalSlice.actions;
+const { setTaskOpen, setSectionOpen, setProjectOpen, setEditSectionOpen } =
+  modalSlice.actions;
 
 export default modalSlice.reducer;
 
@@ -42,6 +35,5 @@ export {
   setTaskOpen,
   setSectionOpen,
   setProjectOpen,
-  setMenuOpen,
   setEditSectionOpen,
 };

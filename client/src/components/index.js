@@ -5,6 +5,11 @@ import Card from './Card';
 import Navbar from './Navbar';
 import TableTask  from './Table'
 import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
+<<<<<<< HEAD
+import AddProjectModal from './AddProjectModal';
+
+=======
+>>>>>>> development
 export {
     Form,
     SubmitButton,
@@ -23,6 +28,14 @@ export {
     Board,
     List,
     Card,
+<<<<<<< HEAD
+    AddProjectModal
+=======
     TableTask,
+<<<<<<< HEAD
+=======
+    Modal
+>>>>>>> development
+>>>>>>> development
 };
 

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   RiAlignLeft,
   RiAttachment2,
   RiDeleteBinLine,
   RiEdit2Line,
+<<<<<<< HEAD
 } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -14,6 +15,15 @@ import { formatDate } from '../../utils';
 import { updateTask } from '../../state/task';
 import axios from 'axios';
 import { setAction } from '../../state/action';
+=======
+} from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+import { Button, Pagination, Text } from "../UI";
+import Modal from "../modal";
+import { setTaskOpen } from "../../state/modal";
+import { formatDate } from "../../utils";
+>>>>>>> development
 
 const TableTask = ({ taskDeleted, count }) => {
   const dispatch = useDispatch();
@@ -52,7 +62,10 @@ const TableTask = ({ taskDeleted, count }) => {
         <thead>
           <tr className="table-head">
             <th scope="col">Task name</th>
+<<<<<<< HEAD
             <th scope="col">Description</th>
+=======
+>>>>>>> development
             <th scope="col">Project Name</th>
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
@@ -71,15 +84,18 @@ const TableTask = ({ taskDeleted, count }) => {
                   <RiAlignLeft className="icons" />
                 </td>
                 <td>
+<<<<<<< HEAD
                   <Text text={task.description} className="project-name" />
                 </td>
                 <td>
+=======
+>>>>>>> development
                   <Text text={task.projectname} className="project-name" />
                 </td>
                 <td>
                   <Button
                     title={task.priority}
-                    className={`${task.priority}`}
+                    className={`priority ${task.priority}`}
                   />
                 </td>
                 <td>
@@ -91,9 +107,16 @@ const TableTask = ({ taskDeleted, count }) => {
                 <td>
                   <RiEdit2Line
                     className="action-icons"
+<<<<<<< HEAD
                     onClick={() => {
                       dispatch(setTaskOpen({ openTask: 'true' }));
                       dispatch(setAction({ type: 'Update' }));
+=======
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onClick={() => {
+                      dispatch(setTaskOpen({ openTask: "true" }));
+>>>>>>> development
                       setId(task.id);
                     }}
                   />
@@ -102,9 +125,13 @@ const TableTask = ({ taskDeleted, count }) => {
                     onClick={() => taskDeleted(task.id)}
                   />
                 </td>
+<<<<<<< HEAD
                 {openTask && id === task.id && (
                   <Modal handleSubmit={handleEdit} values={taskFilter} />
                 )}
+=======
+                {openTask && id === task.id && <Modal id={task.id} />}
+>>>>>>> development
               </tr>
             ))
           ) : (
@@ -118,6 +145,7 @@ const TableTask = ({ taskDeleted, count }) => {
 };
 
 const Div = styled.table`
+<<<<<<< HEAD
 .table{
   border-bottom:1px solid #282A36;
   .table-head {
@@ -159,6 +187,60 @@ const Div = styled.table`
   color:#B8B8B8
 }
 }
+=======
+  .table {
+    border-bottom: 1px solid #282a36;
+    .table-head {
+      color: #818098;
+      font-size: 0.8rem;
+    }
+    .task-name {
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .icons {
+      color: #b8b8b8;
+      font-size: 0.9rem;
+    }
+    .project-name {
+      color: #b8b8b8;
+    }
+    .action-icons {
+      color: #3e7bfa;
+      font-size: 0.9rem;
+      border: 1px solid #3e7bfa;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+    .btn-danger {
+      padding: 5px;
+      font-size: 0.8rem;
+    }
+
+    .btn.priority {
+      padding: 1px 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .High {
+      background-color: #f8524b;
+      color: #b8b8b8;
+    }
+
+    .Low {
+      background-color: #06c270;
+      color: #b8b8b8;
+    }
+
+    .Medium {
+      background-color: #ff8800;
+      color: #b8b8b8;
+    }
+  }
+>>>>>>> development
 `;
 
 export default TableTask;

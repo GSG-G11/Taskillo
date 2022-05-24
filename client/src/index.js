@@ -8,7 +8,7 @@ import useReducer from './state/user';
 import modalReducer from './state/modal';
 import sidebarReducer from './state/sidebar';
 import taskReducer from './state/task'
-import paginationReducer from './state/pagination'
+import paginationReducer from './state/pagination';
 import projectDashboardReducer from './state/projectDashboard';
 import userProjects from './state/userProjects';
 import projectReducer from './state/project';
