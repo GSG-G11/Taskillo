@@ -4,7 +4,7 @@ import TaskForm from '../TaskForm';
 import { setTaskOpen } from '../../state/modal';
 import { BiX } from 'react-icons/bi';
 
-export default function Modal({ handleSubmit }) {
+export default function Modal({ handleSubmit, values={} }) {
   const { openTask } = useSelector((state) => state.modal.value);
   const { type } = useSelector((state) => state.action.value);
 
@@ -23,7 +23,7 @@ export default function Modal({ handleSubmit }) {
               />
             </div>
             <div className="modal-body">
-              <TaskForm handleSubmit={handleSubmit} />
+              <TaskForm handleSubmit={handleSubmit} values={values}/>
             </div>
           </div>
         </div>

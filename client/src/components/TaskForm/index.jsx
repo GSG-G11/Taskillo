@@ -4,6 +4,7 @@ import { FormField, Form, SubmitButton } from '../Form';
 import { Button } from '../UI';
 
 const TaskForm = ({ handleSubmit, values = {} }) => {
+  console.log(values);
   const dispatch = useDispatch();
   const { openTask } = useSelector((state) => state.modal.value);
   const { type } = useSelector((state) => state.action.value);
@@ -18,7 +19,6 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
         <FormField
           name="name"
           placeholder="Example: Design Profile Page"
-        
         />
       </div>
       <div>
