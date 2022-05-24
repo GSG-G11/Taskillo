@@ -3,7 +3,7 @@ import {
   RiAlignLeft,
   RiAttachment2,
   RiDeleteBinLine,
-  RiEdit2Line,
+  RiPencilLine,
 } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
@@ -56,19 +56,23 @@ const TableTask = ({ taskDeleted, count }) => {
                   <Text text={formatDate(task.enddate)} className="icons" />
                 </td>
                 <td>
-                  <RiEdit2Line
-                    className="action-icons"
+                  <button
+                    className="action-icons edit-btn btn"
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
                     onClick={() => {
                       dispatch(setTaskOpen({ openTask: "true" }));
                       setId(task.id);
                     }}
-                  />
-                  <RiDeleteBinLine
-                    className="action-icons"
+                  >
+                    <RiPencilLine />
+                  </button>
+                  <button
+                    className="action-icons delete-btn btn"
                     onClick={() => taskDeleted(task.id)}
-                  />
+                  >
+                    <RiDeleteBinLine />
+                  </button>
                 </td>
                 {openTask && id === task.id && <Modal id={task.id} />}
               </tr>
@@ -102,11 +106,28 @@ const Div = styled.table`
       color: #b8b8b8;
     }
     .action-icons {
-      color: #3e7bfa;
-      font-size: 0.9rem;
-      border: 1px solid #3e7bfa;
       border-radius: 5px;
-      margin-left: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      
+      svg{
+        transform: scale(2);
+      }
+
+      &.edit-btn{
+        background-color: rgba(62, 123, 250, 0.2);
+        color: #3E7BFA;
+        margin-right: 10px;
+      }
+
+      &.delete-btn{
+        background-color: rgba(255, 46, 38, 0.2);
+        color: rgb(255, 46, 38);
+      }
     }
     .btn-danger {
       padding: 5px;
