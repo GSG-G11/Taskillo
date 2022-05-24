@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Image, Text } from '../UI';
 import { RiNotification2Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
-import { setOpen } from '../../state/modal';
+import { setProjectOpen } from '../../state/modal';
 import './style.css';
 import styled from 'styled-components';
 
@@ -17,7 +17,7 @@ export default function Navbar({ title }) {
           <Button
             type="button"
             title="+ Add"
-            onClick={() => dispatch(setOpen({ open: 'true' }))}
+            onClick={() => dispatch(setProjectOpen(true))}
             className="btn btn-primary add-project"
           />
           <button className="btn notification">

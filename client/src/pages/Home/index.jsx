@@ -3,13 +3,16 @@ import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import generateGreeting from '../../utils/generateGreeting';
+import { AddProjectModal } from '../../components';
 
 const Home = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
+
+
   const greeting = generateGreeting();
   return (
-    <div className="page-container">
+    <div className="page-container ">
       <Sidebar />
       <main
         className={
@@ -17,6 +20,7 @@ const Home = () => {
         }
       >
         <Navbar title={`${greeting}, ${userInfo.username}`} />
+        <AddProjectModal />
       </main>
     </div>
   );

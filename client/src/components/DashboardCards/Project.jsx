@@ -35,7 +35,7 @@ export default function ProjectCard() {
       </div>
 
       <div className='mt-2 ms-4 d-flex flex-column'>
-        {projects.length ? projects.map((project, index) => (
+        {projects.length ? projects.slice(0, 5).map((project, index) => (
           <div className='text-white mt-2 fs-5' key={index}>
             <VscCircleFilled className='text-white me-2' />
             {project.name}
