@@ -1,12 +1,12 @@
 export default function statusColor(statusName) {
   switch (statusName) {
-    case 'To Do':
+    case 'Todo':
       return 'todo';
-    case 'In Progress':
+    case 'InProgress':
       return 'progress';
-    case 'done':
-      return 'Done';
-    case 'cancelled':
+    case 'Done':
+      return 'done';
+    case 'Cancelled':
       return 'cancelled';
     default:
       return 'todo';

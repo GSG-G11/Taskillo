@@ -7,13 +7,19 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSection } from '../../state/sections';
+import { setEditSectionOpen, setTaskOpen } from '../../state/modal';
+import Modal from '../Modal';
+import { setAction } from '../../state/action';
+import { setTask } from '../../state/tasks';
 
 export default function SectionHeader({ name, id }) {
+  const { editSection: isEdit } = useSelector((state) => state.modal.value);
+  const { sections } = useSelector((state) => state.sections.value);
+  const { openTask } = useSelector((state) => state.modal.value);
+  const { tasks } = useSelector((state) => state.tasks.value);
   const [isOpen, setIsOpen] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
   const { id: projectId } = useParams();
-  const { sections } = useSelector((state) => state.sections.value);
   const dispatch = useDispatch();
 
   const deleteSection = async (sectionId) => {
@@ -37,9 +43,12 @@ export default function SectionHeader({ name, id }) {
   const editSection = async (e) => {
     const { value } = e.target;
     try {
-      const response = await axios.put(`/api/v1/project/${projectId}/section/${id}`, {
-        name: value,
-      });
+      const response = await axios.put(
+        `/api/v1/project/${projectId}/section/${id}`,
+        {
+          name: value,
+        }
+      );
       const { id: sectionId } = response.data.data;
       const newSections = sections.map((section) => {
         if (section.id === sectionId) {
@@ -52,6 +61,28 @@ export default function SectionHeader({ name, id }) {
     }
   };
 
+  const addSectionbtn = async () => {
+    dispatch(setTaskOpen(!openTask));
+    dispatch(setAction({ type: 'Add' }));
+  };
+
+  const handleSubmit = async (task) => {
+    const newTask = { ...task, sectionid: id };
+    try {
+      const response = await axios.post(
+        `/api/v1/project/${projectId}/task`,
+        newTask
+      );
+      console.log(newTask, response);
+      if (response.status === 201) {
+        dispatch(setTaskOpen(!openTask));
+        dispatch(setTask({ tasks: [...tasks, response.data] }));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Wrap className="wrap">
       <Title className="section-title">
@@ -59,15 +90,15 @@ export default function SectionHeader({ name, id }) {
           <input
             className="title-input"
             defaultValue={name}
-            onBlur={() => setIsEdit(false)}
+            onBlur={() => dispatch(setEditSectionOpen(false))}
             onChange={(e) => editSection(e)}
           />
         ) : (
           <>
-            <p onClick={() => setIsEdit(true)}>{name}</p>
+            <p onClick={() => dispatch(setEditSectionOpen(true))}>{name}</p>
             <div className="d-flex">
               <div className="icon-container">
-                <AiOutlinePlus className="icon" />
+                <AiOutlinePlus className="icon" onClick={addSectionbtn} />
               </div>
               <div className="icon-container">
                 <FiMoreVertical
@@ -86,7 +117,7 @@ export default function SectionHeader({ name, id }) {
               className="edit w-100"
               title="Edit"
               onClick={() => {
-                setIsEdit(true);
+                dispatch(setEditSectionOpen(true));
                 toggling();
               }}
             />
@@ -103,10 +134,10 @@ export default function SectionHeader({ name, id }) {
           </div>
         )}
       </DropDown>
+      <Modal handleSubmit={handleSubmit} />
     </Wrap>
   );
 }
-
 const Wrap = styled.div`
   position: relative;
 `;

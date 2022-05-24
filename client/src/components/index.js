@@ -3,37 +3,34 @@ import { Text, Button, Logo, Image } from './UI';
 import { Overview, Board, List } from './Project';
 import Card from './Card';
 import Navbar from './Navbar';
-import TableTask  from './Table'
-import Modal from './modal'
-import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
-<<<<<<< HEAD
+import TableTask from './Table';
+import {
+  TaskCard,
+  ProjectCard,
+  ActivityCard,
+  StaffCard,
+  SlideCard,
+} from './DashboardCards';
 import AddProjectModal from './AddProjectModal';
 
-=======
->>>>>>> development
 export {
-    Form,
-    SubmitButton,
-    FormField,
-    Text,
-    Button,
-    Logo,
-    Image,
-    Navbar,
-    TaskCard,
-    ProjectCard,
-    ActivityCard,
-    StaffCard,
-    SlideCard,
-    Overview,
-    Board,
-    List,
-    Card,
-<<<<<<< HEAD
-    AddProjectModal
-=======
-    TableTask,
-    Modal
->>>>>>> development
+  Form,
+  SubmitButton,
+  FormField,
+  Text,
+  Button,
+  Logo,
+  Image,
+  Navbar,
+  TaskCard,
+  ProjectCard,
+  ActivityCard,
+  StaffCard,
+  SlideCard,
+  Overview,
+  Board,
+  List,
+  Card,
+  AddProjectModal,
+  TableTask,
 };
-

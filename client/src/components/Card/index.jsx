@@ -8,8 +8,6 @@ export default function Card({
     description,
     enddate,
     priority,
-    sectionid,
-    sectionname,
     status,
     id,
     name,
