@@ -3,9 +3,14 @@ import { Text, Button, Logo, Image } from './UI';
 import { Overview, Board, List } from './Project';
 import Card from './Card';
 import Navbar from './Navbar';
+import TableTask  from './Table'
+import Modal from './modal'
 import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
+<<<<<<< HEAD
 import AddProjectModal from './AddProjectModal';
 
+=======
+>>>>>>> development
 export {
     Form,
     SubmitButton,
@@ -24,6 +29,11 @@ export {
     Board,
     List,
     Card,
+<<<<<<< HEAD
     AddProjectModal
+=======
+    TableTask,
+    Modal
+>>>>>>> development
 };
 

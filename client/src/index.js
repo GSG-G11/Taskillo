@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import useReducer from './state/user';
 import modalReducer from './state/modal';
 import sidebarReducer from './state/sidebar';
+import taskReducer from './state/task'
+import paginationReducer from './state/pagination';
 import projectDashboardReducer from './state/projectDashboard';
 import userProjects from './state/userProjects';
 import projectReducer from './state/project';
@@ -19,6 +21,8 @@ const store = configureStore({
     user: useReducer,
     modal: modalReducer,
     sidebar: sidebarReducer,
+    task: taskReducer,
+    pagination:paginationReducer,
     projectDashboard: projectDashboardReducer,
     userProjects: userProjects,
     project: projectReducer,
