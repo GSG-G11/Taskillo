@@ -15,6 +15,7 @@ export default function Section({ name, sectionId }) {
   const [added, setAdded] = useState(false);
 
   useEffect(() => {
+    setAdded(true);
     async function getDetails(projectid) {
       try {
         const response = await axios.get(
@@ -33,7 +34,7 @@ export default function Section({ name, sectionId }) {
   return (
     <Div>
       <div className="section">
-        <SectionHeader name={name} id={sectionId} setAdded={setAdded} added={added} />
+        <SectionHeader name={name} id={sectionId} setAdded={setAdded} />
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
             <div

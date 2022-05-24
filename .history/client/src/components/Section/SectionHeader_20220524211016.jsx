@@ -69,6 +69,7 @@ export default function SectionHeader({ name, id, setAdded, added }) {
   };
 
   const handleSubmit = async (task) => {
+    console.log(currentSection);
     const newTask = { ...task, sectionid: currentSection.id };
     try {
       const response = await axios.post(

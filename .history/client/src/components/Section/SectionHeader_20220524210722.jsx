@@ -12,7 +12,7 @@ import Modal from '../Modal';
 import { setAction } from '../../state/action';
 import { setCurrentSection } from '../../state/currentSection';
 
-export default function SectionHeader({ name, id, setAdded, added }) {
+export default function SectionHeader({ name, id, setAdded }) {
   const { editSection: isEdit } = useSelector((state) => state.modal.value);
   const { sections } = useSelector((state) => state.sections.value);
   const currentSection  = useSelector((state) => state.currentSection.value);
@@ -69,6 +69,7 @@ export default function SectionHeader({ name, id, setAdded, added }) {
   };
 
   const handleSubmit = async (task) => {
+    console.log(currentSection);
     const newTask = { ...task, sectionid: currentSection.id };
     try {
       const response = await axios.post(
@@ -77,7 +78,8 @@ export default function SectionHeader({ name, id, setAdded, added }) {
       );
       if (response.status === 201) {
         dispatch(setTaskOpen(!openTask));
-        setAdded(!added);
+        setAdded(true);
+        // dispatch(setTask({ tasks: [...tasks, response.data] }));
       }
     } catch (error) {
       console.log(error);

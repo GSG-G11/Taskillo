@@ -12,8 +12,7 @@ export default function Section({ name, sectionId }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { tasks } = useSelector((state) => state.tasks.value);
-  const [added, setAdded] = useState(false);
-
+const [added, setAdded] = useState
   useEffect(() => {
     async function getDetails(projectid) {
       try {
@@ -28,12 +27,12 @@ export default function Section({ name, sectionId }) {
       }
     }
     getDetails(id);
-  }, [dispatch, id, added]);
+  }, [dispatch, id]);
 
   return (
     <Div>
       <div className="section">
-        <SectionHeader name={name} id={sectionId} setAdded={setAdded} added={added} />
+        <SectionHeader name={name} id={sectionId} />
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
             <div

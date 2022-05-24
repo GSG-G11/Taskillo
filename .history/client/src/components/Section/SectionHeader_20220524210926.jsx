@@ -69,6 +69,7 @@ export default function SectionHeader({ name, id, setAdded, added }) {
   };
 
   const handleSubmit = async (task) => {
+    console.log(currentSection);
     const newTask = { ...task, sectionid: currentSection.id };
     try {
       const response = await axios.post(
@@ -77,7 +78,8 @@ export default function SectionHeader({ name, id, setAdded, added }) {
       );
       if (response.status === 201) {
         dispatch(setTaskOpen(!openTask));
-        setAdded(!added);
+        setAdded(true);
+        // dispatch(setTask({ tasks: [...tasks, response.data] }));
       }
     } catch (error) {
       console.log(error);
