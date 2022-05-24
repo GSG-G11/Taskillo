@@ -4,14 +4,14 @@ import { addTaskSchema } from '../../utils/validation';
 const addTask = async (req: any, res: any) => {
   const { id } = req.userInformation;
   const {
-    name, description, priority, endDate, status, sectionid,
+    name, description, priority, enddate, status, sectionid,
   } = req.body;
-  await addTaskSchema.validateAsync({ name, description, endDate });
+  await addTaskSchema.validateAsync({ name, description, enddate });
   const { rows } = await addTaskQuery({
     name,
     description,
     priority,
-    endDate,
+    enddate,
     status,
     sectionid,
   });

@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.1.12",
     "@types/classnames": "^2.3.1",
     "eslint": "^8.15.0"
   }

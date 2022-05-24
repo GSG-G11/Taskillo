@@ -4,7 +4,7 @@ import { Overview, Board, List } from './Project';
 import Card from './Card';
 import Navbar from './Navbar';
 import TableTask  from './Table'
-import Modal from './modal'
+import Modal from './Modal'
 import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
 import AddProjectModal from './AddProjectModal';
 
@@ -30,4 +30,3 @@ export {
     TableTask,
     Modal
 };
-

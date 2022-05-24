@@ -71,7 +71,7 @@ export default function Board() {
     }
   };
 
-  const addSection = async (e) => {
+  const addSection = async () => {
     setIsOpen(false);
     const response = await axios.post(`/api/v1/project/${id}/section`, {
       name: newSection,
@@ -114,7 +114,7 @@ export default function Board() {
                     <button
                       type="submit"
                       className="btn btn-primary add-section-btn"
-                      onClick={(e) => addSection(e)}
+                      onClick={addSection}
                     >
                       Add
                     </button>

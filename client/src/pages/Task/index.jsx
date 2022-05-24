@@ -10,18 +10,16 @@ import styled from 'styled-components';
 const Task = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
-  const pagination = useSelector((state) =>state.pagination.value);
+  const pagination = useSelector((state) => state.pagination.value);
   const greeting = generateGreeting();
 
   const dispatch = useDispatch();
+  const [count, setCount] = useState(0);
 
-  const [count, setCount] = useState(0)
   useEffect(() => {
     const handleData = async () => {
       try {
         const Response = await axios.get(`/api/v1/tasks?q=${pagination}`);
-        
-       
         if (Response.status === 200) {
           dispatch(getTask(Response.data.data));
           setCount(Response.data.data[0].totaltask);
@@ -33,27 +31,26 @@ const Task = () => {
     handleData();
   }, [dispatch, pagination]);
 
-
-  const taskDeleted= async (id) =>{
+  const taskDeleted = async (id) => {
     try {
       const Response = await axios.delete(`/api/v1/task/${id}`);
-      if(Response.status === 200){
-        dispatch(deleteTask(id))
+      if (Response.status === 200) {
+        dispatch(deleteTask(id));
       }
     } catch (error) {
-      console.log(error,'error');
+      console.log(error, 'error');
     }
-
   };
+  
   return (
-    <div className='page-container'>
+    <div className="page-container">
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={`${greeting}, ${userInfo.username}`} />
-        <section className='page-content'  style={{paddingBottom: 0}}>
-      <Tasks >
-      <TableTask taskDeleted={taskDeleted} count={count}/>
-      </Tasks>
+        <section className="page-content" style={{ paddingBottom: 0 }}>
+          <Tasks>
+            <TableTask taskDeleted={taskDeleted} count={count} />
+          </Tasks>
         </section>
       </main>
     </div>
@@ -70,15 +67,15 @@ const Tasks = styled.div`
 
   &::-webkit-scrollbar-track {
     background-color: rgba(57, 57, 83, 0.475);
-    border-radius: .4rem;
+    border-radius: 0.4rem;
   }
   &::-webkit-scrollbar {
-    height: .9rem;
+    height: 0.9rem;
     background-color: transparent;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #53535e;
-    border-radius: .4rem;
+    border-radius: 0.4rem;
   }
 `;
 

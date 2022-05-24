@@ -18,8 +18,9 @@ const SingleStaff = ({ project: { id, name } }) => {
     <SingleStafWrapper className='single-staff'>
       <StaffHeader name={name} />
       <div className='staff-memebers'>
-        {members.map(({ username, role, image }) => (
+        {members.map(({ username, role, image }, index) => (
           <StaffMember
+          key={index}
             user={{
               image,
               name: username,
