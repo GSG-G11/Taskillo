@@ -27,7 +27,7 @@ export default function Section({ name, sectionId }) {
       }
     }
     getDetails(id);
-  }, [dispatch, id]);
+  }, [dispatch, id, tasks]);
 
   return (
     <Div>

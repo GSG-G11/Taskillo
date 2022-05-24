@@ -146,7 +146,7 @@ values
         'Comments are important for an app, look at the screen below',
         'Low',
         '2030-06-25',
-        'To Do',
+        'ToDo',
         '1'
     ),
     (
@@ -162,7 +162,7 @@ values
         'Comments are important for an app, look at the screen below',
         'High',
         '2022-05-23',
-        'In Progress',
+        'InProgress',
         '5'
     ),
     (
@@ -170,7 +170,7 @@ values
         'Comments are important for an app, look at the screen below',
         'Low',
         '2022-05-23',
-        'In Progress',
+        'InProgress',
         '6'
     ),
     (

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import TaskForm from '../TaskForm';
 import { setTaskOpen } from '../../state/modal';
+import { BiX } from 'react-icons/bi';
 
 export default function Modal({ handleSubmit }) {
   const { openTask } = useSelector((state) => state.modal.value);
@@ -10,23 +11,24 @@ export default function Modal({ handleSubmit }) {
   const display = openTask ? 'show' : '';
   const dispatch = useDispatch();
   return (
-    <Modall className={`modal ${display}`} style={{ display: 'block' }}>
-      <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">{`${type} Task`}</h5>
-            <button
-              type="button"
-              className="btn-close"
-              onClick={() => dispatch(setTaskOpen(!openTask))}
-            ></button>
-          </div>
-          <div className="modal-body">
-            <TaskForm handleSubmit={handleSubmit} />
+    openTask && (
+      <Modall className={`modal ${display}`} style={{ display: 'block' }}>
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">{`${type} Task`}</h5>
+              <BiX
+                className="btn-close"
+                onClick={() => dispatch(setTaskOpen(!openTask))}
+              />
+            </div>
+            <div className="modal-body">
+              <TaskForm handleSubmit={handleSubmit} />
+            </div>
           </div>
         </div>
-      </div>
-    </Modall>
+      </Modall>
+    )
   );
 }
 
@@ -42,6 +44,9 @@ const Modall = styled.div`
     border-radius: 20px;
     border: none;
     outline: none;
+  }
+  .btn-close{
+    color: #fff;
   }
   .form-control {
     background: #282a36;
@@ -73,5 +78,13 @@ const Modall = styled.div`
   }
   select.option-default {
     color: gray;
+  }
+  @media (max-width: 630px) {
+    .add-task-btn {
+      width: 50%;
+    }
+    .btn.btn-secondary {
+      width: 40%;
+    }
   }
 `;

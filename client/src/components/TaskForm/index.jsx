@@ -9,22 +9,21 @@ const TaskForm = ({ handleSubmit, values = {} }) => {
   const { type } = useSelector((state) => state.action.value);
   let initialValues =
     type === 'Add'
-      ? { name: '', priority: '', status: '', enddate: '' }
+      ? { name: '', priority: '', status: '', enddate: '', description: '' }
       : values;
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
       <div>
         <label>Task Name</label>
         <FormField
-          type="text"
           name="name"
           placeholder="Example: Design Profile Page"
+        
         />
       </div>
       <div>
         <label>Task Description</label>
         <FormField
-          type="text"
           name="description"
           placeholder="Example: lorem ipsum dolor sit amet, consectetur adipiscing.."
         />

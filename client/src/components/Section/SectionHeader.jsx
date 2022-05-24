@@ -73,13 +73,14 @@ export default function SectionHeader({ name, id }) {
         `/api/v1/project/${projectId}/task`,
         newTask
       );
-      if (response.status === 200) {
-        dispatch(setTask({ task: [...tasks, response.data] }));
+      console.log(newTask, response);
+      if (response.status === 201) {
+        dispatch(setTaskOpen(!openTask));
+        dispatch(setTask({ tasks: [...tasks, response.data] }));
       }
     } catch (error) {
       console.log(error);
     }
-    dispatch(setTaskOpen(!openTask));
   };
 
   return (
@@ -133,7 +134,7 @@ export default function SectionHeader({ name, id }) {
           </div>
         )}
       </DropDown>
-      {openTask && <Modal handleSubmit={handleSubmit} />}
+      <Modal handleSubmit={handleSubmit} />
     </Wrap>
   );
 }
