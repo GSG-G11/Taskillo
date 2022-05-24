@@ -12,7 +12,7 @@ import Modal from '../modal';
 import { setTaskOpen } from '../../state/modal';
 import { formatDate } from '../../utils';
 
-const TableTask = ({ taskDeleted, count}) => {
+const TableTask = ({ taskDeleted, count }) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.task.value);
   const { openTask } = useSelector((state) => state.modal.value);
@@ -46,7 +46,7 @@ const TableTask = ({ taskDeleted, count}) => {
                 <td>
                   <Button
                     title={task.priority}
-                    className={`${task.priority}`}
+                    className={`priority ${task.priority}`}
                   />
                 </td>
                 <td>
@@ -56,25 +56,21 @@ const TableTask = ({ taskDeleted, count}) => {
                   <Text text={formatDate(task.enddate)} className='icons' />
                 </td>
                 <td>
-                 
                   <RiEdit2Line
                     className='action-icons'
                     data-bs-toggle='modal'
                     data-bs-target='#staticBackdrop'
                     onClick={() => {
-                      dispatch( setTaskOpen({ openTask: 'true' }));
+                      dispatch(setTaskOpen({ openTask: 'true' }));
                       setId(task.id);
                     }}
                   />
-               
                   <RiDeleteBinLine
                     className='action-icons'
                     onClick={() => taskDeleted(task.id)}
                   />
                 </td>
-                {
-                  openTask && id === task.id && <Modal id={task.id} />
-                }
+                {openTask && id === task.id && <Modal id={task.id} />}
               </tr>
             ))
           ) : (
@@ -82,7 +78,7 @@ const TableTask = ({ taskDeleted, count}) => {
           )}
         </tbody>
       </table>
-      <Pagination count={count}/>
+      <Pagination count={count} />
     </Div>
   );
 };
@@ -107,7 +103,7 @@ const Div = styled.table`
  }
  .action-icons{
    color:#3E7BFA;
-   font-size:0.9rem
+   font-size:0.9rem;
    border:1px solid #3E7BFA;
    border-radius:5px;
    margin-left:10px
@@ -116,26 +112,29 @@ const Div = styled.table`
   padding: 5px;
   font-size: 0.80rem;
  }
+
+ .btn.priority{
+    padding: 1px 4px;
+    font-size: .7rem;
+    font-weight: bold;
+ }
+
  .High {
-   background-color:red;
+   background-color: #F8524B;
    color:#B8B8B8
 
 }
 
 .Low {
-  background-color:orange;
+  background-color: #06C270;
   color:#B8B8B8
-
-
 }
 
 .Medium {
-  background-color:rgb(14, 89, 228);
+  background-color: #FF8800;
   color:#B8B8B8
 
 }
- 
-}
-`;
+}`;
 
 export default TableTask;
