@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   RiAlignLeft,
   RiAttachment2,
@@ -11,7 +11,7 @@ import { Button, Pagination, Text } from "../UI";
 import Modal from "../Modal";
 import { setTaskOpen } from "../../state/modal";
 import { formatDate } from "../../utils";
-import axios from 'axios';
+import axios from "axios";
 import { updateTask } from "../../state/task";
 import { setAction } from "../../state/action";
 
@@ -42,7 +42,7 @@ const TableTask = ({ taskDeleted, count }) => {
         dispatch(setTaskOpen(!openTask));
       }
     } catch (error) {
-      console.log(error, 'error');
+      console.log(error, "error");
     }
   };
 
@@ -94,8 +94,8 @@ const TableTask = ({ taskDeleted, count }) => {
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
                     onClick={() => {
-                      dispatch(setTaskOpen({ openTask: 'true' }));
-                      dispatch(setAction({ type: 'Update' }));
+                      dispatch(setTaskOpen({ openTask: "true" }));
+                      dispatch(setAction({ type: "Update" }));
                       setId(task.id);
                     }}
                   >
@@ -149,18 +149,18 @@ const Div = styled.table`
       justify-content: center;
       width: 35px;
       height: 35px;
-      
-      svg{
+
+      svg {
         transform: scale(2);
       }
 
-      &.edit-btn{
+      &.edit-btn {
         background-color: rgba(62, 123, 250, 0.2);
-        color: #3E7BFA;
+        color: #3e7bfa;
         margin-right: 10px;
       }
 
-      &.delete-btn{
+      &.delete-btn {
         background-color: rgba(255, 46, 38, 0.2);
         color: rgb(255, 46, 38);
       }
@@ -193,41 +193,47 @@ const Div = styled.table`
       color: #b8b8b8;
     }
   }
-  .task-name{
-    color:#fff;
-    font-size:0.9rem
+
+  .modal{
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    
+    .modal-content{
+      border-radius: .5rem;
+      padding: 0;
+
+      .modal-header{
+        padding: 1.5rem 2rem;
+
+        svg{
+          color: #FCFCFC;
+        }
+      }
+
+      .modal-body{
+        .form-body{
+          padding: 1.5rem 2rem;
+          .form-group{
+            margin-bottom: .7rem;
+
+            input{
+              color: #FFF;
+            }
+          }
+        }
+        .modal-footer{
+          padding: 1.5rem 2rem;
+        
+          *{
+            margin: 0;
+          }
+          .submit-div{
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
   }
-  .icons{
-    color:#B8B8B8;
-    font-size:0.9rem
-  }
-  .project-name{
-    color:#B8B8B8
-  }
-  .action-icons{
-    color:#3E7BFA;
-    font-size:0.9rem
-    border:1px solid #3E7BFA;
-    border-radius:5px;
-    margin-left:10px
-  }
-  .btn-danger{
-  padding: 5px;
-  font-size: 0.80rem;
-  }
-  .High {
-    background-color:red;
-    color:#B8B8B8
-}
-.Low {
-  background-color:orange;
-  color:#B8B8B8
-}
-.Medium {
-  background-color:rgb(14, 89, 228);
-  color:#B8B8B8
-}
-}
 `;
 
 export default TableTask;
