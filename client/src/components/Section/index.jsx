@@ -5,7 +5,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { setTask } from '../../state/tasks';
+import { setTask } from '../../state';
 import Card from '../Card';
 
 export default function Section({ name, sectionId }) {

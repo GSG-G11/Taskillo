@@ -50,7 +50,7 @@ export default function Board() {
     try {
       const response = await axios.put(`/api/v1/task/drag`, {
         destinationSection: +destination.droppableId,
-        taskId: draggableTask[0].id,
+        taskId: +draggableTask[0].id,
       });
       if (response.status === 200) {
         const dragged = {
