@@ -65,20 +65,22 @@ export default function SectionHeader({ name, id }) {
   };
 
   const addSectionbtn = async () => {
-    const current = sections.filter((section) => section.id === id);
-    dispatch(setCurrentSection(current[0]))
+    const current = sections.fil((section) => section.id === id);
+    dispatch(setCurrentSection(current))
+    console.log(current);
     dispatch(setTaskOpen(!openTask));
     dispatch(setAction({ type: 'Add' }));
   };
 
   const handleSubmit = async (task) => {
     console.log(currentSection);
-    const newTask = { ...task, sectionid: currentSection.id };
+    const newTask = { ...task, sectionid: id };
     try {
       const response = await axios.post(
         `/api/v1/project/${projectId}/task`,
         newTask
       );
+      console.log(newTask, response);
       if (response.status === 201) {
         dispatch(setTaskOpen(!openTask));
         dispatch(setTask({ tasks: [...tasks, response.data] }));

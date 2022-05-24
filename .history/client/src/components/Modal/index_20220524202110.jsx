@@ -25,7 +25,7 @@ export default function Modal({ handleSubmit, values = {} }) {
               </button>
             </div>
             <div className="modal-body">
-              <TaskForm handleSubmit={handleSubmit} values={values}/>
+              <TaskForm handleSubmit={handleSubmit} values={values} id={id}/>
             </div>
           </div>
         </div>

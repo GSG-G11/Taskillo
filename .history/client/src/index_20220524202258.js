@@ -15,8 +15,7 @@ import projectReducer from './state/project';
 import tasksReducer from './state/tasks';
 import sectionsReducer from './state/sections';
 import actionReducer from './state/action';
-import currentReducer from './state/currentSection';
-
+import currentReducer from './state/current';
 import './index.css';
 
 const store = configureStore({
@@ -32,7 +31,6 @@ const store = configureStore({
     tasks: tasksReducer,
     sections: sectionsReducer,
     action: actionReducer,
-    currentSection: currentReducer,
   },
 });
 

@@ -32,7 +32,7 @@ const store = configureStore({
     tasks: tasksReducer,
     sections: sectionsReducer,
     action: actionReducer,
-    currentSection: currentReducer,
+    currentSection: 
   },
 });
 

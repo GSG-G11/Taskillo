@@ -3,7 +3,7 @@ import { setTaskOpen } from "../../state/modal";
 import { FormField, Form, SubmitButton } from "../Form";
 import { Button } from "../UI";
 
-const TaskForm = ({ handleSubmit, values = {}, id }) => {
+const TaskForm = ({ handleSubmit, values = {} }) => {
   const dispatch = useDispatch();
   const { openTask } = useSelector((state) => state.modal.value);
   const { type } = useSelector((state) => state.action.value);
@@ -23,6 +23,7 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
           <FormField
             name="description"
             placeholder="Example: lorem ipsum dolor sit amet, consectetur adipiscing.."
+            value={initialValues.description}
           />
         </div>
         <div className="form-group">

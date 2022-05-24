@@ -73,12 +73,13 @@ export default function SectionHeader({ name, id }) {
 
   const handleSubmit = async (task) => {
     console.log(currentSection);
-    const newTask = { ...task, sectionid: currentSection.id };
+    const newTask = { ...task, sectionid: id };
     try {
       const response = await axios.post(
         `/api/v1/project/${projectId}/task`,
         newTask
       );
+      console.log(newTask, response);
       if (response.status === 201) {
         dispatch(setTaskOpen(!openTask));
         dispatch(setTask({ tasks: [...tasks, response.data] }));

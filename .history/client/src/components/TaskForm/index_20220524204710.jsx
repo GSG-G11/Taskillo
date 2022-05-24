@@ -13,6 +13,9 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
       : values[0];
   return (
     <Form initialValues={initialValues} onSubmit={handleSubmit}>
+      {
+        console.log(initialValues.description)
+      }
       <div className="form-body">
         <div className="form-group">
           <label>Task Name</label>
@@ -23,6 +26,7 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
           <FormField
             name="description"
             placeholder="Example: lorem ipsum dolor sit amet, consectetur adipiscing.."
+            value={initialValues.description || ''}
           />
         </div>
         <div className="form-group">

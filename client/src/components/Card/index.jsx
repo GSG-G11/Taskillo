@@ -4,14 +4,7 @@ import styled from 'styled-components';
 import { statusColor, formatDate } from '../../utils';
 
 export default function Card({
-  task: {
-    description,
-    enddate,
-    priority,
-    status,
-    id,
-    name,
-  },
+  task: { description, enddate, priority, status, id, name },
   index,
 }) {
   let formatedTime = `${formatDate(enddate.split('T')[0])}`;

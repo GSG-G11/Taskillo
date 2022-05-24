@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   RiAlignLeft,
   RiAttachment2,
   RiDeleteBinLine,
   RiPencilLine,
-} from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import { Button, Pagination, Text } from "../UI";
-import Modal from "../Modal";
-import { setTaskOpen } from "../../state/modal";
-import { formatDate } from "../../utils";
-import axios from "axios";
-import { updateTask } from "../../state/task";
-import { setAction } from "../../state/action";
+} from 'react-icons/ri';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { Button, Pagination, Text } from '../UI';
+import Modal from '../Modal';
+import { setTaskOpen } from '../../state/modal';
+import { formatDate } from '../../utils';
+import axios from 'axios';
+import { updateTask } from '../../state/task';
+import { setAction } from '../../state/action';
 
 const TableTask = ({ taskDeleted, count }) => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const TableTask = ({ taskDeleted, count }) => {
         dispatch(setTaskOpen(!openTask));
       }
     } catch (error) {
-      console.log(error, "error");
+      console.log(error, 'error');
     }
   };
 
@@ -94,8 +94,8 @@ const TableTask = ({ taskDeleted, count }) => {
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
                     onClick={() => {
-                      dispatch(setTaskOpen({ openTask: "true" }));
-                      dispatch(setAction({ type: "Update" }));
+                      dispatch(setTaskOpen({ openTask: 'true' }));
+                      dispatch(setAction({ type: 'Update' }));
                       setId(task.id);
                     }}
                   >
@@ -194,40 +194,40 @@ const Div = styled.table`
     }
   }
 
-  .modal{
+  .modal {
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(2px);
-    
-    .modal-content{
-      border-radius: .5rem;
+
+    .modal-content {
+      border-radius: 0.5rem;
       padding: 0;
 
-      .modal-header{
+      .modal-header {
         padding: 1.5rem 2rem;
 
-        svg{
-          color: #FCFCFC;
+        svg {
+          color: #fcfcfc;
         }
       }
 
-      .modal-body{
-        .form-body{
+      .modal-body {
+        .form-body {
           padding: 1.5rem 2rem;
-          .form-group{
-            margin-bottom: .7rem;
+          .form-group {
+            margin-bottom: 0.7rem;
 
-            input{
-              color: #FFF;
+            input {
+              color: #fff;
             }
           }
         }
-        .modal-footer{
+        .modal-footer {
           padding: 1.5rem 2rem;
-        
-          *{
+
+          * {
             margin: 0;
           }
-          .submit-div{
+          .submit-div {
             margin-right: 1rem;
           }
         }

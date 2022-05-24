@@ -23,6 +23,7 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
           <FormField
             name="description"
             placeholder="Example: lorem ipsum dolor sit amet, consectetur adipiscing.."
+            value={initialValues.description }
           />
         </div>
         <div className="form-group">

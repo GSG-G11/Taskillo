@@ -11,20 +11,19 @@ import { setEditSectionOpen, setTaskOpen } from '../../state/modal';
 import Modal from '../Modal';
 import { setAction } from '../../state/action';
 import { setTask } from '../../state/tasks';
-import { setCurrentSection } from '../../state/currentSection';
 
 export default function SectionHeader({ name, id }) {
   const { editSection: isEdit } = useSelector((state) => state.modal.value);
   const { sections } = useSelector((state) => state.sections.value);
-  const currentSection  = useSelector((state) => state.currentSection.value);
   const { openTask } = useSelector((state) => state.modal.value);
   const { tasks } = useSelector((state) => state.tasks.value);
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
   const { id: projectId } = useParams();
   const dispatch = useDispatch();
-  // const [sectionn, setSectionn] = useState(0);
+  const [sectionn, setSectionn] = useState(0);
 
+  let sectioniddd = 0;
   const deleteSection = async (sectionId) => {
     const confirm = window.confirm(`Are you sure you want to delete ${name}?`);
     if (confirm) {
@@ -65,20 +64,21 @@ export default function SectionHeader({ name, id }) {
   };
 
   const addSectionbtn = async () => {
-    const current = sections.filter((section) => section.id === id);
-    dispatch(setCurrentSection(current[0]))
+    sectioniddd = id;
+    console.log(sectionn);
     dispatch(setTaskOpen(!openTask));
     dispatch(setAction({ type: 'Add' }));
   };
 
   const handleSubmit = async (task) => {
-    console.log(currentSection);
-    const newTask = { ...task, sectionid: currentSection.id };
+    console.log(sectioniddd);
+    const newTask = { ...task, sectionid: id };
     try {
       const response = await axios.post(
         `/api/v1/project/${projectId}/task`,
         newTask
       );
+      console.log(newTask, response);
       if (response.status === 201) {
         dispatch(setTaskOpen(!openTask));
         dispatch(setTask({ tasks: [...tasks, response.data] }));

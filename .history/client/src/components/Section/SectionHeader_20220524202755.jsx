@@ -79,6 +79,7 @@ export default function SectionHeader({ name, id }) {
         `/api/v1/project/${projectId}/task`,
         newTask
       );
+      console.log(newTask, response);
       if (response.status === 201) {
         dispatch(setTaskOpen(!openTask));
         dispatch(setTask({ tasks: [...tasks, response.data] }));
