@@ -1,9 +1,14 @@
 import { getTasksQuery } from '../../database';
 
 const getTasks = async (req: any, res: any) => {
-  const { id } = req.userInformation;
-  const { rows, rowCount } = await getTasksQuery(id);
-  if (!rowCount) return res.status(204).json({ message: 'No Task Yet ' });
+  const { q: page } = req.query;
+  const { id: userid } = req.userInformation;
+  const { rows, rowCount } = await getTasksQuery({
+    userid,
+    page,
+    perPage: 7,
+  });
+  if (!rowCount) return res.status(204).json({ message: 'No Task Yet' });
   return res.status(200).json({ data: rows, message: 'Success' });
 };
 

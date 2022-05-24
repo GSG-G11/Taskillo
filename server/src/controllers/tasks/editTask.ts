@@ -4,13 +4,13 @@ import { editTaskQuery } from '../../database';
 const editTask = async (req: Request, res: Response) => {
   const { id } = req.params;
   const taskId = Number(id);
-  const { name, description, priority, endDate, status } = req.body;
+  const { name, description, priority, enddate, status } = req.body;
   const { rows } = await editTaskQuery({
     id: taskId,
     name,
     description,
     priority,
-    endDate,
+    enddate,
     status,
   });
   res
