@@ -1,29 +1,32 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import TaskForm from '../TaskForm';
-import { setTaskOpen } from '../../state/modal';
-import { BiX } from 'react-icons/bi';
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+import TaskForm from "../TaskForm";
+import { setTaskOpen } from "../../state/modal";
+import { BiX } from "react-icons/bi";
+import { RiCloseLine } from "react-icons/ri";
 
-export default function Modal({ handleSubmit, values={} }) {
+export default function Modal({ handleSubmit, values = {} }) {
   const { openTask } = useSelector((state) => state.modal.value);
   const { type } = useSelector((state) => state.action.value);
 
-  const display = openTask ? 'show' : '';
+  const display = openTask ? "show" : "";
   const dispatch = useDispatch();
   return (
     openTask && (
-      <Modall className={`modal ${display}`} style={{ display: 'block' }}>
+      <Modall className={`modal ${display}`} style={{ display: "block" }}>
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">{`${type} Task`}</h5>
-              <BiX
-                className="btn-close"
+              <button
+                className="btn close-btn"
                 onClick={() => dispatch(setTaskOpen(!openTask))}
-              />
+              >
+                <RiCloseLine />
+              </button>
             </div>
             <div className="modal-body">
-              <TaskForm handleSubmit={handleSubmit} values={values}/>
+              <TaskForm handleSubmit={handleSubmit} values={values} />
             </div>
           </div>
         </div>
@@ -33,20 +36,20 @@ export default function Modal({ handleSubmit, values={} }) {
 }
 
 const Modall = styled.div`
-  background: rgba(0, 0, 0, 0.4);
   .modal-header {
     padding: 0.9rem;
+    border-color: #525461;
   }
   .modal-content {
     background: #21222c;
-    color: #fff;
-    padding: 10px 20px;
+    color: #b1b1b1;
     border-radius: 20px;
     border: none;
     outline: none;
   }
-  .btn-close{
+  .close-btn {
     color: #fff;
+    transform: scale(1.5);
   }
   .form-control {
     background: #282a36;
@@ -57,12 +60,14 @@ const Modall = styled.div`
   .modal-footer {
     flex-wrap: np-wrap;
     align-items: center;
+    border-color: #525461;
   }
   .modal-body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 1rem;
+    padding: 0;
   }
   .submit-div {
     width: 75%;

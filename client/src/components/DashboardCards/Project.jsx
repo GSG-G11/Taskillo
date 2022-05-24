@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProjects } from '../../state/projectDashboard';
-import project from '../../state/project';
 
 export default function ProjectCard() {
   const dispatch = useDispatch();
