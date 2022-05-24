@@ -7,7 +7,6 @@ const taskSlice = createSlice({
     getTask: (state, action) => {
       state.value = action.payload;
     },
-<<<<<<< HEAD
     deleteTask: (state,action) =>{
       state.value = state.value.filter(value => value.id !== action.payload)
     },
@@ -22,22 +21,6 @@ const taskSlice = createSlice({
           }
         })
     }
-=======
-    deleteTask: (state, action) => {
-      state.value = state.value.filter((value) => value.id !== action.payload);
-    },
-    updateTask: (state, action) => {
-      state.value.map((value) => {
-        if (value.id === action.payload.id) {
-          value.name = action.payload.name;
-          value.priority = action.payload.priority;
-          value.status = action.payload.status;
-          value.enddate = action.payload.enddate;
-          value.projectname = action.payload.projectname;
-        }
-      });
-    },
->>>>>>> development
   },
 });
 
