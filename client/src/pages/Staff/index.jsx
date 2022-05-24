@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import styled from 'styled-components';
 import SingleStaff from '../../components/SingleStaff';
+import { AddProjectModal } from '../../components';
 
 const Staff = () => {
   const { open } = useSelector((state) => state.sidebar.value);
@@ -14,6 +15,8 @@ const Staff = () => {
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={`Staff`} />
+        <AddProjectModal />
+
         <section className='page-content'  style={{paddingBottom: 0}}>
           <Staffs className='staffs'>
             {

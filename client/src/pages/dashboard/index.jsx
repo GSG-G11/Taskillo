@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import generateGreeting from '../../utils/generateGreeting';
-import { ActivityCard, ProjectCard, SlideCard, StaffCard, TaskCard, Text } from '../../components';
+import { ActivityCard, AddProjectModal, ProjectCard, SlideCard, StaffCard, TaskCard, Text } from '../../components';
 import member1 from '../../images/member1.svg';
 import member2 from '../../images/member2.svg';
 import axios from 'axios';
@@ -42,6 +42,7 @@ const Dashboard = () => {
         }
       >
         <Navbar title={`${generateGreeting()}, ${userInfo.username}`} />
+        <AddProjectModal/>
       </main>
 
       <div className='d-flex'>

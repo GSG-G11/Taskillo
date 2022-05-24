@@ -18,7 +18,7 @@ const Sidebar = () => {
   const { userProjects } = useSelector((state) => state.userProjects.value);
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const getUserProjects = async () => {
       try {
@@ -78,13 +78,13 @@ const Sidebar = () => {
         <h3 className='side-title'>Projects</h3>
         <ul className='nav flex-column'>
           {
-            userProjects.map(({name, id}) => (
+            userProjects ? userProjects.map(({ name, id }) => (
               <li className='nav-item' key={id}>
                 <NavLink to={`/project/${id}`} className='nav-link'>
                   <span className='link-name'>{name}</span>
                 </NavLink>
               </li>
-            ) )
+            )) : ''
           }
         </ul>
       </nav>

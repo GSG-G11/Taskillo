@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import { Menu } from '../../components/UI';
 import { Outlet } from 'react-router-dom';
+import { AddProjectModal } from '../../components';
 
 const Project = () => {
   const projectData = useSelector((state) => state.project.value);
@@ -24,6 +25,7 @@ const Project = () => {
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={` ${projectName} `} />
+        <AddProjectModal/>
         <Menu />
         <Outlet />
       </main>
