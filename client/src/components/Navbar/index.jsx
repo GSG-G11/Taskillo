@@ -30,12 +30,13 @@ export default function Navbar({ title }) {
           <button className="btn notification">
             <RiNotification2Line className="icon" />
           </button>
-          <button className="user-pic" onClick={() => setShow((prev) => !prev)}>
+          <button className="user-pic">
             {image ? (
-              <Image src={image} alt={username} className="user-img" />
+              <Image src={image} alt={username} className="user-img"  onClick={() => setShow((prev) => !prev)} />
             ) : (
               <div
                 className="avatar"
+                onClick={() => setShow((prev) => !prev)}
                 style={{
                   backgroundColor: username
                     ? generateAvatarColor(username)
@@ -139,6 +140,7 @@ const Div = styled.div`
       opacity: 0; 
       visibility: hidden;
       transition: all .5s;
+      cursor: auto;
 
       .dropdown-header {
         display: flex;
@@ -150,8 +152,10 @@ const Div = styled.div`
         .pic {
           width: 80px;
           height: 80px;
+          border-radius: 50%;
           margin-bottom: 1rem;
           position: relative;
+          overflow: hidden;
 
           .avatar {
             font-size: 3rem;
@@ -161,20 +165,17 @@ const Div = styled.div`
           }
           label{
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            bottom: 0;
+            right: 0;
             width: 100%;
-            height: 100%;
             cursor: pointer;
             background-color: rgba(0, 0, 0, 0.4);
-            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-
+            padding: .6rem .5rem;
             svg{
-              transform: scale(2);
+              transform: scale(1.4);
               color: #FFF;
             }
           }
@@ -221,7 +222,7 @@ const Div = styled.div`
       }
 
       &.show {
-        transform: translateY(109%);
+        transform: translateY(107.5%);
         opacity: 1;
         visibility: visible;
       }
