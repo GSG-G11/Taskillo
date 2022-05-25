@@ -3,7 +3,7 @@ import connection from '../../config/connection';
 const getMembersQuery = (projectId: number) => {
   const sql = {
     text: `
-    SELECT u.username, up.role
+    SELECT u.username, u.image, up.role
     FROM
     user_projects up
     join projects p on p.id = up.projectid

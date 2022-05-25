@@ -39,7 +39,7 @@ const Header = styled.div`
   }
 
   .project-name{
-    margin-bottom: 0;
+    margin: 0;
     font-size: 1.2rem;
     color: #B8B8B8;
   }

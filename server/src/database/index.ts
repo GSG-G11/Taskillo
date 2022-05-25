@@ -21,6 +21,7 @@ import {
   addUserTaskQuery,
   getCheckMembersQuery,
   dragTaskQuery,
+  updateImageQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -50,4 +51,5 @@ export {
   addUserTaskQuery,
   getCheckMembersQuery,
   dragTaskQuery,
+  updateImageQuery,
 };

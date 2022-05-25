@@ -15,6 +15,7 @@ import {
   Text,
 } from '../../components';
 import { setUserInfo } from '../../state/user';
+import { setNavUser } from '../../state/navUser';
 
 export default function Login() {
   const [error, setError] = useState('');
@@ -26,6 +27,8 @@ export default function Login() {
       if (res.status === 200) {
         const user = getToken();
         dispatch(setUserInfo(user));
+        dispatch(setNavUser(user));
+        localStorage.removeItem('updatedImage');
         setError('');
         navigate('/');
       }
