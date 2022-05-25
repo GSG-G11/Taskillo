@@ -49,58 +49,62 @@ const Overview = () => {
   }, [dispatch, id]);
 
   return (
-    <OverviewContainer >
-      <section className='project-info'>
-        <div className='row'>
-          <div className='col-xl-3 mb-3'>
-            <div className='project-owner'>
-              <div className='image-div'>
+    <OverviewContainer>
+      <section className="project-info">
+        <div className="row">
+          <div className="col-xl-3 mb-3">
+            <div className="project-owner">
+              <div className="image-div">
                 {projectOwner?.image ? (
-                  <img src={projectOwner.image} alt='project owner' />
+                  <img src={projectOwner.image} alt="project owner" />
                 ) : (
                   <div
-                    className='avatar'
-                    style={{ backgroundColor: avatarColor }}>
+                    className="avatar"
+                    style={{ backgroundColor: avatarColor }}
+                  >
                     <span>{projectOwner?.username[0].toUpperCase()}</span>
                   </div>
                 )}
               </div>
-              <div className='owner-info'>
-                <h3 className='owner-name'>{projectOwner?.username}</h3>
-                <h4 className='member-role'>{projectOwner?.role}</h4>
-                <div className='social-links'>
+              <div className="owner-info">
+                <h3 className="owner-name">{projectOwner?.username}</h3>
+                <h4 className="member-role">{projectOwner?.role}</h4>
+                <div className="social-links">
                   <a
                     href={projectOwner?.twitter}
-                    target='_blank'
-                    rel='noopener noreferrer'>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <RiTwitterFill />
                   </a>
                   <a
                     href={projectOwner?.linkedin}
-                    target='_blank'
-                    rel='noopener noreferrer'>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <RiLinkedinFill />
                   </a>
                   <a
                     href={projectOwner?.github}
-                    target='_blank'
-                    rel='noopener noreferrer'>
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <RiGithubFill />
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className='col-xl-9 mb-3'>
-            <div className='project-description'>
-              <h3 className='project-name'>{projectData?.name}</h3>
-              <p className='project-desc'>{projectData?.description}</p>
+          <div className="col-xl-9 mb-3">
+            <div className="project-description">
+              <h3 className="project-name">{projectData?.name}</h3>
+              <p className="project-desc">{projectData?.description}</p>
             </div>
           </div>
         </div>
       </section>
-      <div className='project-members'>
-        <h3 className='project-members-title'>Project Members</h3>
+      <div className="project-members">
+        <h3 className="project-members-title">Project Members</h3>
         <Splide
           options={{
             type: 'slide',
@@ -120,49 +124,54 @@ const Overview = () => {
               },
               1000: {
                 perPage: 3,
-              }
-            }
-          }}>
+              },
+            },
+          }}
+        >
           {projectData?.staff
             ?.filter((member) => member.role !== 'owner')
-            .map((member) => (
-              <SplideSlide key={member.id}>
-                <div className='project-member' style={{minWidth: '200px'}}>
-                  <div className='image-div'>
+            .map((member, index) => (
+              <SplideSlide key={index}>
+                <div className="project-member" style={{ minWidth: '200px' }}>
+                  <div className="image-div">
                     {member?.image ? (
-                      <img src={member.image} alt='project member' />
+                      <img src={member.image} alt="project member" />
                     ) : (
                       <div
-                        className='avatar'
+                        className="avatar"
                         style={{
                           backgroundColor: generateAvatarColor(
                             member?.username
                           ),
-                        }}>
+                        }}
+                      >
                         <span>{member?.username[0].toUpperCase()}</span>
                       </div>
                     )}
                   </div>
-                  <div className='member-info'>
-                    <h3 className='member-name'>{member?.username}</h3>
-                    <h4 className='member-role'>{member?.role}</h4>
-                    <div className='social-links'>
+                  <div className="member-info">
+                    <h3 className="member-name">{member?.username}</h3>
+                    <h4 className="member-role">{member?.role}</h4>
+                    <div className="social-links">
                       <a
                         href={member?.twitter}
-                        target='_blank'
-                        rel='noopener noreferrer'>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <RiTwitterFill />
                       </a>
                       <a
                         href={member?.linkedin}
-                        target='_blank'
-                        rel='noopener noreferrer'>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <RiLinkedinFill />
                       </a>
                       <a
                         href={member?.github}
-                        target='_blank'
-                        rel='noopener noreferrer'>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <RiGithubFill />
                       </a>
                     </div>

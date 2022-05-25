@@ -32,14 +32,11 @@
 }
 .project-name {
     margin-top: 1rem;
-
-    
 }
 .project-desc {
     margin-top: 1rem;
     height: 4rem;
 }
-
 .cancel-btn {
     background-color:tomato !important;
     color: white !important;

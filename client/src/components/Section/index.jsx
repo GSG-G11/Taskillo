@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SectionHeader from './SectionHeader';
 import styled from 'styled-components';
 import { Droppable } from 'react-beautiful-dnd';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { setTask } from '../../state/tasks';
+import { setTask } from '../../state';
 import Card from '../Card';
 
 export default function Section({ name, sectionId }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { tasks } = useSelector((state) => state.tasks.value);
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     async function getDetails(projectid) {
@@ -27,12 +28,12 @@ export default function Section({ name, sectionId }) {
       }
     }
     getDetails(id);
-  }, [dispatch, id, tasks]);
+  }, [dispatch, id, added]);
 
   return (
     <Div>
       <div className="section">
-        <SectionHeader name={name} id={sectionId} />
+        <SectionHeader name={name} id={sectionId} setAdded={setAdded} added={added} />
         <Droppable droppableId={sectionId.toString()} className="divv">
           {(provided) => (
             <div
@@ -72,11 +73,6 @@ const Div = styled.div`
     &::-webkit-scrollbar-thumb {
       background-color: #323239;
       border-radius: 1rem;
-    }
-  }
-  @media (max-width: 630px) {
-    .card-container {
-      display: none;
     }
   }
 `;

@@ -5,18 +5,21 @@ import styled from 'styled-components';
 import { Button } from '../UI';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSection } from '../../state/sections';
-import { setEditSectionOpen, setTaskOpen } from '../../state/modal';
 import Modal from '../Modal';
-import { setAction } from '../../state/action';
-import { setTask } from '../../state/tasks';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setSection,
+  setEditSectionOpen,
+  setTaskOpen,
+  setAction,
+  setCurrentSection,
+} from '../../state';
 
-export default function SectionHeader({ name, id }) {
+export default function SectionHeader({ name, id, setAdded, added }) {
   const { editSection: isEdit } = useSelector((state) => state.modal.value);
   const { sections } = useSelector((state) => state.sections.value);
+  const currentSection = useSelector((state) => state.currentSection.value);
   const { openTask } = useSelector((state) => state.modal.value);
-  const { tasks } = useSelector((state) => state.tasks.value);
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
   const { id: projectId } = useParams();
@@ -62,21 +65,22 @@ export default function SectionHeader({ name, id }) {
   };
 
   const addSectionbtn = async () => {
+    const current = sections.filter((section) => section.id === id);
+    dispatch(setCurrentSection(current[0]));
     dispatch(setTaskOpen(!openTask));
     dispatch(setAction({ type: 'Add' }));
   };
 
   const handleSubmit = async (task) => {
-    const newTask = { ...task, sectionid: id };
+    const newTask = { ...task, sectionid: currentSection.id };
     try {
       const response = await axios.post(
         `/api/v1/project/${projectId}/task`,
         newTask
       );
-      console.log(newTask, response);
       if (response.status === 201) {
         dispatch(setTaskOpen(!openTask));
-        dispatch(setTask({ tasks: [...tasks, response.data] }));
+        setAdded(!added);
       }
     } catch (error) {
       console.log(error);

@@ -50,7 +50,7 @@ export default function Board() {
     try {
       const response = await axios.put(`/api/v1/task/drag`, {
         destinationSection: +destination.droppableId,
-        taskId: draggableTask[0].id,
+        taskId: +draggableTask[0].id,
       });
       if (response.status === 200) {
         const dragged = {
@@ -140,6 +140,7 @@ const Title = styled.div`
   .section-container {
     gap: 20px;
     margin-left: 20px;
+    height: 70vh;
     overflow-x: auto;
     &::-webkit-scrollbar-track {
       background-color: transparent;
@@ -159,29 +160,7 @@ const Title = styled.div`
     width: 1300px;
   }
   @media (max-width: 630px) {
-    .section-container,
-    .section,
-    .carrd,
-    .section-title,
-    .card-container {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-    }
-    .section-container {
-      display: flex;
-      flex-direction: column;
-      margin-left: 0;
-      gap: 20px;
-      height: 100vh;
-      justify-content: start;
-    }
-    .card-container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      height: 0;
-    }
+
     .section-title {
       margin-bottom: 10px;
     }

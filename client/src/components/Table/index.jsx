@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 import {
   RiAlignLeft,
   RiAttachment2,
   RiDeleteBinLine,
   RiPencilLine,
-} from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import { Button, Pagination, Text } from "../UI";
-import Modal from "../Modal";
-import { setTaskOpen } from "../../state/modal";
-import { formatDate } from "../../utils";
-import axios from "axios";
-import { updateTask } from "../../state/task";
-import { setAction } from "../../state/action";
+} from 'react-icons/ri';
+import Modal from '../Modal';
+import { Pagination, Text } from '../UI';
+import { formatDate } from '../../utils';
+import { updateTask, setAction, setTaskOpen } from '../../state';
 
 const TableTask = ({ taskDeleted, count }) => {
   const dispatch = useDispatch();
@@ -42,7 +40,7 @@ const TableTask = ({ taskDeleted, count }) => {
         dispatch(setTaskOpen(!openTask));
       }
     } catch (error) {
-      console.log(error, "error");
+      console.log(error, 'error');
     }
   };
 
@@ -71,16 +69,15 @@ const TableTask = ({ taskDeleted, count }) => {
                   <RiAlignLeft className="icons" />
                 </td>
                 <td>
-                  <Text text={task.description} className="project-name" />
+                  <Text text={task.description || '-'} className="projectt-descriptopn" />
                 </td>
                 <td>
-                  <Text text={task.projectname} className="project-name" />
+                  <Text text={task.projectname} className="projectt-name" />
                 </td>
                 <td>
-                  <Button
-                    title={task.priority}
-                    className={`priority ${task.priority}`}
-                  />
+                  <span
+                    className={`btn priority ${task.priority}`}
+                  >{task.priority}</span>
                 </td>
                 <td>
                   <Text text={task.status} className="text-white" />
@@ -94,8 +91,8 @@ const TableTask = ({ taskDeleted, count }) => {
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
                     onClick={() => {
-                      dispatch(setTaskOpen({ openTask: "true" }));
-                      dispatch(setAction({ type: "Update" }));
+                      dispatch(setTaskOpen({ openTask: 'true' }));
+                      dispatch(setAction({ type: 'Update' }));
                       setId(task.id);
                     }}
                   >
@@ -138,7 +135,7 @@ const Div = styled.table`
       color: #b8b8b8;
       font-size: 0.9rem;
     }
-    .project-name {
+    .projectt-name, .projectt-descriptopn {
       color: #b8b8b8;
     }
     .action-icons {
@@ -149,17 +146,14 @@ const Div = styled.table`
       justify-content: center;
       width: 35px;
       height: 35px;
-
       svg {
         transform: scale(2);
       }
-
       &.edit-btn {
         background-color: rgba(62, 123, 250, 0.2);
         color: #3e7bfa;
         margin-right: 10px;
       }
-
       &.delete-btn {
         background-color: rgba(255, 46, 38, 0.2);
         color: rgb(255, 46, 38);
@@ -169,69 +163,25 @@ const Div = styled.table`
       padding: 5px;
       font-size: 0.8rem;
     }
-
     .btn.priority {
       padding: 1px 4px;
       font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.5px;
       color: #fff;
+      cursor: auto;
     }
-
     .High {
       background-color: #f8524b;
       color: #b8b8b8;
     }
-
     .Low {
       background-color: #06c270;
       color: #b8b8b8;
     }
-
     .Medium {
       background-color: #ff8800;
       color: #b8b8b8;
-    }
-  }
-
-  .modal{
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(2px);
-    
-    .modal-content{
-      border-radius: .5rem;
-      padding: 0;
-
-      .modal-header{
-        padding: 1.5rem 2rem;
-
-        svg{
-          color: #FCFCFC;
-        }
-      }
-
-      .modal-body{
-        .form-body{
-          padding: 1.5rem 2rem;
-          .form-group{
-            margin-bottom: .7rem;
-
-            input{
-              color: #FFF;
-            }
-          }
-        }
-        .modal-footer{
-          padding: 1.5rem 2rem;
-        
-          *{
-            margin: 0;
-          }
-          .submit-div{
-            margin-right: 1rem;
-          }
-        }
-      }
     }
   }
 `;
