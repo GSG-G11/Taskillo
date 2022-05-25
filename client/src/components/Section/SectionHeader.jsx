@@ -14,20 +14,21 @@ import {
   setAction,
   setCurrentSection,
 } from '../../state';
+import ConfirmModal from '../UI/ConfirmModal';
 
 export default function SectionHeader({ name, id, setAdded, added }) {
-  const { editSection: isEdit } = useSelector((state) => state.modal.value);
   const { sections } = useSelector((state) => state.sections.value);
   const currentSection = useSelector((state) => state.currentSection.value);
   const { openTask } = useSelector((state) => state.modal.value);
   const [isOpen, setIsOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
+  const togglingEdit = () => setIsEdit(!isEdit);
   const { id: projectId } = useParams();
   const dispatch = useDispatch();
 
   const deleteSection = async (sectionId) => {
-    const confirm = window.confirm(`Are you sure you want to delete ${name}?`);
-    if (confirm) {
       try {
         const response = await axios.delete(
           `/api/v1/project/${projectId}/section/${sectionId}`
@@ -40,7 +41,6 @@ export default function SectionHeader({ name, id, setAdded, added }) {
       } catch (error) {
         console.log(error);
       }
-    }
   };
 
   const editSection = async (e) => {
@@ -64,9 +64,13 @@ export default function SectionHeader({ name, id, setAdded, added }) {
     }
   };
 
-  const addSectionbtn = async () => {
+  const setCurrrent = async () => {
     const current = sections.filter((section) => section.id === id);
     dispatch(setCurrentSection(current[0]));
+  };
+
+  const addSectionbtn = async () => {
+    setCurrrent();
     dispatch(setTaskOpen(!openTask));
     dispatch(setAction({ type: 'Add' }));
   };
@@ -94,12 +98,12 @@ export default function SectionHeader({ name, id, setAdded, added }) {
           <input
             className="title-input"
             defaultValue={name}
-            onBlur={() => dispatch(setEditSectionOpen(false))}
+            onBlur={togglingEdit}
             onChange={(e) => editSection(e)}
           />
         ) : (
           <>
-            <p onClick={() => dispatch(setEditSectionOpen(true))}>{name}</p>
+            <p onClick={togglingEdit}>{name}</p>
             <div className="d-flex">
               <div className="icon-container">
                 <AiOutlinePlus className="icon" onClick={addSectionbtn} />
@@ -130,8 +134,11 @@ export default function SectionHeader({ name, id, setAdded, added }) {
               type="button"
               className="delete w-100"
               title="Delete"
+              data-toggle="modal"
+              data-target="#confirmModal"
               onClick={() => {
-                deleteSection(id);
+                setIsDelete(true);
+                setCurrrent();
                 toggling();
               }}
             />
@@ -139,6 +146,13 @@ export default function SectionHeader({ name, id, setAdded, added }) {
         )}
       </DropDown>
       <Modal handleSubmit={handleSubmit} />
+      {isDelete && (
+        <ConfirmModal
+          isDelete={isDelete}
+          setIsDelete={setIsDelete}
+          deleteSection={deleteSection}
+        />
+      )}
     </Wrap>
   );
 }
