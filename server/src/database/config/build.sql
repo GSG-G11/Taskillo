@@ -12,7 +12,7 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   birthDate DATE,
   bio VARCHAR(255),
-  image TEXT,
+  image TEXT
 );
 
 CREATE TABLE projects (

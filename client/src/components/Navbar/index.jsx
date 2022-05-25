@@ -13,6 +13,17 @@ export default function Navbar({ title }) {
   const dispatch = useDispatch();
   const { open } = useSelector((state) => state.sidebar.value);
   const { username, email, image } = useSelector((state) => state.user.value);
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const base64 = reader.result.split('base64,')[1];
+      // fetch('')
+    };
+  }
+
   return (
     <Div>
       <div
@@ -30,7 +41,7 @@ export default function Navbar({ title }) {
           <button className="btn notification">
             <RiNotification2Line className="icon" />
           </button>
-          <button className="user-pic">
+          <div className="user-pic">
             {image ? (
               <Image src={image} alt={username} className="user-img"  onClick={() => setShow((prev) => !prev)} />
             ) : (
@@ -70,7 +81,7 @@ export default function Navbar({ title }) {
                   <label htmlFor="avatar">
                     <HiOutlineCamera />
                   </label>
-                  <input type="file" id="avatar" accept="image/*" />
+                  <input type="file" id="avatar" accept="image/*" onChange={(e) => updateImage(e)} />
                 </div>
                 <h3 className="username">{username}</h3>
                 <h4 className="email">{email}</h4>
@@ -82,7 +93,7 @@ export default function Navbar({ title }) {
                 </button>
               </div>
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </Div>
@@ -110,6 +121,7 @@ const Div = styled.div`
     border: none;
     background-color: transparent;
     position: relative;
+    cursor: pointer;
 
     .avatar {
       width: 100%;
