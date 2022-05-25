@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Image, Text } from "../UI";
 import { RiNotification2Line, RiLogoutCircleLine } from "react-icons/ri";
+import { HiOutlineCamera } from 'react-icons/hi'
 import { useDispatch, useSelector } from "react-redux";
 import { setProjectOpen } from "../../state/modal";
 import "./style.css";
@@ -65,6 +66,10 @@ export default function Navbar({ title }) {
                       </span>
                     </div>
                   )}
+                  <label htmlFor="avatar">
+                    <HiOutlineCamera />
+                  </label>
+                  <input type="file" id="avatar" accept="image/*" />
                 </div>
                 <h3 className="username">{username}</h3>
                 <h4 className="email">{email}</h4>
@@ -146,9 +151,32 @@ const Div = styled.div`
           width: 80px;
           height: 80px;
           margin-bottom: 1rem;
+          position: relative;
 
           .avatar {
             font-size: 3rem;
+          }
+          #avatar{
+            display: none;
+          }
+          label{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg{
+              transform: scale(2);
+              color: #FFF;
+            }
           }
         }
         .username {
