@@ -7,6 +7,8 @@ import { setProjectOpen } from "../../state/modal";
 import "./style.css";
 import styled from "styled-components";
 import generateAvatarColor from "../../utils/generateAvatarColor";
+import axios from "axios";
+import { setUserInfo } from "../../state/user";
 
 export default function Navbar({ title }) {
   const [show, setShow] = useState(false);
@@ -14,13 +16,18 @@ export default function Navbar({ title }) {
   const { open } = useSelector((state) => state.sidebar.value);
   const { username, email, image } = useSelector((state) => state.user.value);
 
-  const updateImage = (e) => {
+  const updateImage = async (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => {
-      const base64 = reader.result.split('base64,')[1];
-      // fetch('')
+    reader.onload = async () => {
+      const base64 = reader.result;
+      const response = await axios.put('/api/v1/user/profilePic', {
+        image: base64
+      });
+      if (response.status === 200){
+        dispatch(setUserInfo(response.data.data[0]))
+      }
     };
   }
 
@@ -43,7 +50,7 @@ export default function Navbar({ title }) {
           </button>
           <div className="user-pic">
             {image ? (
-              <Image src={image} alt={username} className="user-img"  onClick={() => setShow((prev) => !prev)} />
+              <img src={image} alt={username} className="user-img"  onClick={() => setShow((prev) => !prev)} />
             ) : (
               <div
                 className="avatar"
