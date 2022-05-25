@@ -8,13 +8,14 @@ import "./style.css";
 import styled from "styled-components";
 import generateAvatarColor from "../../utils/generateAvatarColor";
 import axios from "axios";
-import { setUserInfo } from "../../state/user";
+import { setNavUser } from "../../state/navUser";
 
 export default function Navbar({ title }) {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const { open } = useSelector((state) => state.sidebar.value);
   const { username, email, image } = useSelector((state) => state.user.value);
+  const navUser = useSelector((state) => state.navUser.value);
 
   const updateImage = async (e) => {
     const file = e.target.files[0];
@@ -26,10 +27,14 @@ export default function Navbar({ title }) {
         image: base64
       });
       if (response.status === 200){
-        dispatch(setUserInfo(response.data.data[0]))
+        const user = response.data.data[0];
+        dispatch(setNavUser({username, email, image: user.image}));
+        localStorage.setItem('updatedImage', user.image)
       }
     };
   }
+
+  console.log(navUser);
 
   return (
     <Div>
@@ -49,39 +54,39 @@ export default function Navbar({ title }) {
             <RiNotification2Line className="icon" />
           </button>
           <div className="user-pic">
-            {image ? (
-              <img src={image} alt={username} className="user-img"  onClick={() => setShow((prev) => !prev)} />
+            {navUser.image ? (
+              <img src={navUser.image} alt={navUser.username} className="user-img"  onClick={() => setShow((prev) => !prev)} />
             ) : (
               <div
                 className="avatar"
                 onClick={() => setShow((prev) => !prev)}
                 style={{
-                  backgroundColor: username
-                    ? generateAvatarColor(username)
+                  backgroundColor: navUser.username
+                    ? generateAvatarColor(navUser.username)
                     : null,
                 }}
               >
                 <span>
-                  {username ? username.split("")[0].toUpperCase() : null}
+                  {navUser.username ? navUser.username.split("")[0].toUpperCase() : null}
                 </span>
               </div>
             )}
             <div className={show ? "dropdown show" : "dropdown"}>
               <div className="dropdown-header">
                 <div className="pic">
-                  {image ? (
-                    <Image src={image} alt={username} className="user-img" />
+                  {navUser?.image ? (
+                    <Image src={navUser.image} alt={navUser.username} className="user-img" />
                   ) : (
                     <div
                       className="avatar"
                       style={{
-                        backgroundColor: username
-                          ? generateAvatarColor(username)
+                        backgroundColor: navUser.username
+                          ? generateAvatarColor(navUser.username)
                           : null,
                       }}
                     >
                       <span>
-                        {username ? username.split("")[0].toUpperCase() : null}
+                        {navUser.username ? navUser.username.split("")[0].toUpperCase() : null}
                       </span>
                     </div>
                   )}
@@ -90,8 +95,8 @@ export default function Navbar({ title }) {
                   </label>
                   <input type="file" id="avatar" accept="image/*" onChange={(e) => updateImage(e)} />
                 </div>
-                <h3 className="username">{username}</h3>
-                <h4 className="email">{email}</h4>
+                <h3 className="username">{navUser.username}</h3>
+                <h4 className="email">{navUser.email}</h4>
               </div>
               <div className="dropdown-footer">
                 <button className="btn signout-btn">

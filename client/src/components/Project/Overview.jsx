@@ -56,7 +56,7 @@ console.log(projectOwner);
             <div className="project-owner">
               <div className="image-div">
                 {projectOwner?.image ? (
-                  <img src={projectOwner.image} alt="project owner" />
+                  <img src={projectOwner.image} className='user-avatar' alt="project owner" />
                 ) : (
                   <div
                     className="avatar"
@@ -135,7 +135,7 @@ console.log(projectOwner);
                 <div className="project-member" style={{ minWidth: '200px' }}>
                   <div className="image-div">
                     {member?.image ? (
-                      <img src={member.image} alt="project member" />
+                      <img src={member.image} className='user-avatar' alt="project member" />
                     ) : (
                       <div
                         className="avatar"
@@ -230,6 +230,12 @@ const OverviewContainer = styled.section`
         font-size: 3rem;
         color: #fff;
         border-radius: 50%;
+      }
+      .user-avatar{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
       }
     }
 
