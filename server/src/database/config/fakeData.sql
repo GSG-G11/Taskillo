@@ -119,7 +119,7 @@ values
     ('Midterm', '1'),
     ('Projects', '2'),
     ('Midterm', '2'),
-    ('Projects', '4'),
+    ('Projects', '2'),
     ('To Do', '6'),
     ('In Progress', '6'),
     ('Doing', '6'),
@@ -155,7 +155,7 @@ values
         'Medium',
         '2022-05-23',
         'Done',
-        '5'
+        '2'
     ),
     (
         'Design Comments',
@@ -163,7 +163,7 @@ values
         'High',
         '2022-05-23',
         'InProgress',
-        '5'
+        '2'
     ),
     (
         'Draw icons',
@@ -171,7 +171,7 @@ values
         'Low',
         '2022-05-23',
         'InProgress',
-        '6'
+        '3'
     ),
     (
         'Design dark mood',
@@ -179,7 +179,7 @@ values
         'High',
         '2022-05-23',
         'Done',
-        '6'
+        '4'
     ),
     (
         'Create a User Flow',
@@ -195,5 +195,9 @@ INSERT INTO
     user_tasks (userId, taskId)
 values
     ('1', '1'),
+    ('2', '2'),
+    ('2', '3'),
+    ('2', '4'),
+    ('2', '6'),
     ('3', '2');
   
