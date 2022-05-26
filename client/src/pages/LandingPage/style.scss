@@ -1,0 +1,524 @@
+.landing-page {
+  background-color: #fff !important;
+  color: #000;
+  min-height: 100vh;
+
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+
+  button,
+  button:focus,
+  .btn,
+  .btn:focus,
+  input,
+  input:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .new-sec {
+    padding: 50px 0;
+  }
+
+  span.no-color {
+    color: auto;
+  }
+
+  .all-page {
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* -----------------------------------------------------------------
+    Style Page Header
+--------------------------------------------------------------------*/
+  .page-header {
+    position: relative;
+    z-index: 999;
+  }
+  .page-header .navbar {
+    padding: 2em 0.9em;
+  }
+
+  .page-header .navbar-brand {
+    margin-right: 1em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter";
+    font-weight: 900;
+    color: #202555;
+    letter-spacing: 1px;
+  }
+  .page-header .navbar-brand img {
+    width: 20px;
+    margin-right: 8px;
+  }
+
+  .page-header .navbar-toggler {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .page-header .navbar-toggler .line {
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #6e6e6e;
+    transition: 0.5s;
+  }
+
+  .page-header .navbar-toggler .line:nth-child(1) {
+    transform: translateY(-8px);
+    width: 15px;
+    left: 4px;
+  }
+
+  .page-header .navbar-toggler.active .line:nth-child(1) {
+    width: 25px;
+    transform: translateY(0) rotate(45deg);
+    transition-delay: 0.125s;
+  }
+
+  .page-header .navbar-toggler .line:nth-child(2) {
+    transform: translateY(8px);
+    width: 10px;
+    left: 4px;
+  }
+
+  .page-header .navbar-toggler.active .line:nth-child(2) {
+    width: 25px;
+    transform: translateY(0) rotate(-225deg);
+    transition-delay: 0.25s;
+  }
+
+  .page-header .navbar-toggler.active .line:nth-child(3) {
+    transform: translateX(100px);
+  }
+
+  .page-header .navbar-nav {
+    margin: 0 auto;
+    font-family: "Montserrat";
+    font-weight: bold;
+  }
+
+  .page-header .navbar-nav .nav-item {
+    margin: 0 5px;
+  }
+
+  .page-header .navbar-nav .nav-item .nav-link {
+    letter-spacing: 1px;
+    font-family: "Inter";
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #818098;
+    position: relative;
+    text-transform: uppercase;
+    transition: 0.4s ease-in;
+  }
+
+  .page-header .navbar-nav .nav-item:hover .nav-link {
+    color: rgba(68, 62, 177, 0.445);
+  }
+
+  .page-header .navbar-nav .nav-item.active .nav-link {
+    color: #443eb1;
+  }
+
+  .page-header .btns .btn {
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 0.9em;
+    padding: 0.5rem 0.8rem;
+    transition: 0.4s;
+  }
+
+  .page-header .btns .btn.login {
+    color: #cccbd8;
+    text-transform: uppercase;
+  }
+
+  .page-header .btns .btn.app {
+    background-color: #fff;
+    color: #2c1c43;
+    border-radius: 17px;
+    border: 2px solid transparent;
+  }
+
+  /* -----------------------------------------------------------------
+    Style Header Section
+--------------------------------------------------------------------*/
+  .header-sec {
+    padding-top: 0;
+  }
+
+  .header-sec .clm {
+    position: relative;
+  }
+
+  .header-sec .clm:nth-child(2)::before {
+    content: "";
+    width: 880px;
+    height: 880px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #5f57cb;
+    z-index: -1;
+    right: -30rem;
+    top: -22rem;
+  }
+
+  .header-sec .content-div {
+    position: relative;
+    margin-top: 5rem;
+  }
+
+  .header-sec .tag {
+    display: inline-block;
+    background-color: #f0eff5;
+    color: #746f90;
+    font-weight: 700;
+    font-family: "Inter";
+    font-size: 0.9rem;
+    border-radius: 13px;
+    padding: 3px 12px;
+    margin-bottom: 15px;
+  }
+
+  .header-sec .page-title {
+    font-family: "Inter";
+    font-weight: 900;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    max-width: 520px;
+  }
+
+  .header-sec .page-title .txt {
+    color: #03172b;
+  }
+
+  .header-sec .sec-para {
+    color: #555a89;
+    max-width: 485px;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-sec .btns-div .btn {
+    padding: 0.7rem 1.7rem;
+    font-family: "Inter";
+    border-radius: 1.1rem;
+    transition: 300ms;
+  }
+
+  .header-sec .btns-div .btn.try-btn {
+    background-color: #ffcb56;
+    color: #202555;
+    font-weight: 800;
+  }
+
+  .header-sec .btns-div .btn.see-btn {
+    border: none;
+    color: #202555;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .header-sec .btns-div .btn.see-btn .icon {
+    background: -webkit-linear-gradient(to bottom, #6f85ff, #7c41ff);
+    background: linear-gradient(to bottom, #6f85ff, #7c41ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 10px;
+    margin-top: 5px;
+    transition: 400ms;
+  }
+
+  .header-sec .btns-div .btn.see-btn:hover .icon {
+    transform: translateX(5px);
+  }
+
+  .header-sec .container .image-div {
+    text-align: center;
+  }
+
+  .header-sec .container .image-div img {
+    width: 90%;
+    max-width: 470px;
+    margin: 10px 0;
+    transform: translate(50px, -48px);
+    transition: transform 0.6s ease;
+  }
+
+  /* -----------------------------------------------------------------
+    Style Rocket Section
+--------------------------------------------------------------------*/
+  .rocket-sec {
+    position: relative;
+  }
+
+  .rocket-sec .rocket-box {
+    position: relative;
+    width: 100%;
+    max-width: 575px;
+    margin: 20px auto;
+    background-color: #202555;
+    box-shadow: 0 10px 92px rgba(85, 92, 165, 0.7);
+    border-radius: 4rem;
+    padding: 80px;
+  }
+
+  .rocket-box .box-title {
+    max-width: 387px;
+    font-family: "Inter";
+    font-weight: 900;
+    color: #fff;
+    font-size: 2.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rocket-box .box-title span.color {
+    color: #c9f2a0;
+  }
+
+  .rocket-box .box-para {
+    max-width: 365px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 2;
+  }
+
+  .rocket-sec .rocket-box .floating-images {
+    position: absolute;
+  }
+
+  .rocket-box .floating-images.rocket {
+    max-width: 310px;
+    top: -5rem;
+    left: -10rem;
+  }
+
+  .rocket-box .floating-images.man {
+    max-width: 135px;
+    right: -5rem;
+    top: 2rem;
+  }
+
+  .rocket-box .floating-images.women {
+    max-width: 160px;
+    left: -6.2rem;
+    bottom: 1rem;
+  }
+
+  .circles {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .rocket-sec .circles.circle1 {
+    width: 530px;
+    height: 530px;
+    background-color: #eeedf8;
+    top: -18rem;
+    left: -20rem;
+  }
+
+  .rocket-sec .circles.circle2 {
+    width: 50px;
+    height: 50px;
+    background-color: #d0ffc4;
+    top: 50%;
+    left: 25%;
+  }
+
+  .rocket-sec .circles.circle3 {
+    width: 130px;
+    height: 130px;
+    background-color: rgba(216, 190, 247, 0.2);
+    top: 30%;
+    right: 10%;
+  }
+
+  .rocket-sec .circles.circle4 {
+    width: 50px;
+    height: 50px;
+    background-color: #ffcb56;
+    bottom: 20%;
+    right: 25%;
+  }
+
+  /* -----------------------------------------------------------------
+    Style Articles Section
+--------------------------------------------------------------------*/
+  .article-sec {
+    position: relative;
+    margin-top: 6rem;
+  }
+
+  .article-sec .sec-title {
+    font-size: 1.7rem;
+    font-family: "Inter";
+    font-weight: 900;
+    color: #03172b;
+    margin-bottom: 2.5rem;
+  }
+
+  .article-sec .sec-para {
+    width: 100%;
+    max-width: 400px;
+    font-weight: 600;
+    color: #8b99b1;
+    line-height: 2;
+  }
+
+  .article-sec .btn {
+    background-color: #fa7269;
+    color: #fff;
+    font-family: Inter;
+    font-weight: 800;
+    padding: 0.6rem 1.4rem;
+    min-width: 125px;
+    transition: 300ms;
+  }
+
+  .article-sec .image-div {
+    text-align: center;
+    position: relative;
+  }
+
+  .article-sec .image-div::before {
+    content: "";
+    width: 580px;
+    height: 580px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .article-sec.f-article .image-div::before {
+    background-color: #f6f2ff;
+    top: -7rem;
+    right: -17rem;
+  }
+
+  .article-sec.s-article .image-div::before {
+    background-color: #f8faff;
+    top: -10rem;
+    left: 1rem;
+  }
+
+  /* Circles */
+  .article-sec.f-article .circle1 {
+    width: 185px;
+    height: 185px;
+    background-color: rgba(116, 201, 246, 0.08);
+    top: -11rem;
+    left: 7rem;
+  }
+
+  .article-sec.s-article .circle1 {
+    width: 50px;
+    height: 50px;
+    background-color: #f674b4;
+    left: 46%;
+    top: -5rem;
+  }
+
+  .article-sec.s-article .circle2 {
+    width: 50px;
+    height: 50px;
+    background-color: #74c9f6;
+    right: 15%;
+    bottom: 1rem;
+  }
+
+  /* -----------------------------------------------------------------
+    Style Page Footer
+--------------------------------------------------------------------*/
+  .page-footer {
+    margin: 10rem 0 13rem;
+  }
+
+  .page-footer .content-div {
+    background: linear-gradient(134deg, #241742, #482e83 80%);
+    border-radius: 20px;
+    padding: 30px 15px;
+  }
+
+  .page-footer .content-div .logo-div {
+    margin-bottom: 2.5rem;
+  }
+
+  .page-footer .content-div .logo-div img {
+    width: 45px;
+  }
+
+  .page-footer .content-div .footer-title {
+    font-family: "Inter";
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 2.3rem;
+  }
+
+  .page-footer .content-div .btn {
+    min-width: 175px;
+    background-color: #ffcb56;
+    color: #202555;
+    font-family: "Inter";
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 18px;
+    transition: 300ms;
+  }
+
+  .page-footer .content-div .image-div img {
+    max-width: 260px;
+    transition: 500ms;
+    transform: scale(1.8) translateY(50px);
+  }
+
+  .page-footer .content-div .clm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page-footer .circles.circle1 {
+    width: 880px;
+    height: 880px;
+    background-color: #eeedf8;
+    bottom: -25rem;
+    left: -20rem;
+  }
+
+  .page-footer .circles.circle2 {
+    width: 100px;
+    height: 100px;
+    background-color: #f674b4;
+    left: 50%;
+    bottom: 2rem;
+  }
+
+  .page-footer .circles.circle3 {
+    width: 50px;
+    height: 50px;
+    background-color: #ffcb56;
+    right: 8%;
+    bottom: 14rem;
+  }
+}
