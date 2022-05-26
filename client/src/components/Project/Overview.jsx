@@ -22,7 +22,6 @@ const Overview = () => {
       setAvatarColor(generateAvatarColor(projectOwner.username));
     }
   }, [projectOwner]);
-console.log(projectOwner);
   useEffect(() => {
     async function getProject(projectid) {
       try {

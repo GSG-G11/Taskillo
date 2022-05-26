@@ -19,12 +19,9 @@ const TableTask = ({ taskDeleted, count }) => {
   const { openTask } = useSelector((state) => state.modal.value);
   const [id, setId] = useState(null);
   const task = useSelector((state) => state.task.value);
-  const form = useSelector((state) => state.page.value);
-console.log(form);
   const taskFilter = task.filter((task) => task.id === id);
   const page = useSelector((state)=> state.pageType.value);
 
-  console.log(page);
   const handleEdit = async ({
     name,
     description,

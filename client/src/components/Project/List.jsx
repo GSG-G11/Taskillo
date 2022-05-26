@@ -12,13 +12,13 @@ const List = () => {
 
   const dispatch = useDispatch();
   dispatch(setPageName('list'));
-  
+
   const [count, setCount] = useState(0);
   const { id } = useParams();
   useEffect(() => {
     const handleData = async () => {
       try {
-        const Response = await axios.get(`/api/v1/project/${id}/tasksSection?q=${pagination}`);
+        const Response = await axios.get(`/api/v1/project/${id}/tasksSection?page=${pagination}`);
         if (Response.status === 200) {
           dispatch(getTask(Response.data.data));
           setCount(Response.data.data[0].totaltask);
