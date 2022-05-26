@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '../../components/LandingPage';
+import { Navbar, BannerSec } from '../../components/LandingPage';
 import './style.scss'
 
 const LandingPage = () => {
@@ -9,7 +9,7 @@ const LandingPage = () => {
         <Navbar />
       </header>
       <main className="page-main">
-        
+        <BannerSec />
       </main>
     </div>
   )
