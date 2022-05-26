@@ -8,6 +8,7 @@ import { setProjects } from '../../state/projectDashboard';
 
 export default function ProjectCard() {
   const dispatch = useDispatch();
+  const { add } = useSelector((state) => state.addProject.value);
 
   useEffect(() => {
     const getProjectsByUserId = async () => {
@@ -21,7 +22,7 @@ export default function ProjectCard() {
       }
     };
     getProjectsByUserId();
-  }, [dispatch]);
+  }, [dispatch, add]);
 
   const projects = useSelector((state) => state.projectDashboard.value);
 
@@ -58,7 +59,7 @@ const Card = styled.div`
   @media (max-width: 576px) {
     margin: 0;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    width: 250px;
-  }
+  // @media (min-width: 768px) and (max-width: 1024px) {
+  //   width: 250px;
+  // }
 `;
