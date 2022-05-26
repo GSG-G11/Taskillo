@@ -326,7 +326,7 @@
   .circles {
     position: absolute;
     border-radius: 50%;
-    z-index: -1;
+    z-index: 1;
   }
 
   .rocket-sec .circles.circle1 {
@@ -380,6 +380,7 @@
   .article-sec .sec-para {
     width: 100%;
     max-width: 400px;
+    font-size: .98rem;
     font-weight: 600;
     color: #8b99b1;
     line-height: 2;
@@ -398,6 +399,7 @@
   .article-sec .image-div {
     text-align: center;
     position: relative;
+    z-index: 2;
   }
 
   .article-sec .image-div::before {
