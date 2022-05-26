@@ -220,6 +220,11 @@
     transition: 300ms;
   }
 
+  .content-div{
+    position: relative;
+    z-index: 5;
+  }
+
   .header-sec .btns-div .btn.try-btn {
     background-color: #ffcb56;
     color: #202555;
@@ -736,9 +741,4 @@
       bottom: -20rem;
     }
   }
-  
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-  }
-  
 }
