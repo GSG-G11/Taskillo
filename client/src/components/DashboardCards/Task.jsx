@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { VscCircleFilled } from "react-icons/vsc";
 import styled from 'styled-components';
 import { Text } from '../UI';
@@ -16,7 +16,7 @@ export default function TaskCard() {
   useEffect(() => {
     const getTasksByProjectId = async () => {
       try {
-        const res = await axios.get(`/api/v1/project/${projects[0].id}/tasks`);
+        const res = await axios.get(`/api/v1/project/${projects[0].id}/tasksSection`);
 
         if (res.status === 200) {
           setTasks(res.data.data)
@@ -49,7 +49,7 @@ export default function TaskCard() {
             You don't have any task
           </div>)}
         <div className='ms-2 mt-2'>
-          <Link to={'tasks'} className={'text-decoration-none text-white'}>Show more</Link>
+          <Link to={'/tasks'} className={'text-decoration-none text-white'}>Show more</Link>
         </div>
 
       </div>
