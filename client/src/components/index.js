@@ -7,6 +7,7 @@ import TableTask  from './Table'
 import Modal from './Modal'
 import { TaskCard, ProjectCard, ActivityCard, StaffCard, SlideCard } from './DashboardCards';
 import AddProjectModal from './AddProjectModal';
+import Calender from './Calendar';
 
 export {
     Form,
@@ -28,5 +29,6 @@ export {
     Card,
     AddProjectModal,
     TableTask,
-    Modal
+    Modal,
+    Calender
 };

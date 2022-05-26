@@ -8,6 +8,7 @@ import {
   Dashboard,
   Task,
   LandingPage,
+  Calendar,
 } from './pages';
 import { Overview, List, Board } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -28,6 +29,7 @@ export default function App() {
   return (
     <div className='App'>
       <Routes>
+      <Route path='calender'  element={<Calendar />}/>
         <Route path='/home' element={<LandingPage />} />
         <Route path='/' element={<Home />} />
         <Route path='/tasks' element={<Task />} />
