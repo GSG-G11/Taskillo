@@ -31,7 +31,7 @@ export default function ProjectCard() {
         <Text text={'My  Projects'} className={'fw-bold text-white fs-5'} />
       </div>
 
-      <div className="mt-2 ms-4 d-flex flex-">
+      <div className="mt-2 ms-4 d-flex flex-column">
         {projects.length ? (
           projects.slice(0, 5).map((project, index) => (
             <div className="text-white mt-2 fs-5" key={index}>
