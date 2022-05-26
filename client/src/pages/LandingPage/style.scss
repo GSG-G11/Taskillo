@@ -326,7 +326,7 @@
   .circles {
     position: absolute;
     border-radius: 50%;
-    z-index: 1;
+    z-index: -1;
   }
 
   .rocket-sec .circles.circle1 {
@@ -448,11 +448,10 @@
     bottom: 1rem;
   }
 
-  /* -----------------------------------------------------------------
-    Style Page Footer
---------------------------------------------------------------------*/
   .page-footer {
     margin: 10rem 0 13rem;
+    position: relative;
+    z-index: 2;
   }
 
   .page-footer .content-div {
@@ -505,7 +504,7 @@
     width: 880px;
     height: 880px;
     background-color: #eeedf8;
-    bottom: -25rem;
+    bottom: -35rem;
     left: -20rem;
   }
 
@@ -514,7 +513,7 @@
     height: 100px;
     background-color: #f674b4;
     left: 50%;
-    bottom: 2rem;
+    bottom: -10rem;
   }
 
   .page-footer .circles.circle3 {
@@ -522,6 +521,6 @@
     height: 50px;
     background-color: #ffcb56;
     right: 8%;
-    bottom: 14rem;
+    bottom: -4rem;
   }
 }

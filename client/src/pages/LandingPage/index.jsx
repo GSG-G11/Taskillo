@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, BannerSec, RocketSec, ArticlesSec } from '../../components/LandingPage';
+import { Navbar, BannerSec, RocketSec, ArticlesSec, Footer } from '../../components/LandingPage';
 import './style.scss'
 
 const LandingPage = () => {
@@ -12,6 +12,7 @@ const LandingPage = () => {
         <BannerSec />
         <RocketSec />
         <ArticlesSec />
+        <Footer />
       </main>
     </div>
   )
