@@ -2,11 +2,12 @@ import Home from './Home';
 import Signup from './SignUp';
 import Login from './Login';
 import Task from './Task'
-import Dashboard from './dashboard' 
+import Dashboard from './Dashboard' 
 import Staff from './Staff';
 import SendEmail from './SendEmail';
 import Project from './Project';
-import LandingPage from './LandingPage'
+import LandingPage from './LandingPage';
+import Calendar from './Calendar';
 
 export {
   Home,
@@ -17,5 +18,6 @@ export {
   Dashboard,
   Staff,
   Project,
-  LandingPage
+  LandingPage,
+  Calendar,
 }

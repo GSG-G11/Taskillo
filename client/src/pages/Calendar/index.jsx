@@ -5,7 +5,7 @@ import Sidebar from '../../components/Sidebar';
 import Calender from '../../components/Calendar';
 import { AddProjectModal } from '../../components';
 
-const Calenderr = () => {
+const Calendar = () => {
   const { open } = useSelector((state) => state.sidebar.value);
 
   return (
@@ -23,4 +23,4 @@ const Calenderr = () => {
   );
 };
 
-export default Calenderr;
+export default Calendar;
