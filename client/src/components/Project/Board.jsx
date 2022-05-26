@@ -1,13 +1,13 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import { Text } from '..';
-import Section from '../Section';
-import { setSection } from '../../state/sections';
-import { DragDropContext } from 'react-beautiful-dnd';
-import { setTask } from '../../state/tasks';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import { Text } from "..";
+import Section from "../Section";
+import { setSection } from "../../state/sections";
+import { DragDropContext } from "react-beautiful-dnd";
+import { setTask } from "../../state/tasks";
 
 export default function Board() {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export default function Board() {
   }, [dispatch, id]);
 
   const onDragEnd = ({ source, destination, draggableId, type }) => {
-    if (!destination || type === 'section') return;
+    if (!destination || type === "section") return;
     if (destination.droppableId === source.droppableId) {
       const items = Array.from(tasks);
       const [reorderedItem] = items.splice(source.index, 1);
@@ -130,12 +130,14 @@ export default function Board() {
 }
 
 const Title = styled.div`
+  margin-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  max-width: unset !important;
   .title {
     font-weight: 600;
     margin: 10px 20px;
-  }
-  .container {
-    margin: 0;
   }
   .section-container {
     gap: 20px;
@@ -155,12 +157,7 @@ const Title = styled.div`
       border-radius: 1rem;
     }
   }
-  .container {
-    margin-top: 20px;
-    width: 1300px;
-  }
   @media (max-width: 630px) {
-
     .section-title {
       margin-bottom: 10px;
     }
@@ -192,7 +189,7 @@ const Div = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  input[type='text'] {
+  input[type="text"] {
     background: #323239;
     border: none;
     padding: 8px;

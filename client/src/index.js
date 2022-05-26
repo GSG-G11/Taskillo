@@ -17,6 +17,7 @@ import sectionsReducer from './state/sections';
 import actionReducer from './state/action';
 import currentReducer from './state/currentSection';
 import pageReducer from './state/page';
+import navUserReducer from './state/navUser';
 
 import './index.css';
 
@@ -35,6 +36,7 @@ const store = configureStore({
     action: actionReducer,
     currentSection: currentReducer,
     page: pageReducer,
+    navUser: navUserReducer,
   },
 });
 
