@@ -19,7 +19,12 @@ const TableTask = ({ taskDeleted, count }) => {
   const { openTask } = useSelector((state) => state.modal.value);
   const [id, setId] = useState(null);
   const task = useSelector((state) => state.task.value);
+  const form = useSelector((state) => state.page.value);
+console.log(form);
   const taskFilter = task.filter((task) => task.id === id);
+  const page = useSelector((state)=> state.pageType.value);
+
+  console.log(page);
   const handleEdit = async ({
     name,
     description,
@@ -51,7 +56,9 @@ const TableTask = ({ taskDeleted, count }) => {
           <tr className="table-head">
             <th scope="col">Task name</th>
             <th scope="col">Description</th>
-            <th scope="col">Project Name</th>
+            {
+              page === 'task' ?   <th scope="col">Project Name</th> : ''
+            }
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
             <th scope="col">Due date</th>
@@ -71,9 +78,11 @@ const TableTask = ({ taskDeleted, count }) => {
                 <td>
                   <Text text={task.description || '-'} className="projectt-descriptopn" />
                 </td>
-                <td>
-                  <Text text={task.projectname} className="projectt-name" />
-                </td>
+              {
+                page === 'task' ?  <td>
+                <Text text={task.projectname} className="projectt-name" />
+              </td> : '' 
+              }
                 <td>
                   <span
                     className={`btn priority ${task.priority}`}

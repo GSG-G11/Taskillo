@@ -14,7 +14,7 @@ export default function Navbar({ title }) {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const { open } = useSelector((state) => state.sidebar.value);
-  const { username, email, image } = useSelector((state) => state.user.value);
+  const { username, email } = useSelector((state) => state.user.value);
   const navUser = useSelector((state) => state.navUser.value);
 
   const updateImage = async (e) => {
@@ -33,8 +33,6 @@ export default function Navbar({ title }) {
       }
     };
   }
-
-  console.log(navUser);
 
   return (
     <Div>

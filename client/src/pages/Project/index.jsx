@@ -25,7 +25,7 @@ const Project = () => {
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={` ${projectName} `} />
-        <AddProjectModal/>
+        <AddProjectModal />
         <Menu />
         <Outlet />
       </main>

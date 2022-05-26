@@ -42,6 +42,9 @@ const CardDiv = styled.div`
   background: #21222c;
   margin-bottom: 10px;
   color: #fff;
+  :hover{
+    cursor:pointer;
+  }
   .task-title {
     font-size: 1rem;
   }

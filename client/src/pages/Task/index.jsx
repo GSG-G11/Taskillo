@@ -6,14 +6,17 @@ import axios from 'axios';
 import generateGreeting from '../../utils/generateGreeting';
 import Sidebar from '../../components/Sidebar';
 import styled from 'styled-components';
+import { setPageName } from '../../state/page';
 
 const Task = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
   const pagination = useSelector((state) => state.pagination.value);
   const greeting = generateGreeting();
-
+  
   const dispatch = useDispatch();
+  dispatch(setPageName('task'));
+
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -80,3 +83,5 @@ const Tasks = styled.div`
 `;
 
 export default Task;
+
+	
