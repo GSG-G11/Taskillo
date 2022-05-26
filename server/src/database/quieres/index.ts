@@ -9,7 +9,7 @@ import {
   getCheckMembersQuery,
 } from './projects';
 
-import { checkEmailQuery, signUpQuery } from './users';
+import { checkEmailQuery, signUpQuery, updateImageQuery } from './users';
 import {
   addTaskQuery,
   getTasksQuery,
@@ -51,4 +51,5 @@ export {
   addUserTaskQuery,
   getCheckMembersQuery,
   dragTaskQuery,
+  updateImageQuery,
 };

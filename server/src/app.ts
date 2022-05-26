@@ -17,8 +17,8 @@ app.set('port', PORT || 5000);
 app.disable('x-powered-by');
 
 app.use([
-  express.json(),
-  express.urlencoded({ extended: false }),
+  express.json({ limit: '15mb' }),
+  express.urlencoded({ extended: false, limit: '15mb' }),
   compression(),
   cookieParser(),
 ]);

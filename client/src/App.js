@@ -15,11 +15,13 @@ import { useDispatch } from 'react-redux';
 import { setUserInfo } from './state/user';
 import { getToken } from './utils';
 import { useEffect } from 'react';
+import { setNavUser } from './state/navUser';
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const user = getToken();
     user && dispatch(setUserInfo(user));
+    localStorage.getItem('updatedImage') && user && dispatch(setNavUser({username: user.username, email: user.email, image: localStorage.getItem('updatedImage')}));
   }, [dispatch]);
 
   return (

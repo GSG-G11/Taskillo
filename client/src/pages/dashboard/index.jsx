@@ -54,7 +54,7 @@ const Dashboard = () => {
           <div className='d-flex cont-card2'>
             {members.length ? members.slice(0,2).map((member, index) => (
               <div key={index}>
-                <StaffCard avatar={member1} memberName={member.username} role={member.role} />
+                <StaffCard avatar={member.image} memberName={member.username} role={member.role} />
               </div>
             )) : <div className='mx-1 member mt-2 d-flex flex-column justify-content-center align-items-center '>
               <Text text={'there is no members'} className={'text-white'}/>
