@@ -11,6 +11,8 @@ import swal from 'sweetalert';
 import { setAddProject } from '../../state';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AddProjectModal() {
   const { openProject } = useSelector((state) => state.modal.value);
@@ -21,10 +23,9 @@ export default function AddProjectModal() {
     try {
       const res = await axios.post('/api/v1/project', projectInfo)
       if (res.status === 201) {
-        console.log(res, 99);
         dispatch(setProjectOpen(false));
-        swal("Good job!", res.data.message, "success");
-        dispatch(setAddProject({ add: !add }))
+        toast.success(`${res.data.message} 👋`);    
+        dispatch(setAddProject({ add: !add })); 
         navigate(`/project/${res.data.data.id}`);
       }
     }
