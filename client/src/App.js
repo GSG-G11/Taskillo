@@ -17,6 +17,7 @@ import { setUserInfo } from './state/user';
 import { getToken } from './utils';
 import { useEffect } from 'react';
 import { setNavUser } from './state/navUser';
+import Calendar from './pages/Calendar';
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,6 +29,8 @@ export default function App() {
   return (
     <div className='App'>
       <Routes>
+      <Route path='calender' element={<Calendar />} />
+
         <Route path='/home' element={<LandingPage />} />
         <Route path='/' element={<Home />} />
         <Route path='/tasks' element={<Task />} />
