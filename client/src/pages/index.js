@@ -6,6 +6,7 @@ import Dashboard from './dashboard'
 import Staff from './Staff';
 import SendEmail from './SendEmail';
 import Project from './Project';
+import LandingPage from './LandingPage'
 
 export {
   Home,
@@ -15,5 +16,6 @@ export {
   Task,
   Dashboard,
   Staff,
-  Project
+  Project,
+  LandingPage
 }
