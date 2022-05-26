@@ -523,4 +523,222 @@
     right: 8%;
     bottom: -4rem;
   }
+
+  @media (max-width: 575.98px) {
+    /* Page Heaer */
+    .page-header .navbar-toggler {
+      display: inline-flex;
+    }
+  
+    .page-header .navbar-nav .nav-item {
+      margin: 0;
+    }
+  
+    .page-header .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .page-header .btns .btn.app {
+      background-color: #2c1c43;
+      color: #fff;
+    }
+  
+    .page-header .btns .btn.app:hover {
+      background-color: transparent;
+      border-color: #2c1c43;
+      color: #2c1c43;
+    }
+  
+    /* Header Section */
+    .header-sec .content-div {
+      margin-top: 2rem;
+      margin-bottom: 6rem;
+    }
+  
+    .header-sec .page-title {
+      font-size: 2rem;
+    }
+  
+    .header-sec .clm:nth-child(2)::before {
+      width: 500px;
+      height: 500px;
+      right: -17rem;
+      top: -8rem;
+    }
+  
+    /* Rocket Section */
+    .rocket-sec .rocket-box {
+      padding: 50px;
+    }
+  
+    .rocket-box .box-title {
+      font-size: 1.7rem;
+    }
+  
+    .rocket-box .floating-images.rocket {
+      max-width: 220px;
+      top: -7rem;
+      left: -15%;
+    }
+  
+    .rocket-box .floating-images.man {
+      right: 0;
+      top: -4rem;
+    }
+  
+    .rocket-box .floating-images.women {
+      left: 0;
+      bottom: -3.5rem;
+    }
+  
+    .rocket-sec .circles.circle1 {
+      display: none;
+    }
+  
+    .article-sec.s-article {
+      margin-top: 10rem;
+    }
+  
+    .article-sec.s-article .clm:nth-child(2) {
+      order: -1;
+      margin-bottom: 5rem;
+    }
+  
+    /* Page Footer */
+    .page-footer .content-div .image-div img {
+      transform: scale(1.5) translate(17px, 120px);
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    /* Page Heaer */
+    .page-header .navbar-toggler {
+      display: inline-flex;
+    }
+  
+    .page-header .navbar-nav .nav-item {
+      margin: 0;
+    }
+  
+    .page-header .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    /* Header Section */
+    .header-sec .content-div {
+      margin-top: 2rem;
+      margin-bottom: 6rem;
+    }
+  
+    .header-sec .clm:nth-child(2)::before {
+      width: 650px;
+      height: 650px;
+      right: -20rem;
+      top: -2rem;
+    }
+  
+    .rocket-sec .circles.circle1 {
+      display: none;
+    }
+  
+    /* Articles Section */
+    .article-sec.s-article {
+      margin-top: 10rem;
+    }
+  
+    .article-sec.s-article .clm:nth-child(2) {
+      order: -1;
+      margin-bottom: 5rem;
+    }
+  
+    /* Page Footer */
+    .page-footer .content-div .image-div img {
+      transform: scale(1.6) translateY(120px);
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    /* Page Heaer */
+    .page-header .navbar-toggler {
+      display: inline-flex;
+    }
+  
+    .page-header .navbar-nav .nav-item {
+      margin: 0;
+    }
+  
+    .page-header .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    /* Header Section */
+    .header-sec .content-div {
+      margin-top: 2rem;
+      margin-bottom: 6rem;
+    }
+  
+    .header-sec .clm:nth-child(2)::before {
+      width: 700px;
+      height: 700px;
+      right: -20rem;
+      top: -2rem;
+    }
+  
+    .rocket-sec .circles.circle1 {
+      display: none;
+    }
+  
+    /* Articles Section */
+    .article-sec.s-article {
+      margin-top: 10rem;
+    }
+  
+    .article-sec.s-article .clm:nth-child(2) {
+      order: -1;
+      margin-bottom: 5rem;
+    }
+  
+    /* Page Footer */
+    .page-footer .content-div .image-div img {
+      transform: scale(1.6) translateY(120px);
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    /* Header Section */
+    .header-sec .boxes .clm .single-box {
+      margin: 0;
+    }
+  
+    /* Whos Section */
+    .whos-sec .micro-float {
+      max-width: 600px;
+      left: 51%;
+      transform: translateY(-54%);
+    }
+  
+    /* Tools Section */
+    .tools-sec img.blur:nth-child(4) {
+      right: -38rem;
+      top: -30rem;
+    }
+  
+    .tools-sec img.blur:nth-child(3) {
+      left: -34rem;
+      bottom: -20rem;
+    }
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+  }
+  
 }

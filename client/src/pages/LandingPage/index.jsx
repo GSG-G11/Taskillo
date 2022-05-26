@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, BannerSec, RocketSec, ArticlesSec, Footer } from '../../components/LandingPage';
-import './style.scss'
+import './style.scss';
 
 const LandingPage = () => {
   return (
