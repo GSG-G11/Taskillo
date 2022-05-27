@@ -15,7 +15,11 @@ export default function Modal({ handleSubmit, values = {} }) {
         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">{`${type} Task`}</h5>
+              <h5 className="modal-title">
+                {type === 'Add' || type === 'calendar'
+                  ? 'Add Task'
+                  : 'Update Task'}
+              </h5>
               <button
                 className="btn close-btn"
                 onClick={() => dispatch(setTaskOpen(!openTask))}
@@ -34,7 +38,9 @@ export default function Modal({ handleSubmit, values = {} }) {
 }
 
 const Modall = styled.div`
-.modal-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  .modal-content {
     background: #21222c;
     color: #b1b1b1;
     border-radius: 20px;
@@ -71,10 +77,7 @@ const Modall = styled.div`
       width: 40%;
     }
   }
-
   .modal {
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(2px);
     .modal-content {
       border-radius: 0.5rem;
       padding: 0;

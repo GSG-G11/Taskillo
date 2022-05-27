@@ -1,9 +1,9 @@
 import connection from '../../config/connection';
 
-const getTasksQuery = ({ userid, page = 1, perPage = 7 }) => {
+const getTasksQuery = ({ userid, page = 1, perPage = 5 }) => {
   const sql = {
     text: `select
-    t.id, t.name,t.description, t.priority,t.enddate,t.status, p.name as projectname,
+    t.id, t.name,t.description, t.priority,t.enddate ,t.status, p.name as projectname,
     (select count(*) from user_tasks ut where ut.userid = $1) as totaltask
     from tasks t join user_Tasks ut on ut.taskId= t.id 
     join sections s on s.id = t.sectionid
@@ -15,4 +15,13 @@ const getTasksQuery = ({ userid, page = 1, perPage = 7 }) => {
   return connection.query(sql);
 };
 
-export default getTasksQuery;
+const getAllTasksQuery = (userid) => {
+  const sql = {
+    text: `select t.id, t.name, t.enddate
+    from tasks t join user_Tasks ut on ut.taskId= t.id 
+    where ut.userid = $1`,
+    values: [userid],
+  };
+  return connection.query(sql);
+};
+export { getTasksQuery, getAllTasksQuery };

@@ -21,6 +21,7 @@ import {
   addUserTaskQuery,
   getCheckMembersQuery,
   dragTaskQuery,
+  getAllTasksQuery,
   updateImageQuery,
 } from './quieres';
 
@@ -52,4 +53,5 @@ export {
   getCheckMembersQuery,
   dragTaskQuery,
   updateImageQuery,
+  getAllTasksQuery,
 };

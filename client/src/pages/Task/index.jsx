@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, TableTask } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTask, getTask } from '../../state/task';
+import { deleteTask, getTask, setPageName } from '../../state';
 import axios from 'axios';
 import generateGreeting from '../../utils/generateGreeting';
 import Sidebar from '../../components/Sidebar';
 import styled from 'styled-components';
-import { setPageName } from '../../state/page';
 import { useNavigate } from 'react-router-dom';
 import { checkAuth } from '../../utils';
 
@@ -51,7 +50,7 @@ const Task = () => {
       console.log(error, 'error');
     }
   };
-  
+
   return (
     <div className="page-container">
       <Sidebar />
@@ -90,5 +89,3 @@ const Tasks = styled.div`
 `;
 
 export default Task;
-
-	

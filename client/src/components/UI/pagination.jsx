@@ -7,7 +7,7 @@ const Pagination = ({ count }) => {
   const dispatch = useDispatch();
 
   let arr = [];
-  for (let i = 0; i < Math.ceil(count / 7); i++) {
+  for (let i = 0; i < Math.ceil(count / 5); i++) {
     arr.push(i);
   }
 

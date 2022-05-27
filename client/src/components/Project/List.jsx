@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, TableTask } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTask, getTask } from '../../state/task';
+import { deleteTask, getTask,setPageName } from '../../state';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import { setPageName } from '../../state/page';
 
 const List = () => {
   const pagination = useSelector((state) => state.pagination.value);
@@ -22,6 +21,8 @@ const List = () => {
         if (Response.status === 200) {
           dispatch(getTask(Response.data.data));
           setCount(Response.data.data[0].totaltask);
+        }else if (Response.status === 204) {
+          dispatch(getTask([]));
         }
       } catch (error) {
         console.log(error, 'error');
