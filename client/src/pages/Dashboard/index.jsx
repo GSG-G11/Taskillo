@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import generateGreeting from '../../utils/generateGreeting';
 import { ActivityCard, AddProjectModal, ProjectCard, SlideCard, StaffCard, TaskCard, Text } from '../../components';
-import member1 from '../../images/member1.svg';
 import axios from 'axios';
 import './style.css'
 
