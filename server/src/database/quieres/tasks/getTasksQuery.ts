@@ -15,4 +15,13 @@ const getTasksQuery = ({ userid, page = 1, perPage = 7 }) => {
   return connection.query(sql);
 };
 
-export default getTasksQuery;
+const getAllTasksQuery = (userid) => {
+  const sql = {
+    text: `select t.id, t.name, t.enddate
+    from tasks t join user_Tasks ut on ut.taskId= t.id 
+    where ut.userid = $1`,
+    values: [userid],
+  };
+  return connection.query(sql);
+};
+export { getTasksQuery, getAllTasksQuery };
