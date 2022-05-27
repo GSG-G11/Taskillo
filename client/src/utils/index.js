@@ -5,6 +5,7 @@ import getToken from './getToken';
 import formatDate from './formatDate';
 import statusColor from './statusColor';
 import addProjectValidationSchema from './addProjectValidation';
+import checkAuth from './checkAuth';
 
 export {
   validationSchema,
@@ -14,4 +15,5 @@ export {
   formatDate,
   statusColor,
   addProjectValidationSchema,
+  checkAuth,
 };

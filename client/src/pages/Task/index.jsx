@@ -7,17 +7,24 @@ import generateGreeting from '../../utils/generateGreeting';
 import Sidebar from '../../components/Sidebar';
 import styled from 'styled-components';
 import { setPageName } from '../../state/page';
+import { useNavigate } from 'react-router-dom';
+import { checkAuth } from '../../utils';
 
 const Task = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
   const pagination = useSelector((state) => state.pagination.value);
   const greeting = generateGreeting();
-  
   const dispatch = useDispatch();
   dispatch(setPageName('task'));
-
   const [count, setCount] = useState(0);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const auth = checkAuth();
+    if (!auth) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const handleData = async () => {

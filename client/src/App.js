@@ -24,7 +24,7 @@ export default function App() {
   useEffect(() => {
     const user = getToken();
     user && dispatch(setUserInfo(user));
-    localStorage.getItem('updatedImage') && user && dispatch(setNavUser({username: user.username, email: user.email, image: localStorage.getItem('updatedImage')}));
+    localStorage.getItem('updatedImage') ? user && dispatch(setNavUser({username: user.username, email: user.email, image: localStorage.getItem('updatedImage')})) : user && dispatch(setNavUser({username: user.username, email: user.email, image: user.image}));
   }, [dispatch]);
 
   return (
