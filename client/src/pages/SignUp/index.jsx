@@ -30,7 +30,7 @@ export default function Signup() {
         const user = getToken();
         dispatch(setUserInfo(user));
         setError('');
-        navigate('/');
+        navigate('/dashboard');
       }
     } catch (error) {
       setError(error.response.data.message);

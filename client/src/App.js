@@ -29,21 +29,20 @@ export default function App() {
   return (
     <div className='App'>
       <Routes>
-      <Route path='calender'  element={<Calendar />}/>
-        <Route path='/home' element={<LandingPage />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<LandingPage />} />
         <Route path='/tasks' element={<Task />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/staff' element={<Staff />} />
-        <Route path='/sendEmail' element={<SendEmail />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='calender'  element={<Calendar />}/>
         <Route path='/project/:id' element={<Project />}>
           <Route index element={<Overview />} />
           <Route path='overview' element={<Overview />} />
           <Route path='list' element={<List />} />
           <Route path='board' element={<Board />} />
         </Route>
+        <Route path='/sendEmail' element={<SendEmail />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
         <Route
           path='*'
           element={
