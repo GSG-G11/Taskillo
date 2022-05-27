@@ -17,7 +17,6 @@ export default function TaskCard() {
     const getTasksByProjectId = async () => {
       try {
         const res = await axios.get(`/api/v1/project/${projects[0].id}/tasksSection`);
-
         if (res.status === 200) {
           setTasks(res.data.data)
         }
@@ -63,7 +62,7 @@ const Card = styled.div`
     width: 300px;
     height: 250px;
     border-radius: 12px;
-    @media (min-width: 768px) and (max-width: 1024px){
-      width: 250px;
-    }
+    // @media (min-width: 768px) and (max-width: 1024px){
+    //   width: 250px;
+    // }
 `;

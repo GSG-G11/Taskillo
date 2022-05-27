@@ -25,7 +25,7 @@ const Card = styled.div `
 
 }
 .show-close {
-  margin-right: 10rem;
+  margin-right: 6rem;
   transition: 0.5s;
 }
 .show-open{

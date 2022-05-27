@@ -2,42 +2,49 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: hsla(0, 0%, 23%, 0.3); /* backOpacity */
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 999;
+    backdrop-filter: blur(4px);  /* backOpacity */
 
-}   
+}
+
 .content {
     width: 30%;
-    height: 50vh ;
-    background-color: white;
+    height: 50vh;
+    background: #21222c;
     position: fixed;
     outline: 0;
     margin-left: 100px;
     position: relative;
     padding: 10px;
 }
+
 .close-model {
     position: absolute;
     right: 0;
     top: 0;
     cursor: pointer;
 }
+
 .bix {
     font-size: 1.8rem;
+    color: #fff;
 }
+
 .project-name {
     margin-top: 1rem;
 }
+
 .project-desc {
     margin-top: 1rem;
     height: 4rem;
 }
+
 .cancel-btn {
-    background-color:tomato !important;
+    background-color: tomato !important;
     color: white !important;
 }
