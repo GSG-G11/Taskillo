@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, TableTask } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTask, getTask } from '../../state/task';
+import { deleteTask, getTask, setPageName } from '../../state';
 import axios from 'axios';
 import generateGreeting from '../../utils/generateGreeting';
 import Sidebar from '../../components/Sidebar';
 import styled from 'styled-components';
-import { setPageName } from '../../state/page';
 
 const Task = () => {
   const userInfo = useSelector((state) => state.user.value);

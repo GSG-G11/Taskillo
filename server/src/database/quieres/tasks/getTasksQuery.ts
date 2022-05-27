@@ -1,6 +1,6 @@
 import connection from '../../config/connection';
 
-const getTasksQuery = ({ userid, page = 1, perPage = 7 }) => {
+const getTasksQuery = ({ userid, page = 1, perPage = 5 }) => {
   const sql = {
     text: `select
     t.id, t.name,t.description, t.priority,t.enddate ,t.status, p.name as projectname,

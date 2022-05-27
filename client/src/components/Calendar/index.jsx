@@ -5,20 +5,22 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Modal from '../Modal';
-import { setTaskOpen } from '../../state';
+import { setTaskOpen, setAction, setDate } from '../../state';
 import axios from 'axios';
 
 export default function Calender() {
   const { openTask } = useSelector((state) => state.modal.value);
+  const projectId = useSelector((state) => state.id.value);
+  const dateTask = useSelector((state) => state.date.value);
+  const [tasks, setTask] = useState([]);
+  const [add, setAdd] = useState(false);
   const dispatch = useDispatch();
 
-  const [tasks, setTask] = useState([]);
-
   useEffect(() => {
+    dispatch(setAction({ type: 'calendar' }));
     const handleData = async () => {
       try {
         const Response = await axios.get(`/api/v1/allTasks`);
-        console.log(Response);
         if (Response.status === 200) {
           setTask(Response.data.data);
         }
@@ -27,7 +29,32 @@ export default function Calender() {
       }
     };
     handleData();
-  }, [dispatch]);
+  }, [dispatch, add]);
+
+  const addTask = async (task) => {
+    const { name, description, priority, sectionid, status } = task;
+    const newTask = {
+      name,
+      description,
+      priority,
+      sectionid,
+      status,
+      projectId,
+      enddate: dateTask,
+    };
+    try {
+      const response = await axios.post(
+        `/api/v1/project/${newTask.projectId}/task`,
+        newTask
+      );
+      if (response.status === 201) {
+        dispatch(setTaskOpen(!openTask));
+        dispatch(setAdd(!add));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const dataa = () => {
     const newd = tasks.map((task) => {
@@ -39,7 +66,9 @@ export default function Calender() {
     return newd;
   };
 
-  const handleDateClick = () => {
+  const handleDateClick = ({ dateStr }) => {
+    console.log(dateStr);
+    dispatch(setDate(dateStr));
     dispatch(setTaskOpen(true));
   };
 
@@ -51,7 +80,7 @@ export default function Calender() {
         dateClick={handleDateClick}
         events={dataa()}
       />
-      {openTask ? <Modal handleSubmit={() => console.log('ok')} /> : ''}
+      {openTask ? <Modal handleSubmit={(task) => addTask(task)} /> : ''}
     </Div>
   );
 }
