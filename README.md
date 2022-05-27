@@ -1,8 +1,15 @@
 <div align="center"><h2> Taskillo <img src="https://media.giphy.com/media/mGcNjsfWAjY5AEZNw6/giphy.gif" width="50"></h2>
 
-  <p align="center">Taskillo is a website</p>
+  <p align="center"> Taskillo is a website that a collaborative work management app designed to track team projects, highlight tasks underway, show who they are assigned to, and detail progress towards completion.
+
+At its core, Taskillo relies on the principles of Kanban project boards to visualize workflows, providing managers and team members with a simple overview of a project from start to finish.
+      
+Taskillo’s key components are boards, lists, and cards.
+      
+Boards are the starting point, and typically focus on an over-arching project such as launching a new website, or process-based tasks, such as on-boarding an employee. Within each board, several lists can be created to indicate the progress of a project; “to do,” “in progress,” and “done” lists are common examples. Individual cards within the lists hold information on a specific task and can be moved from list to list as needed (such as when a task is completed).      
+    </p>
    <p align="center">
-    <a href="">View Demo</a>
+    <a href="https://evening-ravine-40344.herokuapp.com/">View Demo</a>
     - 
     <a href="https://www.figma.com/file/1fHO19lLM4B0LV5RtOkFou/Taskillo?node-id=0%3A1">Figma Design</a>
   </p>
@@ -15,7 +22,6 @@
 ## ✧ User Stories
 
 > As a user
-
 - I should be able to see all projects I have.
 - I should be able to add a new project.
 - I should be able to see all sections I have.
@@ -31,15 +37,12 @@
 - I should be able to see my tasks in a specific project as a list.
 - I should be able to see tasks in a specific project as a board.
 
-<hr>
-
-## ✧ User Journey
 
 <hr>
 
 ## ✧ Link
 
-Demo link in [heroku](), feel free to check it 🤍
+Demo link in [heroku](https://evening-ravine-40344.herokuapp.com/), feel free to check it 🤍
 
 <hr>
 
@@ -104,15 +107,14 @@ Clone the Project
 ## ✧ Contact
 
 > ### Our great contributors
-
 - [Nada Abuzaid](https://github.com/nada-abuzaid)
 - [Karam Zomlut](https://github.com/karam-zomlut)
-- [Maram Msabeh](https://github.com/MaramMs)
 - [Amran Elmasri](https://github.com/AmranElmasri)
+- [Maram Msabeh](https://github.com/MaramMs)
+
 
 > ### Our great team leader
 - [Nizar Zakout](https://github.com/Nizar7zak)
-
 <hr>
 
 ## ✧ Acknowledgments
@@ -124,3 +126,4 @@ Clone the Project
 - [Redux](https://redux.js.org/)
 - [Formik](https://formik.org/)
 - [React-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+- 
