@@ -52,7 +52,7 @@ export default function Navbar({ title }) {
         <div className="d-flex align-items-center gap-3">
           <Button
             type="button"
-            title="+ Add new project"
+            title="+ New Project"
             onClick={() => dispatch(setProjectOpen(true))}
             className="btn btn-primary add-project"
           />
