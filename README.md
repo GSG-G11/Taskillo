@@ -1,12 +1,6 @@
 <div align="center"><h2> Taskillo <img src="https://media.giphy.com/media/mGcNjsfWAjY5AEZNw6/giphy.gif" width="50"></h2>
 
-  <p align="center"> Taskillo is a website that a collaborative work management app designed to track team projects, highlight tasks underway, show who they are assigned to, and detail progress towards completion.
-
-At its core, Taskillo relies on the principles of Kanban project boards to visualize workflows, providing managers and team members with a simple overview of a project from start to finish.
-      
-Taskillo’s key components are boards, lists, and cards.
-      
-Boards are the starting point, and typically focus on an over-arching project such as launching a new website, or process-based tasks, such as on-boarding an employee. Within each board, several lists can be created to indicate the progress of a project; “to do,” “in progress,” and “done” lists are common examples. Individual cards within the lists hold information on a specific task and can be moved from list to list as needed (such as when a task is completed).      
+  <p align="center"> Taskillo is a website that a collaborative work management app designed to track team projects, highlight tasks underway, show who they are assigned to    
     </p>
    <p align="center">
     <a href="https://evening-ravine-40344.herokuapp.com/">View Demo</a>
