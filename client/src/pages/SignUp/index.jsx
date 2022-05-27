@@ -22,15 +22,15 @@ export default function Signup() {
   const navigate = useNavigate();
   const userInfo = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
-  const handleSubmit = async ({code, username, password}) => {
-    const data = {code, username, email: userInfo.email, password}
+  const handleSubmit = async ({ code, username, password }) => {
+    const data = { code, username, email: userInfo.email, password };
     try {
       const res = await axios.post('/api/v1/user/signup', data);
       if (res.status === 201) {
         const user = getToken();
         dispatch(setUserInfo(user));
         setError('');
-        navigate('/');
+        navigate('/dashboard');
       }
     } catch (error) {
       setError(error.response.data.message);
@@ -65,7 +65,7 @@ export default function Signup() {
             <Field
               name="email"
               id="email"
-              className='form-control mb-2 text-white shadow-lg input'
+              className="form-control mb-2 text-white shadow-lg input"
               value={userInfo.email}
               readOnly
             />

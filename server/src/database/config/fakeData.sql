@@ -1,4 +1,3 @@
-
 -- users
 INSERT INTO
     users (
@@ -58,16 +57,16 @@ INSERT INTO
     projects (name, description)
 VALUES
     (
-        'Project 1',
-        'This is project 1'
+        'Graduation Project',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
-        'Project 2',
-        'This is project 2'
+        'Movix Website',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
-        'Project 3',
-        'This is project 3'
+        'Taskillo Team',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
         'Project 4',
@@ -78,8 +77,8 @@ VALUES
         'This is project 5'
     ),
     (
-        'Project 6',
-        'This is project 6'
+        'Taskillo Team',
+        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'
     ),
     (
         'Project 7',
@@ -117,8 +116,19 @@ VALUES
 INSERT INTO
     sections (name, projectId)
 values
-    ('todo', '1'),
-    ('done', '2');
+    ('Midterm', '1'),
+    ('Projects', '2'),
+    ('Midterm', '2'),
+    ('Projects', '2'),
+    ('To Do', '6'),
+    ('In Progress', '6'),
+    ('Doing', '6'),
+    ('Projects', '6'),
+    ('Projects', '6'),
+    ('Midterm', '7'),
+    ('Projects', '8'),
+    ('Midterm', '9'),
+    ('Projects', '10');
 
 -- tasks
 INSERT INTO
@@ -132,26 +142,62 @@ INSERT INTO
     )
 values
     (
-        'todo',
-        'todo  todo',
-        'high',
+        'Design Profile Page',
+        'Comments are important for an app, look at the screen below',
+        'Low',
         '2030-06-25',
-        'todo',
+        'ToDo',
         '1'
     ),
     (
-        'to do routes',
-        'create tasks router',
-        ' low',
+        'Update Design Library',
+        'Comments are important for an app, look at the screen below',
+        'Medium',
         '2022-05-23',
-        'done',
+        'Done',
         '2'
+    ),
+    (
+        'Design Comments',
+        'Comments are important for an app, look at the screen below',
+        'High',
+        '2022-05-23',
+        'InProgress',
+        '2'
+    ),
+    (
+        'Draw icons',
+        'Comments are important for an app, look at the screen below',
+        'Low',
+        '2022-05-23',
+        'InProgress',
+        '3'
+    ),
+    (
+        'Design dark mood',
+        'Comments are important for an app, look at the screen below',
+        'High',
+        '2022-05-23',
+        'Done',
+        '4'
+    ),
+    (
+        'Create a User Flow',
+        'Comments are important for an app, look at the screen below',
+        'Medium',
+        '2022-05-23',
+        'Done',
+        '6'
     );
-
 
 -- user_tasks
 INSERT INTO
     user_tasks (userId, taskId)
 values
     ('1', '1'),
+    ('2', '2'),
+    ('2', '3'),
+    ('2', '4'),
+    ('2', '6'),
     ('3', '2');
+  

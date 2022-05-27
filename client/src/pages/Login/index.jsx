@@ -15,6 +15,7 @@ import {
   Text,
 } from '../../components';
 import { setUserInfo } from '../../state/user';
+import { setNavUser } from '../../state/navUser';
 
 export default function Login() {
   const [error, setError] = useState('');
@@ -26,70 +27,73 @@ export default function Login() {
       if (res.status === 200) {
         const user = getToken();
         dispatch(setUserInfo(user));
+        dispatch(setNavUser(user));
+        localStorage.removeItem('updatedImage');
         setError('');
-        navigate('/');
+        navigate('/dashboard');
       }
-    } catch ( error ) {
+    } catch (error) {
       setError(error.response.data.message);
     }
   };
 
   return (
-    <div className='d-flex flex-row-reverse left-side min-vh-100'>
-      <div className='col-6 container d-flex flex-column m-auto'>
-        <div className='d-flex flex-row justify-content-left w-50 m-auto'>
+    <div className="d-flex flex-row-reverse left-side min-vh-100">
+      <div className="col-6 container d-flex flex-column m-auto">
+        <div className="d-flex flex-row justify-content-left w-50 m-auto">
           <Logo />
-          <Text text='Taskillo' className='fs-5 text-white fw-bold' />
+          <Text text="Taskillo" className="fs-5 text-white fw-bold" />
         </div>
-        <div className='form-side d-flex flex-column m-auto'>
-          <Text text='Start For Free' className='fs-5 text-white mb-2 mt-5' />
-          <Text text="Let's Go!" className='fs-2 text-white mb-4' />
+        <div className="form-side d-flex flex-column m-auto">
+          <Text text="Start For Free" className="fs-5 text-white mb-2 mt-5" />
+          <Text text="Let's Go!" className="fs-2 text-white mb-4" />
           <Form
             initialValues={{ email: '', password: '' }}
             validationSchema={validationLoginSchema}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+          >
             <FormField
-              type='email'
-              name='email'
-              placeholder='Enter your email'
-              className='text-white shadow-lg input'
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              className="text-white shadow-lg input"
             />
             <FormField
-              type='password'
-              name='password'
-              placeholder='Enter your password'
-              className='mt-3 text-white shadow-lg input'
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              className="mt-3 text-white shadow-lg input"
             />
             <SubmitButton
-              title='Sign In'
-              className='btn btn-primary btn-submit mt-3'
+              title="Sign In"
+              className="btn btn-primary btn-submit mt-3"
             />
             <Button
-              title='Sign in with Google'
-              className='signup-google btn-submit mb-3 mt-2'
+              title="Sign in with Google"
+              className="signup-google btn-submit mb-3 mt-2"
             />
-            <div className='d-flex  align-items-center'>
+            <div className="d-flex  align-items-center">
               <Text
-                text='Create a new account?'
-                className='signup-text w-50 fw-bold'
+                text="Create a new account?"
+                className="signup-text w-50 fw-bold"
               />
-              <Link to='/sendEmail' className='text-decoration-none'>
+              <Link to="/sendEmail" className="text-decoration-none">
                 Sign up
               </Link>
             </div>
             {error && (
-              <div className='alert alert-danger mt-4' role='alert'>
+              <div className="alert alert-danger mt-4" role="alert">
                 {error}
               </div>
             )}
           </Form>
         </div>
       </div>
-      <div className='col-6 w-50 vh-100 text-center test d-lg-flex justify-content-center align-items-center d-none'>
+      <div className="col-6 w-50 vh-100 text-center test d-lg-flex justify-content-center align-items-center d-none">
         <Image
-          alt='login-img'
+          alt="login-img"
           src={login}
-          className='img-fluid mx-auto w-50 '
+          className="img-fluid mx-auto w-50 "
         />
       </div>
     </div>

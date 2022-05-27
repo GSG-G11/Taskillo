@@ -2,8 +2,8 @@ import { Response, Request } from 'express';
 import { deleteProjectQuery } from '../../database';
 
 const deleteProject = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  await deleteProjectQuery(+id);
+  const { projectid } = req.params;
+  await deleteProjectQuery(+projectid);
   res.status(200).json({ message: 'The project has been deleted successfuly' });
 };
 

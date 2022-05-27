@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;800&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -13,20 +14,64 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-
-
-:root{
+:root {
   --background: #1C1C28;
   --sendEmail: #3E3E47;
 }
 
-.App{
+.App {
   height: 100vh;
   background-color: var(--background);
+  position: relative;
+}
+
+.btn,
+.btn:focus,
+.navbar-toggler,
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.main-page {
+  transition: .5s;
+  margin-left: 300px;
+  padding-top: calc(75px + 1rem);
+}
+
+.main-page.close {
+  margin-left: 65px;
+}
+
+.page-content {
+  padding: 2rem 1.5rem;
+}
+
+.carrd.High {
+  border-bottom: 1px solid #f8524b;
+}
+
+.carrd.Low {
+  border-bottom: 1px solid #06c270;
+}
+
+.carrd.Medium {
+  border-bottom: 1px solid #ff8800;
+}
+
+@media (max-width: 630px) {
+  .main-page {
+    margin-left: 65px;
+  }
+
+  .sidebar {
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1000px) {
+  /* .container {
+    max-width: 1286px;
+  } */
 }

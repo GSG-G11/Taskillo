@@ -20,6 +20,9 @@ import {
   deleteSectionQuery,
   addUserTaskQuery,
   getCheckMembersQuery,
+  dragTaskQuery,
+  getAllTasksQuery,
+  updateImageQuery,
 } from './quieres';
 
 import { connection, buildDb } from './config';
@@ -48,4 +51,7 @@ export {
   getProjectSectionsQuery,
   addUserTaskQuery,
   getCheckMembersQuery,
+  dragTaskQuery,
+  updateImageQuery,
+  getAllTasksQuery,
 };
