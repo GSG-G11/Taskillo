@@ -7,25 +7,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 999;
+    z-index: 1111;
+    background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);
 }
 
 .content {
-    width: 30%;
-    height: 50vh;
+    width: 100%;
+    max-width: 450px;
     background: #21222c;
     position: fixed;
     outline: 0;
-    margin-left: 100px;
     position: relative;
-    padding: 10px;
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
+    border-radius: .5rem;
 }
 
 .close-model {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1rem;
+    top: .7rem;
     cursor: pointer;
 }
 
