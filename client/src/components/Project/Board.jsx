@@ -25,6 +25,8 @@ export default function Board() {
         );
         if (response.status === 200) {
           dispatch(setSection({ sections: response.data.data }));
+        } else if (response.status === 204) {
+          dispatch(setSection({ sections: [] }));
         }
       } catch (error) {
         console.log(error);
