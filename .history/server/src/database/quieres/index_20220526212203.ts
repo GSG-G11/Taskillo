@@ -18,7 +18,6 @@ import {
   deleteTaskQuery,
   addUserTaskQuery,
   dragTaskQuery,
-  getAllTasksQuery,
 } from './tasks';
 
 import {
@@ -53,5 +52,4 @@ export {
   getCheckMembersQuery,
   dragTaskQuery,
   updateImageQuery,
-  getAllTasksQuery,
 };

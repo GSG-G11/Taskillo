@@ -13,20 +13,20 @@ export default function Calender() {
   const { openTask } = useSelector((state) => state.modal.value);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const handleData = async () => {
-  //     try {
-  //       const Response = await axios.get(`/api/v1/allTasks`);
-  //       if (Response.status === 200) {
-  //         dispatch(getTask(Response.data.data));
-  //         setCount(Response.data.data[0].totaltask);
-  //       }
-  //     } catch (error) {
-  //       console.log(error, 'error');
-  //     }
-  //   };
-  //   handleData();
-  // }, [dispatch, pagination]);
+  useEffect(() => {
+    const handleData = async () => {
+      try {
+        const Response = await axios.get(`/api/v1/tasks?q=${pagination}`);
+        if (Response.status === 200) {
+          dispatch(getTask(Response.data.data));
+          setCount(Response.data.data[0].totaltask);
+        }
+      } catch (error) {
+        console.log(error, 'error');
+      }
+    };
+    handleData();
+  }, [dispatch, pagination]);
 
   const dataa = () => {
     const newd = tasks.map((task) => {

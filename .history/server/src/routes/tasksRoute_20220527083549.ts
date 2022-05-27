@@ -7,8 +7,8 @@ import {
   editTask,
   deleteTask,
   dragTask,
-  getAllTasks,
 } from '../controllers';
+import { getAllTasks } from '../controllers/tasks/getTasks';
 
 const tasksRoute = express.Router();
 tasksRoute.use(asyncMiddleware(checkAuth));

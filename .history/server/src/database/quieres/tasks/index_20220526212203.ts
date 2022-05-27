@@ -5,7 +5,6 @@ import editTaskQuery from './editTaskQuery';
 import deleteTaskQuery from './deleteTaskQuery';
 import addUserTaskQuery from './addUserTaskQuery';
 import dragTaskQuery from './dragTaskQuery';
-import getAllTasksQuery from './getAllTasksQuery';
 
 export {
   addTaskQuery,
@@ -15,5 +14,4 @@ export {
   deleteTaskQuery,
   addUserTaskQuery,
   dragTaskQuery,
-  getAllTasksQuery,
 };

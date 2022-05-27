@@ -53,5 +53,4 @@ export {
   getCheckMembersQuery,
   dragTaskQuery,
   updateImageQuery,
-  getAllTasksQuery,
 };

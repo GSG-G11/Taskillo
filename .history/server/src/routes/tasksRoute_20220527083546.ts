@@ -7,7 +7,6 @@ import {
   editTask,
   deleteTask,
   dragTask,
-  getAllTasks,
 } from '../controllers';
 
 const tasksRoute = express.Router();

@@ -7,7 +7,6 @@ import {
   dragTask,
   getAllTasks,
 } from './tasks';
-
 import {
   login, signup, sendEmail, updateImage,
 } from './users';

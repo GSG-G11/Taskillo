@@ -5,6 +5,7 @@ import { setCurrentSection } from './currentSection';
 import { setTask } from './tasks';
 import { updateTask } from './task';
 import { setAddProject } from './addProject';
+import { getTask } from './task';
 
 export {
   setSection,
@@ -15,4 +16,5 @@ export {
   setTask,
   updateTask,
   setAddProject,
+  getTask,
 };

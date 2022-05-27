@@ -8,8 +8,7 @@ const getTasksQuery = ({ userid, page = 1, perPage = 7 }) => {
     from tasks t join user_Tasks ut on ut.taskId= t.id 
     join sections s on s.id = t.sectionid
     join projects p on s.projectid = p.id
-    where ut.userid = $1
-    limit $3 offset ($2-1) * $3`,
+    where ut.userid = $1`,
     values: [userid, page, perPage],
   };
   return connection.query(sql);

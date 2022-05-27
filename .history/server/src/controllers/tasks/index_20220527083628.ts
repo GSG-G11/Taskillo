@@ -5,6 +5,4 @@ import editTask from './editTask';
 import deleteTask from './deleteTask';
 import dragTask from './dragTask';
 
-export {
-  addTask, getTasks, getTasksSection, editTask, deleteTask, dragTask, getAllTasks,
-};
+export { addTask, getTasks, getTasksSection, editTask, deleteTask, dragTask, getAllTasks };

@@ -15,7 +15,7 @@ const getTasks = async (req: any, res: any) => {
 const getAllTasks = async (req: any, res: any) => {
   const { id: userid } = req.userInformation;
   const { rows, rowCount } = await getAllTasksQuery(userid);
-  if (!rowCount) return res.status(204).json({ message: 'No Tasks Yet' });
+  if (!rowCount) return res.status(204).json({ message: 'No Task Yet' });
   return res.status(200).json({ data: rows, message: 'Success' });
 };
 

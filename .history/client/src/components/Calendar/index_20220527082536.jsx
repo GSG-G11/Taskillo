@@ -12,21 +12,22 @@ export default function Calender() {
   const { tasks } = useSelector((state) => state.tasks.value);
   const { openTask } = useSelector((state) => state.modal.value);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   const handleData = async () => {
-  //     try {
-  //       const Response = await axios.get(`/api/v1/allTasks`);
-  //       if (Response.status === 200) {
-  //         dispatch(getTask(Response.data.data));
-  //         setCount(Response.data.data[0].totaltask);
-  //       }
-  //     } catch (error) {
-  //       console.log(error, 'error');
-  //     }
-  //   };
-  //   handleData();
-  // }, [dispatch, pagination]);
+  
+  useEffect(() => {
+    async function getTasks(projectid) {
+      try {
+        const response = await axios.get(
+          `/api/v1/project/${projectid}/tasksSection`
+        );
+        if (response.status === 200) {
+          dispatch(getTask({ tasks: response.data.data }));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getDetails(id);
+  }, [dispatch, id, added]);
 
   const dataa = () => {
     const newd = tasks.map((task) => {
@@ -60,3 +61,4 @@ const Div = styled.div`
     color: #fff;
   }
 `;
+ 

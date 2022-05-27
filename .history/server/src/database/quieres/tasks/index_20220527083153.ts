@@ -15,5 +15,4 @@ export {
   deleteTaskQuery,
   addUserTaskQuery,
   dragTaskQuery,
-  getAllTasksQuery,
 };
