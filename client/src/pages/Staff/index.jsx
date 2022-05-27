@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import styled from 'styled-components';
 import SingleStaff from '../../components/SingleStaff';
 import { AddProjectModal } from '../../components';
+import { useNavigate } from 'react-router-dom';
+import { checkAuth } from '../../utils';
 
 const Staff = () => {
   const { open } = useSelector((state) => state.sidebar.value);
   const { userProjects } = useSelector((state) => state.userProjects.value);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const auth = checkAuth();
+    if (!auth) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   return (
     <div className='page-container'>

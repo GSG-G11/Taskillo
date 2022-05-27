@@ -34,6 +34,12 @@ export default function Navbar({ title }) {
     };
   }
 
+  console.log(navUser, 'navUser');
+  // const handleLogout = () => {
+  //   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT';
+  //   console.log('Logout')
+  // }
+
   return (
     <Div>
       <div
@@ -97,7 +103,7 @@ export default function Navbar({ title }) {
                 <h4 className="email">{navUser.email}</h4>
               </div>
               <div className="dropdown-footer">
-                <button className="btn signout-btn">
+                <button className="btn signout-btn" >
                   <RiLogoutCircleLine />
                   <span>Sign Out</span>
                 </button>
