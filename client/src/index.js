@@ -18,6 +18,7 @@ import actionReducer from './state/action';
 import currentReducer from './state/currentSection';
 import pageReducerfrom from './state/page';
 import navUserReducer from './state/navUser';
+import addProjectReducer from './state/addProject';
 
 import './index.css';
 
@@ -37,6 +38,7 @@ const store = configureStore({
     currentSection: currentReducer,
     pageType: pageReducerfrom,
     navUser: navUserReducer,
+    addProject: addProjectReducer,
   },
 });
 

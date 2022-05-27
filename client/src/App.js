@@ -12,6 +12,8 @@ import {
 } from './pages';
 import { Overview, List, Board } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from './state/user';
@@ -54,6 +56,7 @@ export default function App() {
           }
         />
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }
