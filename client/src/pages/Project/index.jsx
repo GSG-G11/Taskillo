@@ -5,10 +5,19 @@ import Sidebar from '../../components/Sidebar';
 import { Menu } from '../../components/UI';
 import { Outlet } from 'react-router-dom';
 import { AddProjectModal } from '../../components';
+import { useNavigate } from 'react-router-dom';
+import { checkAuth } from '../../utils';
 
 const Project = () => {
   const projectData = useSelector((state) => state.project.value);
   const { open } = useSelector((state) => state.sidebar.value);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const auth = checkAuth();
+    if (!auth) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     window.localStorage.setItem(

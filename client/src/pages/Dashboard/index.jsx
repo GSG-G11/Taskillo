@@ -6,14 +6,22 @@ import generateGreeting from '../../utils/generateGreeting';
 import { ActivityCard, AddProjectModal, ProjectCard, SlideCard, StaffCard, TaskCard, Text } from '../../components';
 import defaultImg from '../../images/default.png';
 import axios from 'axios';
-import './style.css'
+import './style.css';
+import { useNavigate } from 'react-router-dom';
+import { checkAuth } from '../../utils';
 
 const Dashboard = () => {
   const userInfo = useSelector((state) => state.user.value);
   const { open } = useSelector((state) => state.sidebar.value);
   const projects = useSelector((state) => state.projectDashboard.value)
-
   const [members, setMembers] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const auth = checkAuth();
+    if (!auth) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const getProjectMember = async () => {

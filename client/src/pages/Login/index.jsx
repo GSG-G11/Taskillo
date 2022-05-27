@@ -30,7 +30,7 @@ export default function Login() {
         dispatch(setNavUser(user));
         localStorage.removeItem('updatedImage');
         setError('');
-        navigate('/');
+        navigate('/dashboard');
       }
     } catch (error) {
       setError(error.response.data.message);
