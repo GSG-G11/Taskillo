@@ -1,4 +1,3 @@
-import Home from './Home';
 import Signup from './SignUp';
 import Login from './Login';
 import Task from './Task'
@@ -10,7 +9,6 @@ import LandingPage from './LandingPage';
 import Calendar from './Calendar';
 
 export {
-  Home,
   SendEmail,
   Signup,
   Login,

@@ -2,7 +2,6 @@ import {
   SendEmail,
   Signup,
   Login,
-  Home,
   Project,
   Staff,
   Dashboard,
