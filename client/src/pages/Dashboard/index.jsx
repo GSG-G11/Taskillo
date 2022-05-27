@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import generateGreeting from '../../utils/generateGreeting';
 import { ActivityCard, AddProjectModal, ProjectCard, SlideCard, StaffCard, TaskCard, Text } from '../../components';
+import defaultImg from '../../images/default.png';
 import axios from 'axios';
 import './style.css'
 
@@ -53,7 +54,7 @@ const Dashboard = () => {
           <div className='d-flex cont-card2'>
             {members.length ? members.slice(0,2).map((member, index) => (
               <div key={index}>
-                <StaffCard avatar={member.image} memberName={member.username} role={member.role} />
+                <StaffCard avatar={member.image || defaultImg} memberName={member.username} role={member.role} />
               </div>
             )) : <div className='mx-1 member mt-2 d-flex flex-column justify-content-center align-items-center '>
               <Text text={'there is no members'} className={'text-white'}/>

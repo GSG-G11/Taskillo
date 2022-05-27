@@ -18,6 +18,7 @@ const Sidebar = () => {
   const { userProjects } = useSelector((state) => state.userProjects.value);
 
   const dispatch = useDispatch();
+  const { add } = useSelector((state) => state.addProject.value)
 
   useEffect(() => {
     const getUserProjects = async () => {
@@ -29,15 +30,15 @@ const Sidebar = () => {
       }
     };
     getUserProjects();
-  }, [dispatch]);
+  }, [dispatch, add]);
 
   return (
     <ASide className={open ? 'sidebar' : 'sidebar close'}>
       <header className='side-header'>
-        <div className='logo'>
+        <NavLink to={'/dashboard'} className='logo'>
           <img src={logo} alt='Taskillo' width='25' />
           <h2 className='logo-name'>Taskillo</h2>
-        </div>
+        </NavLink>
         <button
           onClick={() => dispatch(setOpen({ open: !open }))}
           className={open ? 'btn navbar-toggler active' : 'btn navbar-toggler'}>
@@ -113,6 +114,7 @@ const ASide = styled.aside`
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      text-decoration: none;
       img {
         margin-right: 0.5rem;
       }

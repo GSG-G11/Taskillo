@@ -4,6 +4,7 @@ import { setAction } from './action';
 import { setCurrentSection } from './currentSection';
 import { setTask } from './tasks';
 import { updateTask } from './task';
+import { setAddProject } from './addProject';
 
 export {
   setSection,
@@ -13,4 +14,5 @@ export {
   setCurrentSection,
   setTask,
   updateTask,
+  setAddProject,
 };
