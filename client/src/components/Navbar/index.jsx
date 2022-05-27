@@ -9,6 +9,7 @@ import styled from "styled-components";
 import generateAvatarColor from "../../utils/generateAvatarColor";
 import axios from "axios";
 import { setNavUser } from "../../state/navUser";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ title }) {
   const [show, setShow] = useState(false);
@@ -16,6 +17,7 @@ export default function Navbar({ title }) {
   const { open } = useSelector((state) => state.sidebar.value);
   const { username, email } = useSelector((state) => state.user.value);
   const navUser = useSelector((state) => state.navUser.value);
+  const navigate = useNavigate();
 
   const updateImage = async (e) => {
     const file = e.target.files[0];
@@ -34,11 +36,11 @@ export default function Navbar({ title }) {
     };
   }
 
-  console.log(navUser, 'navUser');
-  // const handleLogout = () => {
-  //   document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT';
-  //   console.log('Logout')
-  // }
+  const handleLogout = () => {
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT';
+    navigate('/');
+    console.log('Logout')
+  }
 
   return (
     <Div>
@@ -103,7 +105,7 @@ export default function Navbar({ title }) {
                 <h4 className="email">{navUser.email}</h4>
               </div>
               <div className="dropdown-footer">
-                <button className="btn signout-btn" >
+                <button className="btn signout-btn" onClick={() => handleLogout()}>
                   <RiLogoutCircleLine />
                   <span>Sign Out</span>
                 </button>
