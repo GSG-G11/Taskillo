@@ -40,16 +40,8 @@ export default function ActivityCard({className}) {
 
 const Card = styled.div`
   background-color: #21222C;
-  width: 500px;
-  height: calc(100vh - 100px);
+  min-width: 400px;
   border-radius:12px;
-  margin-right: 30px;
-  @media (min-width: 768px) and (max-width: 992px){
-    height: 900px
-  }
-  @media (min-width: 1024px) and (max-width: 1200px){
-    margin-right: 10px
-  }
   @media (max-width: 992px) {
     display: none;
   }
