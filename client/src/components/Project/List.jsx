@@ -21,6 +21,8 @@ const List = () => {
         if (Response.status === 200) {
           dispatch(getTask(Response.data.data));
           setCount(Response.data.data[0].totaltask);
+        }else if (Response.status === 204) {
+          dispatch(getTask([]));
         }
       } catch (error) {
         console.log(error, 'error');
