@@ -3,11 +3,10 @@ import { Navbar, TableTask } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTask, getTask, setPageName } from '../../state';
 import axios from 'axios';
-import generateGreeting from '../../utils/generateGreeting';
+import { generateGreeting, checkAuth } from '../../utils';
 import Sidebar from '../../components/Sidebar';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { checkAuth } from '../../utils';
 
 const Task = () => {
   const userInfo = useSelector((state) => state.user.value);

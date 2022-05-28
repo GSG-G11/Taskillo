@@ -6,7 +6,7 @@ import Staff from './Staff';
 import SendEmail from './SendEmail';
 import Project from './Project';
 import LandingPage from './LandingPage';
-import Calendar from './Calendar';
+import Calendarr from './Calendar';
 
 export {
   SendEmail,
@@ -17,5 +17,5 @@ export {
   Staff,
   Project,
   LandingPage,
-  Calendar,
+  Calendarr,
 }

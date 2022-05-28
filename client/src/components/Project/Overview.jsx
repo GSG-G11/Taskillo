@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { setProject } from '../../state/project.js';
-import generateAvatarColor from '../../utils/generateAvatarColor';
+import { generateAvatarColor } from '../../utils';
 import { RiTwitterFill, RiLinkedinFill, RiGithubFill } from 'react-icons/ri';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
@@ -55,7 +55,11 @@ const Overview = () => {
             <div className="project-owner">
               <div className="image-div">
                 {projectOwner?.image ? (
-                  <img src={projectOwner.image} className='user-avatar' alt="project owner" />
+                  <img
+                    src={projectOwner.image}
+                    className="user-avatar"
+                    alt="project owner"
+                  />
                 ) : (
                   <div
                     className="avatar"
@@ -134,7 +138,11 @@ const Overview = () => {
                 <div className="project-member" style={{ minWidth: '200px' }}>
                   <div className="image-div">
                     {member?.image ? (
-                      <img src={member.image} className='user-avatar' alt="project member" />
+                      <img
+                        src={member.image}
+                        className="user-avatar"
+                        alt="project member"
+                      />
                     ) : (
                       <div
                         className="avatar"
@@ -230,7 +238,7 @@ const OverviewContainer = styled.section`
         color: #fff;
         border-radius: 50%;
       }
-      .user-avatar{
+      .user-avatar {
         width: 100px;
         height: 100px;
         border-radius: 50%;

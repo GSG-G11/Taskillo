@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { Button, Image, Text } from "../UI";
-import { RiNotification2Line, RiLogoutCircleLine } from "react-icons/ri";
-import { HiOutlineCamera } from 'react-icons/hi'
-import { useDispatch, useSelector } from "react-redux";
-import { setProjectOpen } from "../../state/modal";
-import "./style.css";
-import styled from "styled-components";
-import generateAvatarColor from "../../utils/generateAvatarColor";
-import axios from "axios";
-import { setNavUser } from "../../state/navUser";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Button, Image, Text } from '../UI';
+import { RiNotification2Line, RiLogoutCircleLine } from 'react-icons/ri';
+import { HiOutlineCamera } from 'react-icons/hi';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProjectOpen } from '../../state/modal';
+import './style.css';
+import styled from 'styled-components';
+import { generateAvatarColor } from '../../utils';
+import axios from 'axios';
+import { setNavUser } from '../../state/navUser';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar({ title }) {
   const [show, setShow] = useState(false);
@@ -26,27 +26,27 @@ export default function Navbar({ title }) {
     reader.onload = async () => {
       const base64 = reader.result;
       const response = await axios.put('/api/v1/user/profilePic', {
-        image: base64
+        image: base64,
       });
-      if (response.status === 200){
+      if (response.status === 200) {
         const user = response.data.data[0];
-        dispatch(setNavUser({username, email, image: user.image}));
-        localStorage.setItem('updatedImage', user.image)
+        dispatch(setNavUser({ username, email, image: user.image }));
+        localStorage.setItem('updatedImage', user.image);
       }
     };
-  }
+  };
 
   const handleLogout = () => {
     document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:01 GMT';
     navigate('/');
-    console.log('Logout')
-  }
+    console.log('Logout');
+  };
 
   return (
     <Div>
       <div
         className="align-items-center navbar-container"
-        style={open ? { left: "300px" } : { left: "65px" }}
+        style={open ? { left: '300px' } : { left: '65px' }}
       >
         <Text text={title} className="nav-title" />
         <div className="d-flex align-items-center gap-3">
@@ -61,7 +61,12 @@ export default function Navbar({ title }) {
           </button>
           <div className="user-pic">
             {navUser.image ? (
-              <img src={navUser.image} alt={navUser.username} className="user-img"  onClick={() => setShow((prev) => !prev)} />
+              <img
+                src={navUser.image}
+                alt={navUser.username}
+                className="user-img"
+                onClick={() => setShow((prev) => !prev)}
+              />
             ) : (
               <div
                 className="avatar"
@@ -73,15 +78,21 @@ export default function Navbar({ title }) {
                 }}
               >
                 <span>
-                  {navUser.username ? navUser.username.split("")[0].toUpperCase() : null}
+                  {navUser.username
+                    ? navUser.username.split('')[0].toUpperCase()
+                    : null}
                 </span>
               </div>
             )}
-            <div className={show ? "dropdown show" : "dropdown"}>
+            <div className={show ? 'dropdown show' : 'dropdown'}>
               <div className="dropdown-header">
                 <div className="pic">
                   {navUser?.image ? (
-                    <Image src={navUser.image} alt={navUser.username} className="user-img" />
+                    <Image
+                      src={navUser.image}
+                      alt={navUser.username}
+                      className="user-img"
+                    />
                   ) : (
                     <div
                       className="avatar"
@@ -92,20 +103,30 @@ export default function Navbar({ title }) {
                       }}
                     >
                       <span>
-                        {navUser.username ? navUser.username.split("")[0].toUpperCase() : null}
+                        {navUser.username
+                          ? navUser.username.split('')[0].toUpperCase()
+                          : null}
                       </span>
                     </div>
                   )}
                   <label htmlFor="avatar">
                     <HiOutlineCamera />
                   </label>
-                  <input type="file" id="avatar" accept="image/*" onChange={(e) => updateImage(e)} />
+                  <input
+                    type="file"
+                    id="avatar"
+                    accept="image/*"
+                    onChange={(e) => updateImage(e)}
+                  />
                 </div>
                 <h3 className="username">{navUser.username}</h3>
                 <h4 className="email">{navUser.email}</h4>
               </div>
               <div className="dropdown-footer">
-                <button className="btn signout-btn" onClick={() => handleLogout()}>
+                <button
+                  className="btn signout-btn"
+                  onClick={() => handleLogout()}
+                >
                   <RiLogoutCircleLine />
                   <span>Sign Out</span>
                 </button>
@@ -167,9 +188,9 @@ const Div = styled.div`
       border-radius: 0.5rem;
       border: 2px solid #47495d;
       transform: translateY(118%);
-      opacity: 0; 
+      opacity: 0;
       visibility: hidden;
-      transition: all .5s;
+      transition: all 0.5s;
       cursor: auto;
 
       .dropdown-header {
@@ -190,10 +211,10 @@ const Div = styled.div`
           .avatar {
             font-size: 3rem;
           }
-          #avatar{
+          #avatar {
             display: none;
           }
-          label{
+          label {
             position: absolute;
             bottom: 0;
             right: 0;
@@ -203,10 +224,10 @@ const Div = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: .6rem .5rem;
-            svg{
+            padding: 0.6rem 0.5rem;
+            svg {
               transform: scale(1.4);
-              color: #FFF;
+              color: #fff;
             }
           }
         }

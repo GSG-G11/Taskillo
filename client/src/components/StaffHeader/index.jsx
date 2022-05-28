@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import generateAvatarColor from '../../utils/generateAvatarColor';
+import { generateAvatarColor } from '../../utils';
 
-const StaffHeader = ({ name='Movflx'}) => {
-  const [ color, setColor ] = useState('')
+const StaffHeader = ({ name = 'Movflx' }) => {
+  const [color, setColor] = useState('');
   useEffect(() => {
     const avatarColor = generateAvatarColor(name);
     setColor(avatarColor);
-  }, [name])
+  }, [name]);
 
   return (
-    <Header className='staff-header'>
-      <div className="avatar" style={{backgroundColor: color}}>
-        <span className='chart'>{name.split('')[0].toUpperCase()}</span>
+    <Header className="staff-header">
+      <div className="avatar" style={{ backgroundColor: color }}>
+        <span className="chart">{name.split('')[0].toUpperCase()}</span>
       </div>
       <h3 className="project-name">{name}</h3>
     </Header>
-  )
-}
+  );
+};
 
 const Header = styled.div`
   display: flex;
@@ -25,24 +25,24 @@ const Header = styled.div`
   align-items: center;
   position: relative;
   z-index: 10;
-  .avatar{
+  .avatar {
     width: 45px;
     height: 45px;
-    border-radius: .7rem;
+    border-radius: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     font-weight: 500;
-    margin-right: .5rem;
-    color: #FFF;
+    margin-right: 0.5rem;
+    color: #fff;
   }
 
-  .project-name{
+  .project-name {
     margin: 0;
     font-size: 1.2rem;
-    color: #B8B8B8;
+    color: #b8b8b8;
   }
-`
+`;
 
-export default StaffHeader
+export default StaffHeader;

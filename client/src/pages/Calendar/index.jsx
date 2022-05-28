@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import { useSelector } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
-import Calender from '../../components/Calendar';
+import Calendar from '../../components/Calendar';
 import { AddProjectModal } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import { checkAuth } from '../../utils';
 
-const Calendar = () => {
+const Calendarr = () => {
   const { open } = useSelector((state) => state.sidebar.value);
   const navigate = useNavigate();
   useEffect(() => {
@@ -20,15 +20,15 @@ const Calendar = () => {
     <div className="page-container">
       <Sidebar />
       <main className={open ? 'main-page' : 'main-page close'}>
-        <Navbar title={`Calender`} />
+        <Navbar title={`Calendar`} />
         <AddProjectModal />
 
         <section className="page-content" style={{ paddingBottom: 0 }}>
-          <Calender />
+          <Calendar />
         </section>
       </main>
     </div>
   );
 };
 
-export default Calendar;
+export default Calendarr;

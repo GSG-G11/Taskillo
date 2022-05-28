@@ -165,6 +165,7 @@ const Title = styled.div`
     }
     .title {
       margin: 5px 0 10px 10px;
+      color: #fff;
     }
   }
 `;

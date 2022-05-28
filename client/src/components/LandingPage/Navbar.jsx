@@ -54,7 +54,7 @@ const Navbar = ({open , setOpen}) => {
             <Link to="/login" className="btn login">
               Login
             </Link>
-            <Link to="/signup" className="btn app">
+            <Link to="/sendEmail" className="btn app">
               Try for free
             </Link>
           </div>

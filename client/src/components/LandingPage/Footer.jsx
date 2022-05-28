@@ -18,7 +18,7 @@ const Footer = () => {
                   Get a full picture <br className="d-none d-sm-inline" /> On what’s
                   going on
                 </h2>
-                <Link className="btn try-btn" to='/signup'>Try for free</Link>
+                <Link className="btn try-btn" to='/sendEmail'>Try for free</Link>
               </div>
             </div>
 
