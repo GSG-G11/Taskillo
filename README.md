@@ -3,7 +3,7 @@
   <p align="center"> Taskillo is a website that a collaborative work management app designed to track team projects, highlight tasks underway, show who they are assigned to    
     </p>
    <p align="center">
-    <a href="https://evening-ravine-40344.herokuapp.com/">View Demo</a>
+    <a href="https://gsg-taskillo.herokuapp.com/">View Demo</a>
     - 
     <a href="https://www.figma.com/file/1fHO19lLM4B0LV5RtOkFou/Taskillo?node-id=0%3A1">Figma Design</a>
   </p>
