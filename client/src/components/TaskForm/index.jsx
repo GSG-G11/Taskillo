@@ -55,6 +55,7 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
 
   const onChange = (e) => {
     dispatch(setProjectId(e.target.value));
+    initialValues.projectid = e.target.value;
     getSections(e.target.value);
   };
 

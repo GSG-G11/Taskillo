@@ -24,9 +24,8 @@ const Sidebar = () => {
     const getUserProjects = async () => {
       try {
         const response = await axios.get('/api/v1/projects');
-        console.log(response);
-        if (response.message === 'Success') {
-          dispatch(setUserProjects({ userProjects: response.data }));
+        if (response.data.message === 'Success') {
+          dispatch(setUserProjects({ userProjects: response.data.data }));
         }
       } catch (error) {
         console.log(error);
