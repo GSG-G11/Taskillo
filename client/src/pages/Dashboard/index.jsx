@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import { useSelector } from "react-redux";
-import Sidebar from "../../components/Sidebar";
-import generateGreeting from "../../utils/generateGreeting";
+import React, { useEffect, useState } from 'react';
+import Navbar from '../../components/Navbar';
+import { useSelector } from 'react-redux';
+import Sidebar from '../../components/Sidebar';
+import { generateGreeting } from '../../utils';
 import {
   ActivityCard,
   AddProjectModal,
@@ -11,12 +11,12 @@ import {
   StaffCard,
   TaskCard,
   Text,
-} from "../../components";
-import defaultImg from "../../images/default.png";
-import axios from "axios";
-import "./style.css";
-import { useNavigate } from "react-router-dom";
-import { checkAuth } from "../../utils";
+} from '../../components';
+import defaultImg from '../../images/default.png';
+import axios from 'axios';
+import './style.css';
+import { useNavigate } from 'react-router-dom';
+import { checkAuth } from '../../utils';
 
 const Dashboard = () => {
   const userInfo = useSelector((state) => state.user.value);
@@ -27,7 +27,7 @@ const Dashboard = () => {
   useEffect(() => {
     const auth = checkAuth();
     if (!auth) {
-      navigate("/");
+      navigate('/');
     }
   }, [navigate]);
 
@@ -48,33 +48,33 @@ const Dashboard = () => {
   return (
     <div className="page-container">
       <Sidebar />
-      <main className={open ? "main-page" : "main-page close"}>
+      <main className={open ? 'main-page' : 'main-page close'}>
         <Navbar title={`${generateGreeting()}, ${userInfo.username}`} />
         <AddProjectModal />
-        <div className="page-content">
+        <div className="page-contentt">
           <div className="f-clm">
-          <div className="d-flex cont-card1">
-            <TaskCard />
-            <ProjectCard />
-          </div>
-          <SlideCard />
-          <div className="d-flex cont-card2">
-            {members.length ? (
-              members.slice(0, 2).map((member, index) => (
-                <div key={index}>
-                  <StaffCard
-                    avatar={member.image || defaultImg}
-                    memberName={member.username}
-                    role={member.role}
-                  />
+            <div className="d-flex cont-card1">
+              <TaskCard />
+              <ProjectCard />
+            </div>
+            <SlideCard />
+            <div className="d-flex cont-card2">
+              {members.length ? (
+                members.slice(0, 2).map((member, index) => (
+                  <div key={index}>
+                    <StaffCard
+                      avatar={member.image || defaultImg}
+                      memberName={member.username}
+                      role={member.role}
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className="mx-1 member mt-2 d-flex flex-column justify-content-center align-items-center ">
+                  <Text text={'there is no members'} className={'text-white'} />
                 </div>
-              ))
-            ) : (
-              <div className="mx-1 member mt-2 d-flex flex-column justify-content-center align-items-center ">
-                <Text text={"there is no members"} className={"text-white"} />
-              </div>
-            )}
-          </div>
+              )}
+            </div>
           </div>
 
           <ActivityCard />

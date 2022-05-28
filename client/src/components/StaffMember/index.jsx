@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import generateAvatarColor from '../../utils/generateAvatarColor'
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { generateAvatarColor } from '../../utils';
 
-const StaffMember = ({user: {image, name, role}}) => {
-  const [color, setColor] = useState('')
+const StaffMember = ({ user: { image, name, role } }) => {
+  const [color, setColor] = useState('');
   useEffect(() => {
     const avatarColor = generateAvatarColor(name);
     setColor(avatarColor);
-  }, [name])
+  }, [name]);
   return (
     <Member className="staff-member">
       <div className="member-image">
-        {
-          image ? (
-            <img src={image} alt="User" />
-          )
-          : (
-            <div className="user-avatar" style={{backgroundColor: color}}>
-              <span>{name[0]}</span>
-            </div>
-          )
-        }
+        {image ? (
+          <img src={image} alt="User" />
+        ) : (
+          <div className="user-avatar" style={{ backgroundColor: color }}>
+            <span>{name[0]}</span>
+          </div>
+        )}
       </div>
       <div className="member-info">
         <h3 className="member-name">{name}</h3>
         <span className="member-role">{role}</span>
       </div>
     </Member>
-  )
-}
+  );
+};
 
 const Member = styled.div`
   display: flex;
@@ -36,16 +33,16 @@ const Member = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   color: #fff;
-  background-color: #21222C;
-  border-radius: .7rem;
-  padding: .5rem 1rem;
-  margin-left: calc(.5rem + 45px);
+  background-color: #21222c;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1rem;
+  margin-left: calc(0.5rem + 45px);
   margin-top: 1.2rem;
   position: relative;
 
-  &::before{
+  &::before {
     content: '';
-    width: calc((.8rem + 45px) / 2);
+    width: calc((0.8rem + 45px) / 2);
     height: 2px;
     background-color: #323239;
     position: absolute;
@@ -54,13 +51,13 @@ const Member = styled.div`
     transform: translate(-100%, -50%);
   }
 
-  &::after{
+  &::after {
     content: '';
     width: 2px;
     height: 135%;
     background-color: #323239;
     position: absolute;
-    left: calc((-.8rem + -45px) / 2);
+    left: calc((-0.8rem + -45px) / 2);
     bottom: 50%;
     transform: translate(-100%, 1px);
     z-index: 0;
@@ -69,17 +66,17 @@ const Member = styled.div`
   .member-image {
     width: 40px;
     height: 40px;
-    margin-right: .7rem;
+    margin-right: 0.7rem;
     border-radius: 50%;
 
-    img{
+    img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
     }
 
-    .user-avatar{
+    .user-avatar {
       width: 100%;
       height: 100%;
       border-radius: 50%;
@@ -91,19 +88,19 @@ const Member = styled.div`
     }
   }
 
-  .member-info{
-    .member-name{
+  .member-info {
+    .member-name {
       font-size: 1rem;
       font-weight: 400;
       margin-bottom: 0;
-      color: #B8B8B8;
+      color: #b8b8b8;
     }
-    .member-role{
+    .member-role {
       color: #817676;
-      font-size: .9rem;
+      font-size: 0.9rem;
       text-transform: capitalize;
     }
   }
 `;
 
-export default StaffMember
+export default StaffMember;

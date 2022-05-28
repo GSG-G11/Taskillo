@@ -67,7 +67,6 @@ export default function Calender() {
   };
 
   const handleDateClick = ({ dateStr }) => {
-    console.log(dateStr);
     dispatch(setDate(dateStr));
     dispatch(setTaskOpen(true));
   };
@@ -88,5 +87,18 @@ export default function Calender() {
 const Div = styled.div`
   .fc-toolbar-title {
     color: #fff;
+    font-size: 1.5em;
+  }
+  a {
+    color: #8a8989;
+  }
+  .fc-h-event {
+    display: block;
+    border: none;
+    background-color: #3e4247;
+  }
+  .fc .fc-button-primary {
+    background-color: #21222c;
+    border: 1px solid #343333;
   }
 `;

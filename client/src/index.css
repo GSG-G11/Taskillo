@@ -70,8 +70,17 @@ body {
   }
 }
 
-@media (min-width: 1000px) {
-  /* .container {
-    max-width: 1286px;
-  } */
+::-webkit-scrollbar-track {
+  background-color: rgba(57, 57, 83, 0.475);
+  border-radius: 0.4rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #53535e;
+  border-radius: 0.4rem;
 }

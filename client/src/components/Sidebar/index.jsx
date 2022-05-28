@@ -18,13 +18,16 @@ const Sidebar = () => {
   const { userProjects } = useSelector((state) => state.userProjects.value);
 
   const dispatch = useDispatch();
-  const { add } = useSelector((state) => state.addProject.value)
+  const { add } = useSelector((state) => state.addProject.value);
 
   useEffect(() => {
     const getUserProjects = async () => {
       try {
         const response = await axios.get('/api/v1/projects');
-        dispatch(setUserProjects({ userProjects: response.data.data }));
+        console.log(response);
+        if (response.message === 'Success') {
+          dispatch(setUserProjects({ userProjects: response.data }));
+        }
       } catch (error) {
         console.log(error);
       }
@@ -34,59 +37,60 @@ const Sidebar = () => {
 
   return (
     <ASide className={open ? 'sidebar' : 'sidebar close'}>
-      <header className='side-header'>
-        <NavLink to={'/dashboard'} className='logo'>
-          <img src={logo} alt='Taskillo' width='25' />
-          <h2 className='logo-name'>Taskillo</h2>
+      <header className="side-header">
+        <NavLink to={'/dashboard'} className="logo">
+          <img src={logo} alt="Taskillo" width="25" />
+          <h2 className="logo-name">Taskillo</h2>
         </NavLink>
         <button
           onClick={() => dispatch(setOpen({ open: !open }))}
-          className={open ? 'btn navbar-toggler active' : 'btn navbar-toggler'}>
-          <span className='line'></span>
-          <span className='line'></span>
-          <span className='line'></span>
+          className={open ? 'btn navbar-toggler active' : 'btn navbar-toggler'}
+        >
+          <span className="line"></span>
+          <span className="line"></span>
+          <span className="line"></span>
         </button>
       </header>
-      <nav className='side-nav'>
-        <ul className='nav flex-column'>
-          <li className='nav-item'>
-            <NavLink to='/dashboard' className='nav-link'>
+      <nav className="side-nav">
+        <ul className="nav flex-column">
+          <li className="nav-item">
+            <NavLink to="/dashboard" className="nav-link">
               <RiDashboardLine />
-              <span className='link-name'>Dashboard</span>
+              <span className="link-name">Dashboard</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/tasks' className='nav-link'>
+          <li className="nav-item">
+            <NavLink to="/tasks" className="nav-link">
               <RiListCheck2 />
-              <span className='link-name'>Tasks</span>
+              <span className="link-name">Tasks</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/calender' className='nav-link'>
+          <li className="nav-item">
+            <NavLink to="/calendar" className="nav-link">
               <RiCalendar2Line />
-              <span className='link-name'>Calender</span>
+              <span className="link-name">Calendar</span>
             </NavLink>
           </li>
-          <li className='nav-item'>
-            <NavLink to='/staff' className='nav-link'>
+          <li className="nav-item">
+            <NavLink to="/staff" className="nav-link">
               <RiGroupLine />
-              <span className='link-name'>Staff</span>
+              <span className="link-name">Staff</span>
             </NavLink>
           </li>
         </ul>
       </nav>
-      <nav className='side-projects'>
-        <h3 className='side-title'>Projects</h3>
-        <ul className='nav flex-column'>
-          {
-            userProjects ? userProjects.map(({ name, id }) => (
-              <li className='nav-item' key={id}>
-                <NavLink to={`/project/${id}`} className='nav-link'>
-                  <span className='link-name'>{name}</span>
-                </NavLink>
-              </li>
-            )) : ''
-          }
+      <nav className="side-projects">
+        <h3 className="side-title">Projects</h3>
+        <ul className="nav flex-column">
+          {userProjects
+            ? userProjects.map(({ name, id }) => (
+                <li className="nav-item" key={id}>
+                  <NavLink to={`/project/${id}`} className="nav-link">
+                    <span className="link-name">{name}</span>
+                  </NavLink>
+                </li>
+              ))
+            : ''}
         </ul>
       </nav>
     </ASide>
