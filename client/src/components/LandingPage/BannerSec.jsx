@@ -19,7 +19,7 @@ const BannerSec = () => {
                 diam nonumy eirmod tempor invidunt ut labore et
               </p>
               <div className="btns-div">
-                <Link className="btn try-btn" to="/signup">Try for free</Link>
+                <Link className="btn try-btn" to="/sendEmail">Try for free</Link>
                 <button className="btn see-btn">
                   <span className="icon-arrow-right icon"></span> Learn More
                 </button>
