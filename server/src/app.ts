@@ -34,7 +34,7 @@ if (NODE_ENV === 'development') {
 if (NODE_ENV === 'production') {
   app.use(express.static(join(__dirname, '..', '..', 'client', 'build')));
   app.get('*', (req: Request, res: Response) => {
-    res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
+    res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
   });
 }
 
