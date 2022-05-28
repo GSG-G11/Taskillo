@@ -9,9 +9,10 @@ import {
   RiPencilLine,
 } from 'react-icons/ri';
 import Modal from '../Modal';
-import { Pagination, Text } from '../UI';
+import { Text } from '../UI';
 import { formatDate } from '../../utils';
 import { updateTask, setAction, setTaskOpen } from '../../state';
+import nodata from '../../images/nodata.svg';
 
 const TableTask = ({ taskDeleted, count }) => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const TableTask = ({ taskDeleted, count }) => {
   const [id, setId] = useState(null);
   const task = useSelector((state) => state.task.value);
   const taskFilter = task.filter((task) => task.id === id);
-  const page = useSelector((state)=> state.pageType.value);
+  const page = useSelector((state) => state.pageType.value);
 
   const handleEdit = async ({
     name,
@@ -53,18 +54,16 @@ const TableTask = ({ taskDeleted, count }) => {
           <tr className="table-head">
             <th scope="col">Task name</th>
             <th scope="col">Description</th>
-            {
-              page === 'task' ?   <th scope="col">Project Name</th> : ''
-            }
+            {page === 'task' ? <th scope="col">Project Name</th> : ''}
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
             <th scope="col">Due date</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
-        <tbody>
-          {tasks.length ? (
-            tasks.map((task) => (
+        {tasks.length ? (
+          <tbody>
+            {tasks.map((task) => (
               <tr key={task.id}>
                 <td>
                   <Text text={task.name} className="task-name" />
@@ -73,17 +72,22 @@ const TableTask = ({ taskDeleted, count }) => {
                   <RiAlignLeft className="icons" />
                 </td>
                 <td>
-                  <Text text={task.description || '-'} className="projectt-descriptopn" />
+                  <Text
+                    text={task.description || '-'}
+                    className="projectt-descriptopn"
+                  />
                 </td>
-              {
-                page === 'task' ?  <td>
-                <Text text={task.projectname} className="projectt-name" />
-              </td> : '' 
-              }
+                {page === 'task' ? (
+                  <td>
+                    <Text text={task.projectname} className="projectt-name" />
+                  </td>
+                ) : (
+                  ''
+                )}
                 <td>
-                  <span
-                    className={`btn priority ${task.priority}`}
-                  >{task.priority}</span>
+                  <span className={`btn priority ${task.priority}`}>
+                    {task.priority}
+                  </span>
                 </td>
                 <td>
                   <Text text={task.status} className="text-white" />
@@ -115,13 +119,16 @@ const TableTask = ({ taskDeleted, count }) => {
                   <Modal handleSubmit={handleEdit} values={taskFilter} />
                 )}
               </tr>
-            ))
-          ) : (
-            <p className="text-white"> no Task</p>
-          )}
-        </tbody>
+            ))}
+          </tbody>
+        ): ''}
       </table>
-      <Pagination count={count} />
+      {!tasks.length && (
+        <div className="noData-div">
+          <img src={nodata} alt="dataImg" className="nodata-img" />
+          <p className="msg">You don't have any task</p>
+        </div>
+      )}
     </Div>
   );
 };
@@ -141,7 +148,8 @@ const Div = styled.table`
       color: #b8b8b8;
       font-size: 0.9rem;
     }
-    .projectt-name, .projectt-descriptopn {
+    .projectt-name,
+    .projectt-descriptopn {
       color: #b8b8b8;
     }
     .action-icons {
@@ -188,6 +196,22 @@ const Div = styled.table`
     .Medium {
       background-color: #ff8800;
       color: #b8b8b8;
+    }
+  }
+  .noData-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2rem auto 0 auto;
+    .nodata-img {
+      width: 28%;
+    }
+    .msg {
+      font-size: 1.2rem;
+      text-align: center;
+      margin: 10px 0 0 3rem;
+      color: #797a7b;
     }
   }
 `;
