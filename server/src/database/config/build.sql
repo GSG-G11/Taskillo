@@ -2,6 +2,8 @@ BEGIN;
 
 DROP TABLE IF EXISTS users, projects, sections, tasks, user_tasks, user_projects, activity CASCADE;
 
+SET TIME ZONE 'UTC';
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(20) NOT NULL UNIQUE,

@@ -102,4 +102,3 @@ const Div = styled.div`
     border: 1px solid #343333;
   }
 `;
-

@@ -43,7 +43,7 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
         name: '',
         priority: 'Select Priority',
         status: 'Select Status',
-        projectid: '',
+        projectid: 'Select Project',
         description: '',
         sectionid: 'Select Section',
       };
