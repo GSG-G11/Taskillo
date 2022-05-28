@@ -45,7 +45,7 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
         status: 'Select Status',
         projectid: '',
         description: '',
-        sectionid: '',
+        sectionid: 'Select Section',
       };
       break;
     default:
@@ -77,7 +77,9 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
             <div className="form-group project-div">
               <label>Project Name</label>
               <FormField as="select" name="projectid" onChange={onChange}>
-                <option value="">Select Project</option>
+                <option value="Select Project" disabled>
+                  Select Project
+                </option>
                 {userProjects.map(({ name, id }, index) => {
                   return (
                     <option value={id} key={index}>
@@ -90,6 +92,9 @@ const TaskForm = ({ handleSubmit, values = {}, id }) => {
             <div className="form-group section-div">
               <label>Section Name</label>
               <FormField as="select" name="sectionid">
+                <option value="Select Section" disabled>
+                  Select Section
+                </option>
                 {sections.map(({ name, id }, index) => {
                   return (
                     <option value={id} key={index}>

@@ -67,7 +67,6 @@ export default function Calender() {
   };
 
   const handleDateClick = ({ dateStr }) => {
-    console.log(dateStr);
     dispatch(setDate(dateStr));
     dispatch(setTaskOpen(true));
   };
