@@ -125,7 +125,7 @@ const TableTask = ({ taskDeleted, count }) => {
           ''
         )}
       </table>
-      {tasks.length ? <Pagination count={count} /> : ''}
+      {page === 'task' ? <Pagination count={count} /> : ''}
       {!tasks.length && (
         <div className="noData-div">
           <img src={nodata} alt="dataImg" className="nodata-img" />
