@@ -100,14 +100,14 @@ Clone the Project
 
 ## ✧ Contact
 
-> ### Our great contributors
+> ### Contributors
 - [Nada Abuzaid](https://github.com/nada-abuzaid)
 - [Karam Zomlut](https://github.com/karam-zomlut)
 - [Amran Elmasri](https://github.com/AmranElmasri)
 - [Maram Msabeh](https://github.com/MaramMs)
 
 
-> ### Our great team leader
+> ### Team leader
 - [Nizar Zakout](https://github.com/Nizar7zak)
 <hr>
 
@@ -120,4 +120,3 @@ Clone the Project
 - [Redux](https://redux.js.org/)
 - [Formik](https://formik.org/)
 - [React-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
-- 
