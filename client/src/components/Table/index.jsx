@@ -9,7 +9,7 @@ import {
   RiPencilLine,
 } from 'react-icons/ri';
 import Modal from '../Modal';
-import { Text } from '../UI';
+import { Pagination, Text } from '../UI';
 import { formatDate } from '../../utils';
 import { updateTask, setAction, setTaskOpen } from '../../state';
 import nodata from '../../images/nodata.svg';
@@ -125,6 +125,7 @@ const TableTask = ({ taskDeleted, count }) => {
           ''
         )}
       </table>
+      {tasks.length ? <Pagination count={count} /> : ''}
       {!tasks.length && (
         <div className="noData-div">
           <img src={nodata} alt="dataImg" className="nodata-img" />
