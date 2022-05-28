@@ -8,7 +8,8 @@ INSERT INTO
         phoneNumber,
         password,
         birthDate,
-        bio
+        bio,
+        image
     )
 VALUES
     (
@@ -19,7 +20,8 @@ VALUES
         0599999999,
         '222222222',
         '2020-01-01',
-        'I am a developer'
+        'I am a developer',
+        ''
     ),
     (
         'karamZomlot',
@@ -29,7 +31,8 @@ VALUES
         0599999999,
         '$2b$08$k/JWvbLpXRfEeKn75HFEHevUVueGfhfMu9fPkGRN39yDk8ZAZd65.',
         '2020-01-01',
-        'I am a developer'
+        'I am a developer',
+        ''
     ),
     (
         'amranMasri',
@@ -39,7 +42,8 @@ VALUES
         0599999999,
         '222222222',
         '2020-01-01',
-        'I am a developer'
+        'I am a developer',
+        ''
     ),
     (
         'maramIsmail',
@@ -49,7 +53,8 @@ VALUES
         0599999999,
         '222222222',
         '2020-01-01',
-        'I am a developer'
+        'I am a developer',
+        ''
     );
 
 -- projects
