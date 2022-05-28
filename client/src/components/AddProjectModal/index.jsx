@@ -49,7 +49,7 @@ export default function AddProjectModal() {
             >
               <Text
                 text={'Add new project'}
-                className={'mt-2 ms-1 text-white'}
+                className={'pop-title mt-2 text-white text-center'}
               />
               <FormField
                 type={'text'}
