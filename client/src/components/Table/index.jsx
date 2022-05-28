@@ -121,7 +121,9 @@ const TableTask = ({ taskDeleted, count }) => {
               </tr>
             ))}
           </tbody>
-        ): ''}
+        ) : (
+          ''
+        )}
       </table>
       {!tasks.length && (
         <div className="noData-div">
@@ -136,6 +138,9 @@ const TableTask = ({ taskDeleted, count }) => {
 const Div = styled.table`
   .table {
     border-bottom: 1px solid #282a36;
+    td {
+      max-width: 15rem;
+    }
     .table-head {
       color: #818098;
       font-size: 0.8rem;
